@@ -1,0 +1,774 @@
+@charset "UTF-8"
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Initialize
+// ----------------------------------------------------------------------------------------------------
+// Import
+@import "calc.scss"
+
+// ----------------------------------------------------------------------------------------------------
+// 変数の定義(Global)
+$global-font-size: 14px
+$gradation-pattern1: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+$gradation-pattern2: linear-gradient(to right, #FFFFFF, #1164FF, #FFFF99)
+
+// Responsive Breakpoint
+$width-list: (xs: 576, sm: 768, md: 992, lg: 1200, lx: 1400, hd: 1920) !default
+
+// ----------------------------------------------------------------------------------------------------
+// mixinの定義
+@mixin min-screen($breakpoint: md)
+	@media only screen and (min-width: #{map-get($width-list, $breakpoint) + 1}px)
+		@content
+
+@mixin max-screen($breakpoint: md)
+	@media only screen and (max-width: #{map-get($width-list, $breakpoint)}px)
+		@content
+
+// アニメーション設定
+@mixin defaultFlash()
+	color: #FFFFFF
+	text-shadow: 0 0 0 rgba(255, 255, 255, 0)
+
+@mixin defaultFlashLight()
+	color: #000011
+	text-shadow: 0 0 0 rgba(0, 0, 17, 0)
+
+// ----------------------------------------------------------------------------------------------------
+// Functionの定義
+
+/// Viewport Widthの演算
+@function calc-viewport($value: 1000, $breakpoint: md)
+	@return round-decimal(($value / map-get($width-list, $breakpoint)) * 100, 3) + vw
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Abstract Style
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%blockquote
+	margin: 10px
+	padding: 1rem
+	border-width: 5px
+	border-style: solid
+
+	@media print, (prefers-color-scheme: light)
+		color: #FFFFFF
+
+	h2
+		margin-bottom: 1rem
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * 共通項目
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+// ----------------------------------------------------------------------------------------------------
+// CSS Initialize
+/* http://meyerweb.com/eric/tools/css/reset/
+ *  v2.0 | 20110126
+ *  License: none (public domain)
+ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+	margin: 0
+	padding: 0
+	vertical-align: baseline
+	font: inherit
+	font-size: 100%
+	border: 0
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+	display: block
+
+// body
+// 	line-height: 1
+
+ol, ul
+	list-style: none
+
+blockquote, q
+	quotes: none
+
+	&:before, &:after
+		content: ""
+		content: none
+
+table
+	border-spacing: 0
+	border-collapse: collapse
+
+html
+	// rem指定用
+	font-size: $global-font-size
+
+// ----------------------------------------------------------------------------------------------------
+// Page Initialize
+body
+	display: flex
+	justify-content: space-between
+	align-items: flex-start
+	font-family: "メイリオ", "Meiryo", sans-serif
+	font-size: 1rem
+	line-height: 1.2
+	color: #FFFFFF
+	background-color: #000011
+	background-image: linear-gradient(180deg, #000005, #000011 22%, #000011 70%, #00001C 85%)
+
+	@include max-screen(md)
+		flex-direction: column
+		justify-content: unset
+		align-items: unset
+
+	@media print, (prefers-color-scheme: light)
+		color: #000011
+		background-color: unset
+		background-image: unset
+
+	> header
+		@media print
+			display: none
+
+	> input
+		&[type="checkbox"]
+			display: none
+
+			&.panel-switch
+				&:not(:checked)
+					+ nav
+						@include max-screen(md)
+							// display: none
+							overflow: hidden
+							height: 0
+							margin: 0
+							padding: 0
+							border: none
+
+	> .content
+		display: flex
+		flex-direction: column
+		width: calc(100% - 240px)
+		min-height: 100vh
+		margin-left: 240px
+
+		@include max-screen(md)
+			width: 100%
+			margin-left: 0
+
+		@media print
+			width: 100%
+			margin-left: 0
+
+a
+	transition: all 0.25s ease-out
+	text-decoration: none
+	color: #9999FF
+
+	@media print, (prefers-color-scheme: light)
+		color: #3333CC
+
+	&:hover
+		color: #FFCC66
+
+		@media (prefers-color-scheme: light)
+			color: #FF9900
+
+b, strong
+	font-weight: 700
+
+h1, h2, h3, h4, h5, h6
+	font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+	font-weight: 700
+
+h1
+	font-size: 2.5rem
+
+h2
+	font-size: 1.75rem
+
+h3
+	font-size: 1.25rem
+
+h4
+	font-size: 1.1rem
+
+dl
+	dd
+		margin-left: 2rem
+
+ol, ul
+	li
+		&:not(:first-child)
+			margin-top: 5px
+
+	ul
+		margin-left: 2rem
+
+ol
+	margin-left: 2rem
+
+blockquote
+	&.stub
+		@extend %blockquote
+
+		border-color: #1164FF
+		border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch
+		background-color: #000033
+		background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011)
+
+		@media print, (prefers-color-scheme: light)
+			border-image-source: linear-gradient(to top right, #1164FF, #FFFFFF, #1164FF)
+			background-image: linear-gradient(to top left, #FFFFFF, #000033 20%, #000033 80%, #FFFFFF)
+
+	&.cation
+		@extend %blockquote
+
+		border-color: #FFFF33
+		border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch
+		background-color: #333300
+		background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011)
+
+		@media print, (prefers-color-scheme: light)
+			border-image-source: linear-gradient(to top right, #FFFF33, #FFFFFF, #FFFF33)
+			background-image: linear-gradient(to top left, #FFFFFF, #333300 20%, #333300 80%, #FFFFFF)
+
+	&.danger
+		@extend %blockquote
+
+		border-color: #FF0F0F
+		border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch
+		background-color: #330000
+		background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011)
+
+		@media print, (prefers-color-scheme: light)
+			border-image-source: linear-gradient(to top right, #FF0F0F, #FFFFFF, #FF0F0F)
+			background-image: linear-gradient(to top left, #FFFFFF, #330000 20%, #330000 80%, #FFFFFF)
+
+	&.deprecated
+		@extend %blockquote
+
+		border-color: #1164FF
+		border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch
+		background-color: #330000
+		background-image: linear-gradient(to top left, #330000, #000033 20%, #000033 80%, #330000)
+
+// ----------------------------------------------------------------------------------------------------
+// Class Initialize
+.md
+	&-hide
+		@include max-screen(md)
+			display: none
+
+	&-show
+		@include min-screen(md)
+			display: none
+
+.mintyo
+	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif
+
+// ----------------------------------------------------------------------------------------------------
+// Vender Profile Initialize
+::-webkit-scrollbar
+	width: 10px
+	height: 10px
+	background-color: transparent
+
+	&-track
+		// border-radius: 10px
+		background-color: transparent
+		// box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1)
+
+	&-thumb
+		transition: all 0.1s ease
+		border-radius: 10px
+		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25))
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3)
+
+		@media (prefers-color-scheme: light)
+			background-image: linear-gradient(to bottom right, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25))
+			box-shadow: 0 0 0 1px rgba(102, 102, 102, 0.3)
+
+	&-corner
+		background-color: transparent
+
+// ----------------------------------------------------------------------------------------------------
+// Animation Initialize
+@keyframes flashString
+	0%
+		@include defaultFlash()
+
+	90%
+		@include defaultFlash()
+
+	95%
+		$flash: #FFFF66
+
+		color: $flash
+		text-shadow: 0 0 0.25rem $flash, 0 0 0.5rem $flash, 0 0 0.75rem $flash, 0 0 1rem $flash, 0 0 1.25rem $flash, 0 0 1.5rem $flash, 0 0 1.75rem $flash
+
+	100%
+		@include defaultFlash()
+
+@keyframes flashStringLight
+	0%
+		@include defaultFlashLight()
+
+	90%
+		@include defaultFlashLight()
+
+	95%
+		$flash: #FFFF66
+
+		color: $flash
+		text-shadow: 0 0 0.25rem $flash, 0 0 0.5rem $flash, 0 0 0.75rem $flash, 0 0 1rem $flash, 0 0 1.25rem $flash, 0 0 1.5rem $flash, 0 0 1.75rem $flash
+
+	100%
+		@include defaultFlashLight()
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Prism Overwrite
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+code, pre
+	&[class*="language-"]
+		margin: 10px 0
+		tab-size: 4
+		font-family: "Migu 1M", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace
+		line-height: 1.2
+		-webkit-overflow-scrolling: touch
+
+		@include max-screen(xs)
+			max-height: 80vh
+
+		@media print
+			// color: #000000
+
+		&::-webkit-scrollbar
+			width: 5px
+			height: 5px
+
+pre
+	&[class*="language-"]
+		> code
+			$size: 2.286em;
+
+			@media (prefers-color-scheme: light)
+				background-size: $size $size
+
+.line-highlight
+	@media print
+		display: none
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * サイドバー
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+// @keyframes openList
+// 	from
+// 		display: hidden
+// 		transform: translateY(-400px)
+
+// 	to
+// 		display: block
+// 		transform: translateY(0)
+// 		height: 100%
+
+.sidebar
+	position: fixed
+	top: 0
+	left: 0
+	overflow-y: scroll
+	box-sizing: border-box
+	width: 240px
+	min-width: 240px
+	height: 100vh
+	min-height: 100vh
+	padding: 10px 0 2rem
+	border-width: 0
+	border-style: solid
+	border-right-width: 3px
+	border-image: linear-gradient(to bottom, #000011, #1164FF) 1/0 3px 0 0/0 stretch
+
+	@include max-screen(md)
+		position: static
+		width: 100%
+		height: auto
+		min-height: unset
+		margin-bottom: 20px
+		padding-left: 2px
+		transition: all 0.5s ease-out
+		border-bottom-width: 3px
+		border-left-width: 3px
+		border-image: linear-gradient(to bottom, #000011, #1164FF) 1/0 3px 5px/0 stretch
+
+		@media (prefers-color-scheme: light)
+			border-image-source: linear-gradient(to bottom, #FFFFFF, #1164FF)
+
+	@media (prefers-color-scheme: light)
+		border-image-source: linear-gradient(to bottom, #FFFFFF, #1164FF)
+
+	@media print
+		display: none
+
+	h2
+		font-size: 1.5rem
+
+	> ul
+		$menu-margin: 10px
+
+		@include max-screen(md)
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			padding: 0 5px
+			padding-bottom: 10px
+
+		> li
+			margin-top: 15px
+
+			@include max-screen(md)
+				margin-top: 10px
+
+			@include max-screen(sm)
+				margin-top: 5px
+
+			h3
+				display: flex
+				align-items: center
+				padding-top: 3px
+				padding-left: $menu-margin
+				animation: flashString 10s linear infinite
+				border-width: 0
+				border-style: solid
+				border-top-width: 3px
+				border-image: $gradation-pattern1 1/3px 0 0/0 stretch
+
+				@include max-screen(md)
+					padding-left: 0
+
+				@media (prefers-color-scheme: light)
+					animation-name: flashStringLight
+					border-image-source: $gradation-pattern2
+
+				a
+					display: inline-flex
+					align-items: center
+					margin: auto 0
+					animation: flashString 10s linear infinite
+					line-height: 1em
+
+					@media (prefers-color-scheme: light)
+						animation-name: flashStringLight
+
+			input
+				&[type="checkbox"]
+					display: none
+					visibility: hidden
+
+					&.panel-switch
+						&:not(:checked)
+							+ ul
+								max-height: 0
+								// display: none
+								// overflow: hidden
+								// height: 0
+								padding: 0
+								border-width: 0
+
+								li
+									visibility: hidden
+									// height: 0
+									opacity: 0
+
+									a
+										opacity: inherit
+
+									// &:before
+									// content: unset
+
+			ul
+				margin-left: calc(1em + #{$menu-margin + 2px})
+				padding-right: 2px
+				transition: all 0.5s ease-out
+				// animation: openList 0.2s linear all
+				text-indent: -1em
+
+				@include max-screen(md)
+					margin-left: calc(1em + 2px)
+
+				li
+					// overflow: hidden
+					transition: all 0.5s ease-out
+
+					&:before
+						content: "├"
+						padding-right: 2px
+						transition: all 0.5s ease-out
+						animation: flashString 10s linear infinite
+
+						@media (prefers-color-scheme: light)
+							animation-name: flashStringLight
+
+					&:last-child
+						&:before
+							content: "└"
+
+	&::-webkit-scrollbar
+		width: 5px
+		height: 5px
+
+		@include max-screen(md)
+			width: 0
+			height: 0
+
+		&-track
+			border-radius: 10px
+			background-image: linear-gradient(to bottom, #000011, #1164FF)
+
+			@media (prefers-color-scheme: light)
+				background-image: linear-gradient(to bottom, #FFFFFF, #1164FF)
+
+		&-thumb
+			border-radius: 10px
+			background-image: linear-gradient(to bottom right, #CCCCCC, #888888)
+			// box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3)
+
+.nav-button
+	display: flex
+	justify-content: space-evenly
+
+	@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill))
+		justify-content: space-around
+
+	button
+		width: 100px
+		height: 24px
+		cursor: pointer
+		font-size: 0.85rem
+		color: #FFFFFF
+		border: none
+		border-radius: 5px
+		background-color: #1164FF
+
+.expand-box
+	$box-size: 20px
+	$font-size: 0.85rem
+
+	display: flex
+	justify-content: center
+	align-items: center
+	box-sizing: border-box
+	width: $box-size
+	height: $box-size
+	margin: auto 5px auto 0
+	cursor: pointer
+	font-size: $font-size
+	line-height: $font-size
+	border: 1px #FFFFFF solid
+
+	@media print, (prefers-color-scheme: light)
+		border-color: #000011
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * ヘッダー
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+header
+	display: flex
+	justify-content: space-between
+	align-items: center
+	margin-top: 1rem
+	margin-bottom: 0.35rem
+	border-width: 0
+	border-style: solid
+	border-bottom-width: 5px
+	border-image: $gradation-pattern1 1/0 0 5px/0 stretch
+
+	@media print, (prefers-color-scheme: light)
+		border-image-source: $gradation-pattern2
+
+	@media print
+		margin-top: 0
+
+	h1
+		padding-left: 2.5rem
+
+		@include max-screen(md)
+			padding-left: 5vw
+
+		@include max-screen(sm)
+			font-size: 4.7vw
+
+	label
+		display: none
+
+		@include max-screen(md)
+			display: inline-flex
+			justify-content: center
+			align-items: center
+			width: 160px
+			height: 32px
+			margin: 0 5px 5px
+			cursor: pointer
+			font-size: 1.25rem
+			border-radius: 5px
+			background-color: #1164FF
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * コンテンツ
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+main
+	flex-grow: 2
+
+section
+	margin-top: 1.5rem
+
+	&:first-child
+		margin-top: 5px
+
+	&:not(:first-child)
+		padding-top: 5px
+		border-width: 0
+		border-style: solid
+		border-top-width: 2px
+		border-image: $gradation-pattern1 1/2px 0 0/0 stretch
+
+		@media print, (prefers-color-scheme: light)
+			border-image-source: $gradation-pattern2
+
+	&:last-of-type
+		margin-bottom: 10rem
+
+	h1, h2, h3, h4, h5, h6, p
+		padding: 0 0.5rem
+
+	h1, h2, h3, h4, h5, h6
+		+ p, + ul, + ol, + dl
+			margin-top: 1em
+
+	h3
+		margin-top: 5px
+		margin-left: 5px
+		padding-left: 5px
+		border-left: 10px solid #1164FF
+
+		// -webkit-box-reflect: below -10px -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.6))
+
+	h4
+		margin-top: 5px
+		margin-left: 5px
+		border-left: 5px solid #1164FF
+
+	ul
+		margin-left: 2rem
+		list-style: disc
+
+		li
+			padding-right: 10px
+
+	dl
+		padding-left: 0.5rem
+
+		dt
+			h1, h2, h3, h4, h5, h6
+				padding: 0
+
+			h3
+				padding-left: 5px
+
+		dd
+			p
+				padding: 0
+
+			ul
+				li
+					&:first-child
+						margin-top: 5px
+
+					&:last-child
+						margin-bottom: 5px
+
+	p
+		+ p
+			padding-top: 1rem
+
+		+ h3
+			@include max-screen(xs)
+				margin-top: 1.5rem
+
+.object
+	&-safe
+		color: #33FF33
+
+	&-euclid
+		color: #FFFF33
+
+	&-keter
+		color: #FF3333
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * フッター
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+footer
+	display: flex
+	justify-content: space-between
+	align-items: center
+	margin-top: 0.35rem
+	padding-top: 0.35rem
+	padding-bottom: 0.35rem
+	border-width: 0
+	border-style: solid
+	border-top-width: 5px
+	border-bottom-width: 20px
+	border-image: $gradation-pattern1 1/5px 0 20px/0 stretch
+
+	@include max-screen(sm)
+		flex-direction: column-reverse
+
+	@media print, (prefers-color-scheme: light)
+		border-image-source: $gradation-pattern2
+
+	p
+		@include max-screen(sm)
+			box-sizing: border-box
+			width: 100%
+
+		&:first-child
+			a
+				padding: 0 0 0 0.5rem
+				animation: flashString 10s linear infinite
+				text-decoration: line-through
+				color: unset
+
+				@media (prefers-color-scheme: light)
+					animation-name: flashStringLight
+
+				@media print
+					animation: unset
+					color: #000000
+
+			b
+				font-weight: 900
+
+		&:last-child
+			margin-left: 2rem
+			text-align: right
+			white-space: nowrap
+
+			@include max-screen(sm)
+				margin-bottom: 15px
+				margin-left: 0
+
+			@include max-screen(xs)
+				white-space: normal
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * レスポンシブの設定
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */

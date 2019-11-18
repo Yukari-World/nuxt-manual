@@ -1,0 +1,13 @@
+{
+	"background": {
+		"scripts": ["js/Main.js", "js/prism.min.js"]
+	},
+	"background_color": "#000011",
+	"default_locale": "ja",
+	"display": "standalone",
+	"manifest_version": 2,
+	"name": "HTML Technical Manual",
+	"short_name": "HTML Manual",
+	"theme_color": "#000011",
+	"version": "1.0.0.0"
+}
