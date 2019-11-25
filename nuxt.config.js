@@ -49,6 +49,16 @@ export default {
 	 */
 	loading: { color: '#FFCC66' },
 	/*
+	 ** Customize Vuetify theme
+	 */
+	vuetify: {
+		theme: {
+			dark: true,
+			primary: '#3f51b5',
+			secondary: '#2196f3'
+		}
+	},
+	/*
 	 ** Global CSS
 	 */
 	// css: ['@/assets/sass/style.scss'],
@@ -94,7 +104,43 @@ export default {
 		babel: {
 			babelrc: false,
 			cacheDirectory: undefined,
-			presets: ['@nuxt/babel-preset-app']
+			presets: ['@nuxt/babel-preset-app'],
+			plugins: [
+				[
+					'prismjs',
+					{
+						languages: [
+							'clike',
+							'batch',
+							'c',
+							'css',
+							'ini',
+							'javascript',
+							'markup',
+							'php',
+							'pug',
+							'scss',
+							'sql'
+						],
+						plugins: [
+							'autolinker',
+							'autoloader',
+							'command-line',
+							'copy-to-clipboard',
+							'custom-class',
+							'data-uri-highlight',
+							'file-highlight',
+							'highlight-keywords',
+							'line-numbers',
+							'show-language',
+							'toolbar',
+							'wpd'
+						],
+						theme: 'tomorrow',
+						css: false
+					}
+				]
+			]
 		},
 		optimization: {
 			splitChunks: {

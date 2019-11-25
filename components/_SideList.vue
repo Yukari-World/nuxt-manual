@@ -11,17 +11,19 @@ nav#menu.sidebar
 		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index')
 			template(v-slot:activator)
 				v-list-item
+					//- アイコンは https://materialdesignicons.com/ を参照
 					v-list-item-icon
 						v-icon {{listIndex.icon}}
 					v-list-item-content
 						v-list-item-title {{listIndex.category}}
 						v-list-item-subtitle(v-if='threeLine' v-html='listIndex.description')
 			//- サブカテゴリ。templateに含ますことで不要な要素を作成させない
-			template(v-for='subIndex in listIndex.subCategory')
+			template(v-for='(subIndex, i) in listIndex.subCategory')
 				//- リスト行
 				template(v-for='(lists, j) in subIndex.list', link)
 					//- リンクは v-list-item が持つ
-					v-list-item(active-class='light-blue--text', nuxt, :to='listIndex.baseURL + lists.link', :key='j')
+					//- サブカテゴリは1000足してキーの重複を回避する
+					v-list-item(active-class='light-blue--text', nuxt, :to='listIndex.baseURL + lists.link', :key='i * 1000 + j')
 						v-list-item-content
 							//- サブカテゴリ毎に表示方法を変える
 							template(v-if='subIndex.name !== "Default"')
@@ -40,8 +42,9 @@ export default {
 		};
 	},
 	computed: {
+		// storeからのデータ読み込み
 		...mapState({
-			categoryList: (state) => state.items.categoryList
+			categoryList: (state) => state.menus.categoryList
 		})
 	}
 };

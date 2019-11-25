@@ -1,15 +1,18 @@
 // import axios from 'axios';
 
 export function state() {
-	return { breedList: {}, items: {} };
+	return { breedList: {}, menus: {}, randomWords: [] };
 }
 
 export const mutations = {
 	breedListUpdate(state, payload) {
 		state.breed_list = { ...payload };
 	},
-	setItems(state, payload) {
-		state.items = payload;
+	setLists(state, payload) {
+		state.menus = payload;
+	},
+	setRandomWords(state, payload) {
+		state.randomWords = payload;
 	}
 };
 

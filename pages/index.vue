@@ -13,8 +13,8 @@ div
 			| 各ページのコードのハイライトには
 			a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
 			| が使用されています。
-		blockquote.cation
-			h2 注意事項
+		v-alert(type='info', border='left', colored-border, dense, elevation='2')
+			//- h2 注意事項
 			p
 				| このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。
 				br
@@ -92,6 +92,8 @@ div
 				| JavaScript(ECMAScript 2017),&nbsp;
 				s Babelにより後方互換確保済み
 			li
+				a(href='https://ja.nuxtjs.org/', title='Nuxt.js - ユニバーサル Vue.js アプリケーション', target='_blank', rel='external noopener') Nuxt.js
+			li
 				a(href='https://pugjs.org/', title='Pug: Getting Started', target='_blank', rel='external noopener') Pug(Jade)
 			li
 				a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
@@ -148,6 +150,12 @@ div
 
 	section
 		h2 よくありそうな質問
+		h3 Nuxtになって何が変わったの?
+		p
+			| 全体的にサーバーサイドレンダリングに依存となり、スタイルはVuetifyに依存となりました。
+			br
+			| デザイン等は洗礼されましたが、その分若干のレスポンス低下とページの没個性化が発生しています。
+
 		h3 白紙ページが多い
 		p
 			| 筆記者が1人なので記述が間に合っていません。
@@ -156,17 +164,23 @@ div
 
 		h3 HTMLソースが汚い
 		p
-			| 自動整形ツールの仕様です。HTML自体はPugテンプレートに基づいてMinifyされたHTMLが出力されており、その後自動整形ツールでHTMLソースを整形しています。そのため出力結果は自動整形ツールの結果に依存しており、こちらで対処できる内容ではありません。
+			s
+				| 自動整形ツールの仕様です。HTML自体はPugテンプレートに基づいてMinifyされたHTMLが出力されており、その後自動整形ツールでHTMLソースを整形しています。そのため出力結果は自動整形ツールの結果に依存しており、こちらで対処できる内容ではありません。
+				br
+				| また、コード整形は可能な限り自動化し手動で時間を掛けるものではないと考えているためこちらで修正する予定もありませんので予めご了承ください。
 			br
-			| また、コード整形は可能な限り自動化し手動で時間を掛けるものではないと考えているためこちらで修正する予定もありませんので予めご了承ください。
+			| このページは現在Nuxtで作られているため、整形ルール等はNuxtに従います。HTMLソースは整形されないものだと思ってください。
 
 		h3 このHTMLに使用されているCSSファイルが読めない
 		p
-			| 圧縮済みCSSファイルを使用しているので読めないのが仕様です。どうしても読みたい場合は
-			a(href='https://gitlab.com/fcc-y/html-manual', target='_blank', rel='external noopener') Gitlabリポジトリ
-			| から未圧縮のCSSファイルを取得するか、圧縮済みCSSファイルをテキストエディタのプラグイン等でフォーマットしてみてください。
+			s
+				| 圧縮済みCSSファイルを使用しているので読めないのが仕様です。どうしても読みたい場合は
+				a(href='https://gitlab.com/fcc-y/html-manual', target='_blank', rel='external noopener') Gitlabリポジトリ
+				| から未圧縮のCSSファイルを取得するか、圧縮済みCSSファイルをテキストエディタのプラグイン等でフォーマットしてみてください。
+				br
+				| 但し、執筆者はSCSSファイルを使用してCSSファイルに変換したものを利用しているので可読性に関しては責任を取ることができませんので予めご了承ください。
 			br
-			| 但し、執筆者はSCSSファイルを使用してCSSファイルに変換したものを利用しているので可読性に関しては責任を取ることができませんので予めご了承ください。
+			| 現在はNuxtとVuetifyにより作成されています。CSSスタイルは読めないものだと思ってください。
 
 		h3 技術マニュアルなのにお遊びが多い
 		p
@@ -200,32 +214,20 @@ div
 			a(href='https://ja.wikipedia.org/wiki/Xorshift', target='_blank', rel='external noopener') 擬似乱数Xorshift
 			| のランダムであり、表示結果が重複することがあります。
 
+		h3 このサイトのソースはあるの?
+		p
+			a(href='https://github.com/Yukari-World/nuxt-manual', target='_blank', rel='external noopener') こちら
+			| にて公開中です。是非とも技術を自分のものにしてください。
+
 		h3 これ、本当に技術マニュアルなの?
 		p
 			| はい。
 </template>
 
 <script>
-// import axios from 'axios';
-// import Prism from 'prismjs';
-import Prism from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-pug';
-import 'prismjs/components/prism-scss';
-
-import 'prismjs/plugins/autolinker/prism-autolinker';
-import 'prismjs/plugins/autoloader/prism-autoloader';
-import 'prismjs/plugins/command-line/prism-command-line';
-import 'prismjs/plugins/data-uri-highlight/prism-data-uri-highlight';
-import 'prismjs/plugins/file-highlight/prism-file-highlight';
-import 'prismjs/plugins/line-highlight/prism-line-highlight';
-import 'prismjs/plugins/line-numbers/prism-line-numbers';
-import 'prismjs/plugins/toolbar/prism-toolbar';
-import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
-import 'prismjs/plugins/show-language/prism-show-language';
+import Prism from 'prismjs';
 
 export default {
-	title: 'test',
 	data() {
 		return {
 			header: {

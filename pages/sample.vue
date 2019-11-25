@@ -60,32 +60,8 @@ div
 			&lt;script type="application/javascript" nomodule src="js/nomodule/ajax-response.js"&gt;&lt;/script&gt;
 </template>
 
-<style scoped>
-@import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
-</style>
-
 <script>
-// import axios from 'axios';
-// import Prism from 'prismjs';
-import Prism from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-pug';
-import 'prismjs/components/prism-scss';
-import 'prismjs/components/prism-sql';
-
-import 'prismjs/plugins/autolinker/prism-autolinker';
-import 'prismjs/plugins/autoloader/prism-autoloader';
-import 'prismjs/plugins/command-line/prism-command-line';
-import 'prismjs/plugins/data-uri-highlight/prism-data-uri-highlight';
-import 'prismjs/plugins/file-highlight/prism-file-highlight';
-import 'prismjs/plugins/line-highlight/prism-line-highlight';
-import 'prismjs/plugins/line-numbers/prism-line-numbers';
-import 'prismjs/plugins/toolbar/prism-toolbar';
-import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
-import 'prismjs/plugins/show-language/prism-show-language';
+import Prism from 'prismjs';
 
 export default {
 	title: 'test',

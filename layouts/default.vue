@@ -11,8 +11,7 @@ v-app#inspire
 		v-container(fluid)
 			router-view
 				nuxt
-				footer(role='contentinfo')
-					FooterVue
+		FooterVue
 </template>
 
 <style lang="scss">
@@ -107,12 +106,11 @@ export default {
 	data() {
 		return {
 			drawer: null,
-			node: { node: 'welcome' },
 			title: ''
 		};
 	},
 	created() {
-		this.$vuetify.theme.dark = true;
+		// this.$vuetify.theme.dark = true;
 		this.setListener();
 	},
 	methods: {
