@@ -60,22 +60,9 @@ div
 </style>
 
 <script>
-import Prism from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-css';
-
-import 'prismjs/plugins/autolinker/prism-autolinker';
-import 'prismjs/plugins/autoloader/prism-autoloader';
-import 'prismjs/plugins/command-line/prism-command-line';
-import 'prismjs/plugins/data-uri-highlight/prism-data-uri-highlight';
-import 'prismjs/plugins/file-highlight/prism-file-highlight';
-import 'prismjs/plugins/line-highlight/prism-line-highlight';
-import 'prismjs/plugins/line-numbers/prism-line-numbers';
-import 'prismjs/plugins/toolbar/prism-toolbar';
-import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
-import 'prismjs/plugins/show-language/prism-show-language';
+import Prism from 'prismjs';
 
 export default {
-	title: 'test',
 	data() {
 		return {
 			header: {
