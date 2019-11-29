@@ -30,6 +30,6 @@ v-footer(padless)
 }
 
 #randomWord {
-	color: #ffffff;
+	color: #FFFFFF;
 }
 </style>

@@ -7,7 +7,10 @@ nav#menu.sidebar
 		v-btn#collapseAll(color='primary', small) 全て折りたたむ
 	v-switch(v-model='threeLine' class='ma-2' label='概要表示')
 
-	v-list(dense, expand, nav, :three-line='threeLine')
+	template(v-if='loading')
+		- for (var i = 0; i < 15; i++)
+			v-skeleton-loader(type='list-item')
+	v-list(v-else, dense, expand, nav, :three-line='threeLine')
 		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index')
 			template(v-slot:activator)
 				v-list-item
@@ -30,7 +33,21 @@ nav#menu.sidebar
 								v-list-item-title(v-text='"[" + subIndex.name + "] " + lists.title')
 							template(v-else)
 								v-list-item-title(v-text='lists.title')
+						template(v-if='lists.workInProgress === true')
+							v-list-item-icon
+									v-icon mdi-border-color
 </template>
+
+<style lang="scss">
+.v-navigation-drawer {
+	// Vender Profile Initialize
+	::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+		background-color: transparent;
+	}
+}
+</style>
 
 <script>
 import { mapState } from 'vuex';
@@ -38,6 +55,7 @@ import { mapState } from 'vuex';
 export default {
 	data() {
 		return {
+			loading: true,
 			threeLine: false
 		};
 	},
@@ -46,6 +64,9 @@ export default {
 		...mapState({
 			categoryList: (state) => state.menus.categoryList
 		})
+	},
+	mounted () {
+		this.loading = false
 	}
 };
 </script>

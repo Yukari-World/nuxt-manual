@@ -159,7 +159,7 @@ div
 		height: 30vw;
 		max-height: 250px;
 		margin-bottom: 15px;
-		background: #0e2ebb no-repeat top/auto 100%;
+		background: #0E2EBB no-repeat top/auto 100%;
 	}
 }
 
