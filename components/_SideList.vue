@@ -10,7 +10,7 @@ nav#menu.sidebar
 	template(v-if='loading')
 		- for (var i = 0; i < 15; i++)
 			v-skeleton-loader(type='list-item')
-	v-list(v-else, dense, expand, nav, :three-line='threeLine')
+	v-list#navMenu(v-else, dense, expand, nav, :three-line='threeLine')
 		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index')
 			template(v-slot:activator)
 				v-list-item
