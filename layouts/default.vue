@@ -20,7 +20,7 @@ v-app#inspire
 ::-webkit-scrollbar {
 	width: 10px;
 	height: 10px;
-	background-color: transparent;
+	background-color: #303030;
 
 	&-track {
 		// border-radius: 10px;
@@ -49,10 +49,10 @@ v-app#inspire
 // Prism Overwrite
 code,
 pre {
-	&[class*='language-'] {
+	&[class*="language-"] {
 		margin: 10px 0;
 		tab-size: 4;
-		font-family: 'Migu 1M', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+		font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
 		line-height: 1.2;
 		-webkit-overflow-scrolling: touch;
 
@@ -64,7 +64,7 @@ pre {
 }
 
 pre {
-	&[class*='language-'] {
+	&[class*="language-"] {
 		> code {
 			$size: 2.286em;
 			background-color: unset;

@@ -46,13 +46,11 @@ div
 }
 
 .layer1 {
-	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%,
-		url(/img/robert-lukeman-150146.jpg) no-repeat bottom/100%;
+	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%, url(/img/robert-lukeman-150146.jpg) no-repeat bottom/100%;
 }
 
 .layer2 {
-	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%),
-		url(/img/robert-lukeman-150146.jpg);
+	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(/img/robert-lukeman-150146.jpg);
 	background-repeat: repeat-x, no-repeat;
 	background-position: bottom, bottom;
 	background-size: 50% 100%, 100%;

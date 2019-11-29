@@ -87,6 +87,13 @@
 							"deprecated": false,
 							"workInProgress": false
 						}, {
+							"title": "スライダーレイアウト",
+							"link": "/RangeLayout",
+							"summary": "",
+							"tags": ["CSS"],
+							"deprecated": false,
+							"workInProgress": false
+						}, {
 							"title": "背景画像スクロールの固定",
 							"link": "/backgroundScrollLock",
 							"summary": "",

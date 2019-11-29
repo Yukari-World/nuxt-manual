@@ -22,6 +22,7 @@ module.exports = {
 		"func-style": ["error", "declaration", { "allowArrowFunctions": false }],
 		"indent": ["warn", "tab"],
 		"no-console": "off",
-		"no-tabs": ["off", { allowIndentationTabs: true }]
+		"no-tabs": ["off", { allowIndentationTabs: true }],
+		"prettier/prettier": "off"
 	}
 }

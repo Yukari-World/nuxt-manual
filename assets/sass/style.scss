@@ -5,7 +5,7 @@
 // ----------------------------------------------------------------------------------------------------
 // Import
 @import "calc.scss";
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 // ----------------------------------------------------------------------------------------------------
 // 変数の定義(Global)
@@ -42,6 +42,7 @@ $width-list: (
 	color: #FFFFFF;
 	text-shadow: 0 0 0 rgba(255, 255, 255, 0);
 }
+
 @mixin defaultFlashLight() {
 	color: #000011;
 	text-shadow: 0 0 0 rgba(0, 0, 17, 0);
@@ -51,7 +52,7 @@ $width-list: (
 // Functionの定義
 
 /// Viewport Widthの演算
-@function calc-viewport($value: 1000, $breakpoint: md) {
+@function calc-viewport ($value: 1000, $breakpoint: md) {
 	@return round-decimal(($value / map-get($width-list, $breakpoint)) * 100, 3) + vw;
 }
 
@@ -81,6 +82,7 @@ $width-list: (
 
 // ----------------------------------------------------------------------------------------------------
 // CSS Initialize
+
 /* http://meyerweb.com/eric/tools/css/reset/
  *  v2.0 | 20110126
  *  License: none (public domain)
@@ -103,9 +105,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 // 	line-height: 1;
 // }
 
-ol, ul {
-	list-style: none;
-}
+// ol, ul {
+// 	list-style: none;
+// }
 
 blockquote, q {
 	quotes: none;
@@ -132,7 +134,7 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	font-family: 'Noto Sans JP', "メイリオ", "Meiryo", sans-serif;
+	font-family: "Noto Sans JP", "メイリオ", "Meiryo", sans-serif;
 	font-size: 1rem;
 	line-height: 1.2;
 	color: #FFFFFF;
@@ -251,6 +253,8 @@ dl {
 }
 
 ol, ul {
+	list-style: none;
+
 	li {
 		&:not(:first-child) {
 			margin-top: 5px;
@@ -336,7 +340,7 @@ blockquote {
 }
 
 .mintyo {
-	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+	font-family: "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 }
 
 // ----------------------------------------------------------------------------------------------------
@@ -422,7 +426,7 @@ code, pre {
 	&[class*="language-"] {
 		margin: 10px 0;
 		tab-size: 4;
-		font-family: "Migu 1M", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+		font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
 		line-height: 1.2;
 		-webkit-overflow-scrolling: touch;
 
@@ -539,6 +543,7 @@ pre {
 			@include max-screen(md) {
 				margin-top: 10px;
 			}
+
 			@include max-screen(sm) {
 				margin-top: 5px;
 			}
@@ -743,6 +748,7 @@ header {
 		@include max-screen(md) {
 			padding-left: 5vw;
 		}
+
 		@include max-screen(sm) {
 			font-size: 4.7vw;
 		}
