@@ -95,7 +95,8 @@
 			padding-right: 0;
 
 			a {
-				cursor: pointer
+				color: #FFFFFF;
+				cursor: pointer;
 			}
 		}
 	}
