@@ -132,6 +132,7 @@ export default {
 							'data-uri-highlight',
 							'file-highlight',
 							'highlight-keywords',
+							'line-highlight',
 							'line-numbers',
 							'show-language',
 							'toolbar',

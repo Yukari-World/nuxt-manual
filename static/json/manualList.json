@@ -216,7 +216,7 @@
 					"list": [
 						{
 							"title": "CSS",
-							"link": "/",
+							"link": "/css",
 							"summary": "",
 							"tags": ["CSS"],
 							"deprecated": false,
@@ -237,7 +237,7 @@
 							"workInProgress": false
 						}, {
 							"title": "SCSS",
-							"link": "/",
+							"link": "/scss",
 							"summary": "",
 							"tags": ["SCSS"],
 							"deprecated": false,

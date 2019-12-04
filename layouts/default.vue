@@ -50,7 +50,7 @@ v-app#inspire
 code,
 pre {
 	&[class*="language-"] {
-		margin: 10px 0;
+		margin: unset;
 		tab-size: 4;
 		font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
 		line-height: 1.2;
@@ -85,8 +85,14 @@ pre {
 
 // ----------------------------------------------------------------------------------------------------
 // Vuetify Overwrite
-.v-application code:before {
-	content: unset;
+.v-application {
+	code {
+		font-weight: normal;
+
+		&:before {
+			content: unset;
+		}
+	}
 }
 </style>
 

@@ -1,0 +1,58 @@
+doctype html
+html(lang='ja')
+	head
+		meta(charset='utf-8')
+		block title
+			title HTML Technical Manual
+		meta(name='description', content='HTMLで纏められた主にHTML技術関連のマニュアルページ')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='theme-color' content='#000011')
+		meta(name='color-scheme' content='dark light')
+
+		//- データの先読み
+		link(rel='preload', as='style', type='text/css', href='https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap')
+		link(rel='preload', as='style', type='text/css', href='css/prismTomorrowNight.min.css')
+		link(rel='preload', as='style', type='text/css', href='css/prism.css')
+		link(rel='preload', as='style', type='text/css', href='css/style.min.css')
+		link(rel='preload', as='script', type='application/javascript', href='js/lazysizes.min.js')
+		link(rel='preload', as='script', type='application/javascript', href='js/vue.js')
+		link(rel='preload', as='script', type='application/javascript', href='js/prism.min.js')
+		link(rel='preload', as='script', type='application/javascript', href='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js')
+		//- link(rel='preload', as='fetch', type='application/json', crossorigin='crossorigin', href='json/randomWord.json')
+		link(rel='modulepreload', href='js/Main.min.js')
+		link(rel='modulepreload', href='js/common.min.js')
+		link(rel='modulepreload', href='js/ajax-response.min.js')
+		link(rel='manifest', href='manifest.json')
+		block preloader
+
+		//- データの本読み込み
+		link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap')
+		link(rel='stylesheet', type='text/css', href='css/prismTomorrowNight.min.css')
+		link(rel='stylesheet', type='text/css', href='css/prism.css', media='print, (prefers-color-scheme: light)')
+		link(rel='stylesheet', type='text/css', href='css/style.min.css')
+		script(type='text/javascript', defer='defer', src='js/vue.js')
+		//- script(type='text/javascript').
+		//- 	/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+		//- 	(function(a){if(!a.loadCSS){a.loadCSS=function(){}}var b=loadCSS.relpreload={};b.support=(function(){var d;try{d=a.document.createElement("link").relList.supports("preload")}catch(f){d=false}return function(){return d}})();b.bindMediaToggle=function(e){var f=e.media||"all";function d(){e.media=f}if(e.addEventListener){e.addEventListener("load",d)}else{if(e.attachEvent){e.attachEvent("onload",d)}}setTimeout(function(){e.rel="stylesheet";e.media="only x"});setTimeout(d,3000)};b.poly=function(){if(b.support()){return}var d=a.document.getElementsByTagName("link");for(var e=0;e<d.length;e++){var f=d[e];if(f.rel==="preload"&&f.getAttribute("as")==="style"&&!f.getAttribute("data-loadcss")){f.setAttribute("data-loadcss",true);b.bindMediaToggle(f)}}};if(!b.support()){b.poly();var c=a.setInterval(b.poly,500);if(a.addEventListener){a.addEventListener("load",function(){b.poly();a.clearInterval(c)})}else{if(a.attachEvent){a.attachEvent("onload",function(){b.poly();a.clearInterval(c)})}}}if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}else{a.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this));
+		block headSpace
+	body
+		header#top.md-show(role='banner')
+			block headTitle
+				include ./_header
+			label(for='menuBtn') Menu
+		input#menuBtn.panel-switch(type='checkbox')
+		nav#menu.sidebar
+			include ../_mixin/_sideList
+		.content
+			header.md-hide(role='banner')
+				block headTitle
+					include ./_header
+			main
+				block content
+			footer(role='contentinfo')
+				include ./_footer
+		script(type='text/javascript', async='async', src='js/lazysizes.min.js')
+		script(type='text/javascript', defer='defer', src='js/prism.min.js')
+		//- script(type='text/javascript', defer='defer', src='js/index.js')
+		script(type='module', defer='defer', src='js/Main.min.js')
+		block jsContent
