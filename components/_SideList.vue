@@ -13,7 +13,7 @@ nav#menu.sidebar
 	v-list#navMenu(v-else, dense, expand, nav, :three-line='threeLine')
 		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index')
 			template(v-slot:activator)
-				v-list-item
+				v-list-item(:title='listIndex.category')
 					//- アイコンは https://materialdesignicons.com/ を参照
 					v-list-item-icon
 						v-icon {{listIndex.icon}}
@@ -26,7 +26,7 @@ nav#menu.sidebar
 				template(v-for='(lists, j) in subIndex.list', link)
 					//- リンクは v-list-item が持つ
 					//- サブカテゴリは1000足してキーの重複を回避する
-					v-list-item(active-class='light-blue--text', nuxt, :to='listIndex.baseURL + lists.link', :key='i * 1000 + j')
+					v-list-item(active-class='light-blue--text', nuxt, :to='listIndex.baseURL + lists.link', :title='lists.title', :key='i * 1000 + j')
 						v-list-item-content
 							//- サブカテゴリ毎に表示方法を変える
 							template(v-if='subIndex.name !== "Default"')

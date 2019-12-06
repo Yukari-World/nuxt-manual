@@ -5,7 +5,7 @@
 	template(v-for='(words, index) in randomWords')
 		dt(:id='"wordID" + index')
 			h3(v-html='words.title')
-			h4 {{words.original}}
+			h4 出典: {{words.original}}
 		dd
 			div(v-html='words.summary')
 			.boxTag
@@ -16,7 +16,7 @@
 						a(:data-tag='tag') {{tag}}
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 #randomOutput {
 	h3, h4 {
 		font-family: "メイリオ", "Meiryo", sans-serif;
@@ -99,6 +99,20 @@
 				cursor: pointer;
 			}
 		}
+	}
+}
+
+.object {
+	&-safe {
+		color: #33FF33;
+	}
+
+	&-euclid {
+		color: #FFFF33;
+	}
+
+	&-keter {
+		color: #FF3333;
 	}
 }
 
