@@ -190,9 +190,11 @@ table {
 	border-collapse: collapse;
 }
 
-thead tr {
-	color: CaptionText;
-	background-color: ActiveCaption;
+thead {
+	tr {
+		color: CaptionText;
+		background-color: ActiveCaption;
+	}
 }
 
 th, td {
