@@ -20,9 +20,27 @@ export const mutations = {
 	},
 	setRandomWords(state, payload) {
 		state.randomWords = payload;
+	},
+	randomInt32(state) {
+		const t = state.XorSeed.x ^ state.XorSeed.x << 11;
+		state.XorSeed.x = state.XorSeed.y;
+		state.XorSeed.y = state.XorSeed.z;
+		state.XorSeed.z = state.XorSeed.w;
+		state.XorSeed.w = state.XorSeed.w ^ state.XorSeed.w >>> 19 ^ (t ^ t >>> 8);
+
+		// console.log('Number: ' + this.seed.w);
+		// return state.XorSeed.w;
 	}
 };
 
+export const actions = {
+};
+
+export const getters = {
+	getSeed(state) {
+		return state.XorSeed;
+	}
+};
 // export const actions = {
 // 	async fetchItems(context) {
 // 		await axios
