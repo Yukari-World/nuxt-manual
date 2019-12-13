@@ -67,7 +67,7 @@ export default {
 	 */
 	plugins: [
 		// '~/plugins/globals.js'
-		'~/plugins/vue-scrollto'
+		// '~/plugins/vue-scrollto'
 	],
 	/*
 	 ** Nuxt.js dev-modules
