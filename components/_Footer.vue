@@ -42,7 +42,7 @@ export default {
 	data() {
 		return {
 			bWordDecide: true,
-			loading: true,
+			loading:     true,
 		};
 	},
 	computed: {
