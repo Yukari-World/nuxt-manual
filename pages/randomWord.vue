@@ -3,7 +3,7 @@
 	//- <dt id="wordID' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt>
 	//- <dd>' + dataTemp.summary + '<div class="boxTag"><ul class="tagList">' + tagText + '</ul></div></dd>
 	template(v-for='(words, index) in randomWords')
-		dt(:id='"wordID" + index')
+		dt(:id='"wordID" + (index + 1)')
 			h3(v-html='words.title')
 			h4 出典: {{words.original}}
 		dd
@@ -161,11 +161,19 @@ export default {
 		Prism.highlightAll();
 		Prism.fileHighlight();
 		this.updateHeader();
+		setTimeout(this.scroll, 300);
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
+		},
+		scroll() {
+			console.log(this.$route);
+			const hash = this.$route.hash;
+			if (hash && hash.match(/^#.+$/)) {
+				this.$scrollTo(hash);
+			}
 		}
 	}
 };
