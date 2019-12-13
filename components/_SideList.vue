@@ -66,7 +66,7 @@ export default {
 		})
 	},
 	mounted () {
-		this.loading = false
+		this.loading = false;
 	}
 };
 </script>

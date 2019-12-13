@@ -1,19 +1,22 @@
 <template lang="pug">
-#randomOutput
+dl#randomOutput
 	//- <dt id="wordID' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt>
 	//- <dd>' + dataTemp.summary + '<div class="boxTag"><ul class="tagList">' + tagText + '</ul></div></dd>
-	template(v-for='(words, index) in randomWords')
-		dt(:id='"wordID" + index')
-			h3(v-html='words.title')
-			h4 出典: {{words.original}}
-		dd
-			div(v-html='words.summary')
-			.boxTag
-				ul.tagList
-					//- <a data-tag="' + searchTag + '">' + searchTag + '</a>
-					//- コンテンツタグの出力
-					li(v-for='(tag) in words.tags')
-						a(:data-tag='tag') {{tag}}
+	template(v-if='$route.params.id !== undefined')
+		nuxt-child
+	template(v-else)
+		template(v-for='(words, index) in randomWords')
+			dt(:id='"wordID" + (index + 1)')
+				h3(v-html='words.title')
+				h4 出典: {{words.original}}
+			dd
+				div(v-html='words.summary')
+				.boxTag
+					ul.tagList
+						//- <a data-tag="' + searchTag + '">' + searchTag + '</a>
+						//- コンテンツタグの出力
+						li(v-for='(tag) in words.tags')
+							a(:data-tag='tag') {{tag}}
 </template>
 
 <style lang="scss">
@@ -161,12 +164,20 @@ export default {
 		Prism.highlightAll();
 		Prism.fileHighlight();
 		this.updateHeader();
+		// setTimeout(this.scroll, 300);
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
+		},
+		// scroll() {
+		// 	console.log(this.$route);
+		// 	const hash = this.$route.hash;
+		// 	if (hash && hash.match(/^#.+$/)) {
+		// 		this.$scrollTo(hash);
+		// 	}
+		// }
 	}
 };
 </script>

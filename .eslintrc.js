@@ -23,6 +23,7 @@ module.exports = {
 		"indent": ["warn", "tab"],
 		"no-console": "off",
 		"no-tabs": ["off", { allowIndentationTabs: true }],
-		"prettier/prettier": "off"
+		"prettier/prettier": "off",
+		"semi": ["error", "always"]
 	}
 }

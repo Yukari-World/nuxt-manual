@@ -67,6 +67,7 @@ export default {
 	 */
 	plugins: [
 		// '~/plugins/globals.js'
+		// '~/plugins/vue-scrollto'
 	],
 	/*
 	 ** Nuxt.js dev-modules
@@ -81,7 +82,8 @@ export default {
 	 */
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
-		'@nuxtjs/vuetify'
+		'@nuxtjs/vuetify',
+		['vue-scrollto/nuxt', { duration: 300 }]
 	],
 	router: {
 		middleware: 'index'
