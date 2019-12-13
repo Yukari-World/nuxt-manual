@@ -55,7 +55,7 @@ import { mapState } from 'vuex';
 export default {
 	data() {
 		return {
-			loading: true,
+			loading:   true,
 			threeLine: false
 		};
 	},
