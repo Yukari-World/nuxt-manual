@@ -3,7 +3,7 @@ v-footer(padless)
 	v-row.flex-column.flex-xl-row
 		v-col.d-flex.align-center.justify-center.justify-xl-start
 			p(style='margin: 0')
-				nuxt-link(to='randomWord/')#randomWord Loading...
+				nuxt-link(to='/randomWord/')#randomWord Loading...
 		v-col.d-flex.align-center.justify-center.justify-xl-start
 			p.text-center.text-xl-left
 				| Page Editor, Page Design: Yukari-World
@@ -53,8 +53,9 @@ export default {
 	},
 	mounted () {
 		// const animationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.setTimeout;
-		this.loading = false
+		this.loading = false;
 
+		this.setrandomWord();
 		// ループイベント呼び出し
 		requestAnimationFrame(this.roopEvent);
 	},
@@ -62,7 +63,7 @@ export default {
 		randomInt32() {
 			// XorShiftのseed起動
 			this.$store.commit('randomInt32');
-			const seeder = this.$store.getters.getSeed
+			const seeder = this.$store.getters.getSeed;
 
 			return seeder.w;
 		},
@@ -78,7 +79,8 @@ export default {
 			const wordNum = Math.floor(this.randomFloat() * this.wordList.length);
 			const randomWord = document.getElementById('randomWord');
 
-			randomWord.setAttribute('href', '/randomWord/#wordID' + (wordNum + 1));
+			randomWord.setAttribute('v-scroll-to', "'#wordID" + (wordNum + 1) + "'");
+			randomWord.setAttribute('href', '/randomWord/index#wordID' + (wordNum + 1));
 			randomWord.textContent = '';
 			randomWord.insertAdjacentHTML('beforeend', this.wordList[wordNum].title);
 		},
