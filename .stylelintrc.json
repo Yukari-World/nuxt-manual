@@ -1,10 +1,8 @@
 {
 	"extends": [
-		"stylelint-config-recommended",
-		"stylelint-prettier/recommended"
+		"stylelint-config-recommended"
 	],
 	"plugins": [
-		"stylelint-prettier",
 		"stylelint-scss"
 	],
 	"rules": {
@@ -34,7 +32,6 @@
 		"selector-list-comma-newline-after": "always-multi-line",
 		"string-quotes": "double",
 		"unit-whitelist": ["px", "em", "rem", "%", "vw", "vh", "deg", "s"],
-		"prettier/prettier": null,
 		"scss/at-function-parentheses-space-before": "always",
 		"scss/at-rule-no-unknown": true,
 		"scss/double-slash-comment-whitespace-inside": "always"
