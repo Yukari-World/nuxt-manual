@@ -5,25 +5,25 @@ export default {
 	 */
 	head: {
 		title: process.env.npm_package_description || '',
-		meta: [
+		meta:  [
 			{ charset: 'utf-8' },
 			{
-				hid: 'description',
-				name: 'description',
+				hid:     'description',
+				name:    'description',
 				content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ'
 			},
 			{
-				name: 'viewport',
+				name:    'viewport',
 				content: 'width=device-width, initial-scale=1'
 			},
 			{
-				hid: 'theme-color',
-				name: 'theme-color',
+				hid:     'theme-color',
+				name:    'theme-color',
 				content: '#000011'
 			},
 			{
-				hid: 'color-scheme',
-				name: 'color-scheme',
+				hid:     'color-scheme',
+				name:    'color-scheme',
 				content: 'dark light'
 			}
 		],
@@ -34,9 +34,9 @@ export default {
 			{ rel: 'manifest', type: 'manifest', href: '/manifest.json' },
 			{ rel: 'stylesheet', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{
-				rel: 'stylesheet',
-				type: 'text/css',
-				href: '/css/prism.css',
+				rel:   'stylesheet',
+				type:  'text/css',
+				href:  '/css/prism.css',
 				media: 'print, (prefers-color-scheme: light)'
 			}
 		]
@@ -53,8 +53,8 @@ export default {
 	 */
 	vuetify: {
 		theme: {
-			dark: true,
-			primary: '#3f51b5',
+			dark:      true,
+			primary:   '#3f51b5',
 			secondary: '#2196f3'
 		}
 	},
@@ -67,20 +67,23 @@ export default {
 	 */
 	plugins: [
 		// '~/plugins/globals.js'
+		// '~/plugins/vue-scrollto'
 	],
 	/*
 	 ** Nuxt.js dev-modules
 	 */
 	buildModules: [
 		// Doc: https://github.com/nuxt-community/eslint-module
-		'@nuxtjs/eslint-module'
+		'@nuxtjs/eslint-module',
+		'@nuxtjs/stylelint-module'
 	],
 	/*
 	 ** Nuxt.js modules
 	 */
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
-		'@nuxtjs/vuetify'
+		'@nuxtjs/vuetify',
+		['vue-scrollto/nuxt', { duration: 300 }]
 	],
 	router: {
 		middleware: 'index'
@@ -94,18 +97,18 @@ export default {
 		 */
 		extend(config, ctx) {
 			config.module.rules.push({
-				test: /\.json$/i,
-				loader: 'file-loader',
+				test:    /\.json$/i,
+				loader:  'file-loader',
 				options: {
 					name: '[path][name].[ext]'
 				}
 			});
 		},
 		babel: {
-			babelrc: false,
+			babelrc:        false,
 			cacheDirectory: undefined,
-			presets: ['@nuxt/babel-preset-app'],
-			plugins: [
+			presets:        ['@nuxt/babel-preset-app'],
+			plugins:        [
 				[
 					'prismjs',
 					{
@@ -131,13 +134,14 @@ export default {
 							'data-uri-highlight',
 							'file-highlight',
 							'highlight-keywords',
+							'line-highlight',
 							'line-numbers',
 							'show-language',
 							'toolbar',
 							'wpd'
 						],
 						theme: 'tomorrow',
-						css: false
+						css:   false
 					}
 				]
 			]
@@ -146,9 +150,9 @@ export default {
 			splitChunks: {
 				cacheGroups: {
 					vendor: {
-						chunks: 'initial',
-						name: 'vendor',
-						test: 'vendor',
+						chunks:  'initial',
+						name:    'vendor',
+						test:    'vendor',
 						enforce: true
 					}
 				}

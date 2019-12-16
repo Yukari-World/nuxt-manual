@@ -6,7 +6,7 @@
 export default {
 	props: {
 		title: {
-			type: String,
+			type:    String,
 			default: ''
 		}
 	}

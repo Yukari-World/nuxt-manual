@@ -30,6 +30,74 @@ v-footer(padless)
 }
 
 #randomWord {
-	color: #ffffff;
+	text-decoration: line-through;
+	color: #FFFFFF;
 }
 </style>
+
+<script>
+import { mapState } from 'vuex';
+
+export default {
+	data() {
+		return {
+			bWordDecide: true,
+			loading:     true,
+		};
+	},
+	computed: {
+		// storeからのデータ読み込み
+		...mapState({
+			wordList: (state) => state.randomWords
+		})
+	},
+	mounted () {
+		// const animationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.setTimeout;
+		this.loading = false;
+
+		this.setrandomWord();
+		// ループイベント呼び出し
+		requestAnimationFrame(this.roopEvent);
+	},
+	methods: {
+		randomInt32() {
+			// XorShiftのseed起動
+			this.$store.commit('randomInt32');
+			const seeder = this.$store.getters.getSeed;
+
+			return seeder.w;
+		},
+		randomFloat() {
+			let randNumber = this.randomInt32();
+			if (randNumber < 0) {
+				randNumber = ~randNumber;
+			}
+			return randNumber / (2 ** 31 - 1);
+		},
+		setrandomWord() {
+			// 乱数の生成
+			const wordNum = Math.floor(this.randomFloat() * this.wordList.length);
+			const randomWord = document.getElementById('randomWord');
+
+			randomWord.setAttribute('href', '/randomWord/' + (wordNum + 1));
+			randomWord.textContent = '';
+			randomWord.insertAdjacentHTML('beforeend', this.wordList[wordNum].title);
+		},
+		secondsInterval(seconds = 5) {
+			// Initialize
+			const bdate = new Date();
+
+			if (bdate.getSeconds() % seconds === 0 && this.bWordDecide === false) {
+				this.bWordDecide = true;
+				this.setrandomWord();
+			} else if (bdate.getSeconds() % seconds === 1 && this.bWordDecide === true) {
+				this.bWordDecide = false;
+			}
+		},
+		roopEvent() {
+			this.secondsInterval(10);
+			requestAnimationFrame(this.roopEvent);
+		}
+	}
+};
+</script>

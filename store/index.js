@@ -1,21 +1,46 @@
 // import axios from 'axios';
 
 export function state() {
-	return { breedList: {}, menus: {}, randomWords: [] };
+	const nowTime = new Date();
+	return {
+		menus:       {},
+		randomWords: [],
+		XorSeed:     {
+			x: Math.max(Math.floor(nowTime.getDate() ** ((nowTime.getMonth() + 1) / 4 + 2)), (nowTime.getMonth() + 1) * nowTime.getDate() * Math.max(nowTime.getSeconds() ** 2, 31) * Math.max(nowTime.getMinutes() ** 2, 53)),
+			y: Math.max(Math.max(nowTime.getSeconds(), 5) ** Math.floor(Math.max(nowTime.getMinutes(), 10) / 10) + Math.max(nowTime.getSeconds(), 1) * Math.max(nowTime.getMinutes(), 1) * Math.floor(nowTime.getFullYear() / 10)),
+			z: 0,
+			w: Math.floor(Date.now() / 1000)
+		}
+	};
 }
 
 export const mutations = {
-	breedListUpdate(state, payload) {
-		state.breed_list = { ...payload };
-	},
 	setLists(state, payload) {
 		state.menus = payload;
 	},
 	setRandomWords(state, payload) {
 		state.randomWords = payload;
+	},
+	randomInt32(state) {
+		const t = state.XorSeed.x ^ state.XorSeed.x << 11;
+		state.XorSeed.x = state.XorSeed.y;
+		state.XorSeed.y = state.XorSeed.z;
+		state.XorSeed.z = state.XorSeed.w;
+		state.XorSeed.w = state.XorSeed.w ^ state.XorSeed.w >>> 19 ^ (t ^ t >>> 8);
+
+		// console.log('Number: ' + this.seed.w);
+		// return state.XorSeed.w;
 	}
 };
 
+export const actions = {
+};
+
+export const getters = {
+	getSeed(state) {
+		return state.XorSeed;
+	}
+};
 // export const actions = {
 // 	async fetchItems(context) {
 // 		await axios
