@@ -1,0 +1,16 @@
+mixin menuSidebar(href, name)
+	li(role='menuitem'): a(href=href, title=name)= name
+
+ul(role='group')#listSQL
+	+menuSidebar('sql-as.html', 'AS(別名)')
+	+menuSidebar('sql-in.html', 'IN()(複数選択)')
+	+menuSidebar('sql-insertSelect.html', 'INSERT SELECT')
+	+menuSidebar('sql-join.html', 'JOIN(テーブル結合)')
+	+menuSidebar('sql-like.html', '[WIP] LIKE(あいまい検索)')
+	+menuSidebar('sql-transaction.html', 'TRANSACTION(トランザクション)')
+	+menuSidebar('sql-truncate.html', 'TRUNCATE(テーブルを空にする)')
+	+menuSidebar('sql-deleteFlag.html', '[WIP] 削除フラグ')
+	+menuSidebar('sql-MySQLinsertWhereExists.html', '[MySQL] INSERT WHERE EXISTS')
+	+menuSidebar('sql-MySQLint.html', '[MySQL] INT(11) の意味')
+	+menuSidebar('sql-MySQLupdateSelect.html', '[MySQL] UPDATE SELECT')
+	+menuSidebar('#', '[MySQL/WIP] UTF-8のあれこれ')

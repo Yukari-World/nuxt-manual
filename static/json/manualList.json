@@ -40,7 +40,7 @@
 							"workInProgress": false
 						}, {
 							"title": "???",
-							"link": "/randomWord",
+							"link": "/randomWord/",
 							"summary": "",
 							"tags": [],
 							"deprecated": false,
@@ -82,6 +82,13 @@
 						}, {
 							"title": "グラデーション",
 							"link": "/gradation",
+							"summary": "",
+							"tags": ["CSS"],
+							"deprecated": false,
+							"workInProgress": false
+						}, {
+							"title": "スライダーレイアウト",
+							"link": "/RangeLayout",
 							"summary": "",
 							"tags": ["CSS"],
 							"deprecated": false,
@@ -209,7 +216,7 @@
 					"list": [
 						{
 							"title": "CSS",
-							"link": "/",
+							"link": "/css",
 							"summary": "",
 							"tags": ["CSS"],
 							"deprecated": false,
@@ -230,7 +237,7 @@
 							"workInProgress": false
 						}, {
 							"title": "SCSS",
-							"link": "/",
+							"link": "/scss",
 							"summary": "",
 							"tags": ["SCSS"],
 							"deprecated": false,
@@ -461,6 +468,38 @@
 				}
 			]
 		}, {
+			"category": "Vue.js",
+			"baseURL": "/vue",
+			"description": "",
+			"icon": "mdi-vuejs",
+			"subCategory": [
+				{
+					"name": "Default",
+					"list": [
+						{
+							"title": "近日公開",
+							"link": "/",
+							"summary": "",
+							"tags": ["Vue.js"],
+							"deprecated": false,
+							"workInProgress": true
+						}
+					]
+				}, {
+					"name": "Nuxt.js",
+					"list": [
+						{
+							"title": "近日公開",
+							"link": "/",
+							"summary": "",
+							"tags": ["Nuxt.js"],
+							"deprecated": false,
+							"workInProgress": true
+						}
+					]
+				}
+			]
+		}, {
 			"category": "Wordpress",
 			"baseURL": "/wordpress",
 			"description": "",
@@ -468,7 +507,16 @@
 			"subCategory": [
 				{
 					"name": "Default",
-					"list": []
+					"list": [
+						{
+							"title": "近日公開",
+							"link": "/",
+							"summary": "",
+							"tags": ["Wordpress"],
+							"deprecated": false,
+							"workInProgress": true
+						}
+					]
 				}
 			]
 		}, {
