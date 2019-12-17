@@ -83,10 +83,15 @@ export default {
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
 		'@nuxtjs/vuetify',
+		'@nuxtjs/sitemap',
 		['vue-scrollto/nuxt', { duration: 300 }]
 	],
 	router: {
 		middleware: 'index'
+	},
+	sitemap: {
+		path:     '/sitemap.xml',
+		hostname: 'http://localhost:8080'
 	},
 	/*
 	 ** Build configuration
