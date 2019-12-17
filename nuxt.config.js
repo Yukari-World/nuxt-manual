@@ -1,3 +1,6 @@
+require('dotenv').config();
+// console.info('nuxt.config.js BASE_URL:', process.env.BASE_URL);
+
 export default {
 	mode: 'universal',
 	/*
@@ -42,7 +45,7 @@ export default {
 		]
 	},
 	env: {
-		baseUrl: process.env.BASE_URL || 'http://localhost:8080'
+		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/'
 	},
 	/*
 	 ** Customize the progress-bar color
@@ -82,6 +85,7 @@ export default {
 	 */
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
+		'@nuxtjs/dotenv',
 		'@nuxtjs/vuetify',
 		'@nuxtjs/sitemap',
 		['vue-scrollto/nuxt', { duration: 300 }]
@@ -91,7 +95,7 @@ export default {
 	},
 	sitemap: {
 		path:     '/sitemap.xml',
-		hostname: 'http://localhost:8080'
+		hostname: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/'
 	},
 	/*
 	 ** Build configuration
