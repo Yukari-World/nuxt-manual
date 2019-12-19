@@ -16,6 +16,17 @@ v-app#inspire
 
 <style lang="scss">
 // ----------------------------------------------------------------------------------------------------
+// Common Style
+section {
+	&:not(:first-child) {
+		margin-top: 1.5rem;
+		border: solid;
+		border-width: thin 0 0 0;
+		border-color: rgba(255, 255, 255, 0.12);
+	}
+}
+
+// ----------------------------------------------------------------------------------------------------
 // Vender Profile Initialize
 ::-webkit-scrollbar {
 	width: 10px;
@@ -47,8 +58,7 @@ v-app#inspire
 
 // ----------------------------------------------------------------------------------------------------
 // Prism Overwrite
-code,
-pre {
+code, pre {
 	&[class*="language-"] {
 		margin: unset;
 		tab-size: 4;
@@ -67,14 +77,15 @@ pre {
 	&[class*="language-"] {
 		> code {
 			$size: 2.286em;
-			background-color: unset;
-			color: unset;
-			box-shadow: unset;
+
 			display: block;
-			border-radius: unset;
 			white-space: pre-wrap;
 			font-size: 14px;
 			font-weight: normal;
+			color: unset;
+			border-radius: unset;
+			background-color: unset;
+			box-shadow: unset;
 
 			@media (prefers-color-scheme: light) {
 				background-size: $size $size;

@@ -2000,10 +2000,25 @@
 		"summary": "<p>エンティティとはキラーを操る所謂親玉的存在。マッチバトルの成績が非常に優れない場合表示される文字。</p><p>尚、エンティティはプレイヤーであるという説がある。</p>",
 		"tags": []
 	}, {
+		"title": "エンディングまで、泣くんじゃない。",
+		"original": "MOTHER",
+		"summary": "<p>MOTHERのキャッチコピー。</p>",
+		"tags": ["Advertising slogan"]
+	}, {
+		"title": "大人も子供も、おねーさんも。",
+		"original": "MOTHER2 ギーグの逆襲",
+		"summary": "<p>MOTHER2 ギーグの逆襲のキャッチコピー。</p>",
+		"tags": ["Advertising slogan"]
+	}, {
 		"title": "頑丈なロープ",
 		"original": "Eternal League of Nefia",
 		"summary": "<p>Elonaのアイテム。使用可能な消費アイテム。使用できるのだが…………。</p>",
 		"tags": ["Item"]
+	}, {
+		"title": "奇妙で、おもしろい。そして、せつない。",
+		"original": "MOTHER3",
+		"summary": "<p>MOTHER3のキャッチコピー。</p>",
+		"tags": ["Advertising slogan"]
 	}, {
 		"title": "ごらんの有様だよ!!!",
 		"original": "魔法少女アイ",
@@ -2030,10 +2045,20 @@
 		"summary": "<p>メガCDのアドベンチャーゲーム『夢見館の物語』のキャッチコピー。幻想的な雰囲気は 多くのユーザーを引き付け、今でも根強いファンが存在する知る人ぞ知る名作。クリアまでの総プレイ時間は短め。</p>",
 		"tags": ["Advertising slogan"]
 	}, {
+		"title": "謎を解けるか。一億人。",
+		"original": "たけしの挑戦状",
+		"summary": "<p>たけしの挑戦状のキャッチコピー。当時の時代にここまでいろいろ詰め込んだ結果、非常に難解なものとなっている。</p>",
+		"tags": ["Advertising slogan"]
+	}, {
 		"title": "ねこでした",
 		"original": "SCP Foundation",
 		"summary": "<p>よろしくおねがいします</p><p class=\"mintyo\" style=\"text-align: right; font-size: 48px;\">メモ</p>",
 		"tags": ["Meme", "SCP"]
+	}, {
+		"title": "名作保証",
+		"original": "MOTHER",
+		"summary": "<p>MOTHERのキャッチコピー。</p>",
+		"tags": ["Advertising slogan"]
 	}, {
 		"title": "竜退治はもう飽きた",
 		"original": "メタルマックス",

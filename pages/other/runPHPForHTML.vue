@@ -35,7 +35,7 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'HTMLファイルでPHPを動かす'
+				title: 'HTMLファイル内でPHPを動かす'
 			}
 		};
 	},

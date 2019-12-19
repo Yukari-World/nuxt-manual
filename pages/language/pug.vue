@@ -83,11 +83,11 @@ div
 				a(href='#', target='_blank', rel='external noopener') こちら
 		h4 HTML
 		pre.language-html.line-numbers: code.
-			&lt;p&gt;参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;&lt;/p&gt;
+			&lt;p&gt;参照元は&lt;a href="#" target="_blank" rel="external noopener"&gt;こちら&lt;/a&gt;&lt;/p&gt;
 		p 尚、どうしても一行で済ましたいならば以下のように記述する。
 		h4 Pug
 		pre.language-pug.line-numbers: code.
-			p 参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;
+			p 参照元は&lt;a href="#" target="_blank" rel="external noopener"&gt;こちら&lt;/a&gt;
 
 		h3 IDとクラス
 		p IDとクラスはプロパティを記述する方法で記述してもよいが、以下のように記述することができる。
