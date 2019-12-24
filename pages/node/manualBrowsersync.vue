@@ -92,13 +92,15 @@ div
 				| gulp4が公開されたことにより処理手順を直列化できるようになった。
 
 	section
-		h2 参考リンク
+		h2 リンク
 		p
 			a(href='https://browsersync.io/', target='_blank', rel='external noopener') Browsersync - Time-saving synchronised browser testing
 </template>
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-batch';
+import 'prismjs/components/prism-http';
 
 export default {
 	data() {
@@ -110,7 +112,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {

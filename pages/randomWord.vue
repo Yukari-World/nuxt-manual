@@ -1,7 +1,5 @@
 <template lang="pug">
 dl#randomOutput
-	//- <dt id="wordID' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt>
-	//- <dd>' + dataTemp.summary + '<div class="boxTag"><ul class="tagList">' + tagText + '</ul></div></dd>
 	template(v-if='$route.params.id !== undefined')
 		nuxt-child
 	template(v-else)
@@ -162,7 +160,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 		// setTimeout(this.scroll, 300);
 	},

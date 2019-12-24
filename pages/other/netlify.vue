@@ -9,6 +9,9 @@ div
 		p NetlifyでNuxtのマニュアルを作成する機会があったので記述する。
 
 	section
+		h2 Netlifyとは
+		p
+			| a
 
 	section
 		h2 リンク
@@ -32,7 +35,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {

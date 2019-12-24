@@ -10,7 +10,8 @@ nav#menu.sidebar
 	template(v-if='loading')
 		- for (var i = 0; i < 15; i++)
 			v-skeleton-loader(type='list-item')
-	v-list#navMenu(v-else, dense, expand, nav, :three-line='threeLine')
+	v-list#navMenu(v-else, dense, expand, nav, subheader, :three-line='threeLine')
+		v-subheader Contents
 		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index')
 			template(v-slot:activator)
 				v-list-item(:title='listIndex.category')
@@ -35,7 +36,7 @@ nav#menu.sidebar
 								v-list-item-title(v-text='lists.title')
 						template(v-if='lists.workInProgress === true')
 							v-list-item-icon
-									v-icon mdi-border-color
+								v-icon mdi-border-color
 </template>
 
 <style lang="scss">

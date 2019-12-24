@@ -113,13 +113,14 @@ div
 		p npmコマンドをアップデートする。npm自体もパッケージの一つであり、時々更新されたりする。
 
 	section
-		h2 参考リンク
+		h2 リンク
 		p
 			a(href='https://www.npmjs.com/', target='_blank', rel='external noopener') npm
 </template>
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-batch';
 
 export default {
 	data() {
@@ -131,7 +132,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {

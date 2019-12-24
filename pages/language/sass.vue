@@ -295,11 +295,17 @@ div
 		section
 			h2 最後に
 			p このマニュアルはSCSSをSassに変換したファイルを置いているので参考程度に。
-			pre.line-numbers(data-src='sass/buildSass.sass', data-download-link)
+			pre.line-numbers(data-src='/sass/buildSass.sass', data-download-link)
+
+	section
+		h2 リンク
+		a(href='http://sass-lang.com/', target='_blank', rel='external noopener') Sass: Syntactically Awesome Style Sheets
 </template>
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-sass';
 
 export default {
 	data() {

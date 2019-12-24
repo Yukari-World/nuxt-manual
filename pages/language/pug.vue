@@ -283,6 +283,10 @@ div
 		h2 最後に
 		p このマニュアルはPugで作られており、ソースを全て残しているので参考にする場合はPugフォルダ参照。クラシックなページデザイン故に参考になるか怪しいが。
 		pre.line-numbers(data-src='/pug/index.pug', data-download-link)
+
+	section
+		h2 リンク
+		a(href='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
 </template>
 
 <style lang="scss">
@@ -299,6 +303,11 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-batch';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-pug';
 
 export default {
 	data() {

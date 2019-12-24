@@ -30,6 +30,7 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-markup';
 
 export default {
 	data() {
@@ -41,7 +42,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {

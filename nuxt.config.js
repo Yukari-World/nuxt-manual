@@ -121,19 +121,8 @@ export default {
 				[
 					'prismjs',
 					{
-						languages: [
-							'clike',
-							'batch',
-							'c',
-							'css',
-							'ini',
-							'javascript',
-							'markup',
-							'php',
-							'pug',
-							'scss',
-							'sql'
-						],
+						// languages: [
+						// ],
 						plugins: [
 							'autolinker',
 							'autoloader',

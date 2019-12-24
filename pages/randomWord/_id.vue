@@ -1,7 +1,5 @@
 <template lang="pug">
 span
-	//- <dt id="wordID' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt>
-	//- <dd>' + dataTemp.summary + '<div class="boxTag"><ul class="tagList">' + tagText + '</ul></div></dd>
 	dt(:id='"wordID" + ($route.params.id)')
 		h3(v-html='randomWords[$route.params.id - 1].title')
 		h4 出典: {{randomWords[$route.params.id - 1].original}}

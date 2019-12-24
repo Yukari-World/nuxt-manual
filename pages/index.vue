@@ -227,6 +227,9 @@ div
 <script>
 import { mapState } from 'vuex';
 import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-pug';
+import 'prismjs/components/prism-scss';
 
 export default {
 	data() {
@@ -246,7 +249,7 @@ export default {
 		document.getElementById('countRandom').textContent = this.randomWords.length;
 
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {

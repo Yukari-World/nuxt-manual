@@ -50,11 +50,12 @@ div
 					span.token.keyword.space &nbsp;
 					span.token.keyword.keyword-EXISTS EXISTS
 				| を使用する場合、方言による制約でこの方法を使用しないと使用できない。この方法については
-				a(href='sql-MySQLinsertWhereExists.html', title='[MySQL] INSERT WHERE EXISTS') 別のページにて参照されたし。
+				nuxt-link(to='/sql/MySQLinsertWhereExists', title='[MySQL] INSERT WHERE EXISTS') 別のページにて参照されたし。
 </template>
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-sql';
 
 export default {
 	data() {
@@ -66,7 +67,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
