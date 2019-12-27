@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-	v-alert(type='error', border='left', colored-border, dense, elevation='2')
+	v-alert(type='error', border='left', colored-border, dense, elevation='5')
 		h2 注意
 		p このページの内容は非推奨です。テスト目的以外で利用することは避けてください。
 

@@ -119,6 +119,33 @@
 				}
 			]
 		}, {
+			"category": "Git",
+			"baseURL": "/git",
+			"description": "",
+			"icon": "mdi-git",
+			"subCategory": [
+				{
+					"name": "Default",
+					"list": [
+						{
+							"title": "git-flow",
+							"link": "/gitflow",
+							"summary": "Gitにおけるremoteブランチの構築方法の考え方",
+							"tags": ["Git"],
+							"deprecated": false,
+							"workInProgress": true
+						}, {
+							"title": "origin/HEADについて",
+							"link": "/head",
+							"summary": "GitにおけるHEADブランチの存在について",
+							"tags": ["Git"],
+							"deprecated": false,
+							"workInProgress": true
+						}
+					]
+				}
+			]
+		}, {
 			"category": "HTML",
 			"baseURL": "/html",
 			"description": "",
