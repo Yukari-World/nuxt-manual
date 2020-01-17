@@ -1,8 +1,11 @@
+import shrinkRay from 'shrink-ray-current';
 require('dotenv').config();
-// console.info('nuxt.config.js BASE_URL:', process.env.BASE_URL);
 
 export default {
-	mode: 'universal',
+	mode:   'universal',
+	render: {
+		compressor: shrinkRay()
+	},
 	/*
 	 ** Headers of the page
 	 */
@@ -34,7 +37,6 @@ export default {
 			{ rel: 'preload', as: 'style', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: '/css/prism.css' },
 			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-			{ rel: 'manifest', type: 'manifest', href: '/manifest.json' },
 			{ rel: 'stylesheet', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{
 				rel:   'stylesheet',
@@ -86,8 +88,9 @@ export default {
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
 		'@nuxtjs/dotenv',
-		'@nuxtjs/vuetify',
+		'@nuxtjs/pwa',
 		'@nuxtjs/sitemap',
+		'@nuxtjs/vuetify',
 		['vue-scrollto/nuxt', { duration: 300 }]
 	],
 	router: {
@@ -156,6 +159,84 @@ export default {
 				}
 			},
 			runtimeChunk: true
+		}
+	},
+	/*
+	 ** PWA configuration
+	 */
+	pwa: {
+		manifest: {
+			author:           'Yukari-World',
+			background_color: '#000011',
+			default_locale:   'ja',
+			display:          'standalone',
+			homepage_url:     'https://github.com/Yukari-World/nuxt-manual',
+			manifest_version: 2,
+			name:             'HTML Technical Manual',
+			short_name:       'HTML Manual',
+			start_url:        process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
+			theme_color:      '#000011',
+			version:          '1.0.0.0',
+		},
+		workbox: {
+			clientsClaim:   true,
+			offline:        true,
+			skipWaiting:    true,
+			runtimeCaching: [
+				{
+					urlPattern:      '^' + (process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/') + 'img/.*.(png|jpg|webp)$',
+					cacheName:       'image-cache',
+					handler:         'cacheFirst',
+					method:          'GET',
+					strategyOptions: {
+						cacheExpiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+						},
+						cacheableResponse: {
+							statuses: [0, 200],
+						},
+					},
+				}, {
+					urlPattern:      '^https://cdn.jsdelivr.net/',
+					cacheName:       'jsdelivr-cache',
+					handler:         'cacheFirst',
+					method:          'GET',
+					strategyOptions: {
+						cacheExpiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+						},
+						cacheableResponse: {
+							statuses: [0, 200],
+						},
+					},
+				}, {
+					urlPattern:      '^https://fonts.googleapis.com/',
+					cacheName:       'google-fonts-cache',
+					handler:         'cacheFirst',
+					method:          'GET',
+					strategyOptions: {
+						cacheExpiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+						},
+						cacheableResponse: {
+							statuses: [0, 200],
+						},
+					},
+				}, {
+					urlPattern:      '^https://fonts.gstatic.com/',
+					cacheName:       'gstatic-fonts-cache',
+					handler:         'cacheFirst',
+					method:          'GET',
+					strategyOptions: {
+						cacheExpiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+						},
+						cacheableResponse: {
+							statuses: [0, 200],
+						},
+					},
+				},
+			]
 		}
 	},
 	/*
