@@ -69,6 +69,7 @@ module.exports = {
 		"no-param-reassign": ["error", {
 			"props": false
 		}],
+		"no-unused-expressions": "off",
 		"no-tabs": ["off", { allowIndentationTabs: true }],
 		"prettier/prettier": "off",
 		// "require-jsdoc": ["error", {
