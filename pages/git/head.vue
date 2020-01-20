@@ -20,7 +20,7 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'origin/HEADについて'
+				title: 'HEADについて'
 			}
 		};
 	},
