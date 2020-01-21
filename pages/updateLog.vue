@@ -2,6 +2,16 @@
 v-timeline(reverse)
 	v-timeline-item
 		v-card
+			v-card-title.headline 2020/01/06
+			v-card-text
+				ul
+					li Gitの項目を追加
+					li 技術マニュアル『Netlify』を作成
+					li 技術マニュアル『origin/HEADについて』を作成
+					li 技術マニュアル『git-flow』を作成
+					li 公式サイトリンクを『リンク』、参考ページリンクを『参考リンク』と分離
+
+		v-card
 			v-card-title.headline 2019/12/19
 			v-card-text
 				ul

@@ -73,6 +73,13 @@
 							"deprecated": false,
 							"workInProgress": false
 						}, {
+							"title": "Reset CSS",
+							"link": "/resetCSS",
+							"summary": "",
+							"tags": ["CSS"],
+							"deprecated": false,
+							"workInProgress": true
+						}, {
 							"title": "疑似要素 :before / :after",
 							"link": "/beforeAfter",
 							"summary": "",
@@ -114,6 +121,33 @@
 							"tags": ["CSS"],
 							"deprecated": false,
 							"workInProgress": false
+						}
+					]
+				}
+			]
+		}, {
+			"category": "Git",
+			"baseURL": "/git",
+			"description": "",
+			"icon": "mdi-git",
+			"subCategory": [
+				{
+					"name": "Default",
+					"list": [
+						{
+							"title": "git-flow",
+							"link": "/gitflow",
+							"summary": "Gitにおけるremoteブランチの構築方法の考え方",
+							"tags": ["Git"],
+							"deprecated": false,
+							"workInProgress": true
+						}, {
+							"title": "HEADについて",
+							"link": "/head",
+							"summary": "GitにおけるHEADブランチの存在について",
+							"tags": ["Git"],
+							"deprecated": false,
+							"workInProgress": true
 						}
 					]
 				}
@@ -509,8 +543,8 @@
 					"name": "Default",
 					"list": [
 						{
-							"title": "近日公開",
-							"link": "/",
+							"title": "Wordpress カスタマイズ項目の追加",
+							"link": "/customizeMenu",
 							"summary": "",
 							"tags": ["Wordpress"],
 							"deprecated": false,

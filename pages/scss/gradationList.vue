@@ -1,10 +1,10 @@
 <template lang="pug">
 div
-	v-alert(type='info', border='left', colored-border, dense, elevation='2')
+	v-alert(type='info', border='left', colored-border, dense, elevation='5')
 		h2 書きかけのページ
 		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
 
-	v-alert(type='warning', border='left', colored-border, dense, elevation='2')
+	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
 		h2 応用技術
 		p ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。
 

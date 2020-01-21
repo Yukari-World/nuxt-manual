@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-	v-alert(type='warning', border='left', colored-border, dense, elevation='2')
+	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
 		h2 非標準の機能
 		p ここに記述されている内容はW3Cで標準化されていません。故に予告なく仕様変更、廃止される可能性があります。
 
