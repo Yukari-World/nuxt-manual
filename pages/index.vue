@@ -13,7 +13,7 @@ div
 			| 各ページのコードのハイライトには
 			a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
 			| が使用されています。
-		v-alert(type='info', border='left', colored-border, dense, elevation='2')
+		v-alert(type='info', border='left', colored-border, dense, elevation='5')
 			//- h2 注意事項
 			p
 				| このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。

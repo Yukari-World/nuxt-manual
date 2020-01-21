@@ -5,29 +5,22 @@ div
 		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
 
 	section
-		h2 互換性に関する注意事項
-		ul
-			li Internet Explorer全てのバージョンにおいてFetchAPIを使用することはできない。つまりInternet Explorerを対応に含む場合はこの方法を利用できない。
-			li
-				code.language-javascript: span.token.class-name formData
-				| はInternet ExplorerとMicrosoft Edge17までは殆どの機能が対応していない。
+		h2 説明
+		p 記述前
 
 	section
 		h2 参考リンク
-		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/API/Fetch_API', target='_blank', rel='external noopener') MDN Web Docs
+		a(href='https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0', target='_blank', rel='external noopener') いまさらだけどGitを基本から分かりやすくまとめてみた - Qiita
 </template>
 
 <script>
 import Prism from 'prismjs';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'Fetch API'
+				title: 'HEADについて'
 			}
 		};
 	},

@@ -103,6 +103,10 @@ pre {
 		&:before {
 			content: unset;
 		}
+
+		&:after {
+			content: unset;
+		}
 	}
 }
 </style>
