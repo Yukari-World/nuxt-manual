@@ -289,7 +289,7 @@ div
 		a(href='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .v-application {
 	.title {
 		font-size: unset !important;

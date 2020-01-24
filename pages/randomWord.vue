@@ -17,7 +17,7 @@ dl#randomOutput
 							a(:data-tag='tag') {{tag}}
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 #randomOutput {
 	h3, h4 {
 		font-family: "メイリオ", "Meiryo", sans-serif;
