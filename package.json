@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"@codemirror/next": "^0.3.0",
-		"axios": "^0.19.1",
+		"axios": "^0.19.2",
 		"nuxt": "^2.11.0",
 		"prismjs": "^1.19.0",
 		"vue-scrollto": "^2.17.1"
@@ -42,10 +42,12 @@
 		"@nuxtjs/eslint-module": "^1.1.0",
 		"@nuxtjs/pwa": "^3.0.0-beta.19",
 		"@nuxtjs/sitemap": "^2.0.1",
+		"@nuxtjs/style-resources": "^1.0.0",
 		"@nuxtjs/stylelint-module": "^3.2.1",
 		"@nuxtjs/vuetify": "^1.10.2",
 		"babel-eslint": "^10.0.3",
 		"babel-plugin-prismjs": "^2.0.1",
+		"css-mqpacker": "^7.0.0",
 		"csscomb": "^4.3.0",
 		"csscomb-webpack-plugin": "^0.3.8",
 		"eslint": "^6.8.0",
@@ -53,8 +55,9 @@
 		"eslint-plugin-nuxt": ">=0.5.0",
 		"eslint-plugin-prettier": "^3.1.2",
 		"file-loader": "^5.0.2",
-		"husky": "^4.0.10",
-		"lint-staged": "^10.0.0",
+		"firebase": "^7.7.0",
+		"husky": "^4.2.1",
+		"lint-staged": "^10.0.2",
 		"node-sass": "^4.13.1",
 		"prettier": "^1.19.1",
 		"pug": "^2.0.4",
@@ -67,6 +70,7 @@
 		"stylelint-config-recommended": "^3.0.0",
 		"stylelint-prettier": "^1.1.2",
 		"stylelint-scss": "^3.13.0",
-		"url-loader": "^3.0.0"
+		"url-loader": "^3.0.0",
+		"vuexfire": "^3.2.1"
 	}
 }

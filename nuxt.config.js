@@ -1,4 +1,5 @@
 import shrinkRay from 'shrink-ray-current';
+// import CsscombPlugin from 'csscomb-webpack-plugin';
 require('dotenv').config();
 
 export default {
@@ -57,6 +58,10 @@ export default {
 	 ** Customize Vuetify theme
 	 */
 	vuetify: {
+		lang: {
+			locale:  ['ja'],
+			current: 'ja',
+		},
 		theme: {
 			dark:      true,
 			primary:   '#3f51b5',
@@ -71,6 +76,7 @@ export default {
 	 ** Plugins to load before mounting the App
 	 */
 	plugins: [
+		'~/plugins/firebase'
 		// '~/plugins/globals.js'
 		// '~/plugins/vue-scrollto'
 	],
@@ -90,6 +96,7 @@ export default {
 		'@nuxtjs/dotenv',
 		'@nuxtjs/pwa',
 		'@nuxtjs/sitemap',
+		'@nuxtjs/style-resources',
 		'@nuxtjs/vuetify',
 		['vue-scrollto/nuxt', { duration: 300 }]
 	],
@@ -112,9 +119,16 @@ export default {
 				test:    /\.json$/i,
 				loader:  'file-loader',
 				options: {
-					name: '[path][name].[ext]'
+					name ({ isDev }) { isDev ? '[name].js' : '[path][hash].[ext]';}
 				}
 			});
+			// config.plugins.push(new CsscombPlugin({
+			// 	configFile: './.csscomb.json',
+			// 	files:      [
+			// 		'**/*.vue',
+			//		 '**/*.s?(a|c)ss$',
+			// 	],
+			// }));
 		},
 		babel: {
 			babelrc:        false,
@@ -147,18 +161,50 @@ export default {
 				]
 			]
 		},
+		extractCSS: false,
+		filenames:  {
+			app ({ isDev }) { isDev ? '[name].js' : '[name].[chunkhash].js';}
+		},
 		optimization: {
 			splitChunks: {
-				cacheGroups: {
-					vendor: {
-						chunks:  'initial',
-						name:    'vendor',
-						test:    'vendor',
+				automaticNameMaxLength: 128,
+				cacheGroups:            {
+					clusterJs: {
+						name:      'cluster.js',
+						test:      /[\\/]node_modules[\\/]/,
+						chunks:    'all',
+						minChunks: 3,
+						minSize:   1,
+						enforce:   true,
+					},
+					clusterStyles: {
+						name:    'cluster.styles',
+						test:    /\.s?(a|c)ss$/,
+						chunks:  'all',
+						minSize: 1,
 						enforce: true
 					}
 				}
 			},
 			runtimeChunk: true
+		},
+		postcss: {
+			plugins: {
+				'postcss-import':     {},
+				'postcss-url':        {},
+				'postcss-preset-env': this.preset,
+				'css-mqpacker':       {},
+				'cssnano':            { preset: 'default' },
+			},
+			order:  'presetEnvAndCssnanoLast',
+			preset: {
+				stage: 2
+			}
+		},
+		splitChunks: {
+			layouts: false,
+			pages:   true,
+			commons: true
 		}
 	},
 	/*
