@@ -61,8 +61,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'INSERT SELECT'
-			}
+				title: 'INSERT SELECT',
+			},
 		};
 	},
 	mounted() {
@@ -74,7 +74,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

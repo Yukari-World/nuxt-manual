@@ -601,8 +601,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: '特殊なグラデーションリスト'
-			}
+				title: '特殊なグラデーションリスト',
+			},
 		};
 	},
 	mounted() {
@@ -614,7 +614,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

@@ -22,8 +22,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'git-flow'
-			}
+				title: 'git-flow',
+			},
 		};
 	},
 	mounted() {
@@ -35,7 +35,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

@@ -38,8 +38,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'brタグによる改行を無効化'
-			}
+				title: 'brタグによる改行を無効化',
+			},
 		};
 	},
 	mounted() {
@@ -51,7 +51,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

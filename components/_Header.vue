@@ -6,9 +6,9 @@
 export default {
 	props: {
 		title: {
-			type:    String,
-			default: ''
-		}
-	}
+			type: String,
+			default: '',
+		},
+	},
 };
 </script>

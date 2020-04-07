@@ -388,8 +388,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'input要素'
-			}
+				title: 'input要素',
+			},
 		};
 	},
 	mounted() {
@@ -401,7 +401,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

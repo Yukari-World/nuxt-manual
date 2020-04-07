@@ -125,7 +125,7 @@ div
 					li
 						a(href='https://github.com/aFarkas/lazysizes', title='GitHub - aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.', target='_blank', rel='external noopener') lazysizes
 					li
-						a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
+						a(href='https://prismjs.com/', title='Prism.js', target='_blank', rel='external noopener') Prism.js
 			dt Node.js(関連パッケージは省略)
 			dd
 				ul
@@ -140,7 +140,11 @@ div
 					li
 						a(href='https://gulpjs.com/', title='gulp.js', target='_blank', rel='external noopener') gulp.js
 					li
+						a(href='https://ja.nuxtjs.org/', title='Nuxt.js - ユニバーサル Vue.js アプリケーション', target='_blank', rel='external noopener') Nuxt.js
+					li
 						a(href='https://postcss.org/', title='PostCSS - a tool for transforming CSS with JavaScript', target='_blank', rel='external noopener') PostCSS
+					li
+						a(href='https://vuetifyjs.com/ja/', title='マテリアルデザインコンポーネントフレームワーク — Vuetify.js', target='_blank', rel='external noopener') Vuetify.js
 					li
 						a(href='https://webpack.js.org/', title='webpack', target='_blank', rel='external noopener') webpack
 
@@ -235,15 +239,15 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'Nuxt Manual'
-			}
+				title: 'Nuxt Manual',
+			},
 		};
 	},
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			randomWords: (state) => state.randomWords
-		})
+			randomWords: (state) => state.randomWords,
+		}),
 	},
 	mounted() {
 		document.getElementById('countRandom').textContent = this.randomWords.length;
@@ -256,7 +260,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

@@ -87,8 +87,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'PDO(PHP Data Objects)'
-			}
+				title: 'PDO(PHP Data Objects)',
+			},
 		};
 	},
 	mounted() {
@@ -100,7 +100,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

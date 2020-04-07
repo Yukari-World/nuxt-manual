@@ -13,8 +13,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: '削除フラグ'
-			}
+				title: '削除フラグ',
+			},
 		};
 	},
 	mounted() {
@@ -26,7 +26,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

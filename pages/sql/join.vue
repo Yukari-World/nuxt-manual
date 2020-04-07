@@ -126,8 +126,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'JOIN(テーブル結合)'
-			}
+				title: 'JOIN(テーブル結合)',
+			},
 		};
 	},
 	mounted() {
@@ -139,7 +139,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

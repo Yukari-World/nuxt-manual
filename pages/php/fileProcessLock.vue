@@ -59,8 +59,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'ファイルを利用した二重起動防止'
-			}
+				title: 'ファイルを利用した二重起動防止',
+			},
 		};
 	},
 	mounted() {
@@ -72,7 +72,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>
