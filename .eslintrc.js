@@ -23,7 +23,7 @@ module.exports = {
 			"before": false,
 			"after": true
 		}],
-		"comma-dangle": ["error", "only-multiline", {
+		"comma-dangle": ["error", "always-multiline", {
 			"arrays": "always",
 			"objects": "never",
 			"imports": "never",
@@ -40,8 +40,7 @@ module.exports = {
 			},
 			"multiLine": {
 				"beforeColon": false,
-				"afterColon": true,
-				"align": "value"
+				"afterColon": true
 			}
 		}],
 		"keyword-spacing": ["warn", {

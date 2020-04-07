@@ -12,8 +12,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'Prismハイライトの例'
-			}
+				title: 'Prismハイライトの例',
+			},
 		};
 	},
 	mounted() {
@@ -25,7 +25,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

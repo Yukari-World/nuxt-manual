@@ -6,12 +6,30 @@ v-app#inspire
 	v-app-bar(app)
 		v-app-bar-nav-icon(@click.stop='drawer = !drawer')
 		HeaderVue(:title='title')
+		v-spacer
+
+		v-btn(icon)
+			v-icon mdi-magnify
+
+		v-menu(bottom, left, offset-y, transition='slide-y-transition')
+			template(v-slot:activator='{ on }')
+				v-btn(icon,v-on='on')
+					v-icon mdi-dots-vertical
+			v-list
+				v-list-item(v-for='(temp, index) in headMenu', active-class='light-blue--text', link, nuxt, :to='temp.link', :key='index')
+					v-list-item-icon
+						v-icon {{temp.icon}}
+					v-list-item-content
+						v-list-item-title {{temp.title}}
 
 	v-content
 		v-container(fluid)
 			router-view
 				nuxt
 		FooterVue
+
+		v-btn(color='red', fab, fixed, bottom, right, @click="$vuetify.goTo('#inspire', {duration: 500, offset: 0, easing: 'easeOutCubic'})")
+			v-icon mdi-chevron-up
 </template>
 
 <style lang="scss">
@@ -122,12 +140,17 @@ export default {
 	components: {
 		HeaderVue,
 		FooterVue,
-		SideList
+		SideList,
 	},
 	data() {
 		return {
 			drawer: null,
-			title:  ''
+			title: '',
+			headMenu: [
+				{title: 'トップページ', icon: 'mdi-home', link: '/'},
+				{title: '更新履歴', icon: 'mdi-login', link: '/updateLog'},
+				{title: 'ログイン', icon: 'mdi-login', link: '/user/login'},
+			],
 		};
 	},
 	created() {
@@ -143,7 +166,7 @@ export default {
 			// 第1引数にはemitで渡した値が入ってくる。
 			// 第2引数以降を渡す場合も同様に、それ以降の引数で受け取れる
 			this.title = title || '';
-		}
-	}
+		},
+	},
 };
 </script>

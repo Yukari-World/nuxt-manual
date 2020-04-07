@@ -56,18 +56,18 @@ import { mapState } from 'vuex';
 export default {
 	data() {
 		return {
-			loading:   true,
-			threeLine: false
+			loading: true,
+			threeLine: false,
 		};
 	},
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			categoryList: (state) => state.menus.categoryList
-		})
+			categoryList: (state) => state.menus.categoryList,
+		}),
 	},
 	mounted () {
 		this.loading = false;
-	}
+	},
 };
 </script>

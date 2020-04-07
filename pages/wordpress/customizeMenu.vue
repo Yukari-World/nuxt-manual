@@ -129,8 +129,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'カスタマイズ項目の追加'
-			}
+				title: 'カスタマイズ項目の追加',
+			},
 		};
 	},
 	mounted() {
@@ -142,7 +142,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

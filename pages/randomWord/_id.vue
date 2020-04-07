@@ -13,7 +13,7 @@ span
 					a(:data-tag='tag') {{tag}}
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 #randomOutput {
 	h3, h4 {
 		font-family: "メイリオ", "Meiryo", sans-serif;
@@ -146,8 +146,8 @@ export default {
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			randomWords: (state) => state.randomWords
-		})
+			randomWords: (state) => state.randomWords,
+		}),
 	},
 };
 </script>

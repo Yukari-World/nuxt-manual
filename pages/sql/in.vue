@@ -52,8 +52,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'IN()(複数選択)'
-			}
+				title: 'IN()(複数選択)',
+			},
 		};
 	},
 	mounted() {
@@ -65,7 +65,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>
