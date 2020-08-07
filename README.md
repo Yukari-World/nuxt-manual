@@ -1,5 +1,7 @@
 # Nuxt Manual
-	Nuxtで作成された主にHTML関係の小さな技術マニュアル
+[![Netlify Status](https://api.netlify.com/api/v1/badges/edb34a32-c688-4a49-b48e-eb3a85f5e98b/deploy-status)](https://app.netlify.com/sites/nuxt-technical-manual/deploys)
+
+Nuxtで作成された主にHTML関係の小さな技術マニュアル
 
 ## What's Nuxt Manual?
 ### 概要
@@ -11,18 +13,18 @@ Nuxt ManualはHTMLで作成したページを基にNuxtで移植、再作成し�
 ### 機能面の変化
 HTML版との差異は基本時にありませんが、Nuxt版は技術開発の確立に遅れが生じているので機能の追加等に遅れがあります。
 
-### マニュアルの参考元
+### :pencil: マニュアルの参考元
 マニュアルの作成時に参考としたページは、各ページの末尾にリンクを貼っています。
 
 尚、現在はまだ発生していませんが、デッドリンクが発生した場合、アーカイブに飛ぶように修正します。
 
-### 誤字、脱字、修正等について
+### :bug: 誤字、脱字、修正等について
 万が一ありましたらissueに登録してください。
 確認をした後、修正を行います。
 
 尚、issueテンプレートは現在未作成です。
 
-### 本ページの公開先について
+### :globe_with_meridians: 本ページの公開先について
 このソースで作成されたページは[Netlify](https://www.netlify.com/)にて公開されています。
 
 ### 正直Qiitaでよくない?
@@ -35,7 +37,18 @@ HTML版との差異は基本時にありませんが、Nuxt版は技術開発の
 このソースをクローンして使用する場合、ローカルで動作させるにはプロジェクトルートディレクトリに.envファイルを作成する必要があります。
 これはBASE_URLを本番サーバーとしている関係で、一部の要素で正常に動作しないためです。
 
-.env
+また、このサイトはFirebaseを使用しています。
+Firebaseの設定項目はセキュリティの都合でGitにアップロードしていないので各自用意してください。
+
+.envファイルの作成例は以下の通りです。
 ```
 BASE_URL="http://localhost:8080/"
+
+APIKEY=
+AUTHDOMAIN=
+DATABASEURL=
+PROJECTID=
+STORAGEBUCKET=
+APPID=
+MESSAGINGSENDERID=
 ```

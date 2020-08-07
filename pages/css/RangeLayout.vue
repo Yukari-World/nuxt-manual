@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
-		h2 非標準の機能
-		p ここに記述されている内容はW3Cで標準化されていません。故に予告なく仕様変更、廃止される可能性があります。
+		h2 {{ $t('common.stub.non_standard.title') }}
+		p {{ $t('common.stub.non_standard.desc') }}
 
 	section
 		h2 説明
@@ -189,8 +189,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'スライダーレイアウト'
-			}
+				title: 'スライダーレイアウト',
+			},
 		};
 	},
 	mounted() {
@@ -202,7 +202,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

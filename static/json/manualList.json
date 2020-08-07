@@ -370,7 +370,7 @@
 					"list": [
 						{
 							"title": "データベース接続",
-							"link": "/CIDatabase",
+							"link": "/Database",
 							"summary": "",
 							"tags": ["PHP"],
 							"deprecated": false,
@@ -403,7 +403,7 @@
 			"category": "SQL",
 			"baseURL": "/sql",
 			"description": "",
-			"icon": "mdi-server",
+			"icon": "mdi-database",
 			"subCategory": [
 				{
 					"name": "Default",
@@ -471,28 +471,28 @@
 					"list": [
 						{
 							"title": "INSERT WHERE EXISTS",
-							"link": "/MySQLinsertWhereExists",
+							"link": "/insertWhereExists",
 							"summary": "",
 							"tags": ["MySQL", "SQL"],
 							"deprecated": false,
 							"workInProgress": false
 						}, {
 							"title": "INT(11) の意味",
-							"link": "/MySQLint",
+							"link": "/int",
 							"summary": "",
 							"tags": ["MySQL", "SQL"],
 							"deprecated": false,
 							"workInProgress": false
 						}, {
 							"title": "UPDATE SELECT",
-							"link": "/MySQLupdateSelect",
+							"link": "/updateSelect",
 							"summary": "",
 							"tags": ["MySQL", "SQL"],
 							"deprecated": false,
 							"workInProgress": false
 						}, {
 							"title": "UTF-8のあれこれ",
-							"link": "/MySQLutf-8",
+							"link": "/utf-8",
 							"summary": "",
 							"tags": ["MySQL", "SQL"],
 							"deprecated": false,

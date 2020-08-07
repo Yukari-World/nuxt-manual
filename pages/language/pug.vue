@@ -289,7 +289,7 @@ div
 		a(href='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .v-application {
 	.title {
 		font-size: unset !important;
@@ -313,8 +313,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'Pug'
-			}
+				title: 'Pug',
+			},
 		};
 	},
 	mounted() {
@@ -326,7 +326,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

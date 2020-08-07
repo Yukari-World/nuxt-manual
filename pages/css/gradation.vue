@@ -105,8 +105,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'グラデーション'
-			}
+				title: 'グラデーション',
+			},
 		};
 	},
 	mounted() {
@@ -118,7 +118,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>
