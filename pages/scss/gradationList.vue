@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 書きかけのページ
-		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
+		h2 {{ $t('common.stub.work_in_progress.title') }}
+		p {{ $t('common.stub.work_in_progress.desc') }}
 
 	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
 		h2 応用技術
@@ -74,7 +74,7 @@ div
 		h3 SCSS
 		p
 			| SCSSファイル。これを基にCSSに出力する。細かい記述ルールは
-			nuxt-link(to='/language/sass') こちら
+			nuxt-link(:to="localePath('/language/sass')" title='SASS') こちら
 			| を参照。
 		pre.language-scss.line-numbers: code.
 			@charset "UTF-8";
@@ -601,8 +601,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: '特殊なグラデーションリスト'
-			}
+				title: '特殊なグラデーションリスト',
+			},
 		};
 	},
 	mounted() {
@@ -614,7 +614,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

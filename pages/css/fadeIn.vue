@@ -211,8 +211,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'フェードイン'
-			}
+				title: 'フェードイン',
+			},
 		};
 	},
 	mounted() {
@@ -233,14 +233,14 @@ export default {
 					}
 				}
 			},
-			false
+			false,
 		);
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

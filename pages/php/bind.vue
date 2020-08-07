@@ -182,8 +182,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'バインドを利用したSQLの実行'
-			}
+				title: 'バインドを利用したSQLの実行',
+			},
 		};
 	},
 	mounted() {
@@ -195,7 +195,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

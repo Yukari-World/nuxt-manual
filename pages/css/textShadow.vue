@@ -81,8 +81,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: '文字装飾による可読性の向上'
-			}
+				title: '文字装飾による可読性の向上',
+			},
 		};
 	},
 	mounted() {
@@ -94,7 +94,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

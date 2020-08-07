@@ -65,8 +65,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'backgroundを重ねる'
-			}
+				title: 'backgroundを重ねる',
+			},
 		};
 	},
 	mounted() {
@@ -78,7 +78,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

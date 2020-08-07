@@ -1,7 +1,30 @@
 <template lang="pug">
 v-timeline(reverse)
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
+			v-card-title.headline 2020/08/07
+			v-card-text
+				ul
+					li CodeMirrorの追加
+					li ディレクトリ管理方法の変更
+
+	v-timeline-item
+		v-card(elevation='5')
+			v-card-title.headline 2020/04/07
+			v-card-text
+				ul
+					li i18nを導入
+
+	v-timeline-item
+		v-card(elevation='5')
+			v-card-title.headline 2020/01/21
+			v-card-text
+				ul
+					li 技術マニュアル『apm Command』を作成
+					li 技術マニュアル『カスタマイズ項目の追加』を作成
+
+	v-timeline-item
+		v-card(elevation='5')
 			v-card-title.headline 2020/01/06
 			v-card-text
 				ul
@@ -11,14 +34,15 @@ v-timeline(reverse)
 					li 技術マニュアル『git-flow』を作成
 					li 公式サイトリンクを『リンク』、参考ページリンクを『参考リンク』と分離
 
-		v-card
+	v-timeline-item
+		v-card(elevation='5')
 			v-card-title.headline 2019/12/19
 			v-card-text
 				ul
 					li 更新履歴のページをリニューアル
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/12/17
 			v-card-text
 				ul
@@ -26,7 +50,7 @@ v-timeline(reverse)
 					li 新規サーバーにて公開
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/12/16
 			v-card-text
 				ul
@@ -34,7 +58,7 @@ v-timeline(reverse)
 					li Nodeパッケージのセキュリティ修正
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/11/29
 			v-card-text
 				ul
@@ -42,14 +66,14 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') Nuxt時代
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/11/25
 			v-card-text
 				ul
 					li Nuxtにマニュアルを移行
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/08/23
 			v-card-text
 				ul
@@ -59,7 +83,7 @@ v-timeline(reverse)
 					li vueのasyncの記述ミスを修正
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/08/16
 			v-card-text
 				ul
@@ -70,7 +94,7 @@ v-timeline(reverse)
 					li 不要なWAI-ARIAの削除
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/06/11
 			v-card-text
 				ul
@@ -78,7 +102,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') 文章の添削
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/06/10
 			v-card-text
 				ul
@@ -86,7 +110,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') レスポンス強化
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/05/24
 			v-card-text
 				ul
@@ -97,7 +121,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') レスポンス強化
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/05/09
 			v-card-text
 				ul
@@ -106,14 +130,14 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') レスポンス強化
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/04/25
 			v-card-text
 				ul
 					li 全てのJavaScriptファイルを圧縮
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/04/10
 			v-card-text
 				ul
@@ -122,14 +146,14 @@ v-timeline(reverse)
 					li SCSSの最適化
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/04/03
 			v-card-text
 				ul
 					li フッターを常に真下に来るように変更
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/02/22
 			v-card-text
 				ul
@@ -138,7 +162,7 @@ v-timeline(reverse)
 					li CSSの最適化と細かな文の修正、初期化方法の変更
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/02/06
 			v-card-text
 				ul
@@ -148,14 +172,14 @@ v-timeline(reverse)
 					li HTML自動整形ルールを変更
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/01/31
 			v-card-text
 				ul
 					li JavaScriptにおける不要な処理の削除、削減、処理速度の最適化
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/01/24
 			v-card-text
 				ul
@@ -163,7 +187,7 @@ v-timeline(reverse)
 					li 技術マニュアル『ファイルダウンロード』のリンクを修正
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/01/16
 			v-card-text
 				ul
@@ -171,7 +195,7 @@ v-timeline(reverse)
 					li SEOの強化
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/01/10
 			v-card-text
 				ul
@@ -180,21 +204,21 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') 2019
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2019/01/07
 			v-card-text
 				ul
 					li XorShiftの乱数Xの取得方法が間違っていたのを修正
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/12/21
 			v-card-text
 				ul
 					li カテゴリページの仮追加とリンクの作成。内容は追って作成
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/12/11
 			v-card-text
 				ul
@@ -203,7 +227,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') 体裁の強化
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/12/07
 			v-card-text
 				ul
@@ -211,7 +235,7 @@ v-timeline(reverse)
 					li 日本語が不適切な説明文や文脈を修正
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/12/06
 			v-card-text
 				ul
@@ -221,7 +245,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') レスポンス強化
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/11/30
 			v-card-text
 				ul
@@ -230,7 +254,7 @@ v-timeline(reverse)
 					li 技術マニュアル『バインドを利用したSQLの実行』におけるソースコード入力ミスを修正
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/11/20
 			v-card-text
 				ul
@@ -239,7 +263,7 @@ v-timeline(reverse)
 					li 技術マニュアル『IN()(複数選択)』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/11/09
 			v-card-text
 				ul
@@ -249,7 +273,7 @@ v-timeline(reverse)
 					li マニュアルデザインとレスポンシブデザインの更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/10/30
 			v-card-text
 				ul
@@ -259,7 +283,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') レスポンス強化
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/10/26
 			v-card-text
 				ul
@@ -269,7 +293,7 @@ v-timeline(reverse)
 					li CSSの最適化と細かな文の修正
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/10/24
 			v-card-text
 				ul
@@ -277,7 +301,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') 印刷対応
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/10/18
 			v-card-text
 				ul
@@ -287,7 +311,7 @@ v-timeline(reverse)
 					li 技術マニュアル『input要素』を更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/10/17
 			v-card-text
 				ul
@@ -296,7 +320,7 @@ v-timeline(reverse)
 					li 技術マニュアル『input要素』を更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/10/16
 			v-card-text
 				ul
@@ -305,21 +329,21 @@ v-timeline(reverse)
 					li 技術マニュアル『input要素』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/10/10
 			v-card-text
 				ul
 					li ランダムワードページのスタイルを変更
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/10/04
 			v-card-text
 				ul
 					li 技術マニュアル『[Apache] HTMLファイルでPHPを動かす』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/10/01
 			v-card-text
 				ul
@@ -329,7 +353,7 @@ v-timeline(reverse)
 					li 技術マニュアル『JOIN(テーブル結合)』を更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/09/28
 			v-card-text
 				ul
@@ -338,7 +362,7 @@ v-timeline(reverse)
 					li 技術マニュアル『localStorage』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/09/26
 			v-card-text
 				ul
@@ -347,7 +371,7 @@ v-timeline(reverse)
 					li (Gitlab処理) gzip圧縮処理を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/09/21
 			v-card-text
 				ul
@@ -357,7 +381,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') レスポンス強化
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/09/20
 			v-card-text
 				ul
@@ -367,7 +391,7 @@ v-timeline(reverse)
 					li 技術マニュアル『フェードイン』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/09/19
 			v-card-text
 				ul
@@ -377,7 +401,7 @@ v-timeline(reverse)
 					li ボタンレイアウトが機能していない問題を修正
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/09/18
 			v-card-text
 				ul
@@ -388,7 +412,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') Babel時代
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/09/14
 			v-card-text
 				ul
@@ -396,7 +420,7 @@ v-timeline(reverse)
 					li サイドバーを折りたたみ方式に変更。折りたたみ状態はローカルストレージにフラグが保持されます
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/09/04
 			v-card-text
 				ul
@@ -406,7 +430,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') Ajaxの始動
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/09/03
 			v-card-text
 				ul
@@ -416,7 +440,7 @@ v-timeline(reverse)
 					li 技術マニュアル『Pug』を更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/31
 			v-card-text
 				ul
@@ -425,7 +449,7 @@ v-timeline(reverse)
 					li 技術マニュアル『Pug』を更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/30
 			v-card-text
 				ul
@@ -433,7 +457,7 @@ v-timeline(reverse)
 					li 技術マニュアル『Pug』を更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/29
 			v-card-text
 				ul
@@ -441,7 +465,7 @@ v-timeline(reverse)
 					li 技術マニュアル『Sass』を更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/28
 			v-card-text
 				ul
@@ -449,7 +473,7 @@ v-timeline(reverse)
 					li 技術マニュアル『Sass』を更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/27
 			v-card-text
 				ul
@@ -457,7 +481,7 @@ v-timeline(reverse)
 					li 技術マニュアル『Sass』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/24
 			v-card-text
 				ul
@@ -465,7 +489,7 @@ v-timeline(reverse)
 					li 技術マニュアル『TRANSACTION ROLLBACK』を『TRANSACTION』に変更
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/22
 			v-card-text
 				ul
@@ -473,7 +497,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') おまけ機能の強化と致命的問題の修正
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/20
 			v-card-text
 				ul
@@ -484,7 +508,7 @@ v-timeline(reverse)
 					li 技術マニュアル『backgroundを重ねる』を更新
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/17
 			v-card-text
 				ul
@@ -494,7 +518,7 @@ v-timeline(reverse)
 					li 技術マニュアル『[MySQL] INT(11) の意味』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/16
 			v-card-text
 				ul
@@ -504,7 +528,7 @@ v-timeline(reverse)
 					li 技術マニュアル『[MySQL] INT(11) の意味』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/15
 			v-card-text
 				ul
@@ -517,7 +541,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') デザインの強化
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/14
 			v-card-text
 				ul
@@ -532,7 +556,7 @@ v-timeline(reverse)
 					li 技術マニュアル『[MySQL] INSERT WHERE EXISTS』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/10
 			v-card-text
 				ul
@@ -541,7 +565,7 @@ v-timeline(reverse)
 					li レスポンシブデザインに対応
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/09
 			v-card-text
 				ul
@@ -551,7 +575,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') 機能の強化
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/08
 			v-card-text
 				ul
@@ -564,7 +588,7 @@ v-timeline(reverse)
 					li 技術マニュアル『背景画像スクロールの固定』を追加
 
 	v-timeline-item
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/07
 			v-card-text
 				ul
@@ -579,7 +603,7 @@ v-timeline(reverse)
 
 	v-timeline-item
 		span(slot='opposite') 創成
-		v-card
+		v-card(elevation='5')
 			v-card-title.headline 2018/08/06
 			v-card-text
 				ul
@@ -595,8 +619,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: '更新履歴'
-			}
+				title: '更新履歴',
+			},
 		};
 	},
 	mounted() {
@@ -608,7 +632,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

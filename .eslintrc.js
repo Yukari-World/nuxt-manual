@@ -2,72 +2,65 @@ module.exports = {
 	root: true,
 	env: {
 		browser: true,
-		node: true
+		node: true,
 	},
 	parserOptions: {
-		parser: 'babel-eslint'
+		parser: 'babel-eslint',
 	},
 	extends: [
 		'@nuxtjs',
 		'prettier',
 		'prettier/vue',
 		'plugin:prettier/recommended',
-		'plugin:nuxt/recommended'
+		'plugin:nuxt/recommended',
 	],
 	plugins: [
-		'prettier'
+		'prettier',
 	],
 	// add your custom rules here
 	rules: {
 		"comma-spacing": ["error", {
 			"before": false,
-			"after": true
+			"after": true,
 		}],
-		"comma-dangle": ["error", "only-multiline", {
-			"arrays": "always",
-			"objects": "never",
-			"imports": "never",
-			"exports": "never",
-			"functions": "never"
-		}],
+		"comma-dangle": ["error", "always-multiline"],
 		"eol-last": ["warn", "always"],
 		"func-style": ["error", "declaration", { "allowArrowFunctions": false }],
 		"indent": ["warn", "tab"],
 		"key-spacing": ["warn", {
 			"singleLine": {
 				"beforeColon": false,
-				"afterColon": true
+				"afterColon": true,
 			},
 			"multiLine": {
 				"beforeColon": false,
 				"afterColon": true,
-				"align": "value"
-			}
+			},
 		}],
 		"keyword-spacing": ["warn", {
 			"before": true,
-			"after": true
+			"after": true,
 		}],
 		"newline-per-chained-call": ["warn", {
-			"ignoreChainWithDepth": 4
+			"ignoreChainWithDepth": 4,
 		}],
 		"no-console": "off",
 		"no-confusing-arrow": "error",
 		"no-debugger": "warn",
 		"no-duplicate-imports": ["error", {
-			"includeExports": true
+			"includeExports": true,
 		}],
 		"no-extra-semi": "warn",
 		"no-extra-parens": ["warn", "all"],
 		"no-floating-decimal": "error",
 		"no-multi-assign": "error",
 		"no-multi-spaces": ["warn", {
-			"ignoreEOLComments": false
+			"ignoreEOLComments": false,
 		}],
 		"no-nested-ternary": "error",
 		"no-new-func": "error",
 		"no-param-reassign": ["error", {
-			"props": false
+			"props": false,
 		}],
 		"no-unused-expressions": "off",
 		"no-tabs": ["off", { allowIndentationTabs: true }],
@@ -81,6 +74,6 @@ module.exports = {
 		// 		"FunctionExpression": false
 		// 	}
 		// }],
-		"semi": ["error", "always"]
-	}
-}
+		"semi": ["error", "always"],
+	},
+};

@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 書きかけのページ
-		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
+		h2 {{ $t('common.stub.work_in_progress.title') }}
+		p {{ $t('common.stub.work_in_progress.desc') }}
 
 	section
 		h2 説明
@@ -22,7 +22,7 @@ div
 				a(href='https://mariadb.org/', target='_blank', rel='external noopener') MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
-			nuxt-link(to='/sample#sqlSample') サンプルデータに移行。
+			nuxt-link(:to="localePath('/sample#sqlSample')" title='サンプルデータ') サンプルデータに移行。
 
 		h3 内部結合
 		p
@@ -126,8 +126,8 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'JOIN(テーブル結合)'
-			}
+				title: 'JOIN(テーブル結合)',
+			},
 		};
 	},
 	mounted() {
@@ -139,7 +139,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>
