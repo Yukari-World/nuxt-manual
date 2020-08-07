@@ -1,5 +1,7 @@
 # Nuxt Manual
-	Nuxtで作成された主にHTML関係の小さな技術マニュアル
+[![Netlify Status](https://api.netlify.com/api/v1/badges/edb34a32-c688-4a49-b48e-eb3a85f5e98b/deploy-status)](https://app.netlify.com/sites/nuxt-technical-manual/deploys)
+
+Nuxtで作成された主にHTML関係の小さな技術マニュアル
 
 ## What's Nuxt Manual?
 ### 概要

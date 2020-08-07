@@ -80,11 +80,15 @@ div
 				}
 			}
 
+		h3 CodeMirror
+		client-only(placeholder='Codemirror Loading...')
+			codemirror(ref='cmEditor', :options='cmOptions', :value='code')
+
 	section
 		h2 マニュアル作成について
 		p
 			| このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは
-			a(href='https://gitlab.com/fcc-y/html-manual', target='_blank', rel='external noopener') Gitlab
+			a(href='https://github.com/Yukari-World/nuxt-manual', target='_blank', rel='external noopener') GitHub
 			| に置いていますので参考にしてください。
 		h3 開発言語
 		ul
@@ -235,11 +239,36 @@ import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-pug';
 import 'prismjs/components/prism-scss';
 
+
 export default {
 	data() {
 		return {
 			header: {
 				title: 'Nuxt Manual',
+			},
+			code: 'const a = 10',
+			cmOptions: {
+				extraKeys: {
+					'F11'(cm) {
+						cm.setOption('fullScreen', !cm.getOption('fullScreen'));
+					},
+					'Esc'(cm) {
+						if (cm.getOption('fullScreen')) cm.setOption('fullScreen', false);
+					},
+				},
+				foldGutter: true,
+				gutters: [
+					'CodeMirror-foldgutter',
+					'CodeMirror-linenumbers',
+				],
+				indentUnit: 4,
+				indentWithTabs: true,
+				lineNumbers: true,
+				lineWrapping: true,
+				mode: 'text/javascript',
+				styleSelectedText: true,
+				tabSize: 4,
+				theme: 'tomorrow-night-eighties',
 			},
 		};
 	},

@@ -66,13 +66,18 @@ export default {
 	/*
 	 ** Global CSS
 	 */
-	// css: ['@/assets/sass/style.scss'],
+	css: [
+		'codemirror/lib/codemirror.css',
+		'codemirror/theme/material.css',
+		'codemirror/theme/tomorrow-night-eighties.css',
+	],
 	/*
 	 ** Plugins to load before mounting the App
 	 */
 	plugins: [
 		// '~/plugins/auth',
-		'~/plugins/firebase',
+		{ src: '~plugins/codemirror', ssr: false },
+		'~plugins/firebase',
 		// '~/plugins/globals.js',
 		// '~/plugins/vue-scrollto',
 	],
@@ -83,6 +88,7 @@ export default {
 		// Doc: https://github.com/nuxt-community/eslint-module
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/stylelint-module',
+		// '@nuxt/typescript-build',
 	],
 	/*
 	 ** Nuxt.js modules
@@ -141,6 +147,7 @@ export default {
 							'data-uri-highlight',
 							'file-highlight',
 							'highlight-keywords',
+							'inline-color',
 							'line-highlight',
 							'line-numbers',
 							'show-language',
@@ -202,14 +209,18 @@ export default {
 		},
 	},
 	i18n: {
-		vueI18nLoader: true,
+		defaultLocale: 'ja-JP',
+		langDir: 'locales/',
 		locales: [
-			{ code: 'en', iso: 'en-US', file: 'en.js' },
-			{ code: 'ja', iso: 'ja-JP', file: 'ja.js' },
+			{ code: 'en-US', iso: 'en-US', name: 'English', file: 'en-US.js' },
+			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', file: 'ja-JP.js' },
 		],
-		defaultLocale: 'ja',
-		vueI18n: {
-			fallbackLocale: 'ja',
+		lazy: true,
+		strategy: 'prefix_except_default',
+		vueI18n: {},
+		vueI18nLoader: true,
+		vuex: {
+			syncLocale: true,
 		},
 	},
 	/*
@@ -313,7 +324,7 @@ export default {
 	 ** Server configuration
 	 */
 	server: {
-		port: 8080,
+		port: process.env.PORT || 8080,
 	},
 	/*
 	 ** Render configuration

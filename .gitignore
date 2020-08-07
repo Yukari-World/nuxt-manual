@@ -43,6 +43,7 @@ typings/
 
 # Visual Stdio Code setting output
 .vscode
+*.code-workspace
 
 # Optional npm cache directory
 .npm

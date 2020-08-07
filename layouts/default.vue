@@ -22,7 +22,16 @@ v-app#inspire
 					v-list-item-content
 						v-list-item-title {{temp.title}}
 
-	v-content
+		v-menu(bottom, left, offset-y, transition='slide-y-transition')
+			template(v-slot:activator='{ on }')
+				v-btn(icon,v-on='on')
+					v-icon mdi-translate
+			v-list
+				v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', link, nuxt, :to='switchLocalePath(locale.code)', :key='locale.code')
+					v-list-item-content
+						v-list-item-title {{locale.name}}
+
+	v-main
 		v-container(fluid)
 			router-view
 				nuxt
@@ -148,10 +157,15 @@ export default {
 			title: '',
 			headMenu: [
 				{title: 'トップページ', icon: 'mdi-home', link: '/'},
-				{title: '更新履歴', icon: 'mdi-login', link: '/updateLog'},
+				{title: '更新履歴', icon: 'mdi-history', link: '/updateLog'},
 				{title: 'ログイン', icon: 'mdi-login', link: '/user/login'},
 			],
 		};
+	},
+	computed: {
+		availableLocales () {
+			return this.$i18n.locales;
+		},
 	},
 	created() {
 		// this.$vuetify.theme.dark = true;
