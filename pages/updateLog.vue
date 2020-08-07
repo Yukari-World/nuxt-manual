@@ -2,6 +2,21 @@
 v-timeline(reverse)
 	v-timeline-item
 		v-card(elevation='5')
+			v-card-title.headline 2020/08/07
+			v-card-text
+				ul
+					li CodeMirrorの追加
+					li ディレクトリ管理方法の変更
+
+	v-timeline-item
+		v-card(elevation='5')
+			v-card-title.headline 2020/04/07
+			v-card-text
+				ul
+					li i18nを導入
+
+	v-timeline-item
+		v-card(elevation='5')
 			v-card-title.headline 2020/01/21
 			v-card-text
 				ul

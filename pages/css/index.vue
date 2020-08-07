@@ -1,20 +1,22 @@
 <template lang="pug">
 div
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 書きかけのページ
-		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
+		h2 {{ $t('common.stub.work_in_progress.title') }}
+		p {{ $t('common.stub.work_in_progress.desc') }}
+
+	section
+		h2 説明
+		p 記述前
 </template>
 
 <script>
 import Prism from 'prismjs';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'XMLHttpRequest',
+				title: '',
 			},
 		};
 	},

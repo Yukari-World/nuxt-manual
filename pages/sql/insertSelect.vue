@@ -50,7 +50,7 @@ div
 					span.token.keyword.space &nbsp;
 					span.token.keyword.keyword-EXISTS EXISTS
 				| を使用する場合、方言による制約でこの方法を使用しないと使用できない。この方法については
-				nuxt-link(to='/sql/MySQLinsertWhereExists', title='[MySQL] INSERT WHERE EXISTS') 別のページにて参照されたし。
+				nuxt-link(:to="localePath('/sql/MySQL/insertWhereExists')", title='[MySQL] INSERT WHERE EXISTS') 別のページにて参照されたし。
 </template>
 
 <script>
