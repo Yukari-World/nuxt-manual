@@ -97,32 +97,34 @@ div
 				li= val
 
 	section
-		h2 参考リンク
+		h2 リンク
 		p
 			a(href='https://editorconfig.org/', target='_blank', rel='external noopener') EditorConfig
 </template>
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-batch';
+import 'prismjs/components/prism-ini';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'EditorConfig'
-			}
+				title: 'EditorConfig',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

@@ -30,25 +30,26 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-markup';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'ファイルダウンロード'
-			}
+				title: 'ファイルダウンロード',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

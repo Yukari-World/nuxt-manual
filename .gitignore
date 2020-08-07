@@ -41,6 +41,10 @@ jspm_packages/
 # TypeScript v1 declaration files
 typings/
 
+# Visual Stdio Code setting output
+.vscode
+*.code-workspace
+
 # Optional npm cache directory
 .npm
 

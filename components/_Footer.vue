@@ -42,14 +42,14 @@ export default {
 	data() {
 		return {
 			bWordDecide: true,
-			loading:     true,
+			loading: true,
 		};
 	},
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			wordList: (state) => state.randomWords
-		})
+			wordList: (state) => state.randomWords,
+		}),
 	},
 	mounted () {
 		// const animationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.setTimeout;
@@ -97,7 +97,7 @@ export default {
 		roopEvent() {
 			this.secondsInterval(10);
 			requestAnimationFrame(this.roopEvent);
-		}
-	}
+		},
+	},
 };
 </script>

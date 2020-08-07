@@ -73,6 +73,13 @@
 							"deprecated": false,
 							"workInProgress": false
 						}, {
+							"title": "Reset CSS",
+							"link": "/resetCSS",
+							"summary": "",
+							"tags": ["CSS"],
+							"deprecated": false,
+							"workInProgress": true
+						}, {
 							"title": "疑似要素 :before / :after",
 							"link": "/beforeAfter",
 							"summary": "",
@@ -82,14 +89,14 @@
 						}, {
 							"title": "グラデーション",
 							"link": "/gradation",
-							"summary": "",
+							"summary": "簡単なグラデーションの作り方",
 							"tags": ["CSS"],
 							"deprecated": false,
 							"workInProgress": false
 						}, {
 							"title": "スライダーレイアウト",
 							"link": "/RangeLayout",
-							"summary": "",
+							"summary": "オリジナルスライドバーを作る",
 							"tags": ["CSS"],
 							"deprecated": false,
 							"workInProgress": false
@@ -119,6 +126,33 @@
 				}
 			]
 		}, {
+			"category": "Git",
+			"baseURL": "/git",
+			"description": "",
+			"icon": "mdi-git",
+			"subCategory": [
+				{
+					"name": "Default",
+					"list": [
+						{
+							"title": "git-flow",
+							"link": "/gitflow",
+							"summary": "Gitにおけるremoteブランチの構築方法の考え方",
+							"tags": ["Git"],
+							"deprecated": false,
+							"workInProgress": true
+						}, {
+							"title": "HEADについて",
+							"link": "/head",
+							"summary": "GitにおけるHEADブランチの存在について",
+							"tags": ["Git"],
+							"deprecated": false,
+							"workInProgress": true
+						}
+					]
+				}
+			]
+		}, {
 			"category": "HTML",
 			"baseURL": "/html",
 			"description": "",
@@ -130,7 +164,7 @@
 						{
 							"title": "input要素",
 							"link": "/input",
-							"summary": "",
+							"summary": "formでもよく使うinput要素に関するあれこれ",
 							"tags": ["HTML"],
 							"deprecated": false,
 							"workInProgress": true
@@ -257,7 +291,7 @@
 					"list": [
 						{
 							"title": "Node.js導入マニュアル",
-							"link": "/",
+							"link": "/manualNodejs",
 							"summary": "",
 							"tags": ["Install Manual", "Node"],
 							"deprecated": false,
@@ -283,7 +317,7 @@
 					"list": [
 						{
 							"title": "Gulp導入マニュアル",
-							"link": "/",
+							"link": "/manualGulp",
 							"summary": "",
 							"tags": ["Install Manual", "Gulp", "Node"],
 							"deprecated": false,
@@ -336,7 +370,7 @@
 					"list": [
 						{
 							"title": "データベース接続",
-							"link": "/CIDatabase",
+							"link": "/Database",
 							"summary": "",
 							"tags": ["PHP"],
 							"deprecated": false,
@@ -369,7 +403,7 @@
 			"category": "SQL",
 			"baseURL": "/sql",
 			"description": "",
-			"icon": "mdi-server",
+			"icon": "mdi-database",
 			"subCategory": [
 				{
 					"name": "Default",
@@ -437,28 +471,28 @@
 					"list": [
 						{
 							"title": "INSERT WHERE EXISTS",
-							"link": "/MySQLinsertWhereExists",
+							"link": "/insertWhereExists",
 							"summary": "",
 							"tags": ["MySQL", "SQL"],
 							"deprecated": false,
 							"workInProgress": false
 						}, {
 							"title": "INT(11) の意味",
-							"link": "/MySQLint",
+							"link": "/int",
 							"summary": "",
 							"tags": ["MySQL", "SQL"],
 							"deprecated": false,
 							"workInProgress": false
 						}, {
 							"title": "UPDATE SELECT",
-							"link": "/MySQLupdateSelect",
+							"link": "/updateSelect",
 							"summary": "",
 							"tags": ["MySQL", "SQL"],
 							"deprecated": false,
 							"workInProgress": false
 						}, {
 							"title": "UTF-8のあれこれ",
-							"link": "/",
+							"link": "/utf-8",
 							"summary": "",
 							"tags": ["MySQL", "SQL"],
 							"deprecated": false,
@@ -509,8 +543,8 @@
 					"name": "Default",
 					"list": [
 						{
-							"title": "近日公開",
-							"link": "/",
+							"title": "Wordpress カスタマイズ項目の追加",
+							"link": "/customizeMenu",
 							"summary": "",
 							"tags": ["Wordpress"],
 							"deprecated": false,
@@ -531,19 +565,26 @@
 						{
 							"title": "EditorConfig",
 							"link": "/editorConfig",
-							"summary": "",
+							"summary": "EditorConfigを使ったテキスト設定など",
 							"tags": ["Format", "Install Manual"],
 							"deprecated": false,
 							"workInProgress": false
+						}, {
+							"title": "Netlify",
+							"link": "/netlify",
+							"summary": "Netlifyでのサイトの作り方やデプロイ等",
+							"tags": ["Server"],
+							"deprecated": false,
+							"workInProgress": true
 						}
 					]
 				}, {
 					"name": "Apache",
 					"list": [
 						{
-							"title": "HTMLファイルでPHPを動かす",
+							"title": "HTMLファイル内でPHPを動かす",
 							"link": "/runPHPForHTML",
-							"summary": "",
+							"summary": "HTMLファイル内でPHPスクリプトを動作させる方法",
 							"tags": ["Server"],
 							"deprecated": false,
 							"workInProgress": false
@@ -554,14 +595,14 @@
 					"list": [
 						{
 							"title": "Atom 導入マニュアル",
-							"link": "/",
+							"link": "/atomInstall",
 							"summary": "",
 							"tags": ["Install Manual"],
 							"deprecated": false,
 							"workInProgress": true
 						}, {
 							"title": "apm Command",
-							"link": "/",
+							"link": "/apm",
 							"summary": "",
 							"tags": ["Console"],
 							"deprecated": false,
@@ -573,7 +614,7 @@
 					"list": [
 						{
 							"title": "Console Command",
-							"link": "/",
+							"link": "/unixConsole",
 							"summary": "",
 							"tags": ["Console"],
 							"deprecated": false,

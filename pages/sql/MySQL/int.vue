@@ -46,25 +46,28 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-markdown';
+import 'prismjs/components/prism-sql';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'INT(11) の意味'
-			}
+				title: 'INT(11) の意味',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

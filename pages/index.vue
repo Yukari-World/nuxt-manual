@@ -13,7 +13,7 @@ div
 			| 各ページのコードのハイライトには
 			a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
 			| が使用されています。
-		v-alert(type='info', border='left', colored-border, dense, elevation='2')
+		v-alert(type='info', border='left', colored-border, dense, elevation='5')
 			//- h2 注意事項
 			p
 				| このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。
@@ -80,11 +80,15 @@ div
 				}
 			}
 
+		h3 CodeMirror
+		client-only(placeholder='Codemirror Loading...')
+			codemirror(ref='cmEditor', :options='cmOptions', :value='code')
+
 	section
 		h2 マニュアル作成について
 		p
 			| このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは
-			a(href='https://gitlab.com/fcc-y/html-manual', target='_blank', rel='external noopener') Gitlab
+			a(href='https://github.com/Yukari-World/nuxt-manual', target='_blank', rel='external noopener') GitHub
 			| に置いていますので参考にしてください。
 		h3 開発言語
 		ul
@@ -125,7 +129,7 @@ div
 					li
 						a(href='https://github.com/aFarkas/lazysizes', title='GitHub - aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.', target='_blank', rel='external noopener') lazysizes
 					li
-						a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
+						a(href='https://prismjs.com/', title='Prism.js', target='_blank', rel='external noopener') Prism.js
 			dt Node.js(関連パッケージは省略)
 			dd
 				ul
@@ -140,7 +144,11 @@ div
 					li
 						a(href='https://gulpjs.com/', title='gulp.js', target='_blank', rel='external noopener') gulp.js
 					li
+						a(href='https://ja.nuxtjs.org/', title='Nuxt.js - ユニバーサル Vue.js アプリケーション', target='_blank', rel='external noopener') Nuxt.js
+					li
 						a(href='https://postcss.org/', title='PostCSS - a tool for transforming CSS with JavaScript', target='_blank', rel='external noopener') PostCSS
+					li
+						a(href='https://vuetifyjs.com/ja/', title='マテリアルデザインコンポーネントフレームワーク — Vuetify.js', target='_blank', rel='external noopener') Vuetify.js
 					li
 						a(href='https://webpack.js.org/', title='webpack', target='_blank', rel='external noopener') webpack
 
@@ -225,26 +233,63 @@ div
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-pug';
+import 'prismjs/components/prism-scss';
+
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'Nuxt Manual'
-			}
+				title: 'Nuxt Manual',
+			},
+			code: 'const a = 10',
+			cmOptions: {
+				extraKeys: {
+					'F11'(cm) {
+						cm.setOption('fullScreen', !cm.getOption('fullScreen'));
+					},
+					'Esc'(cm) {
+						if (cm.getOption('fullScreen')) cm.setOption('fullScreen', false);
+					},
+				},
+				foldGutter: true,
+				gutters: [
+					'CodeMirror-foldgutter',
+					'CodeMirror-linenumbers',
+				],
+				indentUnit: 4,
+				indentWithTabs: true,
+				lineNumbers: true,
+				lineWrapping: true,
+				mode: 'text/javascript',
+				styleSelectedText: true,
+				tabSize: 4,
+				theme: 'tomorrow-night-eighties',
+			},
 		};
 	},
+	computed: {
+		// storeからのデータ読み込み
+		...mapState({
+			randomWords: (state) => state.randomWords,
+		}),
+	},
 	mounted() {
+		document.getElementById('countRandom').textContent = this.randomWords.length;
+
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

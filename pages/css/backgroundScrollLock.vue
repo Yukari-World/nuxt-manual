@@ -119,25 +119,27 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-scss';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: '背景画像スクロールの固定'
-			}
+				title: '背景画像スクロールの固定',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

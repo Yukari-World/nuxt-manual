@@ -18,7 +18,7 @@
 		"title": "SCP-076 - \"Able\"",
 		"original": "SCP Foundation",
 		"summary": "<h3>SCP-076 - \"アベル\"</h3><h4><b>オブジェクトクラス:</b> <span class=\"object-keter\">Keter</span></h4><p>Please Wait...</p>",
-		"tags": ["Alive", "Engraved", "Extradimensional", "Hostile", "Humanoid", "Keter", "Maria Jones", "SCP", "Sentient"]
+		"tags": ["Alive", "Engraved", "Extradimensional", "Heritage", "Hostile", "Humanoid", "Keter", "Maria Jones", "SCP", "Sentient"]
 	}, {
 		"title": "SCP-079 - Old AI",
 		"original": "SCP Foundation",
@@ -28,7 +28,7 @@
 		"title": "SCP-087 - The Stairwell",
 		"original": "SCP Foundation",
 		"summary": "<h3>SCP-087 - 吹き抜けた階段</h3><h4><b>オブジェクトクラス:</b> <span class=\"object-euclid\">Euclid</span></h4><p>Please Wait...</p>",
-		"tags": ["Acoustic", "Building", "Euclid", "Light", "Location", "SCP", "Spacetime"]
+		"tags": ["Acoustic", "Building", "Euclid", "Heritage", "Light", "Location", "SCP", "Spacetime"]
 	}, {
 		"title": "SCP-093 - Red Sea Object",
 		"original": "SCP Foundation",
@@ -78,7 +78,7 @@
 		"title": "SCP-500 - Panacea",
 		"original": "SCP Foundation",
 		"summary": "<h3>SCP-500 - 万能薬</h3><h4><b>オブジェクトクラス:</b> <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>",
-		"tags": ["Chemical", "Container", "Medical", "Safe", "SCP"]
+		"tags": ["Chemical", "Container", "Heritage", "Medical", "Safe", "SCP"]
 	}, {
 		"title": "SCP-662 - Butler's Hand Bell",
 		"original": "SCP Foundation",
@@ -175,25 +175,30 @@
 		"summary": "<span style=\"color: #008000; font-weight: 700;\">禁忌</span><h4><b>オブジェクトクラス:</b> <span class=\"object-keter\">Keter</span></h4><p>SCPナンバーが入っていないので分かり辛いがSCP-4000である。現在未翻訳にて内容不明。</p>",
 		"tags": ["4000", "Arboreal", "Extradimensional", "Factory", "Infohazard", "Keter", "Location", "Meta", "Mind Affecting", "Ritual", "SCP", "Transfiguration"]
 	}, {
+		"title": "SCP-5000 - Why?",
+		"original": "SCP Foundation",
+		"summary": "<h3>SCP - 5000 - どうして?</h3><h4><b>オブジェクトクラス:</b> <span class=\"object-saft\">Safe</span></h4><p>Please Wait...</p>",
+		"tags": ["5000", "Broken God", "Doctor Bright", "Doctor Gears", "Ectoentropic", "Ethics Committee", "Foundation Made", "Global Occult Coalition", "Manna Charitable Foundation", "Mechanical", "Safe", "SCP", "Serpents Hand", "Wanderers Library", "感覚", "記憶媒体", "電子デバイス"]
+	}, {
 		"title": "SCP-011-JP - 俺達はスーパーボール",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>",
-		"tags": ["Alive", "Humanoid", "Safe", "SCP", "ミニチュア", "知性", "自我"]
+		"tags": ["Alive", "Humanoid", "Miniature", "Safe", "Sapient", "SCP", "Sentient"]
 	}, {
 		"title": "SCP-030-JP - 石油喰らい",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-keter\">Keter</span></h4><p>SCP-030-JPは石油を食事とし爆発的に増える、昆虫類の種である。体長は20cm前後であり、全身を白い毛で覆われ、翅及び目立った触角は持っておらず、また自力での移動能力が非常に低く、枝などに止まることが出来ないほどの小さく、力の弱い脚を持っている。SCP-030-JPは無変態であり、幼虫期からサイズを除いて変わらない姿を持ち、外見は全く別のものであるにもかかわらず、分子系統解析の結果遺伝情報がBombyx mori(カイコガ)と一致することが判明している。</p><p>雌雄同体であり、両性生殖と両性単為生殖の両方を行うことが可能なのに加え、幼形成熟の特徴を持ち、単体であっても3日以内に繁殖が可能で、一度の繁殖で約300個の卵を産む。SCP-030-JPの捕食者が自然界に存在せず、多くの生物に対して不快と思うような味をSCP-030-JPが持っており、死骸は自然分解の速度が極めて遅く、一般的なプラスチック製品のように800度以上の高温で焼却し、適切な処理を行わなければダイオキシン類のガスを発生させる。</p><p>また、石油を食糧としており、一定量の石油・石油加工製品を摂取することでSCP-030-JPはポリエチレンテレフタレートの糸を吐き出す。</p><p>このオブジェクトがKeterの理由は石油、もしくは石油製品を喰らうこと、莫大な繁殖力、自然に減少することがない事、そしてその死骸処分方法の大変さであり、万が一石油製品に溢れる一般社会に現れようものなら後は言わずとも結果は見えてくるだろう。</p>",
-		"tags": ["Alive", "Keter", "SCP", "日本生類創研", "昆虫"]
+		"tags": ["Alive", "Insect", "Japan Organisms Improvement and Creation Laboratory", "Keter", "SCP"]
 	}, {
 		"title": "SCP-040-JP - ねこですよろしくおねがいします",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>",
-		"tags": ["Meta", "Memetic", "Safe", "SCP", "猫", "視覚", "認識災害"]
+		"tags": ["Cognitohazard", "Heritage", "Meta", "Memetic", "Safe", "SCP", "猫", "視覚"]
 	}, {
 		"title": "SCP-070-JP - わんわんらんどと犬ではないなにか",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>",
-		"tags": ["Meta", "Safe", "SCP", "Structure", "Teleportation", "犬"]
+		"tags": ["Heritage", "Meta", "Safe", "SCP", "Structure", "Teleportation", "犬"]
 	}, {
 		"title": "SCP-073-JP - ザリガニ池",
 		"original": "SCP Foundation",
@@ -203,7 +208,7 @@
 		"title": "SCP-100-JP - 屋根裏部屋の宇宙",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <s><span class=\"object-safe\">Safe</span></s> <s><span class=\"object-euclid\">Euclid</span></s> <span class=\"object-keter\">Keter</span></h4><p>Please Wait...</p>",
-		"tags": ["Keter", "SCP", "Structure", "ミニチュア", "国外収容"]
+		"tags": ["International", "Keter", "Miniature", "SCP", "Structure"]
 	}, {
 		"title": "SCP-133-JP - 栗ティカル・ヒット",
 		"original": "SCP Foundation",
@@ -218,12 +223,12 @@
 		"title": "SCP-185-JP - 冥曜日",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-euclid\">Euclid</span></h4><p>Please Wait...</p>",
-		"tags": ["Euclid", "Mind Affecting", "SCP", "Teleportation", "聴覚", "視覚", "記憶媒体", "認識災害"]
+		"tags": ["Cognitohazard", "Euclid", "Mind Affecting", "SCP", "Teleportation", "聴覚", "視覚", "記憶媒体"]
 	}, {
 		"title": "SCP-240-JP - 0匹のイナゴ",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-euclid\">Euclid</span></h4><p>Please Wait...</p>",
-		"tags": ["Euclid", "Ontokinetic", "SCP", "人工", "日本生類創研", "昆虫"]
+		"tags": ["Artifact", "Euclid", "Heritage", "Insect", "Japan Organisms Improvement and Creation Laboratory", "Ontokinetic", "SCP"]
 	}, {
 		"title": "SCP-280-JP - 縮小する時空間異常",
 		"original": "SCP Foundation",
@@ -238,12 +243,12 @@
 		"title": "SCP-439-JP - ホームラン量産法",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <s><span class=\"object-euclid\">Euclid</span></s> <span class=\"object-keter\">Keter</span></h4><p>SCP-439-JPはSCP-439-JP-a-1～SCP-439-JP-a-10からなる一連の動作である。この動作をを他の動作を挟まずに連続して行った後、ボールを打つことでSCP-439-JPが発動する。SCP-439-JP-aの中には元来から一般的に非紳士的であると見做される動作が含まれており、SCP-439-JP-aに指定される動作の多さも手伝い、野球の歴史の長さから考えるとSCP-439-JPの発生は非常に少なく抑えられている。原理上、クリケットの様に棒とボールを用いた全てのスポーツでSCP-439-JP-aの成立及びSCP-439-JPの発生は起こりえるが、SCP-439-JP-aの多さや、打者の頭部の角度が細かく指定されるなどの複雑さのため野球以外で成立することは極めて稀と考えられる。なお、SCP-439-JP-aが途中で中断された場合や空振りをした場合はSCP-439-JP-a-1からやり直さなければSCP-439-JPは発生しない。</p><p>SCP-439-JPが発生すると打者により打たれたボールは必ず、ボールの重量に比例した距離だけ飛ぶ。この時の打球の飛距離は、概ね、(ボールの重量[kg]*1000)[m]であり、打者の筋力やフォーム、投球速度、バット及びボールの材質の影響は一切受けない。ただし、SCP-439-JP-a-10は「強振すること」であり、バントやバットに当てることに集中した緩い振り方では発生しないため、調査を目的にしない「観戦」程度では強振した結果ホームランになったという極自然な現象にしか見えないが、ハイスピードカメラを用いた解析を行うと、バットとボールの当たり方から考えると物理的に不自然な飛び方をしていることが分かる。</p><p>このSCPが危険な理由は発動条件がボールではなく球体であること、その球体は多少の凹凸や楕円状でも発動すること、バットを振った時にバットが手から離れた場合でもSCP-439-JPが有効なことである。そしてその球体の中で最も身近にある球体が何であるかを理解しているならば、よりその恐ろしさを実感できるだろう。</p>",
-		"tags": ["Keter", "Physics", "SCP", "スポーツ", "儀式", "道具"]
+		"tags": ["Keter", "Physics", "Ritual", "SCP", "スポーツ", "道具"]
 	}, {
 		"title": "SCP-444-JP - █████[アクセス不許可]",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-unclassed\">Unclassed</span></h4><p>Please Wait...</p>",
-		"tags": ["Bird", "Memetic", "SCP", "Unclassed", "幻覚", "情報災害", "文書", "日本生類創研"]
+		"tags": ["Avian", "Document", "Esoteric Class", "Hallucination", "Infohazard", "Heritage", "Japan Organisms Improvement and Creation Laboratory", "Memetic", "SCP"]
 	}, {
 		"title": "SCP-488-JP - 人<span style=\"color: #FF0000;\">狼</span>",
 		"original": "SCP Foundation",
@@ -268,32 +273,37 @@
 		"title": "SCP-989-JP - ふコウノトリ大作戦",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-keter\">Keter</span></h4><p>Please Wait...</p>",
-		"tags": ["Animal", "Keter", "SCP", "Uncontained", "性的", "生殖", "瞬間移動", "知性", "自我", "集団意識", "鳥"]
+		"tags": ["Animal", "Avian", "Keter", "Reproductive", "Sapient", "SCP", "Sentient", "Teleportation", "Uncontained", "性的", "集団意識"]
 	}, {
 		"title": "SCP-1000-JP - 特別回収任務",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-unclassed\">[Deleted]</span></h4><p>Please Wait...</p>",
-		"tags": ["1000", "SCP", "Unclassed", "Uncontained", "地球外", "記憶媒体"]
+		"tags": ["1000", "Esoteric Class", "SCP", "Uncontained", "地球外", "記憶媒体"]
 	}, {
 		"title": "SCP-1045-JP - お眼鏡にはかなわない",
 		"original": "SCP Foundation",
 		"summary": "<p>Please Wait...</p>",
-		"tags": ["Euclid", "Meta", "SCP", "文書", "道具"]
+		"tags": ["Document", "Euclid", "Meta", "SCP", "道具"]
 	}, {
 		"title": "SCP-1176-JP - 食糧危機の救世主",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>",
-		"tags": ["Safe", "SCP", "マナによる慈善財団", "日本生類創研", "植物", "生物災害"]
+		"tags": ["Japan Organisms Improvement and Creation Laboratory", "Manna Charitable Foundation", "Safe", "SCP", "植物", "生物災害"]
 	}, {
 		"title": "SCP-1973-JP - メアリー・スーの怪物",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-keter\">Keter</span></h4><p>Please Wait...</p>",
 		"tags": ["Humanoid", "Keter", "Mind Affecting", "Ontokinetic", "SCP"]
 	}, {
+		"title": "SCP-2000-JP - 伝書使",
+		"original": "SCP Foundation",
+		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-thaumiel\">Thaumiel</span></h4><p>Please Wait...</p>",
+		"tags": ["2000", "Animal", "Computer", "Meta", "Sapient", "SCP", "Sentient", "Thaumiel", "共著", "犬"]
+	}, {
 		"title": "SCP-014-JP-EX - 君のその顔が見たくて",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-explained\">Explained</span></h4><p>Please Wait...</p>",
-		"tags": ["Explained", "Humanoid", "SCP", "Unclassed", "公安部特事課"]
+		"tags": ["Esoteric Class", "Explained", "Humanoid", "SCP", "公安部特事課"]
 	}, {
 		"title": "SCP-014-JP-J - 『奈落の悪鬼、黒き翼の堕天使アイスヴァイン』",
 		"original": "SCP Foundation",
@@ -303,7 +313,7 @@
 		"title": "SCP-040-JP-J - ねこですよろしくおねがいしま<b>せん</b>",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <s><span class=\"object-safe\">Safe</span></s> <span class=\"object-thaumiel\">Thaumiel</span></h4><p>『SCP-040-JP - ねこですよろしくおねがいします』が元のジョークオブジェクト。</p>",
-		"tags": ["Joke", "K-Class Scenario", "Medical", "Memetic", "Meta", "SCP", "Structure", "Thaumiel", "猫", "視覚", "認識災害"]
+		"tags": ["Cognitohazard", "Joke", "K-Class Scenario", "Medical", "Memetic", "Meta", "SCP", "Structure", "Thaumiel", "猫", "視覚"]
 	}, {
 		"title": "SCP-240-JP-J - 0本の頭髪",
 		"original": "SCP Foundation",
@@ -313,22 +323,22 @@
 		"title": "SCP-444-JP-J - 緋色の鳥（税別:118円）よ",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>",
-		"tags": ["April Fool", "Joke", "Safe", "SCP", "中毒", "味覚", "文書", "認識災害", "食物"]
+		"tags": ["April Fool", "Cognitohazard", "Document", "Joke", "Safe", "SCP", "中毒", "味覚", "食物"]
 	}, {
 		"title": "SCP-654-JP-J - フラクタルタマネギ",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-unclassed\">Muketer</span></h4><p>Please Wait...</p>",
-		"tags": ["April Fool", "Joke", "SCP", "Unclassed", "食物"]
+		"tags": ["April Fool", "Esoteric Class", "Joke", "SCP", "食物"]
 	}, {
 		"title": "SCP-710-JP-J - 財団神拳",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-unclassed\">Achoo!</span></h4><p>この時点で色々おかしいのだが、内容は実際に見たほうが早い。</p>",
-		"tags": ["Foundation Made", "Joke", "Physics", "SCP", "Unclassed"]
+		"tags": ["Esoteric Class", "Foundation Made", "Joke", "Physics", "SCP"]
 	}, {
 		"title": "SCP-999-JP-J - マスター・くすぐりオバケ",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <s><span class=\"object-safe\">Safe</span></s> <span class=\"object-thaumiel\">Thaumiel</span></h4><p>Please Wait...</p>",
-		"tags": ["Alive", "Amorphous", "Humanoid", "Joke", "Medical", "SCP", "Tactile", "Thaumiel", "嗅覚", "自我"]
+		"tags": ["Alive", "Amorphous", "Humanoid", "Joke", "Medical", "SCP", "Sentient", "Tactile", "Thaumiel", "嗅覚"]
 	}, {
 		"title": "SCP-1210-JP-J - キメラれねぇ",
 		"original": "SCP Foundation",
@@ -338,12 +348,12 @@
 		"title": "SCP-36.6-JP-J - 不可視の悪魔",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-keter\">Keter</span></h4><p>Please Wait...</p>",
-		"tags": ["Joke", "Keter", "Mind Affecting", "SCP", "伝染性", "擬態"]
+		"tags": ["Contagion", "Joke", "Keter", "Mind Affecting", "SCP", "擬態"]
 	}, {
 		"title": "SCP-ZZZ-JP-J - 暁を覚えず",
 		"original": "SCP Foundation",
 		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-unclassed\">Okiter</span></h4><p>睡眠不足をネタにしたジョークオブジェクト。寝ているのに起きているとは一体……。</p>",
-		"tags": ["Joke", "Meta", "Mind Affecting", "SCP", "睡眠"]
+		"tags": ["Esoteric Class", "Joke", "Meta", "Mind Affecting", "SCP", "Sleep"]
 	}, {
 		"title": "<span title=\"神崎蘭子\">???</span>(……手、握ってもらっちゃった……。プロデューサーの手、あったかかったなぁ……。初詣、また一緒にいきたいな……)",
 		"original": "アイドルマスター シンデレラガールズ スターライトステージ",
@@ -492,7 +502,7 @@
 	}, {
 		"title": "<span title=\"スカイリム衛兵\">???</span>「当ててやろうか?誰かに、スイート・ロールを盗まれたかな?」",
 		"original": "The Elder Scrolls V: Skyrim",
-		"summary": "<p>スイート・ロールとはThe Elder Scrolls V: Skyrimに登場するスポンジケーキ状のデザートである。</p><p>尚、海外では実際に制作され、販売されたことがある。</p>",
+		"summary": "<p>スイート・ロールとは『The Elder Scrolls V: Skyrim』に登場するスポンジケーキ状のデザートである。</p><p>尚、海外では実際に制作され、販売されたことがある。</p>",
 		"tags": ["Talk"]
 	}, {
 		"title": "<span title=\"インタビュアー\">???</span>「あなたはSCP-ZZZ-JP-Jの影響を受けていると考えられます。ご存じですか」",
@@ -2000,10 +2010,25 @@
 		"summary": "<p>エンティティとはキラーを操る所謂親玉的存在。マッチバトルの成績が非常に優れない場合表示される文字。</p><p>尚、エンティティはプレイヤーであるという説がある。</p>",
 		"tags": []
 	}, {
+		"title": "エンディングまで、泣くんじゃない。",
+		"original": "MOTHER",
+		"summary": "<p>MOTHERのキャッチコピー。</p>",
+		"tags": ["Advertising slogan"]
+	}, {
+		"title": "大人も子供も、おねーさんも。",
+		"original": "MOTHER2 ギーグの逆襲",
+		"summary": "<p>MOTHER2 ギーグの逆襲のキャッチコピー。</p>",
+		"tags": ["Advertising slogan"]
+	}, {
 		"title": "頑丈なロープ",
 		"original": "Eternal League of Nefia",
 		"summary": "<p>Elonaのアイテム。使用可能な消費アイテム。使用できるのだが…………。</p>",
 		"tags": ["Item"]
+	}, {
+		"title": "奇妙で、おもしろい。そして、せつない。",
+		"original": "MOTHER3",
+		"summary": "<p>MOTHER3のキャッチコピー。</p>",
+		"tags": ["Advertising slogan"]
 	}, {
 		"title": "ごらんの有様だよ!!!",
 		"original": "魔法少女アイ",
@@ -2030,10 +2055,20 @@
 		"summary": "<p>メガCDのアドベンチャーゲーム『夢見館の物語』のキャッチコピー。幻想的な雰囲気は 多くのユーザーを引き付け、今でも根強いファンが存在する知る人ぞ知る名作。クリアまでの総プレイ時間は短め。</p>",
 		"tags": ["Advertising slogan"]
 	}, {
+		"title": "謎を解けるか。一億人。",
+		"original": "たけしの挑戦状",
+		"summary": "<p>たけしの挑戦状のキャッチコピー。当時の時代にここまでいろいろ詰め込んだ結果、非常に難解なものとなっている。</p>",
+		"tags": ["Advertising slogan"]
+	}, {
 		"title": "ねこでした",
 		"original": "SCP Foundation",
 		"summary": "<p>よろしくおねがいします</p><p class=\"mintyo\" style=\"text-align: right; font-size: 48px;\">メモ</p>",
-		"tags": ["Meme", "SCP"]
+		"tags": ["Memetic", "SCP"]
+	}, {
+		"title": "名作保証",
+		"original": "MOTHER",
+		"summary": "<p>MOTHERのキャッチコピー。</p>",
+		"tags": ["Advertising slogan"]
 	}, {
 		"title": "竜退治はもう飽きた",
 		"original": "メタルマックス",

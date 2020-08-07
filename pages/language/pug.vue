@@ -83,11 +83,11 @@ div
 				a(href='#', target='_blank', rel='external noopener') こちら
 		h4 HTML
 		pre.language-html.line-numbers: code.
-			&lt;p&gt;参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;&lt;/p&gt;
+			&lt;p&gt;参照元は&lt;a href="#" target="_blank" rel="external noopener"&gt;こちら&lt;/a&gt;&lt;/p&gt;
 		p 尚、どうしても一行で済ましたいならば以下のように記述する。
 		h4 Pug
 		pre.language-pug.line-numbers: code.
-			p 参照元は&lt;a href="#" target="_blank"&gt;こちら&lt;/a&gt;
+			p 参照元は&lt;a href="#" target="_blank" rel="external noopener"&gt;こちら&lt;/a&gt;
 
 		h3 IDとクラス
 		p IDとクラスはプロパティを記述する方法で記述してもよいが、以下のように記述することができる。
@@ -283,9 +283,13 @@ div
 		h2 最後に
 		p このマニュアルはPugで作られており、ソースを全て残しているので参考にする場合はPugフォルダ参照。クラシックなページデザイン故に参考になるか怪しいが。
 		pre.line-numbers(data-src='/pug/index.pug', data-download-link)
+
+	section
+		h2 リンク
+		a(href='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .v-application {
 	.title {
 		font-size: unset !important;
@@ -299,13 +303,18 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-batch';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-pug';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'Pug'
-			}
+				title: 'Pug',
+			},
 		};
 	},
 	mounted() {
@@ -317,7 +326,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

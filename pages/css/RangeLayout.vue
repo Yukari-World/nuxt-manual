@@ -1,8 +1,8 @@
 <template lang="pug">
 div
-	v-alert(type='warning', border='left', colored-border, dense, elevation='2')
-		h2 非標準の機能
-		p ここに記述されている内容はW3Cで標準化されていません。故に予告なく仕様変更、廃止される可能性があります。
+	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
+		h2 {{ $t('common.stub.non_standard.title') }}
+		p {{ $t('common.stub.non_standard.desc') }}
 
 	section
 		h2 説明
@@ -88,7 +88,7 @@ div
 		h2 使用上の注意
 		ul
 			li Microsoft Edgeではwebkitの仕様が採用されるが、スライダーのポインターは範囲をはみ出して表示する事は出来ない。
-			li visibilityを使用することでポインターを消すとこができる。なお、display: noneでは数値が編集できなくなる。
+			li visibilityを使用することでポインターを消すとこができる。なお、display: noneでは数値が編集できなくなるため、この方法は推奨しない。
 			li appearanceの指定を無効している関係でポインターのサイズが0となっているのでポインターのサイズ指定は必ず行う必要がある。
 
 	section
@@ -182,25 +182,27 @@ input[type="range"] {
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-markup';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'スライダーレイアウト'
-			}
+				title: 'スライダーレイアウト',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

@@ -6,15 +6,53 @@ v-app#inspire
 	v-app-bar(app)
 		v-app-bar-nav-icon(@click.stop='drawer = !drawer')
 		HeaderVue(:title='title')
+		v-spacer
 
-	v-content
+		v-btn(icon)
+			v-icon mdi-magnify
+
+		v-menu(bottom, left, offset-y, transition='slide-y-transition')
+			template(v-slot:activator='{ on }')
+				v-btn(icon,v-on='on')
+					v-icon mdi-dots-vertical
+			v-list
+				v-list-item(v-for='(temp, index) in headMenu', active-class='light-blue--text', link, nuxt, :to='temp.link', :key='index')
+					v-list-item-icon
+						v-icon {{temp.icon}}
+					v-list-item-content
+						v-list-item-title {{temp.title}}
+
+		v-menu(bottom, left, offset-y, transition='slide-y-transition')
+			template(v-slot:activator='{ on }')
+				v-btn(icon,v-on='on')
+					v-icon mdi-translate
+			v-list
+				v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', link, nuxt, :to='switchLocalePath(locale.code)', :key='locale.code')
+					v-list-item-content
+						v-list-item-title {{locale.name}}
+
+	v-main
 		v-container(fluid)
 			router-view
 				nuxt
 		FooterVue
+
+		v-btn(color='red', fab, fixed, bottom, right, @click="$vuetify.goTo('#inspire', {duration: 500, offset: 0, easing: 'easeOutCubic'})")
+			v-icon mdi-chevron-up
 </template>
 
 <style lang="scss">
+// ----------------------------------------------------------------------------------------------------
+// Common Style
+section {
+	&:not(:first-child) {
+		margin-top: 1.5rem;
+		border: solid;
+		border-width: thin 0 0 0;
+		border-color: rgba(255, 255, 255, 0.12);
+	}
+}
+
 // ----------------------------------------------------------------------------------------------------
 // Vender Profile Initialize
 ::-webkit-scrollbar {
@@ -47,8 +85,7 @@ v-app#inspire
 
 // ----------------------------------------------------------------------------------------------------
 // Prism Overwrite
-code,
-pre {
+code, pre {
 	&[class*="language-"] {
 		margin: unset;
 		tab-size: 4;
@@ -67,14 +104,15 @@ pre {
 	&[class*="language-"] {
 		> code {
 			$size: 2.286em;
-			background-color: unset;
-			color: unset;
-			box-shadow: unset;
+
 			display: block;
-			border-radius: unset;
 			white-space: pre-wrap;
 			font-size: 14px;
 			font-weight: normal;
+			color: unset;
+			border-radius: unset;
+			background-color: unset;
+			box-shadow: unset;
 
 			@media (prefers-color-scheme: light) {
 				background-size: $size $size;
@@ -92,6 +130,10 @@ pre {
 		&:before {
 			content: unset;
 		}
+
+		&:after {
+			content: unset;
+		}
 	}
 }
 </style>
@@ -107,13 +149,23 @@ export default {
 	components: {
 		HeaderVue,
 		FooterVue,
-		SideList
+		SideList,
 	},
 	data() {
 		return {
 			drawer: null,
-			title:  ''
+			title: '',
+			headMenu: [
+				{title: 'トップページ', icon: 'mdi-home', link: '/'},
+				{title: '更新履歴', icon: 'mdi-history', link: '/updateLog'},
+				{title: 'ログイン', icon: 'mdi-login', link: '/user/login'},
+			],
 		};
+	},
+	computed: {
+		availableLocales () {
+			return this.$i18n.locales;
+		},
 	},
 	created() {
 		// this.$vuetify.theme.dark = true;
@@ -128,7 +180,7 @@ export default {
 			// 第1引数にはemitで渡した値が入ってくる。
 			// 第2引数以降を渡す場合も同様に、それ以降の引数で受け取れる
 			this.title = title || '';
-		}
-	}
+		},
+	},
 };
 </script>
