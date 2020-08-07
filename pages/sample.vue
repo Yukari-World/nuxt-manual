@@ -62,14 +62,20 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-sql';
 
 export default {
 	title: 'test',
 	data() {
 		return {
 			header: {
-				title: 'サンプルデータ'
-			}
+				title: 'サンプルデータ',
+			},
 		};
 	},
 	mounted() {
@@ -81,7 +87,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

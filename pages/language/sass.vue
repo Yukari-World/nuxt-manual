@@ -1,8 +1,8 @@
 <template lang="pug">
 div
-	v-alert(type='info', border='left', colored-border, dense, elevation='2')
-		h2 書きかけのページ
-		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
+	v-alert(type='info', border='left', colored-border, dense, elevation='5')
+		h2 {{ $t('common.stub.work_in_progress.title') }}
+		p {{ $t('common.stub.work_in_progress.desc') }}
 
 	section
 		h2 Sassとは
@@ -295,18 +295,24 @@ div
 		section
 			h2 最後に
 			p このマニュアルはSCSSをSassに変換したファイルを置いているので参考程度に。
-			pre.line-numbers(data-src='sass/buildSass.sass', data-download-link)
+			pre.line-numbers(data-src='/sass/buildSass.sass', data-download-link)
+
+	section
+		h2 リンク
+		a(href='http://sass-lang.com/', target='_blank', rel='external noopener') Sass: Syntactically Awesome Style Sheets
 </template>
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-sass';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'Sass'
-			}
+				title: 'Sass',
+			},
 		};
 	},
 	mounted() {
@@ -318,7 +324,7 @@ export default {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

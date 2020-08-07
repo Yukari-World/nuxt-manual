@@ -50,25 +50,29 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-php';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'ファイルを利用した二重起動防止'
-			}
+				title: 'ファイルを利用した二重起動防止',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

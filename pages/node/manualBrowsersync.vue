@@ -87,37 +87,39 @@ div
 			li ブラウザバックには対応していない。そのため戻る場合はJavaScript操作によるブラウザバックを除き全て手動で戻る必要がある。
 			li 複数のブラウザを同時にリロードする関係上、ブラウザの再描画及び通信等で一時的に負荷が非常に大きくなる。
 			li
-				| gulp当のスクリプトにも利用できるため、Sass/SCSSコンパイル後にリロードの指示が出来る。
+				| gulp等のスクリプトにも利用できるため、Sass/SCSSコンパイル後にリロードの指示が出来る。
 				s 但し、gulpの性質上、非同期処理なので、少し特殊な記述が必要(後日記述予定)。
 				| gulp4が公開されたことにより処理手順を直列化できるようになった。
 
 	section
-		h2 参考リンク
+		h2 リンク
 		p
 			a(href='https://browsersync.io/', target='_blank', rel='external noopener') Browsersync - Time-saving synchronised browser testing
 </template>
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-batch';
+import 'prismjs/components/prism-http';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'Browsersync導入マニュアル'
-			}
+				title: 'Browsersync導入マニュアル',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

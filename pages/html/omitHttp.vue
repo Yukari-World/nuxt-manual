@@ -1,8 +1,8 @@
 <template lang="pug">
 div
-	v-alert(type='error', border='left', colored-border, dense, elevation='2')
-		h2 注意
-		p このページの内容は非推奨です。テスト目的以外で利用することは避けてください。
+	v-alert(type='error', border='left', colored-border, dense, elevation='5')
+		h2 {{ $t('common.stub.deprecated.title') }}
+		p {{ $t('common.stub.deprecated.desc') }}
 
 	section
 		h2 説明
@@ -33,25 +33,26 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-http';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'httpの省略'
-			}
+				title: 'httpの省略',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

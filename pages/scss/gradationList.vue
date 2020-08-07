@@ -1,10 +1,10 @@
 <template lang="pug">
 div
-	v-alert(type='info', border='left', colored-border, dense, elevation='2')
-		h2 書きかけのページ
-		p このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。
+	v-alert(type='info', border='left', colored-border, dense, elevation='5')
+		h2 {{ $t('common.stub.work_in_progress.title') }}
+		p {{ $t('common.stub.work_in_progress.desc') }}
 
-	v-alert(type='warning', border='left', colored-border, dense, elevation='2')
+	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
 		h2 応用技術
 		p ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。
 
@@ -74,7 +74,7 @@ div
 		h3 SCSS
 		p
 			| SCSSファイル。これを基にCSSに出力する。細かい記述ルールは
-			nuxt-link(to='/language/sass') こちら
+			nuxt-link(:to="localePath('/language/sass')" title='SASS') こちら
 			| を参照。
 		pre.language-scss.line-numbers: code.
 			@charset "UTF-8";
@@ -592,25 +592,29 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-pug';
+import 'prismjs/components/prism-scss';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: '特殊なグラデーションリスト'
-			}
+				title: '特殊なグラデーションリスト',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

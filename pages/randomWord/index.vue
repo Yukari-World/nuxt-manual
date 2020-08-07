@@ -1,7 +1,5 @@
 <template lang="pug">
 dl#randomOutput
-	//- <dt id="wordID' + ++listCount + '"><h3>' + dataTemp.title + '</h3><h4>出典: ' + dataTemp.original + '</h4></dt>
-	//- <dd>' + dataTemp.summary + '<div class="boxTag"><ul class="tagList">' + tagText + '</ul></div></dd>
 	template(v-if='$route.params.id !== undefined')
 		nuxt-child
 	template(v-else)
@@ -16,7 +14,7 @@ dl#randomOutput
 						//- <a data-tag="' + searchTag + '">' + searchTag + '</a>
 						//- コンテンツタグの出力
 						li(v-for='(tag) in words.tags')
-							a(:data-tag='tag') {{tag}}
+							a(:data-tag='tag') {{ $t(tag)}}
 </template>
 
 <style lang="scss">
@@ -150,19 +148,19 @@ export default {
 	data() {
 		return {
 			header: {
-				title: 'ランダムワード集'
-			}
+				title: 'ランダムワード集',
+			},
 		};
 	},
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			randomWords: (state) => state.randomWords
-		})
+			randomWords: (state) => state.randomWords,
+		}),
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 		// setTimeout(this.scroll, 300);
 	},
@@ -178,6 +176,6 @@ export default {
 		// 		this.$scrollTo(hash);
 		// 	}
 		// }
-	}
+	},
 };
 </script>

@@ -62,25 +62,26 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-sql';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'INSERT WHERE EXISTS'
-			}
+				title: 'INSERT WHERE EXISTS',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

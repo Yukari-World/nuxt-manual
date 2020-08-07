@@ -46,25 +46,26 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-sql';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'IN()(複数選択)'
-			}
+				title: 'IN()(複数選択)',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>

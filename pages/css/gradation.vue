@@ -38,7 +38,7 @@ div
 		pre.language-css.line-numbers: code
 			| background: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 		.gradient4
-		p 本マニュアルで使用されているグラデーション。%表記が省略された場合は色の切れ目が均等な位置になるように位置が割り振られる。左側の色は背景色と同じ色のため殆ど見えない。尚、このマニュアルの背景は黒ではない。
+		p 本マニュアルで使用されているグラデーション。%表記が省略された場合は色の変わり目が要素のサイズに対して均等な位置になるように位置が割り振られる(この場合は2個目の要素が50%の位置に来るように割り振られる)。左側の色は背景色と同じ色のため殆ど見えない。尚、このマニュアルの背景は黒ではない。
 
 	section
 		h2 使用上の注意
@@ -98,25 +98,27 @@ div
 
 <script>
 import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-markup';
 
 export default {
 	data() {
 		return {
 			header: {
-				title: 'グラデーション'
-			}
+				title: 'グラデーション',
+			},
 		};
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		// Prism.fileHighlight();
 		this.updateHeader();
 	},
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('updateHeader', this.header.title);
-		}
-	}
+		},
+	},
 };
 </script>
