@@ -10,7 +10,7 @@ span
 				//- <a data-tag="' + searchTag + '">' + searchTag + '</a>
 				//- コンテンツタグの出力
 				li(v-for='(tag) in randomWords[$route.params.id - 1].tags')
-					a(:data-tag='tag') {{tag}}
+					a(:data-tag='tag') {{ $t(tag)}}
 </template>
 
 <style lang="scss">
