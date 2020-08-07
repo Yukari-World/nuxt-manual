@@ -77,7 +77,7 @@ export default {
 	plugins: [
 		// '~/plugins/auth',
 		{ src: '~plugins/codemirror', ssr: false },
-		'~plugins/firebase',
+		// '~plugins/firebase',
 		// '~/plugins/globals.js',
 		// '~/plugins/vue-scrollto',
 	],
