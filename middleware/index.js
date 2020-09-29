@@ -1,29 +1,33 @@
-import axios from 'axios';
-
-export default async function({ store }) {
+export default async function({ $axios, store }) {
 	// // すでに store にデータが格納されている場合は再取得を行わない
 	if (store.state.randomWords.length > 0) {
 		return;
 	}
 	// // console.log('Welcome');
 	// store.dispatch('fetchItems');
-	await axios
-		.get(process.env.baseUrl + '/json/manualList.json')
-		.then((response) => {
-			// console.log(response.data);
-			store.commit('setLists', response.data);
+	await $axios.$get('json/manualList.json')
+		.then((data) => {
+			// console.log(data);
+			store.commit('setLists', data);
 		})
 		.catch(function(error) {
-			console.error(error);
+			if (this.$axios.isCancel(error)) {
+				console.log('Request canceled', error);
+			} else {
+				console.error('Axios Error: ' + error);
+			}
 		});
 
-	await axios
-		.get(process.env.baseUrl + '/json/randomWord.json')
-		.then((response) => {
-			// console.log(response.data);
-			store.commit('setRandomWords', response.data);
+	await $axios.$get('json/randomWord.json')
+		.then((data) => {
+			// console.log(data);
+			store.commit('setRandomWords', data);
 		})
 		.catch(function(error) {
-			console.error(error);
+			if (this.$axios.isCancel(error)) {
+				console.log('Request canceled', error);
+			} else {
+				console.error('Axios Error: ' + error);
+			}
 		});
 }
