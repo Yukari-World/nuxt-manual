@@ -52,3 +52,6 @@ STORAGEBUCKET=
 APPID=
 MESSAGINGSENDERID=
 ```
+
+## 記録
+このソースコードは、2020年ソースコード保管プロジェクトにてノルウェーの永久凍土に保管されたようです。
