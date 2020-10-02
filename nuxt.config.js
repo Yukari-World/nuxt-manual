@@ -1,12 +1,10 @@
-// import randomWord from './static/json/randomWord.json';
-// import axios from 'axios';
 import shrinkRay from 'shrink-ray-current';
 import ja from 'vuetify/es5/locale/ja';
 import en from 'vuetify/es5/locale/en';
 require('dotenv').config();
 
 export default {
-	mode: 'universal',
+	ssr: false,
 	env: {
 		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 	},
@@ -62,6 +60,7 @@ export default {
 			primary: '#3F51B5',
 			secondary: '#2196F3',
 		},
+		treeShake: true,
 	},
 	/*
 	 ** Global CSS
@@ -88,6 +87,7 @@ export default {
 		// Doc: https://github.com/nuxt-community/eslint-module
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/stylelint-module',
+		'@nuxtjs/vuetify',
 		// '@nuxt/typescript-build',
 	],
 	/*
@@ -95,14 +95,19 @@ export default {
 	 */
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
+		'@nuxtjs/axios',
 		'@nuxtjs/dotenv',
 		'@nuxtjs/pwa',
 		'@nuxtjs/style-resources',
-		'@nuxtjs/vuetify',
 		'nuxt-i18n',
+		'nuxt-purgecss',
 		['vue-scrollto/nuxt', { duration: 300 }],
 		'@nuxtjs/sitemap',
 	],
+	axios: {
+		baseURL: '/',
+		// debug: true,
+	},
 	router: {
 		middleware: 'index',
 	},
@@ -117,16 +122,7 @@ export default {
 		/*
 		 ** You can extend webpack config here
 		 */
-		extend(config, _ctx) {
-			config.module.rules.push({
-				test: /\.json$/i,
-				loader: 'file-loader',
-				options: {
-					name({ isDev }) {
-						isDev ? '[name].json' : '[path][hash].[ext]';
-					},
-				},
-			});
+		extend(config, {isDev, isClient}) {
 		},
 		babel: {
 			babelrc: false,
@@ -163,7 +159,7 @@ export default {
 		extractCSS: false,
 		filenames: {
 			app({ isDev }) {
-				isDev ? '[name].js' : '[name].[chunkhash].js';
+				isDev ? '[name].js' : '[name].[contenthash:7].js';
 			},
 		},
 		optimization: {
@@ -203,7 +199,7 @@ export default {
 			},
 		},
 		splitChunks: {
-			layouts: false,
+			layouts: true,
 			pages: true,
 			commons: true,
 		},
@@ -319,6 +315,26 @@ export default {
 				},
 			],
 		},
+	},
+	/*
+	 ** purgeCSS configuration
+	 */
+	purgeCSS: {
+		enabled: ({ isDev, isClient }) => !isDev && isClient, // or `false` when in dev/debug mode
+		paths: [
+			'components/**/*.vue',
+			'layouts/**/*.vue',
+			'pages/**/*.vue',
+			'plugins/**/*.js',
+		],
+		styleExtensions: ['.css'],
+		whitelist: ['body', 'html', 'nuxt-progress'],
+		extractors: [
+			{
+				extractor: content => content.match(/[A-z0-9-:\\/]+/g) || [],
+				extensions: ['html', 'vue', 'js'],
+			},
+		],
 	},
 	/*
 	 ** Server configuration
