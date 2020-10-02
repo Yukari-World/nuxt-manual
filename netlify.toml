@@ -3,7 +3,7 @@
 	for = "/*"
 
 	[headers.values]
-		Content-Security-Policy = "default-src 'self' cdn.jsdelivr.net fonts.googleapis.com fonts.gstatic.com;"
+		Content-Security-Policy = "default-src 'self' cdn.jsdelivr.net fonts.googleapis.com fonts.gstatic.com 'unsafe-inline'; img-src 'self' data:;"
 		X-Content-Type-Options = "nosniff"
 		X-Frame-Options = "DENY"
 		X-XSS-Protection = "1; mode=block"

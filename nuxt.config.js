@@ -1,12 +1,10 @@
-// import randomWord from './static/json/randomWord.json';
-// import axios from 'axios';
 import shrinkRay from 'shrink-ray-current';
 import ja from 'vuetify/es5/locale/ja';
 import en from 'vuetify/es5/locale/en';
 require('dotenv').config();
 
 export default {
-	ssr: true,
+	ssr: false,
 	env: {
 		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 	},
@@ -97,6 +95,7 @@ export default {
 	 */
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
+		'@nuxtjs/axios',
 		'@nuxtjs/dotenv',
 		'@nuxtjs/pwa',
 		'@nuxtjs/style-resources',
@@ -105,6 +104,10 @@ export default {
 		['vue-scrollto/nuxt', { duration: 300 }],
 		'@nuxtjs/sitemap',
 	],
+	axios: {
+		baseURL: '/',
+		// debug: true,
+	},
 	router: {
 		middleware: 'index',
 	},
