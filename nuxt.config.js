@@ -5,9 +5,9 @@ require('dotenv').config();
 
 export default {
 	ssr: false,
-	// env: {
-	// 	baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
-	// },
+	env: {
+		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
+	},
 	/*
 	 ** Headers of the page
 	 */
