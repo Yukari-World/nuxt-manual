@@ -105,7 +105,7 @@ export default {
 		'@nuxtjs/sitemap',
 	],
 	axios: {
-		// baseURL: 'http://[HOST]:[PORT][PREFIX]',
+		baseURL: '/',
 		// debug: true,
 	},
 	router: {
