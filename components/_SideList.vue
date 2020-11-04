@@ -3,8 +3,8 @@ nav#menu.sidebar
 	h2.text-center Nuxt Manual Menu
 
 	.d-flex.justify-space-around
-		v-btn#expandAll(color='primary', small) {{ $t('sidebar.expand') }}
-		v-btn#collapseAll(color='primary', small) {{ $t('sidebar.compress') }}
+		v-btn#expandAll(color='secondary', small) {{ $t('sidebar.expand') }}
+		v-btn#collapseAll(color='secondary', small) {{ $t('sidebar.compress') }}
 	v-switch(v-model='threeLine' class='ma-2' :label='$t("sidebar.show_description")')
 
 	template(v-if='loading')

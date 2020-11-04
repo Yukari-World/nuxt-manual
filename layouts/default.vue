@@ -4,16 +4,16 @@ v-app#inspire
 		SideList
 
 	v-app-bar(app)
-		v-app-bar-nav-icon(@click.stop='drawer = !drawer')
+		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
 		HeaderVue(:title='title')
 		v-spacer
 
-		v-btn(icon)
+		v-btn(icon, aria-label='Search')
 			v-icon mdi-magnify
 
 		v-menu(bottom, left, offset-y, transition='slide-y-transition')
 			template(v-slot:activator='{ on }')
-				v-btn(icon,v-on='on')
+				v-btn(icon, aria-label='Menu', v-on='on')
 					v-icon mdi-dots-vertical
 			v-list
 				v-list-item(v-for='(temp, index) in headMenu', active-class='light-blue--text', link, nuxt, :to='temp.link', :key='index')
@@ -24,7 +24,7 @@ v-app#inspire
 
 		v-menu(bottom, left, offset-y, transition='slide-y-transition')
 			template(v-slot:activator='{ on }')
-				v-btn(icon,v-on='on')
+				v-btn(icon, aria-label='Translate', v-on='on')
 					v-icon mdi-translate
 			v-list
 				v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', link, nuxt, :to='switchLocalePath(locale.code)', :key='locale.code')
@@ -37,7 +37,7 @@ v-app#inspire
 				nuxt
 		FooterVue
 
-		v-btn(color='red', fab, fixed, bottom, right, @click="$vuetify.goTo('#inspire', {duration: 500, offset: 0, easing: 'easeOutCubic'})")
+		v-btn(color='red', fab, fixed, bottom, right, aria-label='Page Top', @click="$vuetify.goTo('#inspire', {duration: 500, offset: 0, easing: 'easeOutCubic'})")
 			v-icon mdi-chevron-up
 </template>
 
