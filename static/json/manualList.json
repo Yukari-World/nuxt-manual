@@ -626,7 +626,7 @@
 					"list": [
 						{
 							"title": "ローカルネットワーク接続",
-							"link": "/",
+							"link": "/localNetwork",
 							"summary": "",
 							"tags": ["Server"],
 							"deprecated": false,
