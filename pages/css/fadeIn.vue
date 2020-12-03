@@ -142,6 +142,51 @@ div
 			li アニメーション時間が長すぎるとストレスの要因にもなりうるため、長くても1秒程度には収めること。
 </template>
 
+<script>
+import Prism from 'prismjs';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-markup';
+
+export default {
+	data() {
+		return {
+			header: {
+				title: 'フェードイン',
+			},
+		};
+	},
+	mounted() {
+		Prism.highlightAll();
+		// Prism.fileHighlight();
+		this.updateHeader();
+
+		window.addEventListener(
+			'scroll',
+			function() {
+				const myFade = document.getElementsByClassName('anim');
+				for (let i = 0; i < myFade.length; i++) {
+					const targetElement = myFade[i].getBoundingClientRect(); // ターゲット要素の高さ
+					const scroll = document.documentElement.scrollTop || document.body.scrollTop; // スクロール
+					const windowHeight = window.innerHeight; // ウィンドウの高さ
+					if (scroll > scroll + targetElement.top - windowHeight + 200) {
+						myFade[i].classList.add('show');
+					}
+				}
+			},
+			false,
+		);
+	},
+	methods: {
+		updateHeader() {
+			// タイトルとして使いたい情報を渡す
+			this.$nuxt.$emit('update-header', this.header.title);
+		},
+	},
+};
+</script>
+
 <style scoped lang="scss">
 .area {
 	display: flex;
@@ -199,48 +244,3 @@ div
 	}
 }
 </style>
-
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-markup';
-
-export default {
-	data() {
-		return {
-			header: {
-				title: 'フェードイン',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-
-		window.addEventListener(
-			'scroll',
-			function() {
-				const myFade = document.getElementsByClassName('anim');
-				for (let i = 0; i < myFade.length; i++) {
-					const targetElement = myFade[i].getBoundingClientRect(); // ターゲット要素の高さ
-					const scroll = document.documentElement.scrollTop || document.body.scrollTop; // スクロール
-					const windowHeight = window.innerHeight; // ウィンドウの高さ
-					if (scroll > scroll + targetElement.top - windowHeight + 200) {
-						myFade[i].classList.add('show');
-					}
-				}
-			},
-			false,
-		);
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
-		},
-	},
-};
-</script>

@@ -89,6 +89,33 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/background', target='_blank', rel='external noopener') MDN Web Docs
 </template>
 
+<script>
+import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-scss';
+
+export default {
+	data() {
+		return {
+			header: {
+				title: '背景画像スクロールの固定',
+			},
+		};
+	},
+	mounted() {
+		Prism.highlightAll();
+		// Prism.fileHighlight();
+		this.updateHeader();
+	},
+	methods: {
+		updateHeader() {
+			// タイトルとして使いたい情報を渡す
+			this.$nuxt.$emit('update-header', this.header.title);
+		},
+	},
+};
+</script>
+
 <style scoped lang="scss">
 .layer1, .layer2 {
 	width: 80%;
@@ -116,30 +143,3 @@ div
 	}
 }
 </style>
-
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-scss';
-
-export default {
-	data() {
-		return {
-			header: {
-				title: '背景画像スクロールの固定',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
-		},
-	},
-};
-</script>

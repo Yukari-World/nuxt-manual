@@ -24,17 +24,6 @@ v-footer(padless)
 				a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(SCSS)
 </template>
 
-<style lang="scss">
-.row {
-	box-sizing: border-box;
-}
-
-#randomWord {
-	text-decoration: line-through;
-	color: #FFFFFF;
-}
-</style>
-
 <script>
 import { mapState } from 'vuex';
 
@@ -101,3 +90,14 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss">
+.row {
+	box-sizing: border-box;
+}
+
+#randomWord {
+	text-decoration: line-through;
+	color: #FFFFFF;
+}
+</style>

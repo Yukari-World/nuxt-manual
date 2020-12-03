@@ -408,6 +408,35 @@ div
 			}
 </template>
 
+<script>
+import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-pug';
+import 'prismjs/components/prism-scss';
+
+export default {
+	data() {
+		return {
+			header: {
+				title: '特殊なグラデーションリスト',
+			},
+		};
+	},
+	mounted() {
+		Prism.highlightAll();
+		// Prism.fileHighlight();
+		this.updateHeader();
+	},
+	methods: {
+		updateHeader() {
+			// タイトルとして使いたい情報を渡す
+			this.$nuxt.$emit('update-header', this.header.title);
+		},
+	},
+};
+</script>
+
 <style scoped lang="scss">
 .exsample-area {
 	display: flex;
@@ -589,32 +618,3 @@ div
 	}
 }
 </style>
-
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-pug';
-import 'prismjs/components/prism-scss';
-
-export default {
-	data() {
-		return {
-			header: {
-				title: '特殊なグラデーションリスト',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
-		},
-	},
-};
-</script>

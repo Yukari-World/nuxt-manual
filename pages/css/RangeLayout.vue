@@ -105,6 +105,33 @@ div
 			a(href='https://www.w3schools.com/howto/howto_js_rangeslider.asp', target='_blank', rel='external noopener') W3Schools (English)
 </template>
 
+<script>
+import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-markup';
+
+export default {
+	data() {
+		return {
+			header: {
+				title: 'スライダーレイアウト',
+			},
+		};
+	},
+	mounted() {
+		Prism.highlightAll();
+		// Prism.fileHighlight();
+		this.updateHeader();
+	},
+	methods: {
+		updateHeader() {
+			// タイトルとして使いたい情報を渡す
+			this.$nuxt.$emit('update-header', this.header.title);
+		},
+	},
+};
+</script>
+
 <style scoped lang="scss">
 fieldset {
 	padding: 15px;
@@ -179,30 +206,3 @@ input[type="range"] {
 	}
 }
 </style>
-
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-markup';
-
-export default {
-	data() {
-		return {
-			header: {
-				title: 'スライダーレイアウト',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
-		},
-	},
-};
-</script>

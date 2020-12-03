@@ -289,18 +289,6 @@ div
 		a(href='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
 </template>
 
-<style scoped lang="scss">
-.v-application {
-	.title {
-		font-size: unset !important;
-		font-weight: unset;
-		line-height: unset;
-		letter-spacing: unset !important;
-		font-family: unset !important;
-	}
-}
-</style>
-
 <script>
 import Prism from 'prismjs';
 import 'prismjs/components/prism-clike';
@@ -325,8 +313,20 @@ export default {
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
+			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
 };
 </script>
+
+<style scoped lang="scss">
+.v-application {
+	.title {
+		font-size: unset !important;
+		font-weight: unset;
+		line-height: unset;
+		letter-spacing: unset !important;
+		font-family: unset !important;
+	}
+}
+</style>
