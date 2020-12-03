@@ -184,6 +184,32 @@ div
 			li 別名には日本語が使用することができる。しかし、それを使うのはMicrosoft Office Access位だろう。通常はプログラム側で表題をやカラム名を用意するのが好ましい
 </template>
 
+<script>
+import Prism from 'prismjs';
+import 'prismjs/components/prism-sql';
+
+export default {
+	data() {
+		return {
+			header: {
+				title: 'AS(別名)',
+			},
+		};
+	},
+	mounted() {
+		Prism.highlightAll();
+		// Prism.fileHighlight();
+		this.updateHeader();
+	},
+	methods: {
+		updateHeader() {
+			// タイトルとして使いたい情報を渡す
+			this.$nuxt.$emit('update-header', this.header.title);
+		},
+	},
+};
+</script>
+
 <style scoped lang="scss">
 table {
 	margin: 1rem auto;
@@ -212,29 +238,3 @@ table, td {
 	text-align: right;
 }
 </style>
-
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-sql';
-
-export default {
-	data() {
-		return {
-			header: {
-				title: 'AS(別名)',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
-		},
-	},
-};
-</script>

@@ -36,27 +36,6 @@ div
 			a(href='https://www.webcreatorbox.com/tech/css-blend-mode', target='_blank', rel='external noopener') CSSブレンドモードで画像を彩ろう | Webクリエイターボックス
 </template>
 
-<style scoped lang="scss">
-.layer1,
-.layer2 {
-	width: 350px;
-	height: 200px;
-	margin: 5px auto;
-	border-radius: 10px;
-}
-
-.layer1 {
-	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%, url(/img/robert-lukeman-150146.jpg) no-repeat bottom/100%;
-}
-
-.layer2 {
-	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(/img/robert-lukeman-150146.jpg);
-	background-repeat: repeat-x, no-repeat;
-	background-position: bottom, bottom;
-	background-size: 50% 100%, 100%;
-}
-</style>
-
 <script>
 import Prism from 'prismjs';
 import 'prismjs/components/prism-css';
@@ -77,8 +56,29 @@ export default {
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
+			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
 };
 </script>
+
+<style scoped lang="scss">
+.layer1,
+.layer2 {
+	width: 350px;
+	height: 200px;
+	margin: 5px auto;
+	border-radius: 10px;
+}
+
+.layer1 {
+	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%, url(/img/robert-lukeman-150146.jpg) no-repeat bottom/100%;
+}
+
+.layer2 {
+	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(/img/robert-lukeman-150146.jpg);
+	background-repeat: repeat-x, no-repeat;
+	background-position: bottom, bottom;
+	background-size: 50% 100%, 100%;
+}
+</style>
