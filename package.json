@@ -40,6 +40,7 @@
 		"@codemirror/next": "^0.16.0",
 		"codemirror": "^5.59.1",
 		"js-yaml": "^4.0.0",
+		"mermaid": "^8.8.4",
 		"nuxt": "^2.14.12",
 		"prismjs": "^1.23.0",
 		"vue": "2.6.12",

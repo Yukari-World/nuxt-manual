@@ -15,6 +15,11 @@
 			}
 		}
 	},
+	"header":{
+		"title": "トップページ",
+		"log": "更新履歴",
+		"login": "ログイン"
+	},
 	"sidebar": {
 		"compress": "全て折りたたむ",
 		"contents": "コンテンツ",

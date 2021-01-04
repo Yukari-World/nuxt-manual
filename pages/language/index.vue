@@ -28,7 +28,7 @@ export default {
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
+			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
 };

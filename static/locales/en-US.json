@@ -1,4 +1,11 @@
 {
+	"common": {
+		"stub": {
+			"deprecated": {
+				"title": "Deprecated items"
+			}
+		}
+	},
 	"sidebar": {
 		"compress": "Compress All",
 		"contents": "Contents",

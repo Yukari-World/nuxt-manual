@@ -6,7 +6,7 @@ dl#randomOutput
 		template(v-for='(words, index) in randomWords')
 			dt(:id='"wordID" + (index + 1)')
 				h3(v-html='words.title')
-				h4 出典: {{words.original}}
+				h4 出典: {{ words.original }}
 			dd
 				div(v-html='words.summary')
 				.boxTag
@@ -14,8 +14,48 @@ dl#randomOutput
 						//- <a data-tag="' + searchTag + '">' + searchTag + '</a>
 						//- コンテンツタグの出力
 						li(v-for='(tag) in words.tags')
-							a(:data-tag='tag') {{ $t(tag)}}
+							a(:data-tag='tag') {{ $t(tag) }}
 </template>
+
+<script>
+import { mapState } from 'vuex';
+import Prism from 'prismjs';
+
+export default {
+	data() {
+		return {
+			header: {
+				title: 'ランダムワード集',
+			},
+		};
+	},
+	computed: {
+		// storeからのデータ読み込み
+		...mapState({
+			randomWords: (state) => state.randomWords,
+		}),
+	},
+	mounted() {
+		Prism.highlightAll();
+		// Prism.fileHighlight();
+		this.updateHeader();
+		// setTimeout(this.scroll, 300);
+	},
+	methods: {
+		updateHeader() {
+			// タイトルとして使いたい情報を渡す
+			this.$nuxt.$emit('update-header', this.header.title);
+		},
+		// scroll() {
+		// 	console.log(this.$route);
+		// 	const hash = this.$route.hash;
+		// 	if (hash && hash.match(/^#.+$/)) {
+		// 		this.$scrollTo(hash);
+		// 	}
+		// }
+	},
+};
+</script>
 
 <style lang="scss">
 #randomOutput {
@@ -139,43 +179,3 @@ dl#randomOutput
 	}
 }
 </style>
-
-<script>
-import { mapState } from 'vuex';
-import Prism from 'prismjs';
-
-export default {
-	data() {
-		return {
-			header: {
-				title: 'ランダムワード集',
-			},
-		};
-	},
-	computed: {
-		// storeからのデータ読み込み
-		...mapState({
-			randomWords: (state) => state.randomWords,
-		}),
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-		// setTimeout(this.scroll, 300);
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
-		},
-		// scroll() {
-		// 	console.log(this.$route);
-		// 	const hash = this.$route.hash;
-		// 	if (hash && hash.match(/^#.+$/)) {
-		// 		this.$scrollTo(hash);
-		// 	}
-		// }
-	},
-};
-</script>

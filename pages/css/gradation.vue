@@ -71,6 +71,33 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient', target='_blank', rel='external noopener') MDN Web Docs
 </template>
 
+<script>
+import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-markup';
+
+export default {
+	data() {
+		return {
+			header: {
+				title: 'グラデーション',
+			},
+		};
+	},
+	mounted() {
+		Prism.highlightAll();
+		// Prism.fileHighlight();
+		this.updateHeader();
+	},
+	methods: {
+		updateHeader() {
+			// タイトルとして使いたい情報を渡す
+			this.$nuxt.$emit('update-header', this.header.title);
+		},
+	},
+};
+</script>
+
 <style scoped lang="scss">
 .gradient1, .gradient2, .gradient3, .gradient4 {
 	width: 350px;
@@ -95,30 +122,3 @@ div
 	background: linear-gradient(to right, #000011, #1164FF, #FFFF99), #FFFFFF;
 }
 </style>
-
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-markup';
-
-export default {
-	data() {
-		return {
-			header: {
-				title: 'グラデーション',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
-		},
-	},
-};
-</script>
