@@ -131,46 +131,65 @@ section {
 }
 
 // ----------------------------------------------------------------------------------------------------
-// Prism Overwrite
-code, pre {
-	&[class*="language-"] {
-		margin: unset;
-		tab-size: 4;
-		font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
-		line-height: 1.2;
-		-webkit-overflow-scrolling: touch;
+// Vuetify Overwrite
+.v-application {
+	.code-toolbar {
+		// ----------------------------------------------------------------------------------------------------
+		// Prism Overwrite
+		code, pre {
+			&[class*="language-"] {
+				margin: unset;
+				tab-size: 4;
+				font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+				line-height: 1.2;
+				-webkit-overflow-scrolling: touch;
 
-		&::-webkit-scrollbar {
-			width: 5px;
-			height: 5px;
+				&::-webkit-scrollbar {
+					width: 5px;
+					height: 5px;
+				}
+			}
 		}
-	}
-}
 
-pre {
-	&[class*="language-"] {
-		> code {
-			$size: 2.286em;
+		pre {
+			&[class*="language-"] {
+				> code {
+					$size: 2.286em;
 
-			display: block;
-			white-space: pre-wrap;
-			font-size: 14px;
-			font-weight: normal;
-			color: unset;
-			border-radius: unset;
-			background-color: unset;
-			box-shadow: unset;
+					display: block;
+					white-space: pre;
+					font-size: 14px;
+					font-weight: normal;
+					color: unset;
+					border-radius: unset;
+					background-color: unset;
+					box-shadow: unset;
 
-			@media (prefers-color-scheme: light) {
-				background-size: $size $size;
+					@media (prefers-color-scheme: light) {
+						background-size: $size $size;
+					}
+				}
+			}
+		}
+
+		// ----------------------------------------------------------------------------------------------------
+		// Vuetify Overwrite Fix
+		[class*="language-"] {
+			code {
+				background-color: transparent;
+				padding: 0;
+			}
+
+			.title {
+				letter-spacing: 0 !important;
+				font-family: inherit !important;
+				font-size: inherit !important;
+				font-weight: inherit;
+				line-height: inherit;
 			}
 		}
 	}
-}
 
-// ----------------------------------------------------------------------------------------------------
-// Vuetify Overwrite
-.v-application {
 	code {
 		font-weight: normal;
 
