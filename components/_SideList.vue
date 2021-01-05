@@ -57,7 +57,7 @@ export default {
 			categoryList: (state) => state.menus.categoryList,
 		}),
 	},
-	mounted () {
+	mounted() {
 		this.loading = false;
 	},
 };

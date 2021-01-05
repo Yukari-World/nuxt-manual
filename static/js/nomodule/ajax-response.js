@@ -3,7 +3,7 @@
  *
  * @module  nomodule/ajax-response
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.0.3
  */
 
 /**
@@ -12,18 +12,15 @@
  * @param   {Response}          response    レスポンスデータ
  * @returns {Response|Error}                HTTPステータスコードが200番台ならレスポンスデータ、そうでなければエラー
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.0.3
  */
 function checkStatus(response) {
 	// HTTPステータスコードが200番台ではない場合
 	// 類似方法にresponse.okがあるが大部分のブラウザが非対応なので非推奨
 	if (response.status >= 200 && response.status < 300) {
-		return response;
-	} else {
-		let error = new Error(response.statusText);
-		error.response = response;
-		throw error;
+		return Promise.resolve(response);
 	}
+	return Promise.reject(new Error(response.statusText));
 }
 
 /**
@@ -32,53 +29,81 @@ function checkStatus(response) {
  * @param   {Response}  response    レスポンスデータ
  * @returns {JSON}                  レスポンスに格納されているJSONデータ
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.0.3
  */
 function parseJSON(response) {
 	// console.log(response);
 	return response.json();
 }
 
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Export Function
+
 /**
  * Ajax転送処理
  *
- * @param   {string}                        sendURL 転送先URL
- * @param   {FormData}                      [form]  転送するForm Data(無くても問題ない)
- * @returns {Promise.JSON|Promise.Error}            JSONデータもしくはエラー内容
+ * @param   {string}                        sendURL             転送先URL
+ * @param   {FormData}                      [form]              転送するForm Data(無くても問題ない)
+ * @param   {string}                        [methodType='POST'] 転送メソッド
+ * @returns {Promise.JSON|Promise.Error}                        JSONデータもしくはエラー内容
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.0.3
  */
-function SendAjax(sendURL, form) {
-	return new Promise(function (resolve, reject) {
+function SendAjax(sendURL, form, methodType) {
+	return new Promise(function(resolve, reject) {
 		if (self.fetch) {
-			fetch(sendURL, {
-				method: 'POST',
-				body: form
-			})
+			let sendStruct;
+			let url;
+
+			// POSTとGETでは転送処理が異なるのでここで処理を行う
+			if (methodType === 'POST' || methodType === 'post') {
+				url = sendURL;
+				sendStruct = {
+					method: methodType,
+					body: form,
+				};
+			} else {
+				url = sendURL + '?';
+
+				// GETのURLを作ってくれるらしい
+				const params = new URLSearchParams();
+				// MicrosoftEdgeは未対応のための処置(対策になっていない)
+				if (form.keys !== undefined) {
+					for (const a of form.keys()) {
+						params.set(a, form.get(a));
+					}
+				}
+				url += params;
+				sendStruct = {
+					method: methodType,
+				};
+			}
+
+			fetch(url, sendStruct)
 				.then(checkStatus)
 				.then(parseJSON)
-				.then(function (json) {
+				.then(function(json) {
 					resolve(json);
 				})
-				.catch(function (error) {
+				.catch(function(error) {
 					reject(error);
 				});
 		} else {
 			// Fetch API未対応時の処理
-			let xhr = new XMLHttpRequest();
-			xhr.open('POST', sendURL, true);
-			xhr.addEventListener('load', function () {
+			const xhr = new XMLHttpRequest();
+			xhr.open(methodType, sendURL, true);
+			xhr.addEventListener('load', function() {
 				if (xhr.readyState === 4 && xhr.status === 200) {
-					resolve(xhr.response);
+					resolve(JSON.parse(xhr.response));
 				}
 			});
 
-			xhr.addEventListener('error', function (error) {
+			xhr.addEventListener('error', function(error) {
 				reject(error);
 			});
 
-			xhr.addEventListener('timeout', function () {
-				reject('connection timeout');
+			xhr.addEventListener('timeout', function() {
+				reject(new Error('connection timeout'));
 			});
 
 			xhr.timeout = 30000;

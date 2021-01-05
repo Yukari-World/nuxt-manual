@@ -13,7 +13,7 @@ export default {
 	 ** Headers of the page
 	 */
 	head: {
-		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.2.0',
+		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.2.3',
 		meta: [
 			{ charset: 'utf-8' },
 			{
@@ -62,7 +62,7 @@ export default {
 	 */
 	vuetify: {
 		lang: {
-			locale: {en, ja},
+			locale: { en, ja },
 			current: 'ja',
 		},
 		theme: {
@@ -102,7 +102,7 @@ export default {
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/stylelint-module',
 		'@nuxtjs/vuetify',
-		// '@nuxt/typescript-build',
+		'@nuxt/typescript-build',
 	],
 	/*
 	 ** Nuxt.js modules
@@ -149,7 +149,7 @@ export default {
 		/*
 		 ** You can extend webpack config here
 		 */
-		extend(config, {isDev, isClient}) {
+		extend(config, { isDev, isClient }) {
 		},
 		babel: {
 			babelrc: false,

@@ -22,9 +22,8 @@ function checkStatus(response) {
 	// 類似方法にresponse.okがあるが大部分のブラウザが非対応なので非推奨
 	if (response.status >= 200 && response.status < 300) {
 		return Promise.resolve(response);
-	} else {
-		return Promise.reject(new Error(response.statusText));
 	}
+	return Promise.reject(new Error(response.statusText));
 }
 
 /**
@@ -64,7 +63,7 @@ export function SendAjax(sendURL, form, methodType) {
 				url = sendURL;
 				sendStruct = {
 					method: methodType,
-					body: form
+					body: form,
 				};
 			} else {
 				url = sendURL + '?';
@@ -79,7 +78,7 @@ export function SendAjax(sendURL, form, methodType) {
 				}
 				url += params;
 				sendStruct = {
-					method: methodType
+					method: methodType,
 				};
 			}
 

@@ -59,14 +59,14 @@ export default {
 			drawer: null,
 			title: '',
 			headMenu: [
-				{title: 'header.title', icon: 'mdi-home', link: '/'},
-				{title: 'header.log', icon: 'mdi-history', link: '/updateLog'},
-				{title: 'header.login', icon: 'mdi-login', link: '/user/login'},
+				{ title: 'header.title', icon: 'mdi-home', link: '/' },
+				{ title: 'header.log', icon: 'mdi-history', link: '/updateLog' },
+				{ title: 'header.login', icon: 'mdi-login', link: '/user/login' },
 			],
 		};
 	},
 	computed: {
-		availableLocales () {
+		availableLocales() {
 			return this.$i18n.locales;
 		},
 	},

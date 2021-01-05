@@ -40,7 +40,7 @@ export default {
 			wordList: (state) => state.randomWords,
 		}),
 	},
-	mounted () {
+	mounted() {
 		// const animationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.setTimeout;
 		this.loading = false;
 
