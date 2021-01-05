@@ -110,7 +110,7 @@ section {
 					$size: 2.286em;
 
 					display: block;
-					white-space: pre-wrap;
+					white-space: pre;
 					font-size: 14px;
 					font-weight: normal;
 					color: unset;
