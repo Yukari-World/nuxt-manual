@@ -100,6 +100,10 @@ section {
 	}
 }
 
+.no-speak {
+	speak: none;
+}
+
 // ----------------------------------------------------------------------------------------------------
 // Vender Profile Initialize
 ::-webkit-scrollbar {

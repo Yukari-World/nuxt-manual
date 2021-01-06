@@ -87,16 +87,19 @@ div
 	section
 		h2 使用上の注意
 		ul
-			li Microsoft Edgeではwebkitの仕様が採用されるが、スライダーのポインターは範囲をはみ出して表示する事は出来ない。
+			li
+				s Microsoft Edgeではwebkitの仕様が採用されるが、スライダーのポインターは範囲をはみ出して表示する事は出来ない。
+				br
+				| バージョンアップでChromiumベースへと変更されたことで、現在この不具合は発生しない。
 			li visibilityを使用することでポインターを消すとこができる。なお、display: noneでは数値が編集できなくなるため、この方法は推奨しない。
 			li appearanceの指定を無効している関係でポインターのサイズが0となっているのでポインターのサイズ指定は必ず行う必要がある。
 
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-slider-thumb', target='_blank', rel='external noopener') MDN Web Docs / ::-webkit-slider-thumb (English)
+			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-thumb', target='_blank', rel='external noopener') MDN Web Docs / ::-webkit-slider-thumb
 			br
-			a(href='https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-slider-runnable-track', target='_blank', rel='external noopener') MDN Web Docs / ::-webkit-slider-runnable-track (English)
+			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-runnable-track', target='_blank', rel='external noopener') MDN Web Docs / ::-webkit-slider-runnable-track
 			br
 			a(href='https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-thumb', target='_blank', rel='external noopener') MDN Web Docs / ::-moz-range-thumb (English)
 			br

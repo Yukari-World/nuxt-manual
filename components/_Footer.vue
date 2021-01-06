@@ -2,7 +2,7 @@
 v-footer(padless)
 	v-row.flex-column.flex-xl-row
 		v-col.d-flex.align-center.justify-center.justify-xl-start
-			p(style='margin: 0')
+			p(style='margin: 1rem 0 0')
 				a#randomWord Loading...
 		v-col.d-flex.align-center.justify-center.justify-xl-start
 			p.text-center.text-xl-left
