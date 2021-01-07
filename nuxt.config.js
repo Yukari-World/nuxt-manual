@@ -168,6 +168,7 @@ export default {
 							'copy-to-clipboard',
 							'custom-class',
 							'data-uri-highlight',
+							'download-button',
 							'file-highlight',
 							'highlight-keywords',
 							'inline-color',
@@ -184,11 +185,6 @@ export default {
 			],
 		},
 		extractCSS: false,
-		filenames: {
-			app({ isDev }) {
-				isDev ? '[name].js' : '[name].[contenthash:7].js';
-			},
-		},
 		optimization: {
 			splitChunks: {
 				automaticNameMaxLength: 128,
