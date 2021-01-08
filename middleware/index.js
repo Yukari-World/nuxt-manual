@@ -1,9 +1,9 @@
 export default async function({ $axios, store }) {
-	// // すでに store にデータが格納されている場合は再取得を行わない
+	// すでに store にデータが格納されている場合は再取得を行わない
 	if (store.state.randomWords.length > 0) {
 		return;
 	}
-	// // console.log('Welcome');
+	// console.log('Welcome');
 	// store.dispatch('fetchItems');
 	await $axios.$get('json/manualList.json')
 		.then((data) => {

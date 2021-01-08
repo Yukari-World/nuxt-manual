@@ -219,7 +219,7 @@
 						}
 					]
 				}, {
-					"name": "Ajax",
+					"name": "menu.subCategory.Ajax",
 					"list": [
 						{
 							"title": "Fetch API",
@@ -313,7 +313,7 @@
 						}
 					]
 				}, {
-					"name": "Gulp",
+					"name": "menu.subCategory.Gulp",
 					"list": [
 						{
 							"title": "Gulp導入マニュアル",
@@ -366,7 +366,7 @@
 						}
 					]
 				}, {
-					"name": "CodeIgniter",
+					"name": "menu.subCategory.CodeIgniter",
 					"list": [
 						{
 							"title": "データベース接続",
@@ -474,7 +474,7 @@
 						}
 					]
 				}, {
-					"name": "MySQL",
+					"name": "menu.subCategory.MySQL",
 					"list": [
 						{
 							"title": "INSERT WHERE EXISTS",
@@ -506,6 +506,9 @@
 							"workInProgress": true
 						}
 					]
+				}, {
+					"name": "menu.subCategory.SQLite",
+					"list": []
 				}
 			]
 		}, {
@@ -527,7 +530,7 @@
 						}
 					]
 				}, {
-					"name": "Nuxt.js",
+					"name": "menu.subCategory.Nuxt",
 					"list": [
 						{
 							"title": "近日公開",
@@ -586,7 +589,7 @@
 						}
 					]
 				}, {
-					"name": "Apache",
+					"name": "menu.subCategory.Apache",
 					"list": [
 						{
 							"title": "HTMLファイル内でPHPを動かす",
@@ -598,7 +601,7 @@
 						}
 					]
 				}, {
-					"name": "Atom",
+					"name": "menu.subCategory.Atom",
 					"list": [
 						{
 							"title": "Atom 導入マニュアル",
@@ -617,7 +620,7 @@
 						}
 					]
 				}, {
-					"name": "Unix",
+					"name": "menu.subCategory.Unix",
 					"list": [
 						{
 							"title": "Console Command",
@@ -629,7 +632,7 @@
 						}
 					]
 				}, {
-					"name": "XAMPP",
+					"name": "menu.subCategory.XAMPP",
 					"list": [
 						{
 							"title": "ローカルネットワーク接続",

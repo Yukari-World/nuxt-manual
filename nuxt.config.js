@@ -13,7 +13,7 @@ export default {
 	 ** Headers of the page
 	 */
 	head: {
-		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.2.0',
+		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.2.3',
 		meta: [
 			{ charset: 'utf-8' },
 			{
@@ -44,12 +44,12 @@ export default {
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'style', type: 'text/css', href: '/css/prismTomorrowNight.css' },
+			// { rel: 'preload', as: 'style', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: '/css/prism.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap' },
 			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-			{ rel: 'stylesheet', type: 'text/css', href: '/css/prismTomorrowNight.css' },
+			// { rel: 'stylesheet', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{ rel: 'stylesheet', type: 'text/css', href: '/css/prism.css', media: 'print, (prefers-color-scheme: light)' },
 		],
 	},
@@ -62,7 +62,7 @@ export default {
 	 */
 	vuetify: {
 		lang: {
-			locale: {en, ja},
+			locale: { en, ja },
 			current: 'ja',
 		},
 		theme: {
@@ -83,6 +83,7 @@ export default {
 		'codemirror/lib/codemirror.css',
 		'codemirror/theme/material.css',
 		'codemirror/theme/tomorrow-night-eighties.css',
+		'@/assets/css/prismTomorrowNight.css',
 	],
 	/*
 	 ** Plugins to load before mounting the App
@@ -102,7 +103,7 @@ export default {
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/stylelint-module',
 		'@nuxtjs/vuetify',
-		// '@nuxt/typescript-build',
+		'@nuxt/typescript-build',
 	],
 	/*
 	 ** Nuxt.js modules
@@ -149,7 +150,7 @@ export default {
 		/*
 		 ** You can extend webpack config here
 		 */
-		extend(config, {isDev, isClient}) {
+		extend(config, { isDev, isClient }) {
 		},
 		babel: {
 			babelrc: false,
@@ -168,6 +169,7 @@ export default {
 							'copy-to-clipboard',
 							'custom-class',
 							'data-uri-highlight',
+							'download-button',
 							'file-highlight',
 							'highlight-keywords',
 							'inline-color',
@@ -184,11 +186,6 @@ export default {
 			],
 		},
 		extractCSS: false,
-		filenames: {
-			app({ isDev }) {
-				isDev ? '[name].js' : '[name].[contenthash:7].js';
-			},
-		},
 		optimization: {
 			splitChunks: {
 				automaticNameMaxLength: 128,
