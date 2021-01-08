@@ -26,4 +26,18 @@ export default {
 		'expand': '全て展開',
 		'show_description': '概要表示',
 	},
+	'menu': {
+		'subCategory': {
+			'Ajax': 'Ajax',
+			'Gulp': 'Gulp',
+			'CodeIgniter': 'CodeIgniter',
+			'MySQL': 'MySQL',
+			'SQLite': 'SQLite',
+			'Nuxt': 'Nuxt.js',
+			'Apache': 'Apache',
+			'Atom': 'Atom',
+			'Unix': 'Unix',
+			'XAMPP': 'XAMPP',
+		},
+	},
 };
