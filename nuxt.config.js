@@ -5,7 +5,7 @@ import en from 'vuetify/es5/locale/en';
 require('dotenv').config();
 
 export default {
-	ssr: false,
+	ssr: true,
 	env: {
 		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 	},
