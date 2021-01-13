@@ -3,8 +3,8 @@ nav#menu.sidebar
 	h2.text-center Nuxt Manual Menu
 
 	.d-flex.justify-space-around
-		v-btn#expandAll(color='primary', small) {{ $t('sidebar.expand') }}
-		v-btn#collapseAll(color='primary', small) {{ $t('sidebar.compress') }}
+		v-btn#expandAll(color='secondary', small) {{ $t('sidebar.expand') }}
+		v-btn#collapseAll(color='secondary', small) {{ $t('sidebar.compress') }}
 	v-switch(v-model='threeLine' class='ma-2' :label='$t("sidebar.show_description")')
 
 	template(v-if='loading')
@@ -17,9 +17,9 @@ nav#menu.sidebar
 				v-list-item(:title='listIndex.category')
 					//- アイコンは https://materialdesignicons.com/ を参照
 					v-list-item-icon
-						v-icon {{listIndex.icon}}
+						v-icon {{ listIndex.icon }}
 					v-list-item-content
-						v-list-item-title {{listIndex.category}}
+						v-list-item-title {{ listIndex.category }}
 						v-list-item-subtitle(v-if='threeLine' v-html='listIndex.description')
 			//- サブカテゴリ。templateに含ますことで不要な要素を作成させない
 			template(v-for='(subIndex, i) in listIndex.subCategory')
@@ -30,7 +30,7 @@ nav#menu.sidebar
 					//- サブカテゴリ毎に表示方法を変える
 					v-list-item(v-if='subIndex.name !== "Default"', active-class='light-blue--text', nuxt, :to="localePath(listIndex.baseURL + '/' + subIndex.name + lists.link)", :title='lists.title', :key='i * 1000 + j')
 						v-list-item-content
-							v-list-item-title(v-text='"[" + subIndex.name + "] " + lists.title')
+							v-list-item-title(v-text='"[" + $t(subIndex.name) + "] " + lists.title')
 						v-list-item-icon(v-if='lists.workInProgress === true')
 							v-icon mdi-border-color
 					v-list-item(v-else, active-class='light-blue--text', nuxt, :to="localePath(listIndex.baseURL + lists.link)", :title='lists.title', :key='i * 1000 + j')
@@ -39,17 +39,6 @@ nav#menu.sidebar
 						v-list-item-icon(v-if='lists.workInProgress === true')
 							v-icon mdi-border-color
 </template>
-
-<style lang="scss">
-.v-navigation-drawer {
-	// Vender Profile Initialize
-	::-webkit-scrollbar {
-		width: 5px;
-		height: 5px;
-		background-color: transparent;
-	}
-}
-</style>
 
 <script>
 import { mapState } from 'vuex';
@@ -68,8 +57,19 @@ export default {
 			categoryList: (state) => state.menus.categoryList,
 		}),
 	},
-	mounted () {
+	mounted() {
 		this.loading = false;
 	},
 };
 </script>
+
+<style lang="scss">
+.v-navigation-drawer {
+	// Vender Profile Initialize
+	::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+		background-color: transparent;
+	}
+}
+</style>
