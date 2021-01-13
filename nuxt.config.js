@@ -5,7 +5,7 @@ import en from 'vuetify/es5/locale/en';
 require('dotenv').config();
 
 export default {
-	ssr: true,
+	ssr: false,
 	env: {
 		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 	},
@@ -13,7 +13,7 @@ export default {
 	 ** Headers of the page
 	 */
 	head: {
-		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.2.3',
+		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.3.0',
 		meta: [
 			{ charset: 'utf-8' },
 			{
