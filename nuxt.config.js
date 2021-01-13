@@ -120,7 +120,7 @@ export default {
 		'@nuxtjs/sitemap',
 	],
 	axios: {
-		// baseURL: '/',
+		baseURL: '/',
 		// debug: true,
 	},
 	router: {
