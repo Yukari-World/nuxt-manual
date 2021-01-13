@@ -13,7 +13,7 @@ export default {
 	 ** Headers of the page
 	 */
 	head: {
-		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.2.3',
+		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.3.0',
 		meta: [
 			{ charset: 'utf-8' },
 			{
@@ -120,7 +120,7 @@ export default {
 		'@nuxtjs/sitemap',
 	],
 	axios: {
-		// baseURL: '/',
+		baseURL: '/',
 		// debug: true,
 	},
 	router: {
