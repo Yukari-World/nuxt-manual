@@ -2,7 +2,7 @@
 	"type": "menuList",
 	"categoryList": [
 		{
-			"category": "Main",
+			"category": "menu.main.title",
 			"baseURL": "",
 			"description": "",
 			"icon": "mdi-home",
@@ -50,7 +50,7 @@
 				}
 			]
 		}, {
-			"category": "CSS",
+			"category": "menu.css.title",
 			"baseURL": "/css",
 			"description": "",
 			"icon": "mdi-language-css3",
@@ -126,7 +126,7 @@
 				}
 			]
 		}, {
-			"category": "Git",
+			"category": "menu.git.title",
 			"baseURL": "/git",
 			"description": "",
 			"icon": "mdi-git",
@@ -153,7 +153,7 @@
 				}
 			]
 		}, {
-			"category": "HTML",
+			"category": "menu.html.title",
 			"baseURL": "/html",
 			"description": "",
 			"icon": "mdi-language-html5",
@@ -187,7 +187,7 @@
 				}
 			]
 		}, {
-			"category": "JavaScript",
+			"category": "menu.js.title",
 			"baseURL": "/js",
 			"description": "",
 			"icon": "mdi-language-javascript",
@@ -219,7 +219,8 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Ajax",
+					"name": "menu.js.subCategory.Ajax",
+					"url": "Ajax",
 					"list": [
 						{
 							"title": "Fetch API",
@@ -240,7 +241,7 @@
 				}
 			]
 		}, {
-			"category": "Language",
+			"category": "menu.lang.title",
 			"baseURL": "/language",
 			"description": "",
 			"icon": "mdi-translate",
@@ -281,7 +282,7 @@
 				}
 			]
 		}, {
-			"category": "Node.js",
+			"category": "menu.node.title",
 			"baseURL": "/node",
 			"description": "",
 			"icon": "mdi-nodejs",
@@ -313,7 +314,8 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Gulp",
+					"name": "menu.node.subCategory.Gulp",
+					"url": "Gulp",
 					"list": [
 						{
 							"title": "Gulp導入マニュアル",
@@ -327,7 +329,7 @@
 				}
 			]
 		}, {
-			"category": "PHP",
+			"category": "menu.php.title",
 			"baseURL": "/php",
 			"description": "",
 			"icon": "mdi-language-php",
@@ -366,7 +368,8 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.CodeIgniter",
+					"name": "menu.php.subCategory.CodeIgniter",
+					"url": "CodeIgniter",
 					"list": [
 						{
 							"title": "データベース接続",
@@ -380,7 +383,7 @@
 				}
 			]
 		}, {
-			"category": "SCSS",
+			"category": "menu.scss.title",
 			"baseURL": "/scss",
 			"description": "",
 			"icon": "mdi-sass",
@@ -400,7 +403,7 @@
 				}
 			]
 		}, {
-			"category": "SQL",
+			"category": "menu.sql.title",
 			"baseURL": "/sql",
 			"description": "",
 			"icon": "mdi-database",
@@ -474,7 +477,8 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.MySQL",
+					"name": "menu.sql.subCategory.MySQL",
+					"url": "MySQL",
 					"list": [
 						{
 							"title": "INSERT WHERE EXISTS",
@@ -507,12 +511,13 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.SQLite",
+					"name": "menu.sql.subCategory.SQLite",
+					"url": "SQLite",
 					"list": []
 				}
 			]
 		}, {
-			"category": "Vue.js",
+			"category": "menu.vue.title",
 			"baseURL": "/vue",
 			"description": "",
 			"icon": "mdi-vuejs",
@@ -530,7 +535,8 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Nuxt",
+					"name": "menu.vue.subCategory.Nuxt",
+					"url": "Nuxt",
 					"list": [
 						{
 							"title": "近日公開",
@@ -544,7 +550,7 @@
 				}
 			]
 		}, {
-			"category": "Wordpress",
+			"category": "menu.wordpress.title",
 			"baseURL": "/wordpress",
 			"description": "",
 			"icon": "mdi-wordpress",
@@ -564,7 +570,7 @@
 				}
 			]
 		}, {
-			"category": "Other",
+			"category": "menu.other.title",
 			"baseURL": "/other",
 			"description": "その他上記のカテゴリに該当しない項目",
 			"icon": "mdi-alert-circle",
@@ -589,7 +595,8 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Apache",
+					"name": "menu.other.subCategory.Apache",
+					"url": "Apache",
 					"list": [
 						{
 							"title": "HTMLファイル内でPHPを動かす",
@@ -601,7 +608,8 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Atom",
+					"name": "menu.other.subCategory.Atom",
+					"url": "Atom",
 					"list": [
 						{
 							"title": "Atom 導入マニュアル",
@@ -620,7 +628,8 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Unix",
+					"name": "menu.other.subCategory.Unix",
+					"url": "Unix",
 					"list": [
 						{
 							"title": "Console Command",
@@ -632,7 +641,8 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.XAMPP",
+					"name": "menu.other.subCategory.XAMPP",
+					"url": "XAMPP",
 					"list": [
 						{
 							"title": "ローカルネットワーク接続",

@@ -67,7 +67,8 @@ div
 				const trans = db.transaction(dbTable, 'readwrite');
 				// 参照するデータテーブル
 				const store = trans.objectStore(dbTable);
-				// 他にもaddを使った挿入方法があるが、putと異なり重複した場合、値の更新は行われない
+				// 値の挿入を行う
+				// 似たものにaddを使った挿入方法があるが、putと異なり重複した場合、値の更新は行われない
 				const putReq = store.put(value);
 
 				putReq.addEventListener('success', function () {
@@ -97,7 +98,7 @@ div
 			// データテーブル名
 			const dbTable = 'tableTemp';
 			// 取得するデータの値
-			let value = 34;
+			const value = 22;
 
 			// データベースに接続
 			const dbSourse = indexedDB.open(dbName);
@@ -108,6 +109,7 @@ div
 				const trans = db.transaction(dbTable, 'readonly');
 				// 参照するデータテーブル
 				const store = trans.objectStore(dbTable);
+				// 取得するデータ
 				const getReq = store.get(value);
 
 				getReq.addEventListener('success', function (event) {

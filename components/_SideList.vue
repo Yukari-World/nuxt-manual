@@ -19,7 +19,7 @@ nav#menu.sidebar
 					v-list-item-icon
 						v-icon {{ listIndex.icon }}
 					v-list-item-content
-						v-list-item-title {{ listIndex.category }}
+						v-list-item-title {{ $t(listIndex.category) }}
 						v-list-item-subtitle(v-if='threeLine' v-html='listIndex.description')
 			//- サブカテゴリ。templateに含ますことで不要な要素を作成させない
 			template(v-for='(subIndex, i) in listIndex.subCategory')
@@ -28,7 +28,7 @@ nav#menu.sidebar
 					//- リンクは v-list-item が持つ
 					//- サブカテゴリは1000足してキーの重複を回避する
 					//- サブカテゴリ毎に表示方法を変える
-					v-list-item(v-if='subIndex.name !== "Default"', active-class='light-blue--text', nuxt, :to="localePath(listIndex.baseURL + '/' + subIndex.name + lists.link)", :title='lists.title', :key='i * 1000 + j')
+					v-list-item(v-if='subIndex.name !== "Default"', active-class='light-blue--text', nuxt, :to="localePath(listIndex.baseURL + '/' + subIndex.url + lists.link)", :title='lists.title', :key='i * 1000 + j')
 						v-list-item-content
 							v-list-item-title(v-text='"[" + $t(subIndex.name) + "] " + lists.title')
 						v-list-item-icon(v-if='lists.workInProgress === true')

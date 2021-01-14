@@ -251,7 +251,6 @@ import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-pug';
 import 'prismjs/components/prism-scss';
 
-
 export default {
 	data() {
 		return {
