@@ -28,7 +28,7 @@ nav#menu.sidebar
 					//- リンクは v-list-item が持つ
 					//- サブカテゴリは1000足してキーの重複を回避する
 					//- サブカテゴリ毎に表示方法を変える
-					v-list-item(v-if='subIndex.name !== "Default"', active-class='light-blue--text', nuxt, :to="localePath(listIndex.baseURL + '/' + subIndex.name + lists.link)", :title='lists.title', :key='i * 1000 + j')
+					v-list-item(v-if='subIndex.name !== "Default"', active-class='light-blue--text', nuxt, :to="localePath(listIndex.baseURL + '/' + subIndex.url + lists.link)", :title='lists.title', :key='i * 1000 + j')
 						v-list-item-content
 							v-list-item-title(v-text='"[" + $t(subIndex.name) + "] " + lists.title')
 						v-list-item-icon(v-if='lists.workInProgress === true')
