@@ -6,6 +6,7 @@
 			"baseURL": "",
 			"description": "",
 			"icon": "mdi-home",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -54,6 +55,7 @@
 			"baseURL": "/css",
 			"description": "",
 			"icon": "mdi-language-css3",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -130,6 +132,7 @@
 			"baseURL": "/git",
 			"description": "",
 			"icon": "mdi-git",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -157,6 +160,7 @@
 			"baseURL": "/html",
 			"description": "",
 			"icon": "mdi-language-html5",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -191,6 +195,7 @@
 			"baseURL": "/js",
 			"description": "",
 			"icon": "mdi-language-javascript",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -245,6 +250,7 @@
 			"baseURL": "/language",
 			"description": "",
 			"icon": "mdi-translate",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -286,6 +292,7 @@
 			"baseURL": "/node",
 			"description": "",
 			"icon": "mdi-nodejs",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -333,6 +340,7 @@
 			"baseURL": "/php",
 			"description": "",
 			"icon": "mdi-language-php",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -387,6 +395,7 @@
 			"baseURL": "/scss",
 			"description": "",
 			"icon": "mdi-sass",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -407,6 +416,7 @@
 			"baseURL": "/sql",
 			"description": "",
 			"icon": "mdi-database",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -521,6 +531,7 @@
 			"baseURL": "/vue",
 			"description": "",
 			"icon": "mdi-vuejs",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -554,6 +565,7 @@
 			"baseURL": "/wordpress",
 			"description": "",
 			"icon": "mdi-wordpress",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",
@@ -574,6 +586,7 @@
 			"baseURL": "/other",
 			"description": "その他上記のカテゴリに該当しない項目",
 			"icon": "mdi-alert-circle",
+			"active": false,
 			"subCategory": [
 				{
 					"name": "Default",

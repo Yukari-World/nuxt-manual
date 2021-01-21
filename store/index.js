@@ -50,6 +50,10 @@ export const mutations = {
 		// console.log('Number: ' + this.seed.w);
 		// return state.XorSeed.w;
 	},
+
+	updateListAction(state, category) {
+		state.menus.categoryList[category].action = !state.menus.categoryList[category].action;
+	},
 };
 
 export const actions = {

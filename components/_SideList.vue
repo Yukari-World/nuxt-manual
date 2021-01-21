@@ -3,16 +3,16 @@ nav#menu.sidebar
 	h2.text-center Nuxt Manual Menu
 
 	.d-flex.justify-space-around
-		v-btn#expandAll(color='secondary', small) {{ $t('sidebar.expand') }}
+		v-btn#expandAll(color='secondary', small @click='expandAll') {{ $t('sidebar.expand') }}
 		v-btn#collapseAll(color='secondary', small) {{ $t('sidebar.compress') }}
 	v-switch(v-model='threeLine' class='ma-2' :label='$t("sidebar.show_description")')
 
 	template(v-if='loading')
 		- for (var i = 0; i < 15; i++)
 			v-skeleton-loader(type='list-item')
-	v-list#navMenu(v-else, dense, expand, nav, subheader, :three-line='threeLine')
+	v-list#naviMenu(v-else, dense, expand, nav, subheader, :three-line='threeLine')
 		v-subheader {{ $t('sidebar.contents') }}
-		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index', :id='listIndex.category')
+		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index', :id='listIndex.category', v-model='listIndex.active')
 			template(v-slot:activator)
 				v-list-item(:title='listIndex.category')
 					//- アイコンは https://materialdesignicons.com/ を参照
@@ -41,14 +41,15 @@ nav#menu.sidebar
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
 	data() {
 		return {
 			loading: true,
 			threeLine: false,
-			listActive: {},
+			listActive: { active: [] },
+			activeIn: [4],
 		};
 	},
 	computed: {
@@ -56,9 +57,25 @@ export default {
 		...mapState({
 			categoryList: (state) => state.menus.categoryList,
 		}),
+		...mapMutations({
+			toggle(e) {
+				this.$store.commit('updateListAction', e.target.value);
+			},
+		}),
 	},
 	mounted() {
 		this.loading = false;
+		const nav = document.getElementById('naviMenu');
+
+		console.log(nav);
+	},
+	methods: {
+		expandAll() {
+			const nav = document.getElementById('naviMenu');
+			for (const list of nav.groups) {
+				list.isaction = true;
+			}
+		},
 	},
 };
 </script>
