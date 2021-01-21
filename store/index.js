@@ -15,12 +15,31 @@ export function state() {
 }
 
 export const mutations = {
+	/**
+	 * メニューリストセット
+	 *
+	 * @param {Object}   state      storeの中身
+	 * @param {Object}   payload    送られてきた中身
+	 */
 	setLists(state, payload) {
 		state.menus = payload;
 	},
+
+	/**
+	 * ランダムワードリストセット
+	 *
+	 * @param {Object}   state      storeの中身
+	 * @param {Object}   payload    送られてきた中身
+	 */
 	setRandomWords(state, payload) {
 		state.randomWords = payload;
 	},
+
+	/**
+	 * 乱数を回す
+	 *
+	 * @param {Object}   state  storeの中身
+	 */
 	randomInt32(state) {
 		const t = state.XorSeed.x ^ state.XorSeed.x << 11;
 		state.XorSeed.x = state.XorSeed.y;
@@ -37,6 +56,12 @@ export const actions = {
 };
 
 export const getters = {
+	/**
+	 * XorShiftの乱数シードの取得
+	 *
+	 * @param   {Object}    state  storeの中身
+	 * @returns {Object}           seed値
+	 */
 	getSeed(state) {
 		return state.XorSeed;
 	},
