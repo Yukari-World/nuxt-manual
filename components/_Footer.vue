@@ -44,11 +44,17 @@ export default {
 		// const animationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.setTimeout;
 		this.loading = false;
 
-		this.setrandomWord();
+		// 初回ランダムワードの埋め込み処理
+		this.setRandomWord();
 		// ループイベント呼び出し
 		requestAnimationFrame(this.roopEvent);
 	},
 	methods: {
+		/**
+		 * 乱数の生成
+		 *
+		 * @returns {number}    乱数の結果
+		 */
 		randomInt32() {
 			// XorShiftのseed起動
 			this.$store.commit('randomInt32');
@@ -56,6 +62,12 @@ export default {
 
 			return seeder.w;
 		},
+
+		/**
+		 * 浮動少数の乱数の生成
+		 *
+		 * @returns {number}    乱数の結果
+		 */
 		randomFloat() {
 			let randNumber = this.randomInt32();
 			if (randNumber < 0) {
@@ -63,7 +75,13 @@ export default {
 			}
 			return randNumber / (2 ** 31 - 1);
 		},
-		setrandomWord() {
+
+		/**
+		 * ランダムワードの出力
+		 *
+		 * @returns {void}
+		 */
+		setRandomWord() {
 			// 乱数の生成
 			const wordNum = Math.floor(this.randomFloat() * this.wordList.length);
 			const randomWord = document.getElementById('randomWord');
@@ -72,17 +90,29 @@ export default {
 			randomWord.textContent = '';
 			randomWord.insertAdjacentHTML('beforeend', this.wordList[wordNum].title);
 		},
+
+		/**
+		 * 指定時間毎に実行する
+		 *
+		 * @param   {number}    [seconds=5] 更新間隔(秒)
+		 * @returns {void}
+		 */
 		secondsInterval(seconds = 5) {
 			// Initialize
 			const bdate = new Date();
 
 			if (bdate.getSeconds() % seconds === 0 && this.bWordDecide === false) {
 				this.bWordDecide = true;
-				this.setrandomWord();
+				this.setRandomWord();
 			} else if (bdate.getSeconds() % seconds === 1 && this.bWordDecide === true) {
 				this.bWordDecide = false;
 			}
 		},
+
+		/**
+		 * ループイベントの呼び出し
+		 * @returns {void}
+		 */
 		roopEvent() {
 			this.secondsInterval(10);
 			requestAnimationFrame(this.roopEvent);

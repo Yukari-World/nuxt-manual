@@ -40,7 +40,7 @@ export default {
 			{ rel: 'preconnect', href: 'https://cdn.jsdelivr.net/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.gstatic.com/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.googleapis.com/', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.9.55', crossorigin: 'anonymous' },
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },

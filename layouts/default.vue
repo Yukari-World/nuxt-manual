@@ -75,10 +75,22 @@ export default {
 		this.setListener();
 	},
 	methods: {
+		/**
+		 * イベントを作成する
+		 *
+		 * @returns {void}
+		 */
 		setListener() {
 			// emitで発火させたイベント名にする
 			this.$nuxt.$on('update-header', this.setHeader);
 		},
+
+		/**
+		 * タイトルの表示内容の更新
+		 *
+		 * @param   {string}    title   ヘッダーに表示するタイトル
+		 * @returns {void}
+		 */
 		setHeader(title) {
 			// 第1引数にはemitで渡した値が入ってくる。
 			// 第2引数以降を渡す場合も同様に、それ以降の引数で受け取れる
