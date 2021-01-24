@@ -82,7 +82,7 @@ div
 
 		fieldset
 			legend CSSを適応後
-			input.slider(type='range', min='0', max='1000', step='1', value='500')
+			input.yw-slider(type='range', min='0', max='1000', step='1', value='500')
 
 	section
 		h2 使用上の注意
@@ -156,7 +156,7 @@ input[type="range"] {
 	width: 70%;
 	max-width: 600px;
 
-	&.slider {
+	&.yw-slider {
 		height: 5px;
 		opacity: 0.7;
 		border-radius: 10px;

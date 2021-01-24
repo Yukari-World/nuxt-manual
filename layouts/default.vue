@@ -212,4 +212,10 @@ section {
 		}
 	}
 }
+
+// ----------------------------------------------------------------------------------------------------
+// CodeMirror Overwrite
+.CodeMirror pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like {
+	font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+}
 </style>

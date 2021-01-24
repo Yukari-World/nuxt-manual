@@ -86,53 +86,53 @@ div
 			| 執筆者はjQuery撲滅派なのでjQueryを利用した記述方法はないと考えて良い。
 
 		h3 実行結果
-		.area
-			.anim.box-1
+		.yw-area
+			.yw-anim.yw-box-1
 				v-img(src='/img/sander-wehkamp-779070.jpg', alt='', height='30vw', max-height='250px')
 				p 要素1
-			.anim.box-2
+			.yw-anim.yw-box-2
 				v-img(src='/img/andrea-cau-51160.jpg', alt='', height='30vw', max-height='250px')
 				p 要素2
-			.anim.box-3
+			.yw-anim.yw-box-3
 				v-img(src='/img/denys-nevozhai-154974.jpg', alt='', height='30vw', max-height='250px')
 				p 要素3
-			.anim.box-4
+			.yw-anim.yw-box-4
 				v-img(src='/img/astemir-almov-265122.jpg', alt='', height='30vw', max-height='250px')
 				p 要素4
-			.anim.box-5
+			.yw-anim.yw-box-5
 				v-img(src='/img/denys-nevozhai-100695.jpg', alt='', height='30vw', max-height='250px')
 				p 要素5
-			.anim.box-6
+			.yw-anim.yw-box-6
 				v-img(src='/img/ben-neale-297658.jpg', alt='', height='30vw', max-height='250px')
 				p 要素6
-			.anim.box-7
+			.yw-anim.yw-box-7
 				v-img(src='/img/denys-nevozhai-351730.jpg', alt='', height='30vw', max-height='250px')
 				p 要素7
-			.anim.box-8
+			.yw-anim.yw-box-8
 				v-img(src='/img/john-westrock-777794.jpg', alt='', height='30vw', max-height='250px')
 				p 要素8
-			.anim.box-9
+			.yw-anim.yw-box-9
 				v-img(src='/img/kelsey-johnsen-727.jpg', alt='', height='30vw', max-height='250px')
 				p 要素9
-			.anim.box-10
+			.yw-anim.yw-box-10
 				v-img(src='/img/ray-hennessy-253874.jpg', alt='', height='30vw', max-height='250px')
 				p 要素10
-			.anim.box-11
+			.yw-anim.yw-box-11
 				v-img(src='/img/scott-ruzzene-355988.jpg', alt='', height='30vw', max-height='250px')
 				p 要素11
-			.anim.box-12
+			.yw-anim.yw-box-12
 				v-img(src='/img/mark-solarski-209233.jpg', alt='', height='30vw', max-height='250px')
 				p 要素12
-			.anim.box-13
+			.yw-anim.yw-box-13
 				v-img(src='/img/shubhankar-sharma-51901.jpg', alt='', height='30vw', max-height='250px')
 				p 要素13
-			.anim.box-14
+			.yw-anim.yw-box-14
 				v-img(src='/img/tyler-van-der-hoeven-357415.jpg', alt='', height='30vw', max-height='250px')
 				p 要素14
-			.anim.box-15
+			.yw-anim.yw-box-15
 				v-img(src='/img/robert-lukeman-150146.jpg', alt='', height='30vw', max-height='250px')
 				p 要素15
-			.anim.box-16
+			.yw-anim.yw-box-16
 				v-img(src='/img/markus-spiske-357131.jpg', alt='', height='30vw', max-height='250px')
 				p 要素16
 
@@ -165,13 +165,13 @@ export default {
 		window.addEventListener(
 			'scroll',
 			function() {
-				const myFade = document.getElementsByClassName('anim');
+				const myFade = document.getElementsByClassName('yw-anim');
 				for (let i = 0; i < myFade.length; i++) {
 					const targetElement = myFade[i].getBoundingClientRect(); // ターゲット要素の高さ
 					const scroll = document.documentElement.scrollTop || document.body.scrollTop; // スクロール
 					const windowHeight = window.innerHeight; // ウィンドウの高さ
 					if (scroll > scroll + targetElement.top - windowHeight + 200) {
-						myFade[i].classList.add('show');
+						myFade[i].classList.add('yw-show');
 					}
 				}
 			},
@@ -188,17 +188,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.area {
+.yw-area {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 
-	@supports (-ms-ime-align: auto) or
-		((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill)) {
+	@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill)) {
 		justify-content: space-around;
 	}
 
-	.anim {
+	.yw-anim {
 		width: 30vw;
 		max-width: 250px;
 		height: 30vw;
@@ -208,14 +207,14 @@ export default {
 	}
 }
 
-.anim {
+.yw-anim {
 	position: relative;
 	overflow: hidden;
 	transition: all 1s ease;
 	transform: translateY(100px);
 	opacity: 0;
 
-	&.show {
+	&.yw-show {
 		transform: none;
 		opacity: 1;
 	}

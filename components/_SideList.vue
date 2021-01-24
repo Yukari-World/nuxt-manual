@@ -64,6 +64,8 @@ export default {
 </script>
 
 <style lang="scss">
+// ----------------------------------------------------------------------------------------------------
+// Vender Profile Initialize
 .v-navigation-drawer {
 	// Vender Profile Initialize
 	::-webkit-scrollbar {
