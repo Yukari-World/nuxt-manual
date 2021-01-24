@@ -3,7 +3,7 @@
  *
  * @module  ajax-response
  * @since   1.0.0
- * @version 1.0.2
+ * @version 1.0.3
  */
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -15,18 +15,15 @@
  * @param   {Response}          response    レスポンスデータ
  * @returns {Response|Error}                HTTPステータスコードが200番台ならレスポンスデータ、そうでなければエラー
  * @since   1.0.0
- * @version 1.0.2
+ * @version 1.0.3
  */
 function checkStatus(response) {
 	// HTTPステータスコードが200番台ではない場合
 	// 類似方法にresponse.okがあるが大部分のブラウザが非対応なので非推奨
 	if (response.status >= 200 && response.status < 300) {
-		return response;
-	} else {
-		const error = new Error(response.statusText);
-		error.response = response;
-		throw error;
+		return Promise.resolve(response);
 	}
+	return Promise.reject(new Error(response.statusText));
 }
 
 /**
@@ -35,7 +32,7 @@ function checkStatus(response) {
  * @param   {Response}  response    レスポンスデータ
  * @returns {JSON}                  レスポンスに格納されているJSONデータ
  * @since   1.0.0
- * @version 1.0.2
+ * @version 1.0.3
  */
 function parseJSON(response) {
 	// console.log(response);
@@ -53,7 +50,7 @@ function parseJSON(response) {
  * @param   {string}                        [methodType='POST'] 転送メソッド
  * @returns {Promise.JSON|Promise.Error}                        JSONデータもしくはエラー内容
  * @since   1.0.0
- * @version 1.0.2
+ * @version 1.0.3
  */
 export function SendAjax(sendURL, form, methodType) {
 	return new Promise(function(resolve, reject) {
@@ -66,7 +63,7 @@ export function SendAjax(sendURL, form, methodType) {
 				url = sendURL;
 				sendStruct = {
 					method: methodType,
-					body: form
+					body: form,
 				};
 			} else {
 				url = sendURL + '?';
@@ -81,7 +78,7 @@ export function SendAjax(sendURL, form, methodType) {
 				}
 				url += params;
 				sendStruct = {
-					method: methodType
+					method: methodType,
 				};
 			}
 

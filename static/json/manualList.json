@@ -95,7 +95,7 @@
 							"workInProgress": false
 						}, {
 							"title": "スライダーレイアウト",
-							"link": "/RangeLayout",
+							"link": "/rangeLayout",
 							"summary": "オリジナルスライドバーを作る",
 							"tags": ["CSS"],
 							"deprecated": false,
@@ -219,7 +219,8 @@
 						}
 					]
 				}, {
-					"name": "Ajax",
+					"name": "menu.subCategory.Ajax",
+					"url": "Ajax",
 					"list": [
 						{
 							"title": "Fetch API",
@@ -313,7 +314,8 @@
 						}
 					]
 				}, {
-					"name": "Gulp",
+					"name": "menu.subCategory.Gulp",
+					"url": "Gulp",
 					"list": [
 						{
 							"title": "Gulp導入マニュアル",
@@ -366,7 +368,8 @@
 						}
 					]
 				}, {
-					"name": "CodeIgniter",
+					"name": "menu.subCategory.CodeIgniter",
+					"url": "CodeIgniter",
 					"list": [
 						{
 							"title": "データベース接続",
@@ -409,6 +412,13 @@
 					"name": "Default",
 					"list": [
 						{
+							"title": "0件出力",
+							"link": "/zeroCount",
+							"summary": "",
+							"tags": ["SQL"],
+							"deprecated": false,
+							"workInProgress": true
+						}, {
 							"title": "AS(別名)",
 							"link": "/as",
 							"summary": "",
@@ -467,7 +477,8 @@
 						}
 					]
 				}, {
-					"name": "MySQL",
+					"name": "menu.subCategory.MySQL",
+					"url": "MySQL",
 					"list": [
 						{
 							"title": "INSERT WHERE EXISTS",
@@ -499,6 +510,10 @@
 							"workInProgress": true
 						}
 					]
+				}, {
+					"name": "menu.subCategory.SQLite",
+					"url": "SQLite",
+					"list": []
 				}
 			]
 		}, {
@@ -520,7 +535,8 @@
 						}
 					]
 				}, {
-					"name": "Nuxt.js",
+					"name": "menu.subCategory.Nuxt",
+					"url": "Nuxt",
 					"list": [
 						{
 							"title": "近日公開",
@@ -579,7 +595,8 @@
 						}
 					]
 				}, {
-					"name": "Apache",
+					"name": "menu.subCategory.Apache",
+					"url": "Apache",
 					"list": [
 						{
 							"title": "HTMLファイル内でPHPを動かす",
@@ -591,7 +608,8 @@
 						}
 					]
 				}, {
-					"name": "Atom",
+					"name": "menu.subCategory.Atom",
+					"url": "Atom",
 					"list": [
 						{
 							"title": "Atom 導入マニュアル",
@@ -610,7 +628,8 @@
 						}
 					]
 				}, {
-					"name": "Unix",
+					"name": "menu.subCategory.Unix",
+					"url": "Unix",
 					"list": [
 						{
 							"title": "Console Command",
@@ -622,11 +641,12 @@
 						}
 					]
 				}, {
-					"name": "XAMPP",
+					"name": "menu.subCategory.XAMPP",
+					"url": "XAMPP",
 					"list": [
 						{
 							"title": "ローカルネットワーク接続",
-							"link": "/",
+							"link": "/localNetwork",
 							"summary": "",
 							"tags": ["Server"],
 							"deprecated": false,

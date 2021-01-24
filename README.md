@@ -1,4 +1,5 @@
 # Nuxt Manual
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Yukari-World/nuxt-manual.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Yukari-World/nuxt-manual/context:javascript)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/edb34a32-c688-4a49-b48e-eb3a85f5e98b/deploy-status)](https://app.netlify.com/sites/nuxt-technical-manual/deploys)
 
 Nuxtで作成された主にHTML関係の小さな技術マニュアル
@@ -52,3 +53,6 @@ STORAGEBUCKET=
 APPID=
 MESSAGINGSENDERID=
 ```
+
+## 記録
+このソースコードは、2020年ソースコード保管プロジェクトにてノルウェーの永久凍土に保管されたようです。

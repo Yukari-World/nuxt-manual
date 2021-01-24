@@ -102,10 +102,7 @@ export class IndexedDBConnecter {
 		this.dbTable = '';
 
 		if (!window.indexedDB) {
-			console.warn(
-				'このブラウザーは安定版の IndexedDB をサポートしていません。IndexedDB の機能は利用できません。'
-			);
-			return false;
+			console.warn('このブラウザーは安定版の IndexedDB をサポートしていません。IndexedDB の機能は利用できません。');
 		} else {
 			/**
 			 * データベース名
@@ -120,6 +117,7 @@ export class IndexedDBConnecter {
 			this.dbVersion = dbVersion;
 			return true;
 		}
+		return false;
 	}
 
 	/**

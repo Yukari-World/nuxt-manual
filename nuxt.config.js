@@ -1,12 +1,11 @@
-// import randomWord from './static/json/randomWord.json';
-// import axios from 'axios';
+import { sortRoutes } from '@nuxt/utils';
 import shrinkRay from 'shrink-ray-current';
 import ja from 'vuetify/es5/locale/ja';
 import en from 'vuetify/es5/locale/en';
 require('dotenv').config();
 
 export default {
-	mode: 'universal',
+	ssr: true,
 	env: {
 		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 	},
@@ -14,7 +13,7 @@ export default {
 	 ** Headers of the page
 	 */
 	head: {
-		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.2.0',
+		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.3.0',
 		meta: [
 			{ charset: 'utf-8' },
 			{
@@ -38,10 +37,19 @@ export default {
 			},
 		],
 		link: [
-			{ rel: 'preload', as: 'style', type: 'text/css', href: '/css/prismTomorrowNight.css' },
+			{ rel: 'preconnect', href: 'https://cdn.jsdelivr.net/', crossorigin: 'anonymous' },
+			{ rel: 'preconnect', href: 'https://fonts.gstatic.com/', crossorigin: 'anonymous' },
+			{ rel: 'preconnect', href: 'https://fonts.googleapis.com/', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },
+			// { rel: 'preload', as: 'style', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: '/css/prism.css' },
+			{ rel: 'preload', as: 'style', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css' },
+			{ rel: 'preload', as: 'style', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap' },
 			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-			{ rel: 'stylesheet', type: 'text/css', href: '/css/prismTomorrowNight.css' },
+			// { rel: 'stylesheet', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{ rel: 'stylesheet', type: 'text/css', href: '/css/prism.css', media: 'print, (prefers-color-scheme: light)' },
 		],
 	},
@@ -54,14 +62,19 @@ export default {
 	 */
 	vuetify: {
 		lang: {
-			locale: {en, ja},
+			locale: { en, ja },
 			current: 'ja',
 		},
 		theme: {
 			dark: true,
-			primary: '#3F51B5',
-			secondary: '#2196F3',
+			themes: {
+				dark: {
+					primary: '#2196F3',
+					secondary: '#3F51B5',
+				},
+			},
 		},
+		treeShake: true,
 	},
 	/*
 	 ** Global CSS
@@ -70,6 +83,7 @@ export default {
 		'codemirror/lib/codemirror.css',
 		'codemirror/theme/material.css',
 		'codemirror/theme/tomorrow-night-eighties.css',
+		'@/assets/css/prismTomorrowNight.css',
 	],
 	/*
 	 ** Plugins to load before mounting the App
@@ -88,27 +102,46 @@ export default {
 		// Doc: https://github.com/nuxt-community/eslint-module
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/stylelint-module',
-		// '@nuxt/typescript-build',
+		'@nuxtjs/vuetify',
+		'@nuxt/typescript-build',
 	],
 	/*
 	 ** Nuxt.js modules
 	 */
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
+		'@nuxtjs/axios',
 		'@nuxtjs/dotenv',
 		'@nuxtjs/pwa',
 		'@nuxtjs/style-resources',
-		'@nuxtjs/vuetify',
 		'nuxt-i18n',
+		'nuxt-purgecss',
 		['vue-scrollto/nuxt', { duration: 300 }],
 		'@nuxtjs/sitemap',
 	],
+	axios: {
+		baseURL: '/',
+		// debug: true,
+	},
 	router: {
 		middleware: 'index',
+		extendRoutes(routes, resolve) {
+			// ルートをここに追加する
+
+			// ソートをする
+			sortRoutes(routes);
+		},
 	},
 	sitemap: {
-		path: '/sitemap.xml',
+		cacheTime: 1000 * 60 * 15,
+		defaults: {
+			changefreq: 'daily',
+			priority: 1,
+			lastmod: new Date(),
+		},
 		hostname: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
+		i18n: true,
+		path: '/sitemap.xml',
 	},
 	/*
 	 ** Build configuration
@@ -117,16 +150,7 @@ export default {
 		/*
 		 ** You can extend webpack config here
 		 */
-		extend(config, _ctx) {
-			config.module.rules.push({
-				test: /\.json$/i,
-				loader: 'file-loader',
-				options: {
-					name({ isDev }) {
-						isDev ? '[name].json' : '[path][hash].[ext]';
-					},
-				},
-			});
+		extend(config, { isDev, isClient }) {
 		},
 		babel: {
 			babelrc: false,
@@ -145,6 +169,7 @@ export default {
 							'copy-to-clipboard',
 							'custom-class',
 							'data-uri-highlight',
+							'download-button',
 							'file-highlight',
 							'highlight-keywords',
 							'inline-color',
@@ -161,11 +186,6 @@ export default {
 			],
 		},
 		extractCSS: false,
-		filenames: {
-			app({ isDev }) {
-				isDev ? '[name].js' : '[name].[chunkhash].js';
-			},
-		},
 		optimization: {
 			splitChunks: {
 				automaticNameMaxLength: 128,
@@ -203,7 +223,7 @@ export default {
 			},
 		},
 		splitChunks: {
-			layouts: false,
+			layouts: true,
 			pages: true,
 			commons: true,
 		},
@@ -233,12 +253,12 @@ export default {
 			default_locale: 'ja',
 			description: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ',
 			display: 'standalone',
-			homepage_url: 'https://github.com/Yukari-World/nuxt-manual',
+			homepage_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 			lang: 'ja',
 			manifest_version: 2,
 			name: 'Nuxt Technical Manual',
 			short_name: 'Nuxt Manual',
-			start_url: './',
+			start_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 			theme_color: '#000011',
 			version: '1.0.0.0',
 		},
@@ -262,7 +282,7 @@ export default {
 					},
 				},
 				{
-					urlPattern: '/img/.*.(png|jpg|webp)$',
+					urlPattern: '/img/.*.(gif|jpeg|jpg|png|webp)$',
 					handler: 'cacheFirst',
 					method: 'GET',
 					strategyOptions: {
@@ -321,9 +341,30 @@ export default {
 		},
 	},
 	/*
+	 ** purgeCSS configuration
+	 */
+	purgeCSS: {
+		enabled: ({ isDev, isClient }) => !isDev && isClient, // or `false` when in dev/debug mode
+		paths: [
+			'components/**/*.vue',
+			'layouts/**/*.vue',
+			'pages/**/*.vue',
+			'plugins/**/*.js',
+		],
+		styleExtensions: ['.css'],
+		whitelist: ['body', 'html', 'nuxt-progress'],
+		extractors: [
+			{
+				extractor: content => content.match(/[A-z0-9-:\\/]+/g) || [],
+				extensions: ['html', 'vue', 'js'],
+			},
+		],
+	},
+	/*
 	 ** Server configuration
 	 */
 	server: {
+		host: '0.0.0.0',
 		port: process.env.PORT || 8080,
 	},
 	/*

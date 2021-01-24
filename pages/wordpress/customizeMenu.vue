@@ -6,7 +6,9 @@ div
 
 	section
 		h2 説明
-		p WordpressはHtmlとCSSとPHPが理解できれば大体のカスタマイズが出来るが、ソースコードを逐次編集する必要があるのは後の使用者側へ渡ったとしても使い勝手が悪く、思いがけない不具合を招く場合がある。そこでテーマ側でカスタマイズが出来るようにするためにメニュー項目の追加方法を学ぶ。
+		p
+			| WordpressはHtmlとCSSとPHPが理解できれば大体のカスタマイズが出来るが、ソースコードを逐次編集する必要があるのは後の使用者側へ渡ったとしても使い勝手が悪く、思いがけない不具合を招く場合がある。
+			| そこでテーマ側でカスタマイズが出来るようにするためにメニュー項目の追加方法を学習する。
 
 	section
 		h2 カスタマイズメニューとは
@@ -14,11 +16,16 @@ div
 			p
 				| カスタマイズメニューとはWordpressのテーマにあるメニュー項目である。
 				br
-				| Wordpressのテーマによっては細かなカスタマイズが出来るものもあるが、それとは逆に非常に項目数が少ないものもある。また、メニュー項目は自動的に追加されたりはしないので、追加作業が必要となる。
+				| Wordpressのテーマによっては細かなカスタマイズが出来るテーマもあるが、それとは逆に項目数が少ないテーマもある。
+				| これらのカスタマイズ自由度はテーマ作成者側に依存され、
+				del テーマの購入を誘導するためにわざと一部不自由に作られていることがある
+				| 。
+				br
+				| メニュー項目は自動的に追加されないため手動での作業が必要となるが、作成することで利用者側で簡単にカスタマイズを行う事が出来るようになる。
 			div
 				v-skeleton-loader.mx-auto(type='image', width='245', max-width='245', height='544')
 					v-img(src='/img/wordpress-img1.png', eager, max-width='245', max-height='544')
-				p カスタマイズメニューの例
+				p.no-speak カスタマイズメニューの例
 
 	section
 		h2 セクションとパネルの追加
@@ -33,21 +40,22 @@ div
 				ul
 					li 複数のセクションを一つにまとめる大見出しの役割
 					li 必ずしも使用する必要はない
+
 		.d-flex.justify-space-around.align-center.flex-column.flex-md-row
 			div
 				v-skeleton-loader.mx-auto(type='image', width='250', max-width='250', height='400')
 					v-img(src='/img/wordpress-img2.png', max-width='250')
-				p パネルの例
-			p →
+				p.no-speak パネルの例
+			p.no-speak →
 			div
 				v-skeleton-loader(type='image')
 					v-img(src='/img/wordpress-img3.png', max-width='250')
-				p セクションの例
-			p →
+				p.no-speak セクションの例
+			p.no-speak →
 			div
 				v-skeleton-loader(type='image')
 					v-img(src='/img/wordpress-img4.png', max-width='250')
-				p 設定項目の例
+				p.no-speak 設定項目の例
 
 		h3 関数の追加
 		p
@@ -92,9 +100,15 @@ div
 		p
 			| 設定項目は複数の種類があり、設定の仕方や反映方法が異なる。今回は設定の中でも簡単な内容を行う。
 			| 設定項目は
-			code.language-php: span.token.function add_setting
+			code.language-php
+				span.token.function add_setting
+				span.token.punctuation (
+				span.token.punctuation )
 			| と
-			code.language-php: span.token.function add_control
+			code.language-php
+				span.token.function add_control
+				span.token.punctuation (
+				span.token.punctuation )
 			| の2つの関数を必要とする。
 		pre.language-php.line-numbers: code.
 			$wp_customize-&gt;add_setting(
@@ -141,7 +155,7 @@ export default {
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
+			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
 };

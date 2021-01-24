@@ -43,6 +43,32 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/text-shadow', target='_blank', rel='external noopener') MDN Web Docs
 </template>
 
+<script>
+import Prism from 'prismjs';
+import 'prismjs/components/prism-css';
+
+export default {
+	data() {
+		return {
+			header: {
+				title: '文字装飾による可読性の向上',
+			},
+		};
+	},
+	mounted() {
+		Prism.highlightAll();
+		// Prism.fileHighlight();
+		this.updateHeader();
+	},
+	methods: {
+		updateHeader() {
+			// タイトルとして使いたい情報を渡す
+			this.$nuxt.$emit('update-header', this.header.title);
+		},
+	},
+};
+</script>
+
 <style scoped lang="scss">
 .exsample-area {
 	display: flex;
@@ -72,29 +98,3 @@ div
 	text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;
 }
 </style>
-
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
-
-export default {
-	data() {
-		return {
-			header: {
-				title: '文字装飾による可読性の向上',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('updateHeader', this.header.title);
-		},
-	},
-};
-</script>
