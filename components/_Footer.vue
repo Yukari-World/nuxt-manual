@@ -24,10 +24,11 @@ v-footer(padless)
 				a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(SCSS)
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapState } from 'vuex';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			bWordDecide: true,
@@ -37,7 +38,7 @@ export default {
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			wordList: (state) => state.randomWords,
+			wordList: (state: any) => state.randomWords,
 		}),
 	},
 	mounted() {
@@ -55,7 +56,7 @@ export default {
 		 *
 		 * @returns {number}    乱数の結果
 		 */
-		randomInt32() {
+		randomInt32(): number {
 			// XorShiftのseed起動
 			this.$store.commit('randomInt32');
 			const seeder = this.$store.getters.getSeed;
@@ -68,7 +69,7 @@ export default {
 		 *
 		 * @returns {number}    乱数の結果
 		 */
-		randomFloat() {
+		randomFloat(): number {
 			let randNumber = this.randomInt32();
 			if (randNumber < 0) {
 				randNumber = ~randNumber;
@@ -81,10 +82,10 @@ export default {
 		 *
 		 * @returns {void}
 		 */
-		setRandomWord() {
+		setRandomWord(): void {
 			// 乱数の生成
 			const wordNum = Math.floor(this.randomFloat() * this.wordList.length);
-			const randomWord = document.getElementById('randomWord');
+			const randomWord = document.getElementById('randomWord') as HTMLElement;
 
 			randomWord.setAttribute('href', '/randomWord/' + (wordNum + 1));
 			randomWord.textContent = '';
@@ -97,7 +98,7 @@ export default {
 		 * @param   {number}    [seconds=5] 更新間隔(秒)
 		 * @returns {void}
 		 */
-		secondsInterval(seconds = 5) {
+		secondsInterval(seconds: number = 5): void {
 			// Initialize
 			const bdate = new Date();
 
@@ -113,12 +114,12 @@ export default {
 		 * ループイベントの呼び出し
 		 * @returns {void}
 		 */
-		roopEvent() {
+		roopEvent(): void {
 			this.secondsInterval(10);
 			requestAnimationFrame(this.roopEvent);
 		},
 	},
-};
+});
 </script>
 
 <style lang="scss">

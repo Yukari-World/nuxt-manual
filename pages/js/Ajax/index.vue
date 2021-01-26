@@ -9,10 +9,11 @@ div
 		p 記述前
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Prism from 'prismjs';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -31,5 +32,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
