@@ -41,14 +41,13 @@ v-app#inspire
 			v-icon mdi-chevron-up
 </template>
 
-<script>
-// import axios from 'axios';
-import HeaderVue from '@/components/_Header';
-import FooterVue from '@/components/_Footer';
-import SideList from '@/components/_SideList';
-// import { SendAjax } from '@/assets/js/ajax-response.js';
+<script lang="ts">
+import Vue from 'vue';
+import HeaderVue from '@/components/_Header.vue';
+import FooterVue from '@/components/_Footer.vue';
+import SideList from '@/components/_SideList.vue';
 
-export default {
+export default Vue.extend({
 	components: {
 		HeaderVue,
 		FooterVue,
@@ -80,7 +79,7 @@ export default {
 		 *
 		 * @returns {void}
 		 */
-		setListener() {
+		setListener(): void {
 			// emitで発火させたイベント名にする
 			this.$nuxt.$on('update-header', this.setHeader);
 		},
@@ -91,13 +90,13 @@ export default {
 		 * @param   {string}    title   ヘッダーに表示するタイトル
 		 * @returns {void}
 		 */
-		setHeader(title) {
+		setHeader(title: string): void {
 			// 第1引数にはemitで渡した値が入ってくる。
 			// 第2引数以降を渡す場合も同様に、それ以降の引数で受け取れる
 			this.title = title || '';
 		},
 	},
-};
+});
 </script>
 
 <style lang="scss">

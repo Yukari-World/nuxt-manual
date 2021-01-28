@@ -40,10 +40,11 @@ nav#menu.sidebar
 							v-icon mdi-border-color
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapState } from 'vuex';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			loading: true,
@@ -54,13 +55,13 @@ export default {
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			categoryList: (state) => state.menus.categoryList,
+			categoryList: (state: any) => state.menus.categoryList,
 		}),
 	},
 	mounted() {
 		this.loading = false;
 	},
-};
+});
 </script>
 
 <style lang="scss">

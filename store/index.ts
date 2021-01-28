@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import { GetterTree, ActionTree, MutationTree } from 'vuex';
 
 export function state() {
 	const nowTime = new Date();
@@ -14,7 +14,9 @@ export function state() {
 	};
 }
 
-export const mutations = {
+export type RootState = ReturnType<typeof state>;
+
+export const mutations: MutationTree<RootState> = {
 	/**
 	 * メニューリストセット
 	 *
@@ -52,10 +54,10 @@ export const mutations = {
 	},
 };
 
-export const actions = {
+export const actions: ActionTree<RootState, RootState> = {
 };
 
-export const getters = {
+export const getters: GetterTree<RootState, RootState> = {
 	/**
 	 * XorShiftの乱数シードの取得
 	 *

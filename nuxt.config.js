@@ -125,7 +125,7 @@ export default {
 	},
 	router: {
 		middleware: 'index',
-		extendRoutes(routes, resolve) {
+		extendRoutes(routes) {
 			// ルートをここに追加する
 
 			// ソートをする
@@ -150,8 +150,8 @@ export default {
 		/*
 		 ** You can extend webpack config here
 		 */
-		extend(config, { isDev, isClient }) {
-		},
+		// extend(config, { isDev, isClient }) {
+		// },
 		babel: {
 			babelrc: false,
 			cacheDirectory: undefined,
