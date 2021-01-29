@@ -2,6 +2,8 @@
  * @file JSONデータを読み取るミドルウェア
  */
 
+import { Context, Middleware } from '@nuxt/types';
+
 /**
  * JSONデータの取得
  * データの取得はaxiosにて行う
@@ -9,22 +11,22 @@
  * @param   {Context}       context データ
  * @returns {Promise<void>}
  */
-export default async function({ $axios, store }) {
+async function middleIndex(context: Context): Promise<void> {
 	// すでに store にデータが格納されている場合は再取得を行わない
-	if (store.state.randomWords.length > 0) {
+	if (context.store.state.randomWords.length > 0) {
 		return;
 	}
 	// console.log('Welcome');
 	// store.dispatch('fetchItems');
 
 	// メニュー項目の取得
-	await $axios.$get('json/manualList.json')
-		.then((data) => {
+	await context.$axios.$get('json/manualList.json')
+		.then(function(data: any) {
 			// console.log(data);
-			store.commit('setLists', data);
+			context.store.commit('setLists', data);
 		})
-		.catch(function(error) {
-			if (this.$axios.isCancel(error)) {
+		.catch(function(error: any) {
+			if (context.$axios.isCancel(error)) {
 				console.log('Request canceled', error);
 			} else {
 				console.error('Axios Error: ' + error);
@@ -32,16 +34,20 @@ export default async function({ $axios, store }) {
 		});
 
 	// ランダムワードの取得
-	await $axios.$get('json/randomWord.json')
-		.then((data) => {
+	await context.$axios.$get('json/randomWord.json')
+		.then(function(data: any) {
 			// console.log(data);
-			store.commit('setRandomWords', data);
+			context.store.commit('setRandomWords', data);
 		})
-		.catch(function(error) {
-			if (this.$axios.isCancel(error)) {
+		.catch(function(error: any) {
+			if (context.$axios.isCancel(error)) {
 				console.log('Request canceled', error);
 			} else {
 				console.error('Axios Error: ' + error);
 			}
 		});
 }
+
+const indexMiddleware: Middleware = middleIndex;
+
+export default indexMiddleware;
