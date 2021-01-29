@@ -4,6 +4,7 @@
 
 /**
  * JSONデータの取得
+ * データの取得はaxiosにて行う
  *
  * @param   {Context}       context データ
  * @returns {Promise<void>}
@@ -15,6 +16,8 @@ export default async function({ $axios, store }) {
 	}
 	// console.log('Welcome');
 	// store.dispatch('fetchItems');
+
+	// メニュー項目の取得
 	await $axios.$get('json/manualList.json')
 		.then((data) => {
 			// console.log(data);
@@ -28,6 +31,7 @@ export default async function({ $axios, store }) {
 			}
 		});
 
+	// ランダムワードの取得
 	await $axios.$get('json/randomWord.json')
 		.then((data) => {
 			// console.log(data);
