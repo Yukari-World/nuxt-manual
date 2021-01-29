@@ -1,3 +1,13 @@
+/**
+ * @file JSONデータを読み取るミドルウェア
+ */
+
+/**
+ * JSONデータの取得
+ *
+ * @param   {Context}       context データ
+ * @returns {Promise<void>}
+ */
 export default async function({ $axios, store }) {
 	// すでに store にデータが格納されている場合は再取得を行わない
 	if (store.state.randomWords.length > 0) {
