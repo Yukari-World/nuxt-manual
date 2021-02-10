@@ -3,21 +3,20 @@ nav#menu.sidebar
 	h2.text-center Nuxt Manual Menu
 
 	.d-flex.justify-space-around
-		v-btn#expandAll(color='secondary', small) {{ $t('sidebar.expand') }}
-		v-btn#collapseAll(color='secondary', small) {{ $t('sidebar.compress') }}
+		v-btn#expandAll(color='secondary', small, v-t="'sidebar.expand'")
+		v-btn#collapseAll(color='secondary', small, v-t="'sidebar.compress'")
 	v-switch(v-model='threeLine' class='ma-2' :label='$t("sidebar.show_description")')
 
 	template(v-if='loading')
 		- for (var i = 0; i < 15; i++)
 			v-skeleton-loader(type='list-item')
+	//- メニューの生成
+	//- アイコンは https://materialdesignicons.com/ を参照
 	v-list#navMenu(v-else, dense, expand, nav, subheader, :three-line='threeLine')
-		v-subheader {{ $t('sidebar.contents') }}
-		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index', :id='listIndex.category')
+		v-subheader(v-t="'sidebar.contents'")
+		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index', :id='listIndex.category', :prepend-icon='listIndex.icon')
 			template(v-slot:activator)
 				v-list-item(:title='listIndex.category')
-					//- アイコンは https://materialdesignicons.com/ を参照
-					v-list-item-icon
-						v-icon {{ listIndex.icon }}
 					v-list-item-content
 						v-list-item-title {{ listIndex.category }}
 						v-list-item-subtitle(v-if='threeLine' v-html='listIndex.description')
@@ -45,7 +44,12 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 
 export default Vue.extend({
-	data() {
+	asyncData({ $dayjs }) {
+		return {
+			now: $dayjs().format('YYYY/MM/DD'),
+		};
+	},
+  	data() {
 		return {
 			loading: true,
 			threeLine: false,

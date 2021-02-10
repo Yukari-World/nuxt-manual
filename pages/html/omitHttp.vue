@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='error', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.deprecated.title') }}
-		p {{ $t('common.stub.deprecated.desc') }}
+		h2(v-t="'common.stub.deprecated.title'")
+		p(v-t="'common.stub.deprecated.desc'")
 
 	section
 		h2 説明

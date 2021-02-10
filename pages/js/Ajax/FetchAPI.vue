@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+		h2(v-t="'common.stub.work_in_progress.title'")
+		p(v-t="'common.stub.work_in_progress.desc'")
 
 	section
 		h2 互換性に関する注意事項

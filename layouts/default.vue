@@ -20,7 +20,7 @@ v-app#inspire
 					v-list-item-icon
 						v-icon {{ temp.icon }}
 					v-list-item-content
-						v-list-item-title {{ $t(temp.title) }}
+						v-list-item-title(v-t='temp.title')
 
 		v-menu(bottom, left, offset-y, transition='slide-y-transition')
 			template(v-slot:activator='{ on }')

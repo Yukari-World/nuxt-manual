@@ -111,6 +111,7 @@ export default {
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
 		'@nuxtjs/axios',
+		'@nuxtjs/dayjs',
 		'@nuxtjs/dotenv',
 		'@nuxtjs/pwa',
 		'@nuxtjs/style-resources',
@@ -122,6 +123,16 @@ export default {
 	axios: {
 		// baseURL: '/',
 		// debug: true,
+	},
+	dayjs: {
+		locales: ['ja', 'en'],
+		defaultLocale: 'ja',
+		defaultTimeZone: 'Asia/Tokyo',
+		plugins: [
+			'isToday',
+			'timezone',
+			'utc',
+		],
 	},
 	router: {
 		middleware: 'index',
@@ -187,14 +198,43 @@ export default {
 		},
 		extractCSS: false,
 		optimization: {
+			runtimeChunk: true,
 			splitChunks: {
-				automaticNameMaxLength: 128,
+				chunks: 'all',
+				minChunks: 1,
+				maxAsyncRequests: 7,
+				automaticNameMaxLength: 32,
 				cacheGroups: {
+					commons: {
+						test: /node_modules[\\/](vue|vue-loader|vue-router|vuex|vue-meta|core-js|@babel\/runtime|axios|webpack|setimmediate|timers-browserify|process|regenerator-runtime|cookie|js-cookie|is-buffer|dotprop|url-polyfill|@nuxt[\\/]ufo|ufo|nuxt\.js)[\\/]/,
+						chunks: 'all',
+						name: 'commons',
+						minSize: 1,
+						enforce: true,
+					},
+					codemirror: {
+						name: 'codemirror',
+						test: /node_modules[\\/]codemirror/,
+						chunks: 'all',
+						priority: 20,
+						minSize: 1,
+						enforce: true,
+					},
+					vuetify: {
+						name: 'vuetify',
+						test: /node_modules[\\/]vuetify/,
+						chunks: 'all',
+						priority: 20,
+						minChunks: 1,
+						minSize: 1,
+						enforce: true,
+					},
 					clusterJs: {
 						name: 'cluster.js',
 						test: /[\\/]node_modules[\\/]/,
 						chunks: 'all',
-						minChunks: 3,
+						priority: 10,
+						minChunks: 10,
 						minSize: 1,
 						enforce: true,
 					},
@@ -202,13 +242,14 @@ export default {
 						name: 'cluster.styles',
 						test: /\.s?(a|c)ss$/,
 						chunks: 'all',
+						priority: 30,
 						minSize: 1,
 						enforce: true,
 					},
 				},
 			},
-			runtimeChunk: true,
 		},
+		parallel: true,
 		postcss: {
 			plugins: {
 				'postcss-import': {},

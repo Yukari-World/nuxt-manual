@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.non_standard.title') }}
-		p {{ $t('common.stub.non_standard.desc') }}
+		h2(v-t="'common.stub.non_standard.title'")
+		p(v-t="'common.stub.non_standard.desc'")
 
 	section
 		h2 説明

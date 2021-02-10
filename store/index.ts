@@ -1,10 +1,42 @@
+/**
+ * @file 共通項目を管理するstore
+ */
+
+// ----------------------------------------------------------------------------------------------------
+// Import
+
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
 
+
+// ----------------------------------------------------------------------------------------------------
+// Interface
+
+/**
+ * ランダムワードの形式
+ *
+ * @interface
+ */
 interface RandomWord {
+	/** タイトル */
 	title: string,
+	/** 出典 */
 	original: string,
+	/** 概要 */
 	summary: string,
+	/** タグ */
 	tags: string[],
+}
+
+/**
+ * XorShift 128bit Seed Number
+ *
+ * @interface
+ */
+interface XorShiftSeed128 {
+	x: number,
+	y: number,
+	z: number,
+	w: number,
 }
 
 export function state() {
@@ -17,7 +49,7 @@ export function state() {
 			y: Math.max(Math.max(nowTime.getSeconds(), 5) ** Math.floor(Math.max(nowTime.getMinutes(), 10) / 10) + Math.max(nowTime.getSeconds(), 1) * Math.max(nowTime.getMinutes(), 1) * Math.floor(nowTime.getFullYear() / 10)),
 			z: 0,
 			w: Math.floor(Date.now() / 1000),
-		},
+		} as XorShiftSeed128,
 	};
 }
 
@@ -27,29 +59,32 @@ export const mutations: MutationTree<RootState> = {
 	/**
 	 * メニューリストセット
 	 *
-	 * @param {Object}   state      storeの中身
-	 * @param {Object}   payload    送られてきた中身
+	 * @param   {RootState} state   storeの中身
+	 * @param   {Object}    payload 送られてきた中身
+	 * @returns {void}
 	 */
-	setLists(state, payload) {
+	setLists(state: RootState, payload: object): void {
 		state.menus = payload;
 	},
 
 	/**
 	 * ランダムワードリストセット
 	 *
-	 * @param {Object}   state      storeの中身
-	 * @param {Object}   payload    送られてきた中身
+	 * @param   {RootState}     state   storeの中身
+	 * @param   {RandomWord[]}  payload 送られてきた中身
+	 * @returns {void}
 	 */
-	setRandomWords(state, payload) {
+	setRandomWords(state: RootState, payload: RandomWord[]): void {
 		state.randomWords = payload;
 	},
 
 	/**
 	 * 乱数を回す
 	 *
-	 * @param {Object}   state  storeの中身
+	 * @param   {RootState} state   storeの中身
+	 * @returns {void}
 	 */
-	randomInt32(state) {
+	randomInt32(state: RootState): void {
 		const t = state.XorSeed.x ^ state.XorSeed.x << 11;
 		state.XorSeed.x = state.XorSeed.y;
 		state.XorSeed.y = state.XorSeed.z;
@@ -68,10 +103,10 @@ export const getters: GetterTree<RootState, RootState> = {
 	/**
 	 * XorShiftの乱数シードの取得
 	 *
-	 * @param   {Object}    state  storeの中身
-	 * @returns {Object}           seed値
+	 * @param   {RootState}         state   storeの中身
+	 * @returns {XorShiftSeed128}           seed値
 	 */
-	getSeed(state) {
+	getSeed(state: RootState): XorShiftSeed128 {
 		return state.XorSeed;
 	},
 };
