@@ -130,6 +130,7 @@ export default {
 		defaultTimeZone: 'Asia/Tokyo',
 		plugins: [
 			'isToday',
+			'localizedFormat',
 			'timezone',
 			'utc',
 		],
@@ -254,7 +255,7 @@ export default {
 			plugins: {
 				'postcss-import': {},
 				'postcss-url': {},
-				'postcss-preset-env': this.preset,
+				'postcss-preset-env': { stage: 2 },
 				'css-mqpacker': {},
 				cssnano: { preset: 'default' },
 			},

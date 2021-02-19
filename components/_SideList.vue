@@ -2,6 +2,8 @@
 nav#menu.sidebar
 	h2.text-center Nuxt Manual Menu
 
+	p.text-center {{ now }}
+
 	.d-flex.justify-space-around
 		v-btn#expandAll(color='secondary', small, v-t="'sidebar.expand'")
 		v-btn#collapseAll(color='secondary', small, v-t="'sidebar.compress'")
@@ -44,14 +46,10 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 
 export default Vue.extend({
-	asyncData({ $dayjs }) {
-		return {
-			now: $dayjs().format('YYYY/MM/DD'),
-		};
-	},
-  	data() {
+	data() {
 		return {
 			loading: true,
+			now: '',
 			threeLine: false,
 			listActive: {},
 		};
@@ -64,6 +62,20 @@ export default Vue.extend({
 	},
 	mounted() {
 		this.loading = false;
+		this.now = this.$dayjs().format('L LTS');
+
+		// ループイベント呼び出し
+		requestAnimationFrame(this.roopEvent);
+	},
+	methods: {
+		/**
+		 * ループイベントの呼び出し
+		 * @returns {void}
+		 */
+		roopEvent(): void {
+			this.now = this.$dayjs().format('L LTS');
+			requestAnimationFrame(this.roopEvent);
+		},
 	},
 });
 </script>
