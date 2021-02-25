@@ -255,14 +255,10 @@ export default {
 			plugins: {
 				'postcss-import': {},
 				'postcss-url': {},
-				'postcss-preset-env': { stage: 2 },
 				'css-mqpacker': {},
-				cssnano: { preset: 'default' },
+				'cssnano': { preset: 'default' },
 			},
 			order: 'presetEnvAndCssnanoLast',
-			preset: {
-				stage: 2,
-			},
 		},
 		splitChunks: {
 			layouts: true,

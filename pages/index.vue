@@ -50,21 +50,20 @@ div
 			}
 
 		h3 Pug
-		client-only
-			pre.language-pug.line-numbers: code.
-				doctype html
-				html(lang='ja')
-					head
-						meta(charset='utf-8')
-						title Debug Checker
-						script(type='application/javascript', src='js/prism.js')
-						link(href='css/prism.css', rel='stylesheet', type='text/css')
-					body
-						header(role='banner')
-							h1 Title
-						main(role='main')
-							h2 Easy?
-						footer(role='contentinfo')
+		pre.language-pug.line-numbers: code.
+			doctype html
+			html(lang='ja')
+				head
+					meta(charset='utf-8')
+					title Debug Checker
+					script(type='application/javascript', src='js/prism.js')
+					link(href='css/prism.css', rel='stylesheet', type='text/css')
+				body
+					header(role='banner')
+						h1 Title
+					main(role='main')
+						h2 Easy?
+					footer(role='contentinfo')
 
 		h3 SCSS
 		pre.language-scss.line-numbers: code.
