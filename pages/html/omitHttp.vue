@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='error', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.deprecated.title') }}
-		p {{ $t('common.stub.deprecated.desc') }}
+		h2(v-t="'common.stub.deprecated.title'")
+		p(v-t="'common.stub.deprecated.desc'")
 
 	section
 		h2 説明
@@ -31,11 +31,12 @@ div
 		a(href='https://prokatsu.com/http-not-omit/', target='_blank', rel='external noopener') 【2018年版】http,httpsは省略しない方がいい | プロカツ！
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-http';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -45,7 +46,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -54,5 +55,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

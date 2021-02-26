@@ -72,14 +72,15 @@ div
 			a(href='http://php.net/manual/ja/function.date.php', target='_blank', rel='external noopener') PHP.net
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-php';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -88,6 +89,13 @@ export default {
 		};
 	},
 	mounted() {
+		const date01 = document.getElementById('date01') as HTMLElement;
+		const date02 = document.getElementById('date02') as HTMLElement;
+		const date03 = document.getElementById('date03') as HTMLElement;
+		const date04 = document.getElementById('date04') as HTMLElement;
+		const date05 = document.getElementById('date05') as HTMLElement;
+		const date06 = document.getElementById('date06') as HTMLElement;
+
 		const dToday = new Date();
 		const year = dToday.getFullYear();
 		const month = ('0' + (dToday.getMonth() + 1)).slice(-2);
@@ -97,15 +105,15 @@ export default {
 		const second = ('0' + dToday.getSeconds()).slice(-2);
 
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 
-		document.getElementById('date01').textContent = year + '-' + month + '-' + day;
-		document.getElementById('date02').textContent = year.toString().substr(2, 2) + '-' + month + '-' + day;
-		document.getElementById('date03').textContent = year + '年' + (dToday.getMonth() + 1) + '月' + dToday.getDate() + '日';
-		document.getElementById('date04').textContent = hour + ':' + minute + ':' + second;
-		document.getElementById('date05').textContent = year + month + day;
-		document.getElementById('date06').textContent = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+		date01.textContent = year + '-' + month + '-' + day;
+		date02.textContent = year.toString().substr(2, 2) + '-' + month + '-' + day;
+		date03.textContent = year + '年' + (dToday.getMonth() + 1) + '月' + dToday.getDate() + '日';
+		date04.textContent = hour + ':' + minute + ':' + second;
+		date05.textContent = year + month + day;
+		date06.textContent = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
 	},
 	methods: {
 		updateHeader() {
@@ -113,5 +121,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

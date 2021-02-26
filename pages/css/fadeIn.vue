@@ -142,14 +142,15 @@ div
 			li アニメーション時間が長すぎるとストレスの要因にもなりうるため、長くても1秒程度には収めること。
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-markup';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -159,7 +160,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 
 		window.addEventListener(
@@ -184,7 +185,7 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
 
 <style scoped lang="scss">

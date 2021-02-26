@@ -40,7 +40,7 @@ export default {
 			{ rel: 'preconnect', href: 'https://cdn.jsdelivr.net/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.gstatic.com/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.googleapis.com/', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.9.55', crossorigin: 'anonymous' },
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },
@@ -111,6 +111,7 @@ export default {
 	modules: [
 		// Doc: https://bootstrap-vue.js.org
 		'@nuxtjs/axios',
+		'@nuxtjs/dayjs',
 		'@nuxtjs/dotenv',
 		'@nuxtjs/pwa',
 		'@nuxtjs/style-resources',
@@ -120,12 +121,23 @@ export default {
 		'@nuxtjs/sitemap',
 	],
 	axios: {
-		baseURL: '/',
+		// baseURL: '/',
 		// debug: true,
+	},
+	dayjs: {
+		locales: ['ja', 'en'],
+		defaultLocale: 'ja',
+		defaultTimeZone: 'Asia/Tokyo',
+		plugins: [
+			'isToday',
+			'localizedFormat',
+			'timezone',
+			'utc',
+		],
 	},
 	router: {
 		middleware: 'index',
-		extendRoutes(routes, resolve) {
+		extendRoutes(routes) {
 			// ルートをここに追加する
 
 			// ソートをする
@@ -150,8 +162,8 @@ export default {
 		/*
 		 ** You can extend webpack config here
 		 */
-		extend(config, { isDev, isClient }) {
-		},
+		// extend(config, { isDev, isClient }) {
+		// },
 		babel: {
 			babelrc: false,
 			cacheDirectory: undefined,
@@ -187,14 +199,43 @@ export default {
 		},
 		extractCSS: false,
 		optimization: {
+			runtimeChunk: true,
 			splitChunks: {
-				automaticNameMaxLength: 128,
+				chunks: 'all',
+				minChunks: 1,
+				maxAsyncRequests: 7,
+				automaticNameMaxLength: 32,
 				cacheGroups: {
+					commons: {
+						test: /node_modules[\\/](vue|vue-loader|vue-router|vuex|vue-meta|core-js|@babel\/runtime|axios|webpack|setimmediate|timers-browserify|process|regenerator-runtime|cookie|js-cookie|is-buffer|dotprop|url-polyfill|@nuxt[\\/]ufo|ufo|nuxt\.js)[\\/]/,
+						chunks: 'all',
+						name: 'commons',
+						minSize: 1,
+						enforce: true,
+					},
+					codemirror: {
+						name: 'codemirror',
+						test: /node_modules[\\/]codemirror/,
+						chunks: 'all',
+						priority: 20,
+						minSize: 1,
+						enforce: true,
+					},
+					vuetify: {
+						name: 'vuetify',
+						test: /node_modules[\\/]vuetify/,
+						chunks: 'all',
+						priority: 20,
+						minChunks: 1,
+						minSize: 1,
+						enforce: true,
+					},
 					clusterJs: {
 						name: 'cluster.js',
 						test: /[\\/]node_modules[\\/]/,
 						chunks: 'all',
-						minChunks: 3,
+						priority: 10,
+						minChunks: 10,
 						minSize: 1,
 						enforce: true,
 					},
@@ -202,25 +243,22 @@ export default {
 						name: 'cluster.styles',
 						test: /\.s?(a|c)ss$/,
 						chunks: 'all',
+						priority: 30,
 						minSize: 1,
 						enforce: true,
 					},
 				},
 			},
-			runtimeChunk: true,
 		},
+		parallel: true,
 		postcss: {
 			plugins: {
 				'postcss-import': {},
 				'postcss-url': {},
-				'postcss-preset-env': this.preset,
 				'css-mqpacker': {},
-				cssnano: { preset: 'default' },
+				'cssnano': { preset: 'default' },
 			},
 			order: 'presetEnvAndCssnanoLast',
-			preset: {
-				stage: 2,
-			},
 		},
 		splitChunks: {
 			layouts: true,

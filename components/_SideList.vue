@@ -2,22 +2,23 @@
 nav#menu.sidebar
 	h2.text-center Nuxt Manual Menu
 
+	p.text-center {{ now }}
+
 	.d-flex.justify-space-around
-		v-btn#expandAll(color='secondary', small) {{ $t('sidebar.expand') }}
-		v-btn#collapseAll(color='secondary', small) {{ $t('sidebar.compress') }}
+		v-btn#expandAll(color='secondary', small, v-t="'sidebar.expand'")
+		v-btn#collapseAll(color='secondary', small, v-t="'sidebar.compress'")
 	v-switch(v-model='threeLine' class='ma-2' :label='$t("sidebar.show_description")')
 
 	template(v-if='loading')
 		- for (var i = 0; i < 15; i++)
 			v-skeleton-loader(type='list-item')
+	//- メニューの生成
+	//- アイコンは https://materialdesignicons.com/ を参照
 	v-list#navMenu(v-else, dense, expand, nav, subheader, :three-line='threeLine')
-		v-subheader {{ $t('sidebar.contents') }}
-		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index', :id='listIndex.category')
+		v-subheader(v-t="'sidebar.contents'")
+		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in categoryList', :key='index', :id='listIndex.category', :prepend-icon='listIndex.icon')
 			template(v-slot:activator)
 				v-list-item(:title='listIndex.category')
-					//- アイコンは https://materialdesignicons.com/ を参照
-					v-list-item-icon
-						v-icon {{ listIndex.icon }}
 					v-list-item-content
 						v-list-item-title {{ listIndex.category }}
 						v-list-item-subtitle(v-if='threeLine' v-html='listIndex.description')
@@ -40,13 +41,15 @@ nav#menu.sidebar
 							v-icon mdi-border-color
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapState } from 'vuex';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			loading: true,
+			now: '',
 			threeLine: false,
 			listActive: {},
 		};
@@ -54,13 +57,27 @@ export default {
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			categoryList: (state) => state.menus.categoryList,
+			categoryList: (state: any) => state.menus.categoryList,
 		}),
 	},
 	mounted() {
 		this.loading = false;
+		this.now = this.$dayjs().format('L LTS');
+
+		// ループイベント呼び出し
+		requestAnimationFrame(this.roopEvent);
 	},
-};
+	methods: {
+		/**
+		 * ループイベントの呼び出し
+		 * @returns {void}
+		 */
+		roopEvent(): void {
+			this.now = this.$dayjs().format('L LTS');
+			requestAnimationFrame(this.roopEvent);
+		},
+	},
+});
 </script>
 
 <style lang="scss">

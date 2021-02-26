@@ -24,10 +24,11 @@ v-footer(padless)
 				a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(SCSS)
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapState } from 'vuex';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			bWordDecide: true,
@@ -37,58 +38,88 @@ export default {
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			wordList: (state) => state.randomWords,
+			wordList: (state: any) => state.randomWords,
 		}),
 	},
 	mounted() {
 		// const animationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.setTimeout;
 		this.loading = false;
 
-		this.setrandomWord();
+		// 初回ランダムワードの埋め込み処理
+		this.setRandomWord();
 		// ループイベント呼び出し
 		requestAnimationFrame(this.roopEvent);
 	},
 	methods: {
-		randomInt32() {
+		/**
+		 * 乱数の生成
+		 *
+		 * @returns {number}    乱数の結果
+		 */
+		randomInt32(): number {
 			// XorShiftのseed起動
 			this.$store.commit('randomInt32');
 			const seeder = this.$store.getters.getSeed;
 
 			return seeder.w;
 		},
-		randomFloat() {
+
+		/**
+		 * 浮動少数の乱数の生成
+		 *
+		 * @returns {number}    乱数の結果
+		 */
+		randomFloat(): number {
 			let randNumber = this.randomInt32();
 			if (randNumber < 0) {
 				randNumber = ~randNumber;
 			}
 			return randNumber / (2 ** 31 - 1);
 		},
-		setrandomWord() {
+
+		/**
+		 * ランダムワードの出力
+		 *
+		 * @returns {void}
+		 */
+		setRandomWord(): void {
 			// 乱数の生成
 			const wordNum = Math.floor(this.randomFloat() * this.wordList.length);
-			const randomWord = document.getElementById('randomWord');
+			const randomWord = document.getElementById('randomWord') as HTMLElement;
 
 			randomWord.setAttribute('href', '/randomWord/' + (wordNum + 1));
 			randomWord.textContent = '';
 			randomWord.insertAdjacentHTML('beforeend', this.wordList[wordNum].title);
 		},
-		secondsInterval(seconds = 5) {
+
+		/**
+		 * 指定時間毎に実行する
+		 *
+		 * @param   {number}    [seconds=5] 更新間隔(秒)
+		 * @returns {void}
+		 */
+		secondsInterval(seconds: number = 5): void {
 			// Initialize
 			const bdate = new Date();
 
 			if (bdate.getSeconds() % seconds === 0 && this.bWordDecide === false) {
 				this.bWordDecide = true;
-				this.setrandomWord();
+				this.setRandomWord();
 			} else if (bdate.getSeconds() % seconds === 1 && this.bWordDecide === true) {
 				this.bWordDecide = false;
 			}
 		},
-		roopEvent() {
+
+		/**
+		 * ループイベントの呼び出し
+		 * @returns {void}
+		 */
+		roopEvent(): void {
 			this.secondsInterval(10);
 			requestAnimationFrame(this.roopEvent);
 		},
 	},
-};
+});
 </script>
 
 <style lang="scss">

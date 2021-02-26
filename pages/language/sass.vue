@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+		h2(v-t="'common.stub.work_in_progress.title'")
+		p(v-t="'common.stub.work_in_progress.desc'")
 
 	section
 		h2 Sassとは
@@ -302,12 +302,13 @@ div
 		a(href='http://sass-lang.com/', target='_blank', rel='external noopener') Sass: Syntactically Awesome Style Sheets
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-sass';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -317,7 +318,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		Prism.fileHighlight();
+		Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -326,5 +327,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

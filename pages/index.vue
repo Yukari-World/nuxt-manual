@@ -244,15 +244,15 @@ div
 			| はい。
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapState } from 'vuex';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-pug';
 import 'prismjs/components/prism-scss';
 
-
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -261,10 +261,10 @@ export default {
 			code: 'const a = 10',
 			cmOptions: {
 				extraKeys: {
-					'F11'(cm) {
+					'F11'(cm: any) {
 						cm.setOption('fullScreen', !cm.getOption('fullScreen'));
 					},
-					'Esc'(cm) {
+					'Esc'(cm: any) {
 						if (cm.getOption('fullScreen')) {cm.setOption('fullScreen', false);}
 					},
 				},
@@ -287,14 +287,15 @@ export default {
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			randomWords: (state) => state.randomWords,
+			randomWords: (state: any) => state.randomWords,
 		}),
 	},
 	mounted() {
-		document.getElementById('countRandom').textContent = this.randomWords.length;
+		const cntRandom = document.getElementById('countRandom') as HTMLElement;
+		cntRandom.textContent = this.randomWords.length;
 
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -303,7 +304,7 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
 
 <style lang="scss" scoped>

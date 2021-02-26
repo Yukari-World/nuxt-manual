@@ -7,12 +7,13 @@ v-form
 			v-text-field(v-model='password', :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'", counter, label='password', name='pass', :type="show1 ? 'text' : 'password'", @click:append='show1 = !show1')
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 // eslint-disable-next-line no-unused-vars
 // import firebase from '@/plugins/firebase';
 import Prism from 'prismjs';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			show1: false,
@@ -25,7 +26,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -34,5 +35,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

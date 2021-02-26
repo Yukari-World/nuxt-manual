@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+		h2(v-t="'common.stub.work_in_progress.title'")
+		p(v-t="'common.stub.work_in_progress.desc'")
 
 	section
 		h2 説明
@@ -13,10 +13,11 @@ div
 		a(href='https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0', target='_blank', rel='external noopener') いまさらだけどGitを基本から分かりやすくまとめてみた - Qiita
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Prism from 'prismjs';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -26,7 +27,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -35,5 +36,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
