@@ -44,13 +44,14 @@ div
 			a(href='https://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes', target='_blank', rel='external noopener') types - What is the size of column of int(11) in mysql in bytes? - Stack Overflow
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-sql';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -60,7 +61,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -69,5 +70,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

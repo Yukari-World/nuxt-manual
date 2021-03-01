@@ -3,13 +3,16 @@
 	v-toolbar-title(v-else) {{ title }}
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropOptions } from 'vue';
+
+export default Vue.extend({
+	name: 'HeaderVue',
 	props: {
 		title: {
 			type: String,
-			default: '',
-		},
+			default: 'Now Loading...',
+		} as PropOptions<String>,
 	},
-};
+});
 </script>

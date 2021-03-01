@@ -71,12 +71,13 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient', target='_blank', rel='external noopener') MDN Web Docs
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-markup';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -86,7 +87,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -95,7 +96,7 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
 
 <style scoped lang="scss">

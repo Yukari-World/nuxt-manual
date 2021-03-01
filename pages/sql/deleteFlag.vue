@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+		h2(v-t="'common.stub.work_in_progress.title'")
+		p(v-t="'common.stub.work_in_progress.desc'")
 
 	section
 		h2 説明
@@ -16,11 +16,12 @@ div
 			li 生成と削除を多く繰り返すデータベースの場合、この方法はあまり推奨されない。データベースに古いデータが残り続けるため、容量を圧迫するためである。
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-sql';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -30,7 +31,7 @@ export default {
 	},
 	mounted() {
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -39,5 +40,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

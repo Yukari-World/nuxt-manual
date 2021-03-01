@@ -508,7 +508,7 @@ export default Vue.extend({
 	},
 	mounted() {
 		Prism.highlightAll();
-		// Prism.fileHighlight();
+		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
