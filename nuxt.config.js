@@ -213,14 +213,10 @@ export default {
 			plugins: {
 				'postcss-import': {},
 				'postcss-url': {},
-				'postcss-preset-env': this.preset,
 				'css-mqpacker': {},
 				cssnano: { preset: 'default' },
 			},
 			order: 'presetEnvAndCssnanoLast',
-			preset: {
-				stage: 2,
-			},
 		},
 		splitChunks: {
 			layouts: true,
