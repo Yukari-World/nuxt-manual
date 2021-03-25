@@ -217,4 +217,9 @@ section {
 		}
 	}
 }
+
+.CodeMirror {
+	font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+	font-size: 14px;
+}
 </style>

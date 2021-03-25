@@ -24,6 +24,7 @@
 			"@nuxtjs/axios",
 			"@nuxtjs/dayjs",
 			"@nuxt/types",
+			"@types/dedent",
 			"@types/jest",
 			"@types/js-yaml",
 			"@types/node",
