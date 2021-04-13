@@ -100,6 +100,8 @@ export default {
 	 */
 	buildModules: [
 		// Doc: https://github.com/nuxt-community/eslint-module
+		'nuxt-purgecss',
+		'@nuxtjs/dotenv',
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/stylelint-module',
 		'@nuxtjs/vuetify',
@@ -112,7 +114,6 @@ export default {
 		// Doc: https://bootstrap-vue.js.org
 		'@nuxtjs/axios',
 		'@nuxtjs/dayjs',
-		'@nuxtjs/dotenv',
 		'@nuxtjs/pwa',
 		'@nuxtjs/style-resources',
 		'nuxt-i18n',
