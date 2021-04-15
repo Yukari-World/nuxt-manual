@@ -258,7 +258,7 @@ export default Vue.extend({
 			header: {
 				title: 'Nuxt Manual',
 			},
-			code: 'const a = 10',
+			code: 'import Vue from \'vue\';\n',
 			cmOptions: {
 				extraKeys: {
 					'F11'(cm: any) {
@@ -278,6 +278,7 @@ export default Vue.extend({
 				lineNumbers: true,
 				lineWrapping: true,
 				mode: 'text/javascript',
+				styleActiveLine: true,
 				styleSelectedText: true,
 				tabSize: 4,
 				theme: 'tomorrow-night-eighties',
