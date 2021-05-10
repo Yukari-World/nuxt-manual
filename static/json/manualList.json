@@ -66,6 +66,20 @@
 							"deprecated": false,
 							"workInProgress": false
 						}, {
+							"title": "Flexible Layout",
+							"link": "/flex",
+							"summary": "",
+							"tags": ["CSS"],
+							"deprecated": false,
+							"workInProgress": true
+						}, {
+							"title": "Grid Layout",
+							"link": "/gridLayout",
+							"summary": "",
+							"tags": ["CSS"],
+							"deprecated": false,
+							"workInProgress": true
+						}, {
 							"title": "brタグによる改行を無効化",
 							"link": "/disablebrTag",
 							"summary": "",

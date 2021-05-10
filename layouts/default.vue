@@ -173,6 +173,9 @@ section {
 		}
 
 		pre {
+			max-height: 75vh;
+			overflow-y: scroll;
+
 			&[class*="language-"] {
 				> code {
 					$size: 2.286em;

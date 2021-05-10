@@ -265,7 +265,7 @@ export default Vue.extend({
 						cm.setOption('fullScreen', !cm.getOption('fullScreen'));
 					},
 					'Esc'(cm: any) {
-						if (cm.getOption('fullScreen')) {cm.setOption('fullScreen', false);}
+						if (cm.getOption('fullScreen')) { cm.setOption('fullScreen', false); }
 					},
 				},
 				foldGutter: true,
