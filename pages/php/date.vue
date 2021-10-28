@@ -88,6 +88,11 @@ export default Vue.extend({
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
 		const date01 = document.getElementById('date01') as HTMLElement;
 		const date02 = document.getElementById('date02') as HTMLElement;

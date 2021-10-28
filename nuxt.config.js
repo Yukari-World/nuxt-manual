@@ -1,49 +1,40 @@
 import { sortRoutes } from '@nuxt/utils';
 import shrinkRay from 'shrink-ray-current';
-import ja from 'vuetify/es5/locale/ja';
-import en from 'vuetify/es5/locale/en';
+import { ja, en } from 'vuetify/src/locale';
 require('dotenv').config();
 
 export default {
+	// Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
 	ssr: true,
+
+	// Target: https://go.nuxtjs.dev/config-target
+	target: 'static',
+
 	env: {
 		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 	},
+
 	/*
 	 ** Headers of the page
 	 */
 	head: {
-		title: process.env.npm_package_description || 'Nuxt Technical Manual v0.3.0',
+		title: process.env.npm_package_description || 'Nuxt Technical Manual',
+		titleTemplate: '%s - Nuxt Technical Manual v0.3.2',
 		meta: [
 			{ charset: 'utf-8' },
-			{
-				hid: 'description',
-				name: 'description',
-				content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ',
-			},
-			{
-				name: 'viewport',
-				content: 'width=device-width, initial-scale=1',
-			},
-			{
-				hid: 'theme-color',
-				name: 'theme-color',
-				content: '#000011',
-			},
-			{
-				hid: 'color-scheme',
-				name: 'color-scheme',
-				content: 'dark light',
-			},
+			{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
+			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+			{ hid: 'theme-color', name: 'theme-color', content: '#000011' },
+			{ hid: 'color-scheme', name: 'color-scheme', content: 'dark light' },
 		],
 		link: [
 			{ rel: 'preconnect', href: 'https://cdn.jsdelivr.net/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.gstatic.com/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.googleapis.com/', crossorigin: 'anonymous' },
 			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.9.55', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },
 			// { rel: 'preload', as: 'style', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: '/css/prism.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css' },
@@ -53,13 +44,101 @@ export default {
 			{ rel: 'stylesheet', type: 'text/css', href: '/css/prism.css', media: 'print, (prefers-color-scheme: light)' },
 		],
 	},
+
 	/*
 	 ** Customize the progress-bar color
 	 */
 	loading: { color: '#FFCC66' },
+
+	// Global CSS: https://go.nuxtjs.dev/config-css
+	css: [
+		'codemirror/lib/codemirror.css',
+		'codemirror/theme/material.css',
+		'codemirror/theme/tomorrow-night-eighties.css',
+		'@/assets/css/prismTomorrowNight.css',
+	],
+
 	/*
-	 ** Customize Vuetify theme
+	 ** Plugins to load before mounting the App
 	 */
+	plugins: [
+		// '~/plugins/auth',
+		{ src: '~plugins/codemirror', ssr: false },
+		// '~plugins/firebase',
+		// '~/plugins/globals.js',
+		// '~/plugins/vue-scrollto',
+	],
+
+	/*
+	 ** Nuxt.js dev-modules
+	 */
+	buildModules: [
+		// Doc: https://github.com/nuxt-community/eslint-module
+		'nuxt-purgecss',
+		'@nuxtjs/dotenv',
+		'@nuxtjs/eslint-module',
+		'@nuxtjs/stylelint-module',
+		'@nuxtjs/vuetify',
+		'@nuxt/typescript-build',
+	],
+
+	/*
+	 ** Nuxt.js modules
+	 */
+	modules: [
+		// Doc: https://bootstrap-vue.js.org
+		'@nuxtjs/axios',
+		'@nuxtjs/dayjs',
+		'@nuxtjs/pwa',
+		'@nuxtjs/style-resources',
+		'nuxt-i18n',
+		'nuxt-purgecss',
+		['vue-scrollto/nuxt', { duration: 300 }],
+		'@nuxtjs/sitemap',
+	],
+
+	// Axios module configuration: https://go.nuxtjs.dev/config-axios
+	axios: {
+		// baseURL: '/',
+		// debug: true,
+	},
+
+	dayjs: {
+		locales: ['ja', 'en'],
+		defaultLocale: 'ja',
+		defaultTimeZone: 'Asia/Tokyo',
+		plugins: [
+			'isToday',
+			'localizedFormat',
+			'timezone',
+			'utc',
+		],
+	},
+
+	router: {
+		middleware: 'index',
+		extendRoutes(routes) {
+			// ルートをここに追加する
+
+			// ソートをする
+			sortRoutes(routes);
+		},
+	},
+
+	// Sitemap module configuration
+	sitemap: {
+		cacheTime: 1000 * 60 * 15,
+		defaults: {
+			changefreq: 'daily',
+			priority: 1,
+			lastmod: new Date(),
+		},
+		hostname: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
+		i18n: true,
+		path: '/sitemap.xml',
+	},
+
+	// Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
 	vuetify: {
 		lang: {
 			locale: { en, ja },
@@ -76,86 +155,7 @@ export default {
 		},
 		treeShake: true,
 	},
-	/*
-	 ** Global CSS
-	 */
-	css: [
-		'codemirror/lib/codemirror.css',
-		'codemirror/theme/material.css',
-		'codemirror/theme/tomorrow-night-eighties.css',
-		'@/assets/css/prismTomorrowNight.css',
-	],
-	/*
-	 ** Plugins to load before mounting the App
-	 */
-	plugins: [
-		// '~/plugins/auth',
-		{ src: '~plugins/codemirror', ssr: false },
-		// '~plugins/firebase',
-		// '~/plugins/globals.js',
-		// '~/plugins/vue-scrollto',
-	],
-	/*
-	 ** Nuxt.js dev-modules
-	 */
-	buildModules: [
-		// Doc: https://github.com/nuxt-community/eslint-module
-		'nuxt-purgecss',
-		'@nuxtjs/dotenv',
-		'@nuxtjs/eslint-module',
-		'@nuxtjs/stylelint-module',
-		'@nuxtjs/vuetify',
-		'@nuxt/typescript-build',
-	],
-	/*
-	 ** Nuxt.js modules
-	 */
-	modules: [
-		// Doc: https://bootstrap-vue.js.org
-		'@nuxtjs/axios',
-		'@nuxtjs/dayjs',
-		'@nuxtjs/pwa',
-		'@nuxtjs/style-resources',
-		'nuxt-i18n',
-		'nuxt-purgecss',
-		['vue-scrollto/nuxt', { duration: 300 }],
-		'@nuxtjs/sitemap',
-	],
-	axios: {
-		// baseURL: '/',
-		// debug: true,
-	},
-	dayjs: {
-		locales: ['ja', 'en'],
-		defaultLocale: 'ja',
-		defaultTimeZone: 'Asia/Tokyo',
-		plugins: [
-			'isToday',
-			'localizedFormat',
-			'timezone',
-			'utc',
-		],
-	},
-	router: {
-		middleware: 'index',
-		extendRoutes(routes) {
-			// ルートをここに追加する
 
-			// ソートをする
-			sortRoutes(routes);
-		},
-	},
-	sitemap: {
-		cacheTime: 1000 * 60 * 15,
-		defaults: {
-			changefreq: 'daily',
-			priority: 1,
-			lastmod: new Date(),
-		},
-		hostname: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
-		i18n: true,
-		path: '/sitemap.xml',
-	},
 	/*
 	 ** Build configuration
 	 */
@@ -267,6 +267,7 @@ export default {
 			commons: true,
 		},
 	},
+
 	i18n: {
 		defaultLocale: 'ja-JP',
 		langDir: 'locales/',
@@ -282,9 +283,8 @@ export default {
 			syncLocale: true,
 		},
 	},
-	/*
-	 ** PWA configuration
-	 */
+
+	// PWA module configuration: https://go.nuxtjs.dev/pwa
 	pwa: {
 		manifest: {
 			author: 'Yukari-World',
@@ -379,9 +379,8 @@ export default {
 			],
 		},
 	},
-	/*
-	 ** purgeCSS configuration
-	 */
+
+	// purgeCSS module configuration
 	purgeCSS: {
 		enabled: ({ isDev, isClient }) => !isDev && isClient, // or `false` when in dev/debug mode
 		paths: [
@@ -399,19 +398,20 @@ export default {
 			},
 		],
 	},
-	/*
-	 ** Server configuration
-	 */
+
+	// Server configuration
 	server: {
 		host: '0.0.0.0',
 		port: process.env.PORT || 8080,
 	},
+
 	/*
 	 ** Render configuration
 	 */
 	render: {
 		compressor: shrinkRay(),
 	},
+
 	// generate: {
 	// 	routes () {
 	// 		return axios.get('~/assets/json/randomWord.json')

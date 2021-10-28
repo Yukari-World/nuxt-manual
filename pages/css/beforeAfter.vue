@@ -93,6 +93,11 @@ export default Vue.extend({
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
 		Prism.highlightAll();
 		// Prism.plugins.fileHighlight.highlight();

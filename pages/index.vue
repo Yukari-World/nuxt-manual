@@ -265,7 +265,7 @@ export default Vue.extend({
 						cm.setOption('fullScreen', !cm.getOption('fullScreen'));
 					},
 					'Esc'(cm: any) {
-						if (cm.getOption('fullScreen')) {cm.setOption('fullScreen', false);}
+						if (cm.getOption('fullScreen')) { cm.setOption('fullScreen', false); }
 					},
 				},
 				foldGutter: true,
@@ -283,6 +283,11 @@ export default Vue.extend({
 				tabSize: 4,
 				theme: 'tomorrow-night-eighties',
 			},
+		};
+	},
+	head(): object {
+		return {
+			title: this.header.title,
 		};
 	},
 	computed: {

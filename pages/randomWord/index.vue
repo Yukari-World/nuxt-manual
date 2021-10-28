@@ -30,6 +30,11 @@ export default Vue.extend({
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
