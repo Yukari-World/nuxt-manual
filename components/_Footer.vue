@@ -1,10 +1,10 @@
 <template lang="pug">
 v-footer(padless)
 	v-row.flex-column.flex-xl-row
-		v-col.d-flex.align-center.justify-center.justify-xl-start
-			p(style='margin: 1rem 0 0')
+		v-col.d-flex.align-center.justify-center.justify-xl-start(style='padding-bottom: 0')
+			p.yw-word
 				a#randomWord Loading...
-		v-col.d-flex.align-center.justify-center.justify-xl-start
+		v-col.d-flex.align-center.justify-center.justify-xl-start(style='padding-bottom: 0')
 			.text-center.text-xl-left.yk-footer-source
 				p Page Editor, Page Design: Yukari-World
 				p
@@ -136,8 +136,12 @@ export default Vue.extend({
 	}
 }
 
-.row {
+.yw-row {
 	box-sizing: border-box;
+}
+
+.yw-word {
+	margin: 0 0 0 1em;
 }
 
 #randomWord {

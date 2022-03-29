@@ -8,7 +8,7 @@ div
 		h2 使用方法と解説
 		pre.language-css.line-numbers: code
 			| background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
-		.gradient1
+		.yw-gradient1
 		p
 			a(href='https://dyaddemo.wordpress.com/', title='Dyad – A theme that pairs well with any content', target='_blank', rel='external noopener') dyad
 			| で使用されている直線グラデーション。
@@ -25,19 +25,19 @@ div
 
 		pre.language-css.line-numbers: code
 			| background: linear-gradient(45deg, red, blue);
-		.gradient2
+		.yw-gradient2
 		p
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient', target='_blank', rel='external noopener') MDN Web Docs
 			| に公開されている例。対角線上に赤から青となるグラデーションが生成される。
 
 		pre.language-css.line-numbers: code
 			| background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%);
-		.gradient3
+		.yw-gradient3
 		p 三色グラデーションの例。カンマで繋ぐ事で複数色設定できる。更に割合を指定することで色の変わり目の位置を指定することができる。
 
 		pre.language-css.line-numbers: code
 			| background: linear-gradient(to right, #000011, #1164FF, #FFFF99);
-		.gradient4
+		.yw-gradient4
 		p 本マニュアルで使用されているグラデーション。%表記が省略された場合は色の変わり目が要素のサイズに対して均等な位置になるように位置が割り振られる(この場合は2個目の要素が50%の位置に来るように割り振られる)。左側の色は背景色と同じ色のため殆ど見えない。尚、このマニュアルの背景は黒ではない。
 
 	section
@@ -105,26 +105,26 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.gradient1, .gradient2, .gradient3, .gradient4 {
+.yw-gradient1, .yw-gradient2, .yw-gradient3, .yw-gradient4 {
 	width: 350px;
 	height: 200px;
 	margin: 5px auto;
 	border-radius: 10px;
 }
 
-.gradient1 {
+.yw-gradient1 {
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), #FFFFFF;
 }
 
-.gradient2 {
+.yw-gradient2 {
 	background: linear-gradient(45deg, red, blue), #FFFFFF;
 }
 
-.gradient3 {
+.yw-gradient3 {
 	background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%), #FFFFFF;
 }
 
-.gradient4 {
+.yw-gradient4 {
 	background: linear-gradient(to right, #000011, #1164FF, #FFFF99), #FFFFFF;
 }
 </style>

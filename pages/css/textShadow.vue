@@ -9,26 +9,26 @@ div
 		h3 基本的な使い方
 		pre.language-css.line-numbers: code.
 			text-shadow: 0 0 6px #000000;
-		.exsample-area.exsample1
+		.yw-exsample-area.yw-exsample1
 			p I was once an adventurer like you;then I took an arrow in the knee.
 		p 文字の真下にぼかし6pxの黒の影を付与する。数値が小さい程文字の原型が残り、大きくなる程ぼやけたようになる。
 
 		h4 値が小さい場合
 		pre.language-css.line-numbers: code.
 			text-shadow: 0 0 2px #000000;
-		.exsample-area.exsample1-1
+		.yw-exsample-area.yw-exsample1-1
 			p I was once an adventurer like you;then I took an arrow in the knee.
 
 		h4 値が大きい場合
 		pre.language-css.line-numbers: code.
 			text-shadow: 0 0 10px #000000;
-		.exsample-area.exsample1-2
+		.yw-exsample-area.yw-exsample1-2
 			p I was once an adventurer like you;then I took an arrow in the knee.
 
 		h3 複数の影をつける
 		pre.language-css.line-numbers: code.
 			text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;
-		.exsample-area.exsample2
+		.yw-exsample-area.yw-exsample2
 			p I was once an adventurer like you;then I took an arrow in the knee.
 		p 赤と青の影を付与する。カンマを使用することで複数定義することができる。数の制限は特にないが、あくまで装飾に過ぎず、多く指定し過ぎると却って可読性を損なう要因となる。
 
@@ -77,7 +77,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.exsample-area {
+.yw-exsample-area {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -89,19 +89,19 @@ export default Vue.extend({
 	background-color: #F5F9FA;
 }
 
-.exsample1 {
+.yw-exsample1 {
 	text-shadow: 0 0 6px #000000;
 }
 
-.exsample1-1 {
+.yw-exsample1-1 {
 	text-shadow: 0 0 2px #000000;
 }
 
-.exsample1-2 {
+.yw-exsample1-2 {
 	text-shadow: 0 0 10px #000000;
 }
 
-.exsample2 {
+.yw-exsample2 {
 	text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;
 }
 </style>

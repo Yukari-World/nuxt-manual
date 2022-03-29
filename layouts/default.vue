@@ -115,6 +115,12 @@ section {
 	speak: none;
 }
 
+.code-toolbar {
+	+ h2, + h3 {
+		margin-top: 1.5rem;
+	}
+}
+
 // ----------------------------------------------------------------------------------------------------
 // Vender Profile Initialize
 ::-webkit-scrollbar {
@@ -167,6 +173,9 @@ section {
 		}
 
 		pre {
+			max-height: 75vh;
+			overflow-y: scroll;
+
 			&[class*="language-"] {
 				> code {
 					$size: 2.286em;
@@ -218,6 +227,8 @@ section {
 	}
 }
 
+// ----------------------------------------------------------------------------------------------------
+// CodeMirror Overwrite
 .CodeMirror {
 	font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
 	font-size: 14px;

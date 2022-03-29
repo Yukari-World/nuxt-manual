@@ -57,13 +57,13 @@ div
 				fieldset
 					label
 						input(type='checkbox' value='1')
-						| 内容1
+						p 内容1
 					label
 						input(type='checkbox' value='2')
-						| 内容2
+						p 内容2
 					label
 						input(type='checkbox' value='3')
-						| 内容3
+						p 内容3
 
 			dt: h3#input-color color
 			dd
@@ -168,13 +168,13 @@ div
 				fieldset
 					label
 						input(type='radio' name='bread' value='1')
-						| 内容1
+						p 内容1
 					label
 						input(type='radio' name='bread' value='2')
-						| 内容2
+						p 内容2
 					label
 						input(type='radio' name='bread' value='3')
-						| 内容3
+						p 内容3
 
 			dt: h3#input-range range
 			dd
@@ -401,9 +401,28 @@ fieldset {
 	border: 2px solid #FFFFFF;
 	background-color: #9999CC;
 
-	input[type="checkbox"] {
-		display: inline-flex;
-		align-items: center;
+	input {
+		border-radius: 3px;
+		background-color: #FFFFFF;
+
+		&[type="button"], &[type="reset"], &[type="submit"] {
+			padding: 2px;
+		}
+
+		&[type="checkbox"] {
+			display: inline-flex;
+			align-items: center;
+
+			+ p {
+				margin: 0 1em 0 0;
+			}
+		}
+
+		&[type="radio"] {
+			+ p {
+				margin: 0 1em 0 0;
+			}
+		}
 	}
 
 	+ p {

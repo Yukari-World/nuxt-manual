@@ -20,7 +20,7 @@ nav#menu.sidebar
 			template(v-slot:activator)
 				v-list-item(:title='listIndex.category')
 					v-list-item-content
-						v-list-item-title {{ listIndex.category }}
+						v-list-item-title {{ $t(listIndex.category) }}
 						v-list-item-subtitle(v-if='threeLine' v-html='listIndex.description')
 			//- サブカテゴリ。templateに含ますことで不要な要素を作成させない
 			template(v-for='(subIndex, i) in listIndex.subCategory')
@@ -81,6 +81,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+// ----------------------------------------------------------------------------------------------------
+// Vender Profile Initialize
 .v-navigation-drawer {
 	// Vender Profile Initialize
 	::-webkit-scrollbar {

@@ -20,6 +20,7 @@ module.exports = {
 	],
 	// add your custom rules here
 	rules: {
+
 		'array-bracket-spacing': [ 'warn', 'always', { objectsInArrays: false }],
 		'comma-spacing': [ 'error', {
 			before: false,
