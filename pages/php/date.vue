@@ -74,7 +74,7 @@ div
 
 <script lang="ts">
 import Vue from 'vue';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-markup-templating';
@@ -109,8 +109,8 @@ export default Vue.extend({
 		const minute = ('0' + dToday.getMinutes()).slice(-2);
 		const second = ('0' + dToday.getSeconds()).slice(-2);
 
-		Prism.highlightAll();
-		// Prism.plugins.fileHighlight.highlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 
 		date01.textContent = year + '-' + month + '-' + day;

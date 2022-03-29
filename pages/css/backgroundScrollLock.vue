@@ -91,7 +91,7 @@ div
 
 <script lang="ts">
 import Vue from 'vue';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-scss';
 
@@ -109,8 +109,8 @@ export default Vue.extend({
 		};
 	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.plugins.fileHighlight.highlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -132,11 +132,11 @@ export default Vue.extend({
 }
 
 .layer1 {
-	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px/100% 50% local, url(/img/nicholas-loo-372788.jpg) repeat top center fixed;
+	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px / 100% 50% local, url("/img/nicholas-loo-372788.jpg") repeat top center fixed;
 }
 
 .layer2 {
-	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(/img/nicholas-loo-372788.jpg);
+	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url("/img/nicholas-loo-372788.jpg");
 	background-repeat: repeat-x, repeat;
 	background-position: 0 100px, top center;
 	background-size: 100% 50%, auto;

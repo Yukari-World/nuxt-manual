@@ -5,23 +5,26 @@ v-footer(padless)
 			p(style='margin: 1rem 0 0')
 				a#randomWord Loading...
 		v-col.d-flex.align-center.justify-center.justify-xl-start
-			p.text-center.text-xl-left
-				| Page Editor, Page Design: Yukari-World
-				br
-				| Text Editor:&nbsp;
-				a(href='https://atom.io/', title='Atom', target='_blank', rel='external noopener') Atom
-				| ,&nbsp;
-				a(href='https://notepad-plus-plus.org/', title='Notepad++ Home', target='_blank', rel='external noopener') Notepad++
-				| ,&nbsp;
-				a(href='https://code.visualstudio.com/', title='Visual Studio Code - Code Editing. Redefined', target='_blank', rel='external noopener') Visual Stdio Code
-				br
-				| Syntax Highlightor:&nbsp;
-				a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
-				br
-				| Coding Language: JavaScript,&nbsp;
-				a(href='https://pugjs.org/', title='Pug: Getting Started', target='_blank', rel='external noopener') Pug(Jade)
-				| ,&nbsp;
-				a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(SCSS)
+			.text-center.text-xl-left.yk-footer-source
+				p Page Editor, Page Design: Yukari-World
+				p
+					| Text Editor:&nbsp;
+					a(href='https://atom.io/', title='Atom', target='_blank', rel='external noopener') Atom
+					| ,&nbsp;
+					a(href='https://notepad-plus-plus.org/', title='Notepad++ Home', target='_blank', rel='external noopener') Notepad++
+					| ,&nbsp;
+					a(href='https://code.visualstudio.com/', title='Visual Studio Code - Code Editing. Redefined', target='_blank', rel='external noopener') Visual Stdio Code
+				p
+					| Design Framework:&nbsp;
+					a(href='https://vuetifyjs.com/ja/', title='マテリアルデザインコンポーネントフレームワーク — Vuetify.js', target='_blank', rel='external noopener') Vuetify.js
+				p
+					| Syntax Highlightor:&nbsp;
+					a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
+				p
+					| Coding Language: JavaScript,&nbsp;
+					a(href='https://pugjs.org/', title='Pug: Getting Started', target='_blank', rel='external noopener') Pug(Jade)
+					| ,&nbsp;
+					a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(SCSS)
 </template>
 
 <script lang="ts">
@@ -123,6 +126,16 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+.yk {
+	&-footer {
+		&-source {
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
 .row {
 	box-sizing: border-box;
 }
@@ -131,4 +144,5 @@ export default Vue.extend({
 	text-decoration: line-through;
 	color: #FFFFFF;
 }
+
 </style>

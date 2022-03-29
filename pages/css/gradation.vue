@@ -73,7 +73,7 @@ div
 
 <script lang="ts">
 import Vue from 'vue';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-markup';
 
@@ -91,8 +91,8 @@ export default Vue.extend({
 		};
 	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.plugins.fileHighlight.highlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {

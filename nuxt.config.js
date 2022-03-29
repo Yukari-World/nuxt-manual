@@ -31,10 +31,10 @@ export default {
 			{ rel: 'preconnect', href: 'https://cdn.jsdelivr.net/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.gstatic.com/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.googleapis.com/', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.9.55', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=6.6.96', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },
 			// { rel: 'preload', as: 'style', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: '/css/prism.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css' },
@@ -93,7 +93,7 @@ export default {
 		'@nuxtjs/style-resources',
 		'nuxt-i18n',
 		'nuxt-purgecss',
-		['vue-scrollto/nuxt', { duration: 300 }],
+		[ 'vue-scrollto/nuxt', { duration: 300 }],
 		'@nuxtjs/sitemap',
 	],
 
@@ -104,7 +104,7 @@ export default {
 	},
 
 	dayjs: {
-		locales: ['ja', 'en'],
+		locales: [ 'ja', 'en' ],
 		defaultLocale: 'ja',
 		defaultTimeZone: 'Asia/Tokyo',
 		plugins: [
@@ -168,7 +168,7 @@ export default {
 		babel: {
 			babelrc: false,
 			cacheDirectory: undefined,
-			presets: ['@nuxt/babel-preset-app'],
+			presets: [ '@nuxt/babel-preset-app' ],
 			plugins: [
 				[
 					'prismjs',
@@ -316,7 +316,7 @@ export default {
 							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
 						},
 						cacheableResponse: {
-							statuses: [0, 200],
+							statuses: [ 0, 200 ],
 						},
 					},
 				},
@@ -330,7 +330,7 @@ export default {
 							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
 						},
 						cacheableResponse: {
-							statuses: [0, 200],
+							statuses: [ 0, 200 ],
 						},
 					},
 				},
@@ -344,7 +344,7 @@ export default {
 							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
 						},
 						cacheableResponse: {
-							statuses: [0, 200],
+							statuses: [ 0, 200 ],
 						},
 					},
 				},
@@ -358,7 +358,7 @@ export default {
 							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
 						},
 						cacheableResponse: {
-							statuses: [0, 200],
+							statuses: [ 0, 200 ],
 						},
 					},
 				},
@@ -372,7 +372,7 @@ export default {
 							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
 						},
 						cacheableResponse: {
-							statuses: [0, 200],
+							statuses: [ 0, 200 ],
 						},
 					},
 				},
@@ -389,12 +389,12 @@ export default {
 			'pages/**/*.vue',
 			'plugins/**/*.js',
 		],
-		styleExtensions: ['.css'],
-		whitelist: ['body', 'html', 'nuxt-progress'],
+		styleExtensions: [ '.css' ],
+		whitelist: [ 'body', 'html', 'nuxt-progress' ],
 		extractors: [
 			{
 				extractor: content => content.match(/[A-z0-9-:\\/]+/g) || [],
-				extensions: ['html', 'vue', 'js'],
+				extensions: [ 'html', 'vue', 'js' ],
 			},
 		],
 	},
