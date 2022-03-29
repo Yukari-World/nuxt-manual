@@ -291,7 +291,7 @@ div
 
 <script lang="ts">
 import Vue from 'vue';
-import Prism from 'prismjs';
+import { highlightAll, plugins } from 'prismjs';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-batch';
 import 'prismjs/components/prism-javascript';
@@ -307,8 +307,8 @@ export default Vue.extend({
 		};
 	},
 	mounted() {
-		Prism.highlightAll();
-		Prism.plugins.fileHighlight.highlight();
+		highlightAll();
+		plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {

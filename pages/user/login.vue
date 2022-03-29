@@ -11,7 +11,7 @@ v-form
 import Vue from 'vue';
 // eslint-disable-next-line no-unused-vars
 // import firebase from '@/plugins/firebase';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 
 export default Vue.extend({
 	data() {
@@ -24,9 +24,14 @@ export default Vue.extend({
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.plugins.fileHighlight.highlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {

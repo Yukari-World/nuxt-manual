@@ -247,7 +247,7 @@ div
 <script lang="ts">
 import Vue from 'vue';
 import { mapState } from 'vuex';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-pug';
 import 'prismjs/components/prism-scss';
@@ -265,7 +265,7 @@ export default Vue.extend({
 						cm.setOption('fullScreen', !cm.getOption('fullScreen'));
 					},
 					'Esc'(cm: any) {
-						if (cm.getOption('fullScreen')) {cm.setOption('fullScreen', false);}
+						if (cm.getOption('fullScreen')) { cm.setOption('fullScreen', false); }
 					},
 				},
 				foldGutter: true,
@@ -285,6 +285,11 @@ export default Vue.extend({
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
@@ -295,8 +300,8 @@ export default Vue.extend({
 		const cntRandom = document.getElementById('countRandom') as HTMLElement;
 		cntRandom.textContent = this.randomWords.length;
 
-		Prism.highlightAll();
-		// Prism.plugins.fileHighlight.highlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {

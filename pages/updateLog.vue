@@ -614,7 +614,7 @@ v-timeline(reverse)
 
 <script lang="ts">
 import Vue from 'vue';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 
 export default Vue.extend({
 	data() {
@@ -624,9 +624,14 @@ export default Vue.extend({
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.plugins.fileHighlight.highlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {

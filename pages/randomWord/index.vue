@@ -20,7 +20,7 @@ dl#randomOutput
 <script lang="ts">
 import Vue from 'vue';
 import { mapState } from 'vuex';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 
 export default Vue.extend({
 	data() {
@@ -30,6 +30,11 @@ export default Vue.extend({
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
@@ -37,8 +42,8 @@ export default Vue.extend({
 		}),
 	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.plugins.fileHighlight.highlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 		// setTimeout(this.scroll, 300);
 	},
