@@ -256,7 +256,7 @@ export default {
 			plugins: {
 				'postcss-import': {},
 				'postcss-url': {},
-				'css-mqpacker': {},
+				'node-css-mqpacker': {},
 				'cssnano': { preset: 'default' },
 			},
 			order: 'presetEnvAndCssnanoLast',
