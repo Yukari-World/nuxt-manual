@@ -1,6 +1,6 @@
 {
 	"name": "nuxt-manual",
-	"version": "0.3.2",
+	"version": "0.3.3",
 	"description": "Nuxt Technical Manual",
 	"author": "Yukari-World",
 	"private": true,
@@ -113,8 +113,7 @@
 		"webpack": "^4.46.0"
 	},
 	"resolutions": {
-		"postcss": "^8.4.12",
-		"pug": "^3.0.2",
+		"pug": "3.0.2",
 		"ssri": ">=8.0.1"
 	}
 }
