@@ -1,6 +1,6 @@
 {
 	"name": "nuxt-manual",
-	"version": "0.3.2",
+	"version": "0.3.3",
 	"description": "Nuxt Technical Manual",
 	"author": "Yukari-World",
 	"private": true,
@@ -13,8 +13,7 @@
 		"lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
 		"analyze": "nuxt build --analyze",
 		"test": "jest --config jest.config.js",
-		"prepare": "husky install",
-		"preinstall": "npx npm-force-resolutions"
+		"prepare": "husky install"
 	},
 	"lint-staged": {
 		"*.{js,ts,vue}": [
@@ -65,7 +64,6 @@
 		"babel-preset-env": "^1.7.0",
 		"codecov": "^3.8.3",
 		"css-loader": "^5.2.6",
-		"css-mqpacker": "^7.0.0",
 		"dayjs": "^1.11.0",
 		"dedent": "^0.7.0",
 		"dotenv": "^16.0.0",
@@ -81,6 +79,7 @@
 		"jest": "^27.5.1",
 		"jest-serializer-vue": "^2.0.2",
 		"lint-staged": "^12.3.7",
+		"node-css-mqpacker": "^9.0.0",
 		"node-gyp": "^9.0.0",
 		"node-sass": "^7.0.1",
 		"nuxt-i18n": "^6.28.1",
@@ -111,10 +110,5 @@
 		"vuetify": ">=2.6.4",
 		"vuexfire": "^3.2.5",
 		"webpack": "^4.46.0"
-	},
-	"resolutions": {
-		"postcss": "^8.4.12",
-		"pug": "^3.0.2",
-		"ssri": ">=8.0.1"
 	}
 }

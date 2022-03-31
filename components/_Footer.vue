@@ -5,7 +5,7 @@ v-footer(padless)
 			p.yw-word
 				a#randomWord Loading...
 		v-col.d-flex.align-center.justify-center.justify-xl-start(style='padding-bottom: 0')
-			.text-center.text-xl-left.yk-footer-source
+			.text-center.text-xl-left.yw-footer-source
 				p Page Editor, Page Design: Yukari-World
 				p
 					| Text Editor:&nbsp;
@@ -126,12 +126,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.yk {
-	&-footer {
-		&-source {
-			p {
-				margin-bottom: 0;
-			}
+.yw-footer {
+	&-source {
+		p {
+			margin-bottom: 0;
 		}
 	}
 }
@@ -148,5 +146,4 @@ export default Vue.extend({
 	text-decoration: line-through;
 	color: #FFFFFF;
 }
-
 </style>
