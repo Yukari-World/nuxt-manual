@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.non_standard.title') }}
-		p {{ $t('common.stub.non_standard.desc') }}
+		h2(v-t="'common.stub.non_standard.title'")
+		p(v-t="'common.stub.non_standard.desc'")
 
 	section
 		h2 説明
@@ -82,7 +82,7 @@ div
 
 		fieldset
 			legend CSSを適応後
-			input.slider(type='range', min='0', max='1000', step='1', value='500')
+			input.yw-slider(type='range', min='0', max='1000', step='1', value='500')
 
 	section
 		h2 使用上の注意
@@ -108,12 +108,13 @@ div
 			a(href='https://www.w3schools.com/howto/howto_js_rangeslider.asp', target='_blank', rel='external noopener') W3Schools (English)
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-markup';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -121,9 +122,14 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -132,7 +138,7 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
 
 <style scoped lang="scss">
@@ -156,7 +162,7 @@ input[type="range"] {
 	width: 70%;
 	max-width: 600px;
 
-	&.slider {
+	&.yw-slider {
 		height: 5px;
 		opacity: 0.7;
 		border-radius: 10px;

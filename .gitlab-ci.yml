@@ -1,0 +1,19 @@
+image: node:latest
+
+before_script:
+  - npm install
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  stage: deploy
+  only:
+    - master
+  script:
+    - npm run generate
+    - 'cp -pr dist public'
+  artifacts:
+    paths:
+      - public

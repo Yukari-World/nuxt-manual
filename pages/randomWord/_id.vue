@@ -13,20 +13,21 @@ span
 					a(:data-tag='tag') {{ $t(tag) }}
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapState } from 'vuex';
 
-export default {
-	validate({ params }) {
-		return params.id >= 0;
-	},
+export default Vue.extend({
+	// validate({ params }) {
+	// 	return params.id >= 0;
+	// },
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			randomWords: (state) => state.randomWords,
+			randomWords: (state: any) => state.randomWords,
 		}),
 	},
-};
+});
 </script>
 
 <style lang="scss">

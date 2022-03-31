@@ -289,15 +289,16 @@ div
 		a(href='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll, plugins } from 'prismjs';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-batch';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-pug';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -306,8 +307,8 @@ export default {
 		};
 	},
 	mounted() {
-		Prism.highlightAll();
-		Prism.fileHighlight();
+		highlightAll();
+		plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -316,7 +317,7 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
 
 <style scoped lang="scss">

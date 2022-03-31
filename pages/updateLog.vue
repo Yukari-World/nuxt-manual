@@ -1,631 +1,519 @@
 <template lang="pug">
 v-timeline(reverse)
-	v-timeline-item
+	//- カードの出力
+	v-timeline-item(v-for='(logIndex, index) in log', :key='index')
+		//- 反対側に出力する文字を出力
+		//- 有ったり無かったりするので、条件で分岐
+		template(v-if='logIndex.opposite !== undefined')
+			span(slot='opposite') {{ logIndex.opposite }}
 		v-card(elevation='5')
-			v-card-title.headline 2020/08/07
+			v-card-title.headline {{ logIndex.date }}
 			v-card-text
 				ul
-					li CodeMirrorの追加
-					li ディレクトリ管理方法の変更
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2020/04/07
-			v-card-text
-				ul
-					li i18nを導入
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2020/01/21
-			v-card-text
-				ul
-					li 技術マニュアル『apm Command』を作成
-					li 技術マニュアル『カスタマイズ項目の追加』を作成
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2020/01/06
-			v-card-text
-				ul
-					li Gitの項目を追加
-					li 技術マニュアル『Netlify』を作成
-					li 技術マニュアル『origin/HEADについて』を作成
-					li 技術マニュアル『git-flow』を作成
-					li 公式サイトリンクを『リンク』、参考ページリンクを『参考リンク』と分離
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/12/19
-			v-card-text
-				ul
-					li 更新履歴のページをリニューアル
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/12/17
-			v-card-text
-				ul
-					li sitemapの作成
-					li 新規サーバーにて公開
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/12/16
-			v-card-text
-				ul
-					li Nuxt用にテーマを最適化
-					li Nodeパッケージのセキュリティ修正
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/11/29
-			v-card-text
-				ul
-					li スクロールバーが透明になっていた問題を修正
-
-	v-timeline-item
-		span(slot='opposite') Nuxt時代
-		v-card(elevation='5')
-			v-card-title.headline 2019/11/25
-			v-card-text
-				ul
-					li Nuxtにマニュアルを移行
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/08/23
-			v-card-text
-				ul
-					li Lightレイアウトからサイズ情報に関する記述を削除
-					li prismの更新
-					li prismをLgithレイアウトで使用する時、Light系のスタイルを使用するように
-					li vueのasyncの記述ミスを修正
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/08/16
-			v-card-text
-				ul
-					li Lightレイアウトの導入
-					li vue.jsの試験的導入
-					li 技術マニュアル『IndexedDB』を追加
-					li 技術マニュアル『スライダーレイアウト』を追加
-					li 不要なWAI-ARIAの削除
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/06/11
-			v-card-text
-				ul
-					li IndexedDBを利用したデータ保管方法に変更。非対応時の処理として以前のそーコードも残しています
-
-	v-timeline-item
-		span(slot='opposite') 文章の添削
-		v-card(elevation='5')
-			v-card-title.headline 2019/06/10
-			v-card-text
-				ul
-					li textlintによる不適切な日本語表記を添削。完全な添削は完了していません
-
-	v-timeline-item
-		span(slot='opposite') レスポンス強化
-		v-card(elevation='5')
-			v-card-title.headline 2019/05/24
-			v-card-text
-				ul
-					li JavaScriptにおける不要な処理の削除、削減、処理速度の最適化
-					li JavaScriptファイルを細分化
-					li 技術マニュアル『ファイルダウンロード』のHTMLフォーマットの修正
-					li 技術マニュアル『特殊なグラデーションリスト』をHTMLフォーマットの修正
-
-	v-timeline-item
-		span(slot='opposite') レスポンス強化
-		v-card(elevation='5')
-			v-card-title.headline 2019/05/09
-			v-card-text
-				ul
-					li ソースマップの処理方法を変更
-					li 不要ファイルが複数あるのでそれを削除
-
-	v-timeline-item
-		span(slot='opposite') レスポンス強化
-		v-card(elevation='5')
-			v-card-title.headline 2019/04/25
-			v-card-text
-				ul
-					li 全てのJavaScriptファイルを圧縮
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/04/10
-			v-card-text
-				ul
-					li 技術マニュアル『AS(別名)』を更新
-					li サンプルデータのSCSSファイルを更新
-					li SCSSの最適化
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/04/03
-			v-card-text
-				ul
-					li フッターを常に真下に来るように変更
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/02/22
-			v-card-text
-				ul
-					li 技術マニュアル『[MySQL] INSERT WHERE EXISTS』の内容が全く理解できなかったので更新
-					li JavaScriptにおける不要な処理の削除、削減、処理速度の最適化(75% Refine)
-					li CSSの最適化と細かな文の修正、初期化方法の変更
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/02/06
-			v-card-text
-				ul
-					li リソースのプリロード機能の実装ページを追加
-					li 技術マニュアル『AS(別名)』を追加
-					li 導入マニュアル『EditorConfig』を更新
-					li HTML自動整形ルールを変更
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/01/31
-			v-card-text
-				ul
-					li JavaScriptにおける不要な処理の削除、削減、処理速度の最適化
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/01/24
-			v-card-text
-				ul
-					li 技術マニュアル『[CodeIgniter] データベース接続』を追加
-					li 技術マニュアル『ファイルダウンロード』のリンクを修正
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/01/16
-			v-card-text
-				ul
-					li 外部リンクの挙動関連の調整。基本的に変化はありません
-					li SEOの強化
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2019/01/10
-			v-card-text
-				ul
-					li 技術マニュアル『日付時間 date()』を更新、Pugテンプレート記述ミスによるHtml出力のミスを修正
-					li seedを16進数で出力できるように変更
-
-	v-timeline-item
-		span(slot='opposite') 2019
-		v-card(elevation='5')
-			v-card-title.headline 2019/01/07
-			v-card-text
-				ul
-					li XorShiftの乱数Xの取得方法が間違っていたのを修正
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/12/21
-			v-card-text
-				ul
-					li カテゴリページの仮追加とリンクの作成。内容は追って作成
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/12/11
-			v-card-text
-				ul
-					li 技術マニュアル『特殊なグラデーションリスト』を追加
-					li メニューリストの不具合を修正
-
-	v-timeline-item
-		span(slot='opposite') 体裁の強化
-		v-card(elevation='5')
-			v-card-title.headline 2018/12/07
-			v-card-text
-				ul
-					li リンク先がMDN Web Docsとなっているページリンクのリンク名を変更
-					li 日本語が不適切な説明文や文脈を修正
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/12/06
-			v-card-text
-				ul
-					li 技術マニュアル『文字装飾による可読性の向上』の解説を追記
-					li ページデザインの修正。空白の間隔を変更
-					li 日本語が不適切な説明文や文脈を修正
-
-	v-timeline-item
-		span(slot='opposite') レスポンス強化
-		v-card(elevation='5')
-			v-card-title.headline 2018/11/30
-			v-card-text
-				ul
-					li リソースのプリロード機能の実装。但し、現時点で利用可能なブラウザはごく少数です
-					li Safariにおける描画不具合を修正
-					li 技術マニュアル『バインドを利用したSQLの実行』におけるソースコード入力ミスを修正
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/11/20
-			v-card-text
-				ul
-					li JavaScriptのドキュメント類を再度整形
-					li 技術マニュアル『フェードイン』を更新。画像読み込みに遅延読み込みを使用
-					li 技術マニュアル『IN()(複数選択)』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/11/09
-			v-card-text
-				ul
-					li JavaScriptの処理手順の調整
-					li JavaScriptコーディングフォーマットを僅かに変更
-					li SCSSの最適化
-					li マニュアルデザインとレスポンシブデザインの更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/10/30
-			v-card-text
-				ul
-					li Worker Taskの実装
-					li JavaScriptの処理手順の調整
-					li JavaScriptコーディングフォーマットを僅かに変更
-
-	v-timeline-item
-		span(slot='opposite') レスポンス強化
-		v-card(elevation='5')
-			v-card-title.headline 2018/10/26
-			v-card-text
-				ul
-					li lazysizesの導入。但し現在未使用
-					li JavaScriptの処理を変更
-					li Worker処理の予約
-					li CSSの最適化と細かな文の修正
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/10/24
-			v-card-text
-				ul
-					li 非同期通信の調整
-
-	v-timeline-item
-		span(slot='opposite') 印刷対応
-		v-card(elevation='5')
-			v-card-title.headline 2018/10/18
-			v-card-text
-				ul
-					li ページデザインの調整
-					li ページ印刷時背景色指定を無効化するように変更
-					li ランダムワードのアニメーションフレームの不一致問題を修正
-					li 技術マニュアル『input要素』を更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/10/17
-			v-card-text
-				ul
-					li Wordpressの項目を仮追加
-					li 書きかけのページの趣旨を表示するように変更
-					li 技術マニュアル『input要素』を更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/10/16
-			v-card-text
-				ul
-					li CSSアニメーションフレーム時間の調整
-					li 技術マニュアルの表示順序の変更
-					li 技術マニュアル『input要素』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/10/10
-			v-card-text
-				ul
-					li ランダムワードページのスタイルを変更
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/10/04
-			v-card-text
-				ul
-					li 技術マニュアル『[Apache] HTMLファイルでPHPを動かす』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/10/01
-			v-card-text
-				ul
-					li 導入マニュアル『EditorConfig』を追加
-					li 技術マニュアル『localStorage』を更新
-					li 技術マニュアル『PDO(PHP Data Objects)』を更新
-					li 技術マニュアル『JOIN(テーブル結合)』を更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/09/28
-			v-card-text
-				ul
-					li あるリンクが反応しない問題を修正
-					li リンク切れの修正
-					li 技術マニュアル『localStorage』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/09/26
-			v-card-text
-				ul
-					li 展開ボタンの追加
-					li SCSSの表記ミスを修正
-					li (Gitlab処理) gzip圧縮処理を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/09/21
-			v-card-text
-				ul
-					li 全ページタイトルに『HTML Technical Manual』の文字列を追加
-					li サンプルページ『Prismハイライトの例』を追加。現在ドラフト段階
-					li 技術マニュアル『フェードイン』を更新
-
-	v-timeline-item
-		span(slot='opposite') レスポンス強化
-		v-card(elevation='5')
-			v-card-title.headline 2018/09/20
-			v-card-text
-				ul
-					li 画像圧縮率の変更
-					li ファイル軽量化による最適化
-					li JavaScriptのソースマップ出力方法の修正
-					li 技術マニュアル『フェードイン』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/09/19
-			v-card-text
-				ul
-					li SCSSの項目を仮追加
-					li スマートフォンのサイドバー処理の最適化
-					li JavaScriptの依存を減少
-					li ボタンレイアウトが機能していない問題を修正
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/09/18
-			v-card-text
-				ul
-					li トップページのページ名をいい加減修正
-					li サイドバーを折りたたみ方式の処理方法を調整
-					li サイドバー同期処理の修正
-					li ソースファイルが正しく読み込まれない問題を修正
-
-	v-timeline-item
-		span(slot='opposite') Babel時代
-		v-card(elevation='5')
-			v-card-title.headline 2018/09/14
-			v-card-text
-				ul
-					li Babel処理によるJavaScriptの後方互換の確保
-					li サイドバーを折りたたみ方式に変更。折りたたみ状態はローカルストレージにフラグが保持されます
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/09/04
-			v-card-text
-				ul
-					li サイドメニューの順序を更新
-					li 技術マニュアル『Pug』を更新
-					li 説明の表記ブレを修正
-
-	v-timeline-item
-		span(slot='opposite') Ajaxの始動
-		v-card(elevation='5')
-			v-card-title.headline 2018/09/03
-			v-card-text
-				ul
-					li Ajaxのサンプルデータの追加
-					li Ajax利用可能によるソースコードの大幅改変
-					li 技術マニュアル『npm コマンド』を追加
-					li 技術マニュアル『Pug』を更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/31
-			v-card-text
-				ul
-					li 一部のソースコードを外部に置くようにした
-					li 導入マニュアル『Browsersync導入マニュアル』を更新
-					li 技術マニュアル『Pug』を更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/30
-			v-card-text
-				ul
-					li ページ数の増加に伴いPug→HTMLへの変換処理を変更
-					li 技術マニュアル『Pug』を更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/29
-			v-card-text
-				ul
-					li 技術マニュアル『Pug』を追加
-					li 技術マニュアル『Sass』を更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/28
-			v-card-text
-				ul
-					li JavaScriptの配列のとり方を変更
-					li 技術マニュアル『Sass』を更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/27
-			v-card-text
-				ul
-					li JavaScriptの配列のとり方を変更
-					li 技術マニュアル『Sass』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/24
-			v-card-text
-				ul
-					li Xorshiftの乱数シード取得方法と処理方法を更新
-					li 技術マニュアル『TRANSACTION ROLLBACK』を『TRANSACTION』に変更
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/22
-			v-card-text
-				ul
-					li 技術マニュアル『TRUNCATE(テーブルを空にする)』を更新
-
-	v-timeline-item
-		span(slot='opposite') おまけ機能の強化と致命的問題の修正
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/20
-			v-card-text
-				ul
-					li リンクの問題を修正。Browsersyncを使用すると普通にリンクに繋がるから全く気づかなかった
-					li ページデザインを更新しスクロールを独立化
-					li JavaScript処理手順の更新し、乱数にXorshiftを使用するようにし、同じ時間(同じ秒数)に開いた場合、乱数結果が常に同じ結果になるようになった
-					li 今回のミスを元に技術マニュアル『[Deprecated] httpの省略』を追加
-					li 技術マニュアル『backgroundを重ねる』を更新
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/17
-			v-card-text
-				ul
-					li 更新履歴のページを追加
-					li 技術マニュアル『backgroundを重ねる』を更新
-					li 技術マニュアル『JOIN(テーブル結合)』を追加
-					li 技術マニュアル『[MySQL] INT(11) の意味』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/16
-			v-card-text
-				ul
-					li JavaScript処理手順の更新
-					li 更新履歴のページを追加
-					li 技術マニュアル『backgroundを重ねる』を更新
-					li 技術マニュアル『[MySQL] INT(11) の意味』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/15
-			v-card-text
-				ul
-					li トップページを更新
-					li メインテンプレートレイアウトを更新し、headタグに要素を追加できるように変更
-					li 導入マニュアル『Browsersync導入マニュアル』を追加
-					li 技術マニュアル『backgroundを重ねる』を更新
-					li 技術マニュアル『グラデーション』を更新
-					li 技術マニュアル『背景画像スクロールの固定』を更新
-
-	v-timeline-item
-		span(slot='opposite') デザインの強化
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/14
-			v-card-text
-				ul
-					li トップページを更新
-					li Otherの項目を追加
-					li JavaScript処理手順の更新
-					li マニュアルデザインとレスポンシブデザインの更新
-					li レスポンシブデザインの不備を修正
-					li 技術マニュアル『INSERT SELECT』を追加
-					li 技術マニュアル『TRANSACTION ROLLBACK』を追加
-					li 技術マニュアル『TRUNCATE(テーブルを空にする)』を追加
-					li 技術マニュアル『[MySQL] INSERT WHERE EXISTS』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/10
-			v-card-text
-				ul
-					li トップページを更新
-					li JavaScript処理手順の更新
-					li レスポンシブデザインに対応
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/09
-			v-card-text
-				ul
-					li トップページを更新
-					li 技術マニュアル『バインドを利用したSQLの実行』を追加
-					li 技術マニュアル『brタグによる改行を無効化』を追加
-
-	v-timeline-item
-		span(slot='opposite') 機能の強化
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/08
-			v-card-text
-				ul
-					li トップページを更新
-					li HTMLの項目を追加
-					li Node.jsの項目を追加
-					li SQLの項目を追加
-					li 技術マニュアル『backgroundを重ねる』を追加
-					li 技術マニュアル『brタグによる改行を無効化』を追加
-					li 技術マニュアル『背景画像スクロールの固定』を追加
-
-	v-timeline-item
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/07
-			v-card-text
-				ul
-					li トップページを更新
-					li JavaScriptの項目を追加
-					li PHPの項目を追加
-					li メインテンプレートレイアウトを更新し、footerより下にJavaScriptを埋め込むことができるように変更
-					li マニュアルデザインの更新
-					li 技術マニュアル『PDO(PHP Data Objects)』を更新
-					li 技術マニュアル『日付時間 date()』を追加
-					li 技術マニュアル『ファイルを利用した二重起動防止』を追加
-
-	v-timeline-item
-		span(slot='opposite') 創成
-		v-card(elevation='5')
-			v-card-title.headline 2018/08/06
-			v-card-text
-				ul
-					li マニュアル作成開始
-					li CSSの項目を追加
-					li 技術マニュアル『グラデーション』を追加
+					li(v-for='(desc, i) in logIndex.summary') {{ desc }}
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
 				title: '更新履歴',
 			},
+			log: [
+				{
+					date: '2020/08/07',
+					summary: [
+						'CodeMirrorの追加',
+						'ディレクトリ管理方法の変更',
+					],
+				}, {
+					date: '2020/04/07',
+					summary: [
+						'i18nを導入',
+					],
+				}, {
+					date: '2020/01/21',
+					summary: [
+						'技術マニュアル『apm Command』を作成',
+						'技術マニュアル『カスタマイズ項目の追加』を作成',
+					],
+				}, {
+					date: '2020/01/06',
+					opposite: '2020',
+					summary: [
+						'Gitの項目を追加',
+						'技術マニュアル『Netlify』を作成',
+						'技術マニュアル『origin/HEADについて』を作成',
+						'技術マニュアル『git-flow』を作成',
+						'公式サイトリンクを『リンク』、参考ページリンクを『参考リンク』と分離',
+					],
+				}, {
+					date: '2019/12/19',
+					summary: [
+						'更新履歴のページをリニューアル',
+					],
+				}, {
+					date: '2019/12/17',
+					summary: [
+						'sitemapの作成',
+						'新規サーバーにて公開',
+					],
+				}, {
+					date: '2019/12/16',
+					summary: [
+						'Nuxt用にテーマを最適化',
+						'Nodeパッケージのセキュリティ修正',
+					],
+				}, {
+					date: '2019/11/29',
+					summary: [
+						'スクロールバーが透明になっていた問題を修正',
+					],
+				}, {
+					date: '2019/11/25',
+					opposite: 'Nuxt時代',
+					summary: [
+						'マニュアルベースをNuxtに移行',
+					],
+				}, {
+					date: '2019/08/23',
+					summary: [
+						'Lightレイアウトからサイズ情報に関する記述を削除',
+						'prismの更新',
+						'prismをLgithレイアウトで使用する時、Light系のスタイルを使用するように',
+						'vueのasyncの記述ミスを修正',
+					],
+				}, {
+					date: '2019/08/16',
+					summary: [
+						'Lightレイアウトの導入',
+						'vue.jsの試験的導入',
+						'技術マニュアル『IndexedDB』を追加',
+						'技術マニュアル『スライダーレイアウト』を追加',
+						'不要なWAI-ARIAの削除',
+					],
+				}, {
+					date: '2019/06/11',
+					summary: [
+						'IndexedDBを利用したデータ保管方法に変更。非対応時の処理として以前のそーコードも残しています',
+					],
+				}, {
+					date: '2019/06/10',
+					opposite: '文章の添削',
+					summary: [
+						'textlintによる不適切な日本語表記を添削。完全な添削は完了していません',
+					],
+				}, {
+					date: '2019/05/24',
+					opposite: 'レスポンス強化',
+					summary: [
+						'JavaScriptにおける不要な処理の削除、削減、処理速度の最適化',
+						'JavaScriptファイルを細分化',
+						'技術マニュアル『ファイルダウンロード』のHTMLフォーマットの修正',
+						'技術マニュアル『特殊なグラデーションリスト』をHTMLフォーマットの修正',
+					],
+				}, {
+					date: '2019/05/09',
+					opposite: 'レスポンス強化',
+					summary: [
+						'ソースマップの処理方法を変更',
+						'不要ファイルが複数あるのでそれを削除',
+					],
+				}, {
+					date: '2019/04/25',
+					summary: [
+						'全てのJavaScriptファイルを圧縮',
+					],
+				}, {
+					date: '2019/04/10',
+					summary: [
+						'技術マニュアル『AS(別名)』を更新',
+						'サンプルデータのSCSSファイルを更新',
+						'SCSSの最適化',
+					],
+				}, {
+					date: '2019/04/03',
+					summary: [
+						'フッターを常に真下に来るように変更',
+					],
+				}, {
+					date: '2019/02/22',
+					summary: [
+						'技術マニュアル『[MySQL] INSERT WHERE EXISTS』の内容が全く理解できなかったので更新',
+						'JavaScriptにおける不要な処理の削除、削減、処理速度の最適化(75% Refine)',
+						'CSSの最適化と細かな文の修正、初期化方法の変更',
+					],
+				}, {
+					date: '2019/02/06',
+					summary: [
+						'リソースのプリロード機能の実装ページを追加',
+						'技術マニュアル『AS(別名)』を追加',
+						'導入マニュアル『EditorConfig』を更新',
+						'HTML自動整形ルールを変更',
+					],
+				}, {
+					date: '2019/01/31',
+					summary: [
+						'JavaScriptにおける不要な処理の削除、削減、処理速度の最適化',
+					],
+				}, {
+					date: '2019/01/24',
+					summary: [
+						'技術マニュアル『[CodeIgniter] データベース接続』を追加',
+						'技術マニュアル『ファイルダウンロード』のリンクを修正',
+					],
+				}, {
+					date: '2019/01/16',
+					summary: [
+						'外部リンクの挙動関連の調整。基本的に変化はありません',
+						'SEOの強化',
+					],
+				}, {
+					date: '2019/01/10',
+					summary: [
+						'技術マニュアル『日付時間 date()』を更新、Pugテンプレート記述ミスによるHtml出力のミスを修正',
+						'seedを16進数で出力できるように変更',
+					],
+				}, {
+					date: '2019/01/07',
+					opposite: '2019',
+					summary: [
+						'XorShiftの乱数Xの取得方法が間違っていたのを修正',
+					],
+				}, {
+					date: '2018/12/21',
+					summary: [
+						'カテゴリページの仮追加とリンクの作成。内容は追って作成',
+					],
+				}, {
+					date: '2018/12/11',
+					summary: [
+						'技術マニュアル『特殊なグラデーションリスト』を追加',
+						'メニューリストの不具合を修正',
+					],
+				}, {
+					date: '2018/12/07',
+					opposite: '文章の添削',
+					summary: [
+						'リンク先がMDN Web Docsとなっているページリンクのリンク名を変更',
+						'日本語が不適切な説明文や文脈を修正',
+					],
+				}, {
+					date: '2018/12/06',
+					summary: [
+						'技術マニュアル『文字装飾による可読性の向上』の解説を追記',
+						'ページデザインの修正。空白の間隔を変更',
+						'日本語が不適切な説明文や文脈を修正',
+					],
+				}, {
+					date: '2018/11/30',
+					opposite: 'レスポンス強化',
+					summary: [
+						'リソースのプリロード機能の実装。但し、現時点で利用可能なブラウザはごく少数です',
+						'Safariにおける描画不具合を修正',
+						'技術マニュアル『バインドを利用したSQLの実行』におけるソースコード入力ミスを修正',
+					],
+				}, {
+					date: '2018/11/20',
+					summary: [
+						'JavaScriptのドキュメント類を再度整形',
+						'技術マニュアル『フェードイン』を更新。画像読み込みに遅延読み込みを使用',
+						'技術マニュアル『IN()(複数選択)』を追加',
+					],
+				}, {
+					date: '2018/11/09',
+					summary: [
+						'JavaScriptの処理手順の調整',
+						'JavaScriptコーディングフォーマットを僅かに変更',
+						'SCSSの最適化',
+						'マニュアルデザインとレスポンシブデザインの更新',
+					],
+				}, {
+					date: '2018/10/30',
+					opposite: 'Workerの実装',
+					summary: [
+						'Worker Taskの実装',
+						'JavaScriptの処理手順の調整',
+						'JavaScriptコーディングフォーマットを僅かに変更',
+					],
+				}, {
+					date: '2018/10/26',
+					opposite: 'レスポンス強化',
+					summary: [
+						'lazysizesの導入。但し現在未使用',
+						'JavaScriptの処理を変更',
+						'Worker処理の予約',
+						'CSSの最適化と細かな文の修正',
+					],
+				}, {
+					date: '2018/10/24',
+					summary: [
+						'非同期通信の調整',
+					],
+				}, {
+					date: '2018/10/18',
+					opposite: 'サイトの印刷対応',
+					summary: [
+						'ページデザインの調整',
+						'ページ印刷時背景色指定を無効化するように変更',
+						'ランダムワードのアニメーションフレームの不一致問題を修正',
+						'技術マニュアル『input要素』を更新',
+					],
+				}, {
+					date: '2018/10/17',
+					summary: [
+						'Wordpressの項目を仮追加',
+						'書きかけのページの趣旨を表示するように変更',
+						'技術マニュアル『input要素』を更新',
+					],
+				}, {
+					date: '2018/10/16',
+					summary: [
+						'CSSアニメーションフレーム時間の調整',
+						'技術マニュアルの表示順序の変更',
+						'技術マニュアル『input要素』を追加',
+					],
+				}, {
+					date: '2018/10/10',
+					summary: [
+						'ランダムワードページのスタイルを変更',
+					],
+				}, {
+					date: '2018/10/04',
+					summary: [
+						'技術マニュアル『[Apache] HTMLファイルでPHPを動かす』を追加',
+					],
+				}, {
+					date: '2018/10/01',
+					summary: [
+						'導入マニュアル『EditorConfig』を追加',
+						'技術マニュアル『localStorage』を更新',
+						'技術マニュアル『PDO(PHP Data Objects)』を更新',
+						'技術マニュアル『JOIN(テーブル結合)』を更新',
+					],
+				}, {
+					date: '2018/09/28',
+					summary: [
+						'あるリンクが反応しない問題を修正',
+						'リンク切れの修正',
+						'技術マニュアル『localStorage』を追加',
+					],
+				}, {
+					date: '2018/09/26',
+					summary: [
+						'展開ボタンの追加',
+						'SCSSの表記ミスを修正',
+						'(Gitlab処理) gzip圧縮処理を追加',
+					],
+				}, {
+					date: '2018/09/21',
+					summary: [
+						'全ページタイトルに『HTML Technical Manual』の文字列を追加',
+						'サンプルページ『Prismハイライトの例』を追加。現在ドラフト段階',
+						'技術マニュアル『フェードイン』を更新',
+					],
+				}, {
+					date: '2018/09/20',
+					opposite: 'レスポンス強化',
+					summary: [
+						'画像圧縮率の変更',
+						'ファイル軽量化による最適化',
+						'JavaScriptのソースマップ出力方法の修正',
+						'技術マニュアル『フェードイン』を追加',
+					],
+				}, {
+					date: '2018/09/19',
+					summary: [
+						'SCSSの項目を仮追加',
+						'スマートフォンのサイドバー処理の最適化',
+						'JavaScriptの依存を減少',
+						'ボタンレイアウトが機能していない問題を修正',
+					],
+				}, {
+					date: '2018/09/18',
+					summary: [
+						'トップページのページ名をいい加減修正',
+						'サイドバーを折りたたみ方式の処理方法を調整',
+						'サイドバー同期処理の修正',
+						'ソースファイルが正しく読み込まれない問題を修正',
+					],
+				}, {
+					date: '2018/09/14',
+					opposite: 'Babel時代',
+					summary: [
+						'Babel処理によるJavaScriptの後方互換の確保',
+						'サイドバーを折りたたみ方式に変更。折りたたみ状態はローカルストレージにフラグが保持されます',
+					],
+				}, {
+					date: '2018/09/04',
+					summary: [
+						'サイドメニューの順序を更新',
+						'技術マニュアル『Pug』を更新',
+						'説明の表記ゆれを修正',
+					],
+				}, {
+					date: '2018/09/03',
+					opposite: 'Ajaxの始動',
+					summary: [
+						'Ajaxのサンプルデータの追加',
+						'Ajax利用可能によるソースコードの大幅改変',
+						'技術マニュアル『npm コマンド』を追加',
+						'技術マニュアル『Pug』を更新',
+					],
+				}, {
+					date: '2018/08/31',
+					summary: [
+						'一部のソースコードを外部に置くようにした',
+						'導入マニュアル『Browsersync導入マニュアル』を更新',
+						'技術マニュアル『Pug』を更新',
+					],
+				}, {
+					date: '2018/08/30',
+					summary: [
+						'ページ数の増加に伴いPug→HTMLへの変換処理を変更',
+						'技術マニュアル『Pug』を更新',
+					],
+				}, {
+					date: '2018/08/29',
+					summary: [
+						'技術マニュアル『Pug』を追加',
+						'技術マニュアル『Sass』を更新',
+					],
+				}, {
+					date: '2018/08/28',
+					summary: [
+						'JavaScriptの配列のとり方を変更',
+						'技術マニュアル『Sass』を更新',
+					],
+				}, {
+					date: '2018/08/27',
+					summary: [
+						'JavaScriptの配列のとり方を変更',
+						'技術マニュアル『Sass』を追加',
+					],
+				}, {
+					date: '2018/08/24',
+					summary: [
+						'Xorshiftの乱数シード取得方法と処理方法を更新',
+						'技術マニュアル『TRANSACTION ROLLBACK』を『TRANSACTION』に変更',
+					],
+				}, {
+					date: '2018/08/22',
+					summary: [
+						'技術マニュアル『TRUNCATE(テーブルを空にする)』を更新',
+					],
+				}, {
+					date: '2018/08/20',
+					opposite: 'おまけ機能の強化と致命的問題の修正',
+					summary: [
+						'リンクの問題を修正。Browsersyncを使用すると普通にリンクに繋がるから全く気づかなかった',
+						'ページデザインを更新しスクロールを独立化',
+						'JavaScript処理手順の更新し、乱数にXorshiftを使用するようにし、同じ時間(同じ秒数)に開いた場合、乱数結果が常に同じ結果になるようになった',
+						'今回のミスを元に技術マニュアル『[Deprecated] httpの省略』を追加',
+						'技術マニュアル『backgroundを重ねる』を更新',
+					],
+				}, {
+					date: '2018/08/17',
+					summary: [
+						'更新履歴のページを追加',
+						'技術マニュアル『backgroundを重ねる』を更新',
+						'技術マニュアル『JOIN(テーブル結合)』を追加',
+						'技術マニュアル『[MySQL] INT(11) の意味』を追加',
+					],
+				}, {
+					date: '2018/08/16',
+					summary: [
+						'JavaScript処理手順の更新',
+						'更新履歴のページを追加',
+						'技術マニュアル『backgroundを重ねる』を更新',
+						'技術マニュアル『[MySQL] INT(11) の意味』を追加',
+					],
+				}, {
+					date: '2018/08/15',
+					summary: [
+						'トップページを更新',
+						'メインテンプレートレイアウトを更新し、headタグに要素を追加できるように変更',
+						'導入マニュアル『Browsersync導入マニュアル』を追加',
+						'技術マニュアル『backgroundを重ねる』を更新',
+						'技術マニュアル『グラデーション』を更新',
+						'技術マニュアル『背景画像スクロールの固定』を更新',
+					],
+				}, {
+					date: '2018/08/14',
+					opposite: 'デザインの強化',
+					summary: [
+						'トップページを更新',
+						'Otherの項目を追加',
+						'JavaScript処理手順の更新',
+						'マニュアルデザインとレスポンシブデザインの更新',
+						'レスポンシブデザインの不備を修正',
+						'技術マニュアル『INSERT SELECT』を追加',
+						'技術マニュアル『TRANSACTION ROLLBACK』を追加',
+						'技術マニュアル『TRUNCATE(テーブルを空にする)』を追加',
+						'技術マニュアル『[MySQL] INSERT WHERE EXISTS』を追加',
+					],
+				}, {
+					date: '2018/08/10',
+					summary: [
+						'トップページを更新',
+						'JavaScript処理手順の更新',
+						'レスポンシブデザインに対応',
+					],
+				}, {
+					date: '2018/08/09',
+					summary: [
+						'トップページを更新',
+						'技術マニュアル『バインドを利用したSQLの実行』を追加',
+						'技術マニュアル『brタグによる改行を無効化』を追加',
+					],
+				}, {
+					date: '2018/08/08',
+					opposite: '機能の強化',
+					summary: [
+						'トップページを更新',
+						'HTMLの項目を追加',
+						'Node.jsの項目を追加',
+						'SQLの項目を追加',
+						'技術マニュアル『backgroundを重ねる』を追加',
+						'技術マニュアル『brタグによる改行を無効化』を追加',
+						'技術マニュアル『背景画像スクロールの固定』を追加',
+					],
+				}, {
+					date: '2018/08/07',
+					summary: [
+						'トップページを更新',
+						'JavaScriptの項目を追加',
+						'PHPの項目を追加',
+						'メインテンプレートレイアウトを更新し、footerより下にJavaScriptを埋め込むことができるように変更',
+						'マニュアルデザインの更新',
+						'技術マニュアル『PDO(PHP Data Objects)』を更新',
+						'技術マニュアル『日付時間 date()』を追加',
+						'技術マニュアル『ファイルを利用した二重起動防止』を追加',
+					],
+				}, {
+					date: '2018/08/06',
+					opposite: '創成',
+					summary: [
+						'マニュアル作成開始',
+						'CSSの項目を追加',
+						'技術マニュアル『グラデーション』を追加',
+					],
+				},
+			],
+		};
+	},
+	head(): object {
+		return {
+			title: this.header.title,
 		};
 	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -634,5 +522,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

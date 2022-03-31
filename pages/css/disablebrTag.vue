@@ -30,11 +30,12 @@ div
 			a(href='https://www.msng.info/archives/2013/03/turning-off-html-br-with-css.php', target='_blank', rel='external noopener') HTML の br タグを CSS だけで消す方法 - 頭ん中
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -42,9 +43,14 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -53,5 +59,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

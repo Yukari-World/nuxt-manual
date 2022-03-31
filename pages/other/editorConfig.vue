@@ -102,12 +102,13 @@ div
 			a(href='https://editorconfig.org/', target='_blank', rel='external noopener') EditorConfig
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-batch';
 import 'prismjs/components/prism-ini';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -116,8 +117,8 @@ export default {
 		};
 	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -126,5 +127,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

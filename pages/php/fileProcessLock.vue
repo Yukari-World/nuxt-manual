@@ -48,14 +48,15 @@ div
 			li ロックされており強制終了する場合、処理の都合上ユーザー側は何が起きたのか理解できないので何らかのメッセージを表示させることが好ましい。
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-php';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -63,9 +64,14 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -74,5 +80,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

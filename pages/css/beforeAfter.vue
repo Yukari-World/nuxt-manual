@@ -79,12 +79,13 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/content', target='_blank', rel='external noopener') MDN Web Docs / content
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-scss';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -92,9 +93,14 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -103,5 +109,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

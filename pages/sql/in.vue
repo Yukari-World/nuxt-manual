@@ -44,11 +44,12 @@ div
 				| 句で区切るか別にSQL文を用意する必要がある。PHP等でSQL文を生成する場合はその点を念頭に加えたうえでコーディングする必要がある。
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-sql';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -56,9 +57,14 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -67,5 +73,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

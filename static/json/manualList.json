@@ -2,7 +2,7 @@
 	"type": "menuList",
 	"categoryList": [
 		{
-			"category": "Main",
+			"category": "menu.main.title",
 			"baseURL": "",
 			"description": "",
 			"icon": "mdi-home",
@@ -50,7 +50,7 @@
 				}
 			]
 		}, {
-			"category": "CSS",
+			"category": "menu.css.title",
 			"baseURL": "/css",
 			"description": "",
 			"icon": "mdi-language-css3",
@@ -65,6 +65,20 @@
 							"tags": ["CSS"],
 							"deprecated": false,
 							"workInProgress": false
+						}, {
+							"title": "Flexible Layout",
+							"link": "/flex",
+							"summary": "",
+							"tags": ["CSS"],
+							"deprecated": false,
+							"workInProgress": true
+						}, {
+							"title": "Grid Layout",
+							"link": "/gridLayout",
+							"summary": "",
+							"tags": ["CSS"],
+							"deprecated": false,
+							"workInProgress": true
 						}, {
 							"title": "brタグによる改行を無効化",
 							"link": "/disablebrTag",
@@ -126,7 +140,7 @@
 				}
 			]
 		}, {
-			"category": "Git",
+			"category": "menu.git.title",
 			"baseURL": "/git",
 			"description": "",
 			"icon": "mdi-git",
@@ -153,7 +167,7 @@
 				}
 			]
 		}, {
-			"category": "HTML",
+			"category": "menu.html.title",
 			"baseURL": "/html",
 			"description": "",
 			"icon": "mdi-language-html5",
@@ -187,7 +201,7 @@
 				}
 			]
 		}, {
-			"category": "JavaScript",
+			"category": "menu.js.title",
 			"baseURL": "/js",
 			"description": "",
 			"icon": "mdi-language-javascript",
@@ -219,7 +233,7 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Ajax",
+					"name": "menu.js.subCategory.Ajax",
 					"url": "Ajax",
 					"list": [
 						{
@@ -241,7 +255,7 @@
 				}
 			]
 		}, {
-			"category": "Language",
+			"category": "menu.lang.title",
 			"baseURL": "/language",
 			"description": "",
 			"icon": "mdi-translate",
@@ -282,7 +296,7 @@
 				}
 			]
 		}, {
-			"category": "Node.js",
+			"category": "menu.node.title",
 			"baseURL": "/node",
 			"description": "",
 			"icon": "mdi-nodejs",
@@ -314,7 +328,7 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Gulp",
+					"name": "menu.node.subCategory.Gulp",
 					"url": "Gulp",
 					"list": [
 						{
@@ -329,7 +343,7 @@
 				}
 			]
 		}, {
-			"category": "PHP",
+			"category": "menu.php.title",
 			"baseURL": "/php",
 			"description": "",
 			"icon": "mdi-language-php",
@@ -368,7 +382,7 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.CodeIgniter",
+					"name": "menu.php.subCategory.CodeIgniter",
 					"url": "CodeIgniter",
 					"list": [
 						{
@@ -383,7 +397,7 @@
 				}
 			]
 		}, {
-			"category": "SCSS",
+			"category": "menu.scss.title",
 			"baseURL": "/scss",
 			"description": "",
 			"icon": "mdi-sass",
@@ -403,7 +417,7 @@
 				}
 			]
 		}, {
-			"category": "SQL",
+			"category": "menu.sql.title",
 			"baseURL": "/sql",
 			"description": "",
 			"icon": "mdi-database",
@@ -477,7 +491,7 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.MySQL",
+					"name": "menu.sql.subCategory.MySQL",
 					"url": "MySQL",
 					"list": [
 						{
@@ -511,13 +525,13 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.SQLite",
+					"name": "menu.sql.subCategory.SQLite",
 					"url": "SQLite",
 					"list": []
 				}
 			]
 		}, {
-			"category": "Vue.js",
+			"category": "menu.vue.title",
 			"baseURL": "/vue",
 			"description": "",
 			"icon": "mdi-vuejs",
@@ -535,7 +549,7 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Nuxt",
+					"name": "menu.vue.subCategory.Nuxt",
 					"url": "Nuxt",
 					"list": [
 						{
@@ -550,7 +564,7 @@
 				}
 			]
 		}, {
-			"category": "Wordpress",
+			"category": "menu.wordpress.title",
 			"baseURL": "/wordpress",
 			"description": "",
 			"icon": "mdi-wordpress",
@@ -570,7 +584,7 @@
 				}
 			]
 		}, {
-			"category": "Other",
+			"category": "menu.other.title",
 			"baseURL": "/other",
 			"description": "その他上記のカテゴリに該当しない項目",
 			"icon": "mdi-alert-circle",
@@ -595,7 +609,7 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Apache",
+					"name": "menu.other.subCategory.Apache",
 					"url": "Apache",
 					"list": [
 						{
@@ -608,7 +622,7 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Atom",
+					"name": "menu.other.subCategory.Atom",
 					"url": "Atom",
 					"list": [
 						{
@@ -628,7 +642,7 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.Unix",
+					"name": "menu.other.subCategory.Unix",
 					"url": "Unix",
 					"list": [
 						{
@@ -641,7 +655,7 @@
 						}
 					]
 				}, {
-					"name": "menu.subCategory.XAMPP",
+					"name": "menu.other.subCategory.XAMPP",
 					"url": "XAMPP",
 					"list": [
 						{

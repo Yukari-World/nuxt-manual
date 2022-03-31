@@ -180,7 +180,7 @@ div
 				| そのため出力結果は自動整形ツールの結果に依存しており、こちらで対処できる内容ではありません。
 				br
 				| また、コード整形は可能な限り自動化し手動で時間を掛けるものではないと考えているため、こちらで修正する予定もありませんので予めご了承ください。
-			br.strike
+			br.yw-strike
 			| このページは現在Nuxtで作られているため、整形ルール等はNuxtに従います。HTMLソースは整形されないものだと思ってください。
 
 		h3 このHTMLに使用されているCSSファイルが読めない
@@ -191,7 +191,7 @@ div
 				| から未圧縮のCSSファイルを取得するか、圧縮済みCSSファイルをテキストエディタのプラグイン等でフォーマットしてみてください。
 				br
 				| 但し、執筆者はSCSSファイルを使用してCSSファイルに変換したものを利用しているので可読性に関しては責任を取ることができませんので予めご了承ください。
-			br.strike
+			br.yw-strike
 			| 現在はNuxtとVuetifyにより作成されています。CSSスタイルは読めないものだと思ってください。
 
 		h3 技術マニュアルなのにお遊びが多い
@@ -244,28 +244,28 @@ div
 			| はい。
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapState } from 'vuex';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-pug';
 import 'prismjs/components/prism-scss';
 
-
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
 				title: 'Nuxt Manual',
 			},
-			code: 'const a = 10',
+			code: 'import Vue from \'vue\';\n',
 			cmOptions: {
 				extraKeys: {
-					'F11'(cm) {
+					'F11'(cm: any) {
 						cm.setOption('fullScreen', !cm.getOption('fullScreen'));
 					},
-					'Esc'(cm) {
-						if (cm.getOption('fullScreen')) {cm.setOption('fullScreen', false);}
+					'Esc'(cm: any) {
+						if (cm.getOption('fullScreen')) { cm.setOption('fullScreen', false); }
 					},
 				},
 				foldGutter: true,
@@ -278,23 +278,30 @@ export default {
 				lineNumbers: true,
 				lineWrapping: true,
 				mode: 'text/javascript',
+				styleActiveLine: true,
 				styleSelectedText: true,
 				tabSize: 4,
 				theme: 'tomorrow-night-eighties',
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			randomWords: (state) => state.randomWords,
+			randomWords: (state: any) => state.randomWords,
 		}),
 	},
 	mounted() {
-		document.getElementById('countRandom').textContent = this.randomWords.length;
+		const cntRandom = document.getElementById('countRandom') as HTMLElement;
+		cntRandom.textContent = this.randomWords.length;
 
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -303,7 +310,7 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
 
 <style lang="scss" scoped>
@@ -311,7 +318,7 @@ h3 {
 	margin-top: 1.5em;
 }
 
-.strike {
+.yw-strike {
 	padding-bottom: 1rem;
 }
 </style>

@@ -1,8 +1,8 @@
 <template lang="pug">
 div
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+		h2(v-t="'common.stub.work_in_progress.title'")
+		p(v-t="'common.stub.work_in_progress.desc'")
 
 	section
 		h2 説明
@@ -57,13 +57,13 @@ div
 				fieldset
 					label
 						input(type='checkbox' value='1')
-						| 内容1
+						p 内容1
 					label
 						input(type='checkbox' value='2')
-						| 内容2
+						p 内容2
 					label
 						input(type='checkbox' value='3')
-						| 内容3
+						p 内容3
 
 			dt: h3#input-color color
 			dd
@@ -168,13 +168,13 @@ div
 				fieldset
 					label
 						input(type='radio' name='bread' value='1')
-						| 内容1
+						p 内容1
 					label
 						input(type='radio' name='bread' value='2')
-						| 内容2
+						p 内容2
 					label
 						input(type='radio' name='bread' value='3')
-						| 内容3
+						p 内容3
 
 			dt: h3#input-range range
 			dd
@@ -357,11 +357,12 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input', target='_blank', rel='external noopener') MDN Web Docs
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-markup';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -369,9 +370,14 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -380,7 +386,7 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
 
 <style scoped lang="scss">
@@ -395,9 +401,28 @@ fieldset {
 	border: 2px solid #FFFFFF;
 	background-color: #9999CC;
 
-	input[type="checkbox"] {
-		display: inline-flex;
-		align-items: center;
+	input {
+		border-radius: 3px;
+		background-color: #FFFFFF;
+
+		&[type="button"], &[type="reset"], &[type="submit"] {
+			padding: 2px;
+		}
+
+		&[type="checkbox"] {
+			display: inline-flex;
+			align-items: center;
+
+			+ p {
+				margin: 0 1em 0 0;
+			}
+		}
+
+		&[type="radio"] {
+			+ p {
+				margin: 0 1em 0 0;
+			}
+		}
 	}
 
 	+ p {

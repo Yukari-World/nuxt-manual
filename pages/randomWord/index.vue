@@ -17,11 +17,12 @@ dl#randomOutput
 							a(:data-tag='tag') {{ $t(tag) }}
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapState } from 'vuex';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -29,15 +30,20 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
-			randomWords: (state) => state.randomWords,
+			randomWords: (state: any) => state.randomWords,
 		}),
 	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 		// setTimeout(this.scroll, 300);
 	},
@@ -54,7 +60,7 @@ export default {
 		// 	}
 		// }
 	},
-};
+});
 </script>
 
 <style lang="scss">

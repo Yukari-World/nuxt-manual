@@ -60,11 +60,12 @@ div
 				| を使用する方法がある。SQL文が非常に短くなるメリットがあるが、こちらはエラーを出力しないのでこの方法は推奨しない。
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-sql';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -72,9 +73,14 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -83,5 +89,5 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>

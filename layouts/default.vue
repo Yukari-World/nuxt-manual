@@ -20,7 +20,7 @@ v-app#inspire
 					v-list-item-icon
 						v-icon {{ temp.icon }}
 					v-list-item-content
-						v-list-item-title {{ $t(temp.title) }}
+						v-list-item-title(v-t='temp.title')
 
 		v-menu(bottom, left, offset-y, transition='slide-y-transition')
 			template(v-slot:activator='{ on }')
@@ -41,14 +41,13 @@ v-app#inspire
 			v-icon mdi-chevron-up
 </template>
 
-<script>
-// import axios from 'axios';
-import HeaderVue from '@/components/_Header';
-import FooterVue from '@/components/_Footer';
-import SideList from '@/components/_SideList';
-// import { SendAjax } from '@/assets/js/ajax-response.js';
+<script lang="ts">
+import Vue from 'vue';
+import HeaderVue from '@/components/_Header.vue';
+import FooterVue from '@/components/_Footer.vue';
+import SideList from '@/components/_SideList.vue';
 
-export default {
+export default Vue.extend({
 	components: {
 		HeaderVue,
 		FooterVue,
@@ -75,17 +74,29 @@ export default {
 		this.setListener();
 	},
 	methods: {
-		setListener() {
+		/**
+		 * イベントを作成する
+		 *
+		 * @returns {void}
+		 */
+		setListener(): void {
 			// emitで発火させたイベント名にする
 			this.$nuxt.$on('update-header', this.setHeader);
 		},
-		setHeader(title) {
+
+		/**
+		 * タイトルの表示内容の更新
+		 *
+		 * @param   {string}    title   ヘッダーに表示するタイトル
+		 * @returns {void}
+		 */
+		setHeader(title: string): void {
 			// 第1引数にはemitで渡した値が入ってくる。
 			// 第2引数以降を渡す場合も同様に、それ以降の引数で受け取れる
 			this.title = title || '';
 		},
 	},
-};
+});
 </script>
 
 <style lang="scss">
@@ -102,6 +113,12 @@ section {
 
 .no-speak {
 	speak: none;
+}
+
+.code-toolbar {
+	+ h2, + h3 {
+		margin-top: 1.5rem;
+	}
 }
 
 // ----------------------------------------------------------------------------------------------------
@@ -156,6 +173,9 @@ section {
 		}
 
 		pre {
+			max-height: 75vh;
+			overflow-y: scroll;
+
 			&[class*="language-"] {
 				> code {
 					$size: 2.286em;
@@ -205,5 +225,12 @@ section {
 			content: unset;
 		}
 	}
+}
+
+// ----------------------------------------------------------------------------------------------------
+// CodeMirror Overwrite
+.CodeMirror {
+	font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+	font-size: 14px;
 }
 </style>

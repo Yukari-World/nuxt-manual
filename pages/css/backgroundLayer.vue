@@ -11,7 +11,7 @@ div
 				background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%, url(./img/robert-lukeman-150146.jpg) no-repeat bottom/100%;
 			}
 
-		.layer1
+		.yw-layer1
 
 		p グラデーションと背景画像を重ねる1行指定の例。background要素が非常に長くなっているが、それよりも重要なのは右の要素から左の要素へ重ねられていく点である。
 		pre.language-css.line-numbers: code.
@@ -22,7 +22,7 @@ div
 				background-size: 50% 100%, 100%;
 			}
 
-		.layer2
+		.yw-layer2
 		p 分解した時の内容。カンマを使うことで複数枚指定する事が出来る。こちらも同様に右の要素が下のレイヤーに来る。
 
 	section
@@ -36,11 +36,12 @@ div
 			a(href='https://www.webcreatorbox.com/tech/css-blend-mode', target='_blank', rel='external noopener') CSSブレンドモードで画像を彩ろう | Webクリエイターボックス
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -48,9 +49,14 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -59,24 +65,24 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
 
 <style scoped lang="scss">
-.layer1,
-.layer2 {
+.yw-layer1,
+.yw-layer2 {
 	width: 350px;
 	height: 200px;
 	margin: 5px auto;
 	border-radius: 10px;
 }
 
-.layer1 {
-	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%, url(/img/robert-lukeman-150146.jpg) no-repeat bottom/100%;
+.yw-layer1 {
+	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%, url("/img/robert-lukeman-150146.jpg") no-repeat bottom/100%;
 }
 
-.layer2 {
-	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(/img/robert-lukeman-150146.jpg);
+.yw-layer2 {
+	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url("/img/robert-lukeman-150146.jpg");
 	background-repeat: repeat-x, no-repeat;
 	background-position: bottom, bottom;
 	background-size: 50% 100%, 100%;

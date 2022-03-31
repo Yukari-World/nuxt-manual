@@ -11,7 +11,7 @@ div
 				background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px/100% 50% local, url(./img/nicholas-loo-372788.jpg) repeat top left center;
 			}
 
-		.layer1
+		.yw-layer1
 		p
 			code.language-css: span.token.property background
 			| で1行に収める場合の記述方法。詰め込み過ぎているあまり理解し辛いと思われるので、これを細かな単位に分解する。
@@ -25,7 +25,7 @@ div
 				background-attachment: local, fixed;
 			}
 
-		.layer2
+		.yw-layer2
 		p
 			| 上の内容を分解した時の内容。カンマを利用することで細かく分解した場合でも複数の背景を指定することができる。
 			br
@@ -89,12 +89,13 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/background', target='_blank', rel='external noopener') MDN Web Docs
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script lang="ts">
+import Vue from 'vue';
+import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-scss';
 
-export default {
+export default Vue.extend({
 	data() {
 		return {
 			header: {
@@ -102,9 +103,14 @@ export default {
 			},
 		};
 	},
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
 	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
+		highlightAll();
+		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
 	methods: {
@@ -113,11 +119,11 @@ export default {
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-};
+});
 </script>
 
 <style scoped lang="scss">
-.layer1, .layer2 {
+.yw-layer1, .yw-layer2 {
 	width: 80%;
 	max-width: 800px;
 	height: 200px;
@@ -125,12 +131,12 @@ export default {
 	border-radius: 10px;
 }
 
-.layer1 {
-	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px/100% 50% local, url(/img/nicholas-loo-372788.jpg) repeat top center fixed;
+.yw-layer1 {
+	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px / 100% 50% local, url("/img/nicholas-loo-372788.jpg") repeat top center fixed;
 }
 
-.layer2 {
-	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(/img/nicholas-loo-372788.jpg);
+.yw-layer2 {
+	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url("/img/nicholas-loo-372788.jpg");
 	background-repeat: repeat-x, repeat;
 	background-position: 0 100px, top center;
 	background-size: 100% 50%, auto;
@@ -138,7 +144,7 @@ export default {
 }
 
 @media only screen and (max-width: 992px) {
-	.layer1, .layer2 {
+	.yw-layer1, .yw-layer2 {
 		background-position: 0 100px, top left 10vw;
 	}
 }
