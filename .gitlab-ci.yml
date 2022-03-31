@@ -8,6 +8,7 @@ cache:
     - node_modules/
 
 pages:
+  stage: deploy
   script:
     - npm run generate
   artifacts:
