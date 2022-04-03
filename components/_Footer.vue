@@ -143,7 +143,7 @@ export default Vue.extend({
 }
 
 #randomWord {
-	text-decoration: line-through;
 	color: #FFFFFF;
+	text-decoration: line-through;
 }
 </style>

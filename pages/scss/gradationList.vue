@@ -446,14 +446,14 @@ export default Vue.extend({
 <style scoped lang="scss">
 .exsample-area {
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 	width: 500px;
 	height: 200px;
 	margin: 5px auto;
 	color: #000000;
-	border-radius: 10px;
 	background-color: #F5F9FA;
+	border-radius: 10px;
 }
 
 .list {
@@ -482,44 +482,21 @@ export default Vue.extend({
 .list-gradient {
 	width: 360px;
 	height: 120px;
-	-webkit-transform: skew(-20deg);
-	-ms-transform: skew(-20deg);
-	transform: skew(-20deg);
-	background-image: -webkit-gradient(
-		linear,
-		right top,
-		left bottom,
-		from(rgba(58, 58, 58, 0.84)),
-		to(rgba(177, 171, 171, 0.84))
-	);
-	background-image: -webkit-linear-gradient(right top, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
-	background-image: -o-linear-gradient(right top, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
 	background-image: linear-gradient(to left bottom, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
 	background-size: 480px 500px;
+	transform: skew(-20deg);
 
 	p {
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: start;
-		-webkit-justify-content: flex-start;
-		-ms-flex-pack: start;
-		justify-content: flex-start;
-		-webkit-box-align: center;
-		-webkit-align-items: center;
-		-ms-flex-align: center;
-		align-items: center;
-		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
 		width: 360px;
 		height: 120px;
 		padding-left: 20px;
-		-webkit-transform: skew(20deg);
-		-ms-transform: skew(20deg);
-		transform: skew(20deg);
 		font-size: calc(1rem + 1.354vw);
 		font-weight: 600;
+		transform: skew(20deg);
 	}
 }
 

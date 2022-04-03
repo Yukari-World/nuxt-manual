@@ -138,9 +138,9 @@ export default Vue.extend({
 .yw-layer2 {
 	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url("/img/nicholas-loo-372788.jpg");
 	background-repeat: repeat-x, repeat;
+	background-attachment: local, fixed;
 	background-position: 0 100px, top center;
 	background-size: 100% 50%, auto;
-	background-attachment: local, fixed;
 }
 
 @media only screen and (max-width: 992px) {

@@ -106,8 +106,8 @@ section {
 	&:not(:first-child) {
 		margin-top: 1.5rem;
 		border: solid;
-		border-width: thin 0 0 0;
 		border-color: rgba(255, 255, 255, 0.12);
+		border-width: thin 0 0 0;
 	}
 }
 
@@ -135,10 +135,10 @@ section {
 	}
 
 	&-thumb {
-		transition: all 0.1s ease;
-		border-radius: 10px;
 		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+		border-radius: 10px;
 		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+		transition: all 0.1s ease;
 
 		@media (prefers-color-scheme: light) {
 			background-image: linear-gradient(to bottom right, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25));
@@ -160,9 +160,9 @@ section {
 		code, pre {
 			&[class*="language-"] {
 				margin: unset;
-				tab-size: 4;
 				font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
 				line-height: 1.2;
+				tab-size: 4;
 				-webkit-overflow-scrolling: touch;
 
 				&::-webkit-scrollbar {
@@ -181,12 +181,12 @@ section {
 					$size: 2.286em;
 
 					display: block;
-					white-space: pre;
 					font-size: 14px;
 					font-weight: normal;
 					color: unset;
-					border-radius: unset;
+					white-space: pre;
 					background-color: unset;
+					border-radius: unset;
 					box-shadow: unset;
 
 					@media (prefers-color-scheme: light) {
@@ -200,16 +200,16 @@ section {
 		// Vuetify Overwrite Fix
 		[class*="language-"] {
 			code {
-				background-color: transparent;
 				padding: 0;
+				background-color: transparent;
 			}
 
 			.title {
-				letter-spacing: 0 !important;
 				font-family: inherit !important;
 				font-size: inherit !important;
 				font-weight: inherit;
 				line-height: inherit;
+				letter-spacing: 0 !important;
 			}
 		}
 	}

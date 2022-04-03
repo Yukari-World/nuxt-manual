@@ -231,9 +231,9 @@ thead {
 
 th, td {
 	padding: 3px;
-	vertical-align: top;
 	font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
 	font-size: 1rem;
+	vertical-align: top;
 }
 
 table, td {

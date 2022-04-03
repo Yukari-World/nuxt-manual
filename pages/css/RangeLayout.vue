@@ -145,16 +145,16 @@ export default Vue.extend({
 fieldset {
 	padding: 15px;
 	color: #000000;
-	border: 2px solid #FFFFFF;
 	background-color: #9999CC;
+	border: 2px solid #FFFFFF;
 }
 
 legend {
 	padding: 0.25rem 0.75rem;
 	line-height: 1;
 	color: #FFFFFF;
-	border: 2px solid #FFFFFF;
 	background-color: #000011;
+	border: 2px solid #FFFFFF;
 }
 
 input[type="range"] {
@@ -164,10 +164,10 @@ input[type="range"] {
 
 	&.yw-slider {
 		height: 5px;
-		opacity: 0.7;
+		background: #CCCCCC;
 		border-radius: 10px;
 		outline: none;
-		background: #CCCCCC;
+		opacity: 0.7;
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
@@ -178,11 +178,11 @@ input[type="range"] {
 			height: 25px;
 			min-height: 25px;
 			cursor: pointer;
+			background: #FFFF33;
 			border: 2px outset #CCCCCC;
 			border-right-style: inset;
 			border-bottom-style: inset;
 			border-radius: 50%;
-			background: #FFFF33;
 			-webkit-appearance: none;
 			appearance: none;
 		}
@@ -192,11 +192,11 @@ input[type="range"] {
 			width: 25px;
 			height: 25px;
 			cursor: pointer;
+			background: #FFFF33;
 			border: 2px outset #CCCCCC;
 			border-right-style: inset;
 			border-bottom-style: inset;
 			border-radius: 50%;
-			background: #FFFF33;
 			-moz-appearance: none;
 			appearance: none;
 		}
@@ -210,8 +210,8 @@ input[type="range"] {
 
 	legend {
 		color: #000000;
-		border-color: #CCCCCC;
 		background-color: #FFFFFF;
+		border-color: #CCCCCC;
 	}
 }
 </style>

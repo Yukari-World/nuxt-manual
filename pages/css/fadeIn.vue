@@ -216,13 +216,13 @@ export default Vue.extend({
 .yw-anim {
 	position: relative;
 	overflow: hidden;
+	opacity: 0;
 	transition: all 1s ease;
 	transform: translateY(100px);
-	opacity: 0;
 
 	&.yw-show {
-		transform: none;
 		opacity: 1;
+		transform: none;
 	}
 
 	.v-image {
@@ -239,13 +239,13 @@ export default Vue.extend({
 		position: absolute;
 		top: 0;
 		left: 0;
-		display: block;
 		box-sizing: border-box;
+		display: block;
 		width: 4rem;
 		padding: 5px;
 		line-height: 1;
-		border-bottom-right-radius: 10px;
 		background-color: rgba(0, 0, 0, 0.6);
+		border-bottom-right-radius: 10px;
 	}
 }
 </style>

@@ -323,11 +323,11 @@ export default Vue.extend({
 <style scoped lang="scss">
 .v-application {
 	.title {
+		font-family: unset !important;
 		font-size: unset !important;
 		font-weight: unset;
 		line-height: unset;
 		letter-spacing: unset !important;
-		font-family: unset !important;
 	}
 }
 </style>

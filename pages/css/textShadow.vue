@@ -79,14 +79,14 @@ export default Vue.extend({
 <style scoped lang="scss">
 .yw-exsample-area {
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 	width: 500px;
 	height: 200px;
 	margin: 5px auto;
 	color: #000000;
-	border-radius: 10px;
 	background-color: #F5F9FA;
+	border-radius: 10px;
 }
 
 .yw-exsample1 {

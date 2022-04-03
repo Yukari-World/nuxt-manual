@@ -140,6 +140,10 @@ export default {
 		path: '/sitemap.xml',
 	},
 
+	stylelint: {
+		fix: true,
+	},
+
 	// Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
 	vuetify: {
 		lang: {

@@ -1,16 +1,18 @@
-{
+module.exports = {
 	"extends": [
 		"stylelint-config-recommended-scss",
-		"stylelint-config-prettier"
+		"stylelint-config-prettier",
+		"stylelint-config-recess-order",
 	],
 	"plugins": [
-		"stylelint-scss"
+		"stylelint-scss",
+		"stylelint-order",
 	],
 	"overrides": [
 		{
 			"files": ["**/*.vue"],
-			"customSyntax": "postcss-html"
-		}
+			"customSyntax": "postcss-html",
+		},
 	],
 	"rules": {
 		"at-rule-no-unknown": null,
@@ -23,23 +25,50 @@
 		"indentation": ["tab", {
 			"indentInsideParens": "twice",
 			"except": [
-				"value"
+				"value",
 			]
 		}],
 		"max-empty-lines": 1,
 		"no-descending-specificity": null,
 		"rule-empty-line-before": ["always", {
 			"except": [
-				"first-nested"
+				"first-nested",
 			],
 			"ignore": [
-				"after-comment"
+				"after-comment",
 			]
 		}],
 		"selector-list-comma-newline-after": "always-multi-line",
 		"string-quotes": "double",
+		"order/order": [
+			[
+				{
+					"type": "at-rule",
+					"name": "extend",
+				},
+				"custom-properties",
+				"dollar-variables",
+				"declarations",
+				{
+					"type": "at-rule",
+					"name": "supports",
+					"hasBlock": true,
+				}, {
+					"type": "at-rule",
+					"name": "import",
+					"hasBlock": true,
+				}, {
+					"type": "at-rule",
+					"name": "include",
+					"hasBlock": true,
+				},
+				"rules",
+				"at-rules",
+			],
+			{ severity: 'warning' },
+		],
 		"scss/at-function-parentheses-space-before": "always",
 		"scss/at-rule-no-unknown": true,
-		"scss/double-slash-comment-whitespace-inside": "always"
+		"scss/double-slash-comment-whitespace-inside": "always",
 	}
-}
+};

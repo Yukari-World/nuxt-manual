@@ -398,12 +398,12 @@ label {
 fieldset {
 	padding: 15px;
 	color: #000000;
-	border: 2px solid #FFFFFF;
 	background-color: #9999CC;
+	border: 2px solid #FFFFFF;
 
 	input {
-		border-radius: 3px;
 		background-color: #FFFFFF;
+		border-radius: 3px;
 
 		&[type="button"], &[type="reset"], &[type="submit"] {
 			padding: 2px;
