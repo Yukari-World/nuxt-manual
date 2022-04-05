@@ -27,10 +27,10 @@ async function middleIndex(context: Context): Promise<void> {
 	// store.dispatch('fetchItems');
 
 	// メニュー項目の取得
-	await context.$axios.$get('json/manualList.json')
-		.then(function(data: any) {
-			// console.log(data);
-			context.store.commit('setLists', data);
+	await context.$axios({ url: 'json/manualList.json', method: 'GET' })
+		.then(function(xhr: any) {
+			// console.log(xhr.data);
+			context.store.commit('setLists', xhr.data);
 		})
 		.catch(function(error: any) {
 			if (context.$axios.isCancel(error)) {
@@ -41,10 +41,10 @@ async function middleIndex(context: Context): Promise<void> {
 		});
 
 	// ランダムワードの取得
-	await context.$axios.$get('json/randomWord.json')
-		.then(function(data: any) {
-			// console.log(data);
-			context.store.commit('setRandomWords', data);
+	await context.$axios({ url: 'json/randomWord.json', method: 'GET' })
+		.then(function(xhr: any) {
+			// console.log(xhr.data);
+			context.store.commit('setRandomWords', xhr.data);
 		})
 		.catch(function(error: any) {
 			if (context.$axios.isCancel(error)) {

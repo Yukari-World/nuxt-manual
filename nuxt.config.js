@@ -5,7 +5,7 @@ require('dotenv').config();
 
 export default {
 	// Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-	ssr: true,
+	ssr: process.env.NODE_ENV !== 'production',
 
 	// Target: https://go.nuxtjs.dev/config-target
 	target: 'static',
@@ -19,7 +19,7 @@ export default {
 	 */
 	head: {
 		title: process.env.npm_package_description || 'Nuxt Technical Manual',
-		titleTemplate: '%s - Nuxt Technical Manual v0.3.2',
+		titleTemplate: '%s - Nuxt Technical Manual v0.3.4',
 		meta: [
 			{ charset: 'utf-8' },
 			{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
@@ -100,6 +100,7 @@ export default {
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
 		// baseURL: '/',
+		retry: { retries: 5 },
 		// debug: true,
 	},
 
@@ -116,6 +117,7 @@ export default {
 	},
 
 	router: {
+		// base: '/',
 		middleware: 'index',
 		extendRoutes(routes) {
 			// ルートをここに追加する
