@@ -5,6 +5,9 @@
 [build.environment]
 	NODE_VERSION = "16"
 
+[context.deploy-preview.environment]
+	BASE_URL = "/"
+
 [[headers]]
 	# Define which paths this specific [[headers]] block will cover.
 	for = "/*"
