@@ -10,7 +10,10 @@
 	for = "/*"
 
 	[headers.values]
-		Content-Security-Policy = "default-src 'self' cdn.jsdelivr.net fonts.googleapis.com fonts.gstatic.com 'unsafe-inline'; img-src 'self' data:;"
+		Access-Control-Allow-Origin = "*"
+		Access-Control-Allow-Headers = "Content-Type"
+		Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+  		Content-Security-Policy = "default-src 'self' cdn.jsdelivr.net fonts.googleapis.com fonts.gstatic.com 'unsafe-inline'; img-src 'self' data:;"
 		X-Content-Type-Options = "nosniff"
 		X-Frame-Options = "DENY"
 		X-XSS-Protection = "1; mode=block"

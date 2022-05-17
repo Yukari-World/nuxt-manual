@@ -19,7 +19,7 @@ export default {
 	 */
 	head: {
 		title: process.env.npm_package_description || 'Nuxt Technical Manual',
-		titleTemplate: '%s - Nuxt Technical Manual v0.3.4',
+		titleTemplate: '%s - Nuxt Technical Manual v0.3.5',
 		meta: [
 			{ charset: 'utf-8' },
 			{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
@@ -99,7 +99,7 @@ export default {
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
-		// baseURL: '/',
+		baseURL: '/',
 		retry: { retries: 5 },
 		// debug: true,
 	},
