@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-sql.page-as
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
 		h2(v-t="'common.stub.work_in_progress.title'")
 		p(v-t="'common.stub.work_in_progress.desc'")
@@ -216,31 +216,39 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-table {
-	margin: 1rem auto;
-	border-collapse: collapse;
-}
+<style lang="scss">
+.category-sql {
+	&.page-as {
+		table {
+			margin: 1rem auto;
+			border-collapse: collapse;
+		}
 
-thead {
-	tr {
-		color: CaptionText;
-		background-color: ActiveCaption;
+		thead {
+			tr {
+				color: CaptionText;
+				background-color: ActiveCaption;
+			}
+		}
+
+		th {
+			color: #000000;
+		}
+
+		th, td {
+			padding: 5px;
+			font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
+			font-size: 1rem;
+			vertical-align: top;
+		}
+
+		table, td {
+			border: 1px solid silver;
+		}
+
+		.col2, .col3, .col4 {
+			text-align: right;
+		}
 	}
-}
-
-th, td {
-	padding: 3px;
-	font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
-	font-size: 1rem;
-	vertical-align: top;
-}
-
-table, td {
-	border: 1px solid silver;
-}
-
-.col2, .col3, .col4 {
-	text-align: right;
 }
 </style>

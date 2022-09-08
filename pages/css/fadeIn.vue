@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-css.page-fade-in
 	section
 		h2 説明
 		p 下から上へのコンテンツフェードインが要求されることが多いためその一例を記述する。
@@ -193,59 +193,63 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-.yw-area {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
+<style lang="scss">
+.category-css {
+	&.page-fade-in {
+		.yw-area {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
 
-	@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill)) {
-		justify-content: space-around;
-	}
+			@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill)) {
+				justify-content: space-around;
+			}
 
-	.yw-anim {
-		width: 30vw;
-		max-width: 250px;
-		height: 30vw;
-		max-height: 250px;
-		margin-bottom: 15px;
-		background: #0E2EBB no-repeat top/auto 100%;
-	}
-}
+			.yw-anim {
+				width: 30vw;
+				max-width: 250px;
+				height: 30vw;
+				max-height: 250px;
+				margin-bottom: 15px;
+				background: #0E2EBB no-repeat top/auto 100%;
+			}
+		}
 
-.yw-anim {
-	position: relative;
-	overflow: hidden;
-	opacity: 0;
-	transition: all 1s ease;
-	transform: translateY(100px);
+		.yw-anim {
+			position: relative;
+			overflow: hidden;
+			opacity: 0;
+			transition: all 1s ease;
+			transform: translateY(100px);
 
-	&.yw-show {
-		opacity: 1;
-		transform: none;
-	}
+			&.yw-show {
+				opacity: 1;
+				transform: none;
+			}
 
-	.v-image {
-		position: absolute;
-		top: 0;
-		left: 50%;
-		height: 100%;
-		-webkit-transform: translate(-50%, 0);
-		-ms-transform: translate(-50%, 0);
-		transform: translate(-50%, 0);
-	}
+			.v-image {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				height: 100%;
+				-webkit-transform: translate(-50%, 0);
+				-ms-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);
+			}
 
-	p {
-		position: absolute;
-		top: 0;
-		left: 0;
-		box-sizing: border-box;
-		display: block;
-		width: 4rem;
-		padding: 5px;
-		line-height: 1;
-		background-color: rgba(0, 0, 0, 0.6);
-		border-bottom-right-radius: 10px;
+			p {
+				position: absolute;
+				top: 0;
+				left: 0;
+				box-sizing: border-box;
+				display: block;
+				width: 4rem;
+				padding: 5px;
+				line-height: 1;
+				background-color: rgba(0, 0, 0, 0.6);
+				border-bottom-right-radius: 10px;
+			}
+		}
 	}
 }
 </style>

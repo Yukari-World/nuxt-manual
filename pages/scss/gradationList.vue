@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-scss.page-gradation-list
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
 		h2(v-t="'common.stub.work_in_progress.title'")
 		p(v-t="'common.stub.work_in_progress.desc'")
@@ -443,161 +443,164 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-.exsample-area {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 500px;
-	height: 200px;
-	margin: 5px auto;
-	color: #000000;
-	background-color: #F5F9FA;
-	border-radius: 10px;
-}
-
-.list {
-	ul {
-		width: 480px;
-		height: 500px;
-		margin: 5px 120px 5px 25px;
-		list-style: none;
-	}
-
-	li {
-		&:not(:last-child) {
-			margin-bottom: 70px;
+<style lang="scss">
+.category-scss {
+	&.page-gradation-list {
+		.exsample-area {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 500px;
+			height: 200px;
+			margin: 5px auto;
+			color: #000000;
+			background-color: #F5F9FA;
+			border-radius: 10px;
 		}
 
-		&:nth-of-type(1) {
-			margin-left: 120px;
-		}
-
-		&:nth-of-type(2) {
-			margin-left: 60px;
-		}
-	}
-}
-
-.list-gradient {
-	width: 360px;
-	height: 120px;
-	background-image: linear-gradient(to left bottom, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
-	background-size: 480px 500px;
-	transform: skew(-20deg);
-
-	p {
-		box-sizing: border-box;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		width: 360px;
-		height: 120px;
-		padding-left: 20px;
-		font-size: calc(1rem + 1.354vw);
-		font-weight: 600;
-		transform: skew(20deg);
-	}
-}
-
-.num-1 .list-gradient {
-	background-position: left -120px top 0;
-}
-
-.num-2 .list-gradient {
-	background-position: left -60px top -190px;
-}
-
-.num-3 .list-gradient {
-	background-position: left 0 top -380px;
-}
-
-@media only screen and (max-width: 1200px) {
-	.list {
-		ul {
-			width: 40vw;
-			height: 41.667vw;
-			margin: 0.417vw 10vw 0.417vw 2.083vw;
-		}
-
-		li {
-			&:not(:last-child) {
-				margin-bottom: 5.833vw;
+		.list {
+			ul {
+				width: 480px;
+				height: 500px;
+				margin: 5px 120px 5px 25px;
+				list-style: none;
 			}
 
-			&:nth-of-type(1) {
-				margin-left: 10vw;
-			}
+			li {
+				&:not(:last-child) {
+					margin-bottom: 70px;
+				}
 
-			&:nth-of-type(2) {
-				margin-left: 5vw;
-			}
-		}
-	}
+				&:nth-of-type(1) {
+					margin-left: 120px;
+				}
 
-	.list-gradient {
-		background-size: 40vw 41.667vw;
-
-		&,
-		p {
-			width: 30vw;
-			height: 10vw;
-		}
-	}
-
-	.num-1 .list-gradient {
-		background-position: left -10vw top 0;
-	}
-
-	.num-2 .list-gradient {
-		background-position: left -5vw top -15.833vw;
-	}
-
-	.num-3 .list-gradient {
-		background-position: left 0 top -31.667vw;
-	}
-}
-
-@media only screen and (max-width: 576px) {
-	.list {
-		ul {
-			width: 85%;
-			margin: 0.868vw 20.833vw 0.868vw 4.34vw;
-		}
-
-		li {
-			&:nth-of-type(1) {
-				margin-left: 0;
-			}
-
-			&:nth-of-type(2) {
-				margin-left: 0;
+				&:nth-of-type(2) {
+					margin-left: 60px;
+				}
 			}
 		}
-	}
 
-	.list-gradient {
-		width: 85vw;
-		max-width: 360px;
-		background-size: 85vw 41.667vw;
+		.list-gradient {
+			width: 360px;
+			height: 120px;
+			background-image: linear-gradient(to left bottom, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
+			background-size: 480px 500px;
+			transform: skew(-20deg);
 
-		p {
-			width: 85vw;
-			max-width: 360px;
-			padding-left: 30px;
+			p {
+				box-sizing: border-box;
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				width: 360px;
+				height: 120px;
+				padding-left: 20px;
+				font-size: calc(1rem + 1.354vw);
+				font-weight: 600;
+				transform: skew(20deg);
+			}
 		}
-	}
 
-	.num-1 .list-gradient {
-		background-position: left 0 top 0;
-	}
+		.num-1 .list-gradient {
+			background-position: left -120px top 0;
+		}
 
-	.num-2 .list-gradient {
-		background-position: left 0 top -15.833vw;
-	}
+		.num-2 .list-gradient {
+			background-position: left -60px top -190px;
+		}
 
-	.num-3 .list-gradient {
-		background-position: left 0 top -31.667vw;
+		.num-3 .list-gradient {
+			background-position: left 0 top -380px;
+		}
+
+		@media only screen and (max-width: 1200px) {
+			.list {
+				ul {
+					width: 40vw;
+					height: 41.667vw;
+					margin: 0.417vw 10vw 0.417vw 2.083vw;
+				}
+
+				li {
+					&:not(:last-child) {
+						margin-bottom: 5.833vw;
+					}
+
+					&:nth-of-type(1) {
+						margin-left: 10vw;
+					}
+
+					&:nth-of-type(2) {
+						margin-left: 5vw;
+					}
+				}
+			}
+
+			.list-gradient {
+				background-size: 40vw 41.667vw;
+
+				&, p {
+					width: 30vw;
+					height: 10vw;
+				}
+			}
+
+			.num-1 .list-gradient {
+				background-position: left -10vw top 0;
+			}
+
+			.num-2 .list-gradient {
+				background-position: left -5vw top -15.833vw;
+			}
+
+			.num-3 .list-gradient {
+				background-position: left 0 top -31.667vw;
+			}
+		}
+
+		@media only screen and (max-width: 576px) {
+			.list {
+				ul {
+					width: 85%;
+					margin: 0.868vw 20.833vw 0.868vw 4.34vw;
+				}
+
+				li {
+					&:nth-of-type(1) {
+						margin-left: 0;
+					}
+
+					&:nth-of-type(2) {
+						margin-left: 0;
+					}
+				}
+			}
+
+			.list-gradient {
+				width: 85vw;
+				max-width: 360px;
+				background-size: 85vw 41.667vw;
+
+				p {
+					width: 85vw;
+					max-width: 360px;
+					padding-left: 30px;
+				}
+			}
+
+			.num-1 .list-gradient {
+				background-position: left 0 top 0;
+			}
+
+			.num-2 .list-gradient {
+				background-position: left 0 top -15.833vw;
+			}
+
+			.num-3 .list-gradient {
+				background-position: left 0 top -31.667vw;
+			}
+		}
 	}
 }
 </style>

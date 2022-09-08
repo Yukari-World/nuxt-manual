@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-css.page-background-scroll-lock
 	section
 		h2 説明
 		p Parallaxの一つに背景のスクロールを固定させたままでコンテンツをスクロールさせる方法がある。これはその一例である。
@@ -122,30 +122,34 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-.yw-layer1, .yw-layer2 {
-	width: 80%;
-	max-width: 800px;
-	height: 200px;
-	margin: 5px auto;
-	border-radius: 10px;
-}
+<style lang="scss">
+.category-css {
+	&.page-background-scroll-lock {
+		.yw-layer1, .yw-layer2 {
+			width: 80%;
+			max-width: 800px;
+			height: 200px;
+			margin: 5px auto;
+			border-radius: 10px;
+		}
 
-.yw-layer1 {
-	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px / 100% 50% local, url("/img/nicholas-loo-372788.jpg") repeat top center fixed;
-}
+		.yw-layer1 {
+			background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px / 100% 50% local, url("/img/nicholas-loo-372788.jpg") repeat top center fixed;
+		}
 
-.yw-layer2 {
-	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url("/img/nicholas-loo-372788.jpg");
-	background-repeat: repeat-x, repeat;
-	background-attachment: local, fixed;
-	background-position: 0 100px, top center;
-	background-size: 100% 50%, auto;
-}
+		.yw-layer2 {
+			background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url("/img/nicholas-loo-372788.jpg");
+			background-repeat: repeat-x, repeat;
+			background-attachment: local, fixed;
+			background-position: 0 100px, top center;
+			background-size: 100% 50%, auto;
+		}
 
-@media only screen and (max-width: 992px) {
-	.yw-layer1, .yw-layer2 {
-		background-position: 0 100px, top left 10vw;
+		@media only screen and (max-width: 992px) {
+			.yw-layer1, .yw-layer2 {
+				background-position: 0 100px, top left 10vw;
+			}
+		}
 	}
 }
 </style>

@@ -1,10 +1,10 @@
 <template lang="pug">
 v-footer(padless)
-	v-row.flex-column.flex-xl-row
-		v-col.d-flex.align-center.justify-center.justify-xl-start(style='padding-bottom: 0')
+	v-row.ma-0.flex-column.flex-xl-row
+		v-col.ma-0.pb-0.d-flex.align-center.justify-center.justify-xl-start(cols='6')
 			p.yw-word
-				a#randomWord Loading...
-		v-col.d-flex.align-center.justify-center.justify-xl-start(style='padding-bottom: 0')
+				nuxt-link#randomWord(:to='sLink', v-html='sFooterText')
+		v-col.ma-0.pb-0.d-flex.align-center.justify-center.justify-xl-start(cols='6')
 			.text-center.text-xl-left.yw-footer-source
 				p Page Editor, Page Design: Yukari-World
 				p
@@ -36,6 +36,8 @@ export default Vue.extend({
 		return {
 			bWordDecide: true,
 			loading: true,
+			sLink: '',
+			sFooterText: 'Loading...',
 		};
 	},
 	computed: {
@@ -88,11 +90,9 @@ export default Vue.extend({
 		setRandomWord(): void {
 			// 乱数の生成
 			const wordNum = Math.floor(this.randomFloat() * this.wordList.length);
-			const randomWord = document.getElementById('randomWord') as HTMLElement;
 
-			randomWord.setAttribute('href', '/randomWord/' + (wordNum + 1));
-			randomWord.textContent = '';
-			randomWord.insertAdjacentHTML('beforeend', this.wordList[wordNum].title);
+			this.sLink = '/randomWord/' + (wordNum + 1);
+			this.sFooterText = this.wordList[wordNum].title;
 		},
 
 		/**

@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-css.page-gradation
 	section
 		h2 グラデーション
 		p HTML上でのグラデーションはいくつか方法があるがその一例
@@ -104,27 +104,31 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-.yw-gradient1, .yw-gradient2, .yw-gradient3, .yw-gradient4 {
-	width: 350px;
-	height: 200px;
-	margin: 5px auto;
-	border-radius: 10px;
-}
+<style lang="scss">
+.category-css {
+	&.page-gradation {
+		.yw-gradient1, .yw-gradient2, .yw-gradient3, .yw-gradient4 {
+			width: 350px;
+			height: 200px;
+			margin: 5px auto;
+			border-radius: 10px;
+		}
 
-.yw-gradient1 {
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), #FFFFFF;
-}
+		.yw-gradient1 {
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), #FFFFFF;
+		}
 
-.yw-gradient2 {
-	background: linear-gradient(45deg, red, blue), #FFFFFF;
-}
+		.yw-gradient2 {
+			background: linear-gradient(45deg, red, blue), #FFFFFF;
+		}
 
-.yw-gradient3 {
-	background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%), #FFFFFF;
-}
+		.yw-gradient3 {
+			background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%), #FFFFFF;
+		}
 
-.yw-gradient4 {
-	background: linear-gradient(to right, #000011, #1164FF, #FFFF99), #FFFFFF;
+		.yw-gradient4 {
+			background: linear-gradient(to right, #000011, #1164FF, #FFFF99), #FFFFFF;
+		}
+	}
 }
 </style>

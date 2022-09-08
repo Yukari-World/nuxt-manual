@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-css.page-text-shadow
 	section
 		h2 説明
 		p 画像の上に文字を出力させる時、白地に白文字や黒地に黒文字といったことが発生することがある。これは可読性に大きく影響する。しかし、文字装飾を付与することで可読性の向上を望める場合がある。
@@ -76,32 +76,36 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-.yw-exsample-area {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 500px;
-	height: 200px;
-	margin: 5px auto;
-	color: #000000;
-	background-color: #F5F9FA;
-	border-radius: 10px;
-}
+<style lang="scss">
+.category-css {
+	&.page-text-shadow {
+		.yw-exsample-area {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 500px;
+			height: 200px;
+			margin: 5px auto;
+			color: #000000;
+			background-color: #F5F9FA;
+			border-radius: 10px;
+		}
 
-.yw-exsample1 {
-	text-shadow: 0 0 6px #000000;
-}
+		.yw-exsample1 {
+			text-shadow: 0 0 6px #000000;
+		}
 
-.yw-exsample1-1 {
-	text-shadow: 0 0 2px #000000;
-}
+		.yw-exsample1-1 {
+			text-shadow: 0 0 2px #000000;
+		}
 
-.yw-exsample1-2 {
-	text-shadow: 0 0 10px #000000;
-}
+		.yw-exsample1-2 {
+			text-shadow: 0 0 10px #000000;
+		}
 
-.yw-exsample2 {
-	text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;
+		.yw-exsample2 {
+			text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;
+		}
+	}
 }
 </style>

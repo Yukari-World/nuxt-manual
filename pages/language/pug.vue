@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-language.page-pug
 	section
 		h2 Pugとは
 		p
@@ -320,14 +320,18 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-.v-application {
-	.title {
-		font-family: unset !important;
-		font-size: unset !important;
-		font-weight: unset;
-		line-height: unset;
-		letter-spacing: unset !important;
+<style lang="scss">
+.category-language {
+	&.page-pug {
+		.v-application {
+			.title {
+				font-family: unset !important;
+				font-size: unset !important;
+				font-weight: unset;
+				line-height: unset;
+				letter-spacing: unset !important;
+			}
+		}
 	}
 }
 </style>

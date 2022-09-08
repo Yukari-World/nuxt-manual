@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-home.page-index
 	section
 		p
 			| 左のメニューより閲覧したい内容を選択してください。
@@ -313,12 +313,16 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss" scoped>
-h3 {
-	margin-top: 1.5em;
-}
+<style lang="scss">
+.category-home {
+	&.page-index {
+		h3 {
+			margin-top: 1.5em;
+		}
 
-.yw-strike {
-	padding-bottom: 1rem;
+		.yw-strike {
+			padding-bottom: 1rem;
+		}
+	}
 }
 </style>

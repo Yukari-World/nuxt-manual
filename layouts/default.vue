@@ -55,7 +55,7 @@ export default Vue.extend({
 	},
 	data() {
 		return {
-			drawer: null,
+			drawer: true,
 			title: '',
 			headMenu: [
 				{ title: 'header.title', icon: 'mdi-home', link: '/' },
