@@ -1,8 +1,11 @@
 <template lang="pug">
 v-app#inspire
+	//- サイドバー
+	//- 内部処理はサイドバーコンポーネント参照
 	v-navigation-drawer(v-model='drawer', app)
 		SideList
 
+	//- ページヘッダー
 	v-app-bar(app)
 		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
 		HeaderVue(:title='title')
@@ -31,6 +34,7 @@ v-app#inspire
 					v-list-item-content
 						v-list-item-title {{ locale.name }}
 
+	//- ページコンテンツ
 	v-main
 		v-container(fluid)
 			router-view
@@ -53,6 +57,7 @@ export default Vue.extend({
 		FooterVue,
 		SideList,
 	},
+
 	data() {
 		return {
 			drawer: true,
@@ -64,15 +69,25 @@ export default Vue.extend({
 			],
 		};
 	},
+
 	computed: {
 		availableLocales() {
 			return this.$i18n.locales;
 		},
 	},
+
+	beforeCreate() {
+		this.$store.dispatch('fetchRandomWords');
+		this.$store.dispatch('fetchList');
+	},
+
 	created() {
 		// this.$vuetify.theme.dark = true;
+		// this.$store.dispatch('fetchList');
+		// this.$store.dispatch('fetchRandomWords');
 		this.setListener();
 	},
+
 	methods: {
 		/**
 		 * イベントを作成する
@@ -116,7 +131,7 @@ section {
 }
 
 .code-toolbar {
-	+ h2, + h3 {
+	+h2, +h3 {
 		margin-top: 1.5rem;
 	}
 }
@@ -155,6 +170,7 @@ section {
 // Vuetify Overwrite
 .v-application {
 	.code-toolbar {
+
 		// ----------------------------------------------------------------------------------------------------
 		// Prism Overwrite
 		code, pre {
@@ -177,7 +193,7 @@ section {
 			overflow-y: scroll;
 
 			&[class*="language-"] {
-				> code {
+				>code {
 					$size: 2.286em;
 
 					display: block;

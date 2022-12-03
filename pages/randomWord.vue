@@ -30,35 +30,31 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
 			randomWords: (state: any) => state.randomWords,
 		}),
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
-		// setTimeout(this.scroll, 300);
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
 			this.$nuxt.$emit('update-header', this.header.title);
 		},
-		// scroll() {
-		// 	console.log(this.$route);
-		// 	const hash = this.$route.hash;
-		// 	if (hash && hash.match(/^#.+$/)) {
-		// 		this.$scrollTo(hash);
-		// 	}
-		// }
 	},
 });
 </script>

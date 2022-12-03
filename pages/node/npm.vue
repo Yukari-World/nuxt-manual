@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-node.page-npm
 	section
 		h2 説明
 		p Node.jsのパッケージはコマンドプロンプトで操作を行う。その際によく利用されるコマンドを記述する。
@@ -144,11 +144,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

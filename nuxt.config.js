@@ -118,7 +118,7 @@ export default {
 
 	router: {
 		// base: '/',
-		middleware: 'index',
+		// middleware: 'index',
 		extendRoutes(routes) {
 			// ルートをここに追加する
 
@@ -415,7 +415,7 @@ export default {
 		whitelist: [ 'body', 'html', 'nuxt-progress' ],
 		extractors: [
 			{
-				extractor: content => content.match(/[A-z0-9-:\\/]+/g) || [],
+				extractor: content => content.match(/[A-Za-z0-9-:\\/]+/g) || [],
 				extensions: [ 'html', 'vue', 'js' ],
 			},
 		],

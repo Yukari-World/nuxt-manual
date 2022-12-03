@@ -1,11 +1,11 @@
 <template lang="pug">
 v-footer(padless)
-	v-row.ma-0.flex-column.flex-xl-row
-		v-col.ma-0.pb-0.d-flex.align-center.justify-center.justify-xl-start(cols='6')
+	v-row.ma-0.flex-column.flex-md-row
+		v-col.ma-0.pb-0.d-flex.align-center.justify-center.justify-md-start(cols='6')
 			p.yw-word
 				nuxt-link#randomWord(:to='sLink', v-html='sFooterText')
-		v-col.ma-0.pb-0.d-flex.align-center.justify-center.justify-xl-start(cols='6')
-			.text-center.text-xl-left.yw-footer-source
+		v-col.ma-0.pb-0.d-flex.align-center.justify-center.justify-md-start(cols='6')
+			.text-center.text-md-left.yw-footer-source
 				p Page Editor, Page Design: Yukari-World
 				p
 					| Text Editor:&nbsp;
@@ -34,27 +34,25 @@ import { mapState } from 'vuex';
 export default Vue.extend({
 	data() {
 		return {
-			bWordDecide: true,
-			loading: true,
+			bWordDecide: false,
+			bLoading: true,
 			sLink: '',
 			sFooterText: 'Loading...',
 		};
 	},
+
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
 			wordList: (state: any) => state.randomWords,
 		}),
 	},
-	mounted() {
-		// const animationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.setTimeout;
-		this.loading = false;
 
-		// 初回ランダムワードの埋め込み処理
-		this.setRandomWord();
+	mounted() {
 		// ループイベント呼び出し
 		requestAnimationFrame(this.roopEvent);
 	},
+
 	methods: {
 		/**
 		 * 乱数の生成
@@ -83,20 +81,30 @@ export default Vue.extend({
 		},
 
 		/**
-		 * ランダムワードの出力
+		 * ランダムワードの取得
 		 *
-		 * @returns {void}
+		 * 但し、格納データが0件の場合、処理を行わない
+		 *
+		 * @returns {boolean}
 		 */
-		setRandomWord(): void {
-			// 乱数の生成
-			const wordNum = Math.floor(this.randomFloat() * this.wordList.length);
+		setRandomWord(): boolean {
+			// 格納データの件数の確認
+			if (this.wordList.length > 0) {
+				// 乱数の生成
+				const wordNum = Math.floor(this.randomFloat() * this.wordList.length);
 
-			this.sLink = '/randomWord/' + (wordNum + 1);
-			this.sFooterText = this.wordList[wordNum].title;
+				this.sLink = '/randomWord/' + (wordNum + 1);
+				this.sFooterText = this.wordList[wordNum].title;
+
+				return true;
+			}
+			return false;
 		},
 
 		/**
 		 * 指定時間毎に実行する
+		 *
+		 * 但し、初回実行時のみ時間指定を無視する
 		 *
 		 * @param   {number}    [seconds=5] 更新間隔(秒)
 		 * @returns {void}
@@ -105,9 +113,12 @@ export default Vue.extend({
 			// Initialize
 			const bdate = new Date();
 
-			if (bdate.getSeconds() % seconds === 0 && this.bWordDecide === false) {
-				this.bWordDecide = true;
-				this.setRandomWord();
+			if ((bdate.getSeconds() % seconds === 0 && this.bWordDecide === false) || this.bLoading) {
+				// ランダムワードの取得
+				if (this.setRandomWord()) {
+					this.bWordDecide = true;
+					this.bLoading = false;
+				}
 			} else if (bdate.getSeconds() % seconds === 1 && this.bWordDecide === true) {
 				this.bWordDecide = false;
 			}
@@ -115,6 +126,7 @@ export default Vue.extend({
 
 		/**
 		 * ループイベントの呼び出し
+		 *
 		 * @returns {void}
 		 */
 		roopEvent(): void {

@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-php.page-file-process-lock
 	section
 		h2 説明
 		p データベースなどでプロセスが複数起動しては困る処理が存在する場合、使える処理である。なお、この方法はファイル専有ロックとは異なるため、用途によってはこちらの方法より好ましい場合があるので注意。
@@ -64,16 +64,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-php.page-date
 	section
 		h2 説明
 		p 日付の表示は非常にややこしいものが多い。これはMySQLのDATE_FORMAT()にも言えることなのだが、今回はよく使用されるPHPの処理のみをピックアップする。
@@ -88,11 +88,13 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		const date01 = document.getElementById('date01') as HTMLElement;
 		const date02 = document.getElementById('date02') as HTMLElement;
@@ -120,6 +122,7 @@ export default Vue.extend({
 		date05.textContent = year + month + day;
 		date06.textContent = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

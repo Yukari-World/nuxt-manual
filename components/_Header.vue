@@ -8,6 +8,7 @@ import Vue, { PropOptions } from 'vue';
 
 export default Vue.extend({
 	name: 'HeaderVue',
+
 	props: {
 		title: {
 			type: String,

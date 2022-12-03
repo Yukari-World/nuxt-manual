@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-html.page-file-download
 	section
 		h2 説明
 		p メディアリンク等を作成した場合、再生ではなくダウンロードさせたい場合がある。HTML5を利用することでダウンロードさせることができるので説明する。
@@ -41,16 +41,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
