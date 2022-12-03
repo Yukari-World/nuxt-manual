@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-css.page-before-after
 	section
 		h2 疑似要素 :before / :afterとは
 		p ある要素の前、もしくはその後に追加される疑似要素である。指定がなければ中身は常に空であり、ブラウザ上にある検証機能にも表示されない。
@@ -93,16 +93,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

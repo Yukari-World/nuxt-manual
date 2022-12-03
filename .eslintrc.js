@@ -53,7 +53,7 @@ module.exports = {
 		'no-duplicate-imports': [ 'error', { includeExports: true }],
 		'no-else-return': 'warn',
 		'no-extra-semi': 'warn',
-		'no-extra-parens': [ 'warn', 'all' ],
+		'no-extra-parens': [ 'warn', 'all', { nestedBinaryExpressions: false }],
 		'no-floating-decimal': 'error',
 		'no-mixed-spaces-and-tabs': 'off',
 		'no-multi-assign': 'error',

@@ -1,16 +1,17 @@
 <template lang="pug">
-v-timeline(reverse)
-	//- カードの出力
-	v-timeline-item(v-for='(logIndex, index) in log', :key='index')
-		//- 反対側に出力する文字を出力
-		//- 有ったり無かったりするので、条件で分岐
-		template(v-if='logIndex.opposite !== undefined')
-			span(slot='opposite') {{ logIndex.opposite }}
-		v-card(elevation='5')
-			v-card-title.headline {{ logIndex.date }}
-			v-card-text
-				ul
-					li(v-for='(desc, i) in logIndex.summary') {{ desc }}
+.category-home.page-update-log
+	v-timeline(reverse)
+		//- カードの出力
+		v-timeline-item(v-for='(logIndex, index) in log', :key='index')
+			//- 反対側に出力する文字を出力
+			//- 有ったり無かったりするので、条件で分岐
+			template(v-if='logIndex.opposite !== undefined')
+				span(slot='opposite') {{ logIndex.opposite }}
+			v-card(elevation='5')
+				v-card-title.headline {{ logIndex.date }}
+				v-card-text
+					ul
+						li(v-for='(desc, i) in logIndex.summary') {{ desc }}
 </template>
 
 <script lang="ts">
@@ -506,16 +507,19 @@ export default Vue.extend({
 			],
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

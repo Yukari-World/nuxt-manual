@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-html.page-input
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
 		h2(v-t="'common.stub.work_in_progress.title'")
 		p(v-t="'common.stub.work_in_progress.desc'")
@@ -370,16 +370,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
@@ -389,44 +392,48 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-label {
-	display: inline-flex;
-	align-items: center;
-}
-
-fieldset {
-	padding: 15px;
-	color: #000000;
-	border: 2px solid #FFFFFF;
-	background-color: #9999CC;
-
-	input {
-		border-radius: 3px;
-		background-color: #FFFFFF;
-
-		&[type="button"], &[type="reset"], &[type="submit"] {
-			padding: 2px;
-		}
-
-		&[type="checkbox"] {
+<style lang="scss">
+.category-html {
+	&.page-input {
+		label {
 			display: inline-flex;
 			align-items: center;
-
-			+ p {
-				margin: 0 1em 0 0;
-			}
 		}
 
-		&[type="radio"] {
+		fieldset {
+			padding: 15px;
+			color: #000000;
+			background-color: #9999CC;
+			border: 2px solid #FFFFFF;
+
+			input {
+				background-color: #FFFFFF;
+				border-radius: 3px;
+
+				&[type="button"], &[type="reset"], &[type="submit"] {
+					padding: 2px;
+				}
+
+				&[type="checkbox"] {
+					display: inline-flex;
+					align-items: center;
+
+					+ p {
+						margin: 0 1em 0 0;
+					}
+				}
+
+				&[type="radio"] {
+					+ p {
+						margin: 0 1em 0 0;
+					}
+				}
+			}
+
 			+ p {
-				margin: 0 1em 0 0;
+				margin-top: 0.5rem;
 			}
 		}
-	}
-
-	+ p {
-		margin-top: 0.5rem;
 	}
 }
 </style>

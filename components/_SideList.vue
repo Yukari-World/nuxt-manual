@@ -54,12 +54,14 @@ export default Vue.extend({
 			listActive: {},
 		};
 	},
+
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
 			categoryList: (state: any) => state.menus.categoryList,
 		}),
 	},
+
 	mounted() {
 		this.loading = false;
 		this.now = this.$dayjs().format('L LTS');
@@ -67,6 +69,7 @@ export default Vue.extend({
 		// ループイベント呼び出し
 		requestAnimationFrame(this.roopEvent);
 	},
+
 	methods: {
 		/**
 		 * ループイベントの呼び出し

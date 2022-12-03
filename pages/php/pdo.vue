@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-php.page-pdo
 	section
 		h2 説明
 		p PDO(PHP Data Objects)とはデータベースの接続方法の一つである。PDOクラスを利用してデータベースから取得、更新、削除を行う。
@@ -92,16 +92,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

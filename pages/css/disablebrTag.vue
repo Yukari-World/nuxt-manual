@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-css.page-disable-br-tag
 	section
 		h2 説明
 		p スマートフォン等のブラウザでは表示できる情報量の違いで改行してほしくない場合が発生する。この改行をCSSで簡単に無効にする方法が存在するため記述する。
@@ -43,16 +43,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

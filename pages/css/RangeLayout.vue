@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-css.page-range-layout
 	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
 		h2(v-t="'common.stub.non_standard.title'")
 		p(v-t="'common.stub.non_standard.desc'")
@@ -122,16 +122,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
@@ -141,77 +144,82 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-fieldset {
-	padding: 15px;
-	color: #000000;
-	border: 2px solid #FFFFFF;
-	background-color: #9999CC;
-}
-
-legend {
-	padding: 0.25rem 0.75rem;
-	line-height: 1;
-	color: #FFFFFF;
-	border: 2px solid #FFFFFF;
-	background-color: #000011;
-}
-
-input[type="range"] {
-	box-sizing: border-box;
-	width: 70%;
-	max-width: 600px;
-
-	&.yw-slider {
-		height: 5px;
-		opacity: 0.7;
-		border-radius: 10px;
-		outline: none;
-		background: #CCCCCC;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-
-		&::-webkit-slider-thumb {
-			box-sizing: border-box;
-			width: 25px;
-			height: 25px;
-			min-height: 25px;
-			cursor: pointer;
-			border: 2px outset #CCCCCC;
-			border-right-style: inset;
-			border-bottom-style: inset;
-			border-radius: 50%;
-			background: #FFFF33;
-			-webkit-appearance: none;
-			appearance: none;
+<style lang="scss">
+.category-css {
+	&.page-range-layout {
+		fieldset {
+			min-height: 50px;
+			padding: 15px;
+			color: #000000;
+			background-color: #9999CC;
+			border: 2px solid #FFFFFF;
 		}
 
-		&::-moz-slider-thumb {
-			box-sizing: border-box;
-			width: 25px;
-			height: 25px;
-			cursor: pointer;
-			border: 2px outset #CCCCCC;
-			border-right-style: inset;
-			border-bottom-style: inset;
-			border-radius: 50%;
-			background: #FFFF33;
-			-moz-appearance: none;
-			appearance: none;
+		legend {
+			padding: 0.25rem 0.75rem;
+			line-height: 1;
+			color: #FFFFFF;
+			background-color: #000011;
+			border: 2px solid #FFFFFF;
 		}
-	}
-}
 
-@media (prefers-color-scheme: light) {
-	fieldset {
-		border-color: #CCCCCC;
-	}
+		input[type="range"] {
+			box-sizing: border-box;
+			width: 70%;
+			max-width: 600px;
 
-	legend {
-		color: #000000;
-		border-color: #CCCCCC;
-		background-color: #FFFFFF;
+			&.yw-slider {
+				height: 5px;
+				background: #CCCCCC;
+				border-radius: 10px;
+				outline: none;
+				opacity: 0.7;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+
+				&::-webkit-slider-thumb {
+					box-sizing: border-box;
+					width: 25px;
+					height: 25px;
+					min-height: 25px;
+					cursor: pointer;
+					background: #FFFF33;
+					border: 2px outset #CCCCCC;
+					border-right-style: inset;
+					border-bottom-style: inset;
+					border-radius: 50%;
+					-webkit-appearance: none;
+					appearance: none;
+				}
+
+				&::-moz-slider-thumb {
+					box-sizing: border-box;
+					width: 25px;
+					height: 25px;
+					cursor: pointer;
+					background: #FFFF33;
+					border: 2px outset #CCCCCC;
+					border-right-style: inset;
+					border-bottom-style: inset;
+					border-radius: 50%;
+					-moz-appearance: none;
+					appearance: none;
+				}
+			}
+		}
+
+		@media (prefers-color-scheme: light) {
+			fieldset {
+				border-color: #CCCCCC;
+			}
+
+			legend {
+				color: #000000;
+				background-color: #FFFFFF;
+				border-color: #CCCCCC;
+			}
+		}
 	}
 }
 </style>

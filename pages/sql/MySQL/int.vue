@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-sql.sub-mysql.page-int
 	section
 		h2 説明
 		p MySQLのテーブル上にINT(11)やTINYINT(4)といったカッコの数字がある。これの意味を説明する。
@@ -59,16 +59,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

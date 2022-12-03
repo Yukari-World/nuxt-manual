@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-node.page-manual-browser-sync
 	section
 		h2 説明
 		p Browsersyncとは、ファイルの更新があった時に自動でブラウザを更新する機能である。更新するブラウザの更新は複数の端末や複数のブラウザで同時に行われ、逐次F5更新を行う必要がなくなる。また、CSSボックス配置のデバッグ、フォーム入力の同期等の機能もある。
@@ -111,11 +111,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

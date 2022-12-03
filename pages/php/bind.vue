@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-php.page-bind
 	section
 		h2 説明
 		p SQLコードを作成する時、外部からの値を参照して実行することがある。その際入力欄に制限等が成されていない場合、不正な値やSQLコードを入力される可能性がある。その問題を全てではないが防ぐ事ができる方法でもあるバインドについて説明する。
@@ -187,16 +187,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

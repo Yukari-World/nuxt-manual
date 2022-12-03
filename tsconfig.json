@@ -13,6 +13,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"noEmit": true,
+		"experimentalDecorators": true,
 		"baseUrl": ".",
 		"paths": {
 			"~/*": ["./*"],
@@ -31,6 +32,18 @@
 			"@types/prismjs",
 			"nuxt-i18n",
 			"vuetify"
+		],
+		"jsx": "preserve"
+	},
+	"vueCompilerOptions": {
+		"target": 2.7, // delete after migrating to vue3 (or nuxt3)
+		"experimentalTemplateCompilerOptions": {
+			"compatConfig": {
+				"MODE": 2
+			} // delete after migrating to vue3 (or nuxt3)
+		},
+		"plugins": [
+			"@volar/vue-language-plugin-pug"
 		]
 	},
 	"exclude": ["node_modules", ".nuxt", "dist"]

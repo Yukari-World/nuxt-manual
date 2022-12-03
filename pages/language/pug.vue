@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-language.page-pug
 	section
 		h2 Pugとは
 		p
@@ -306,11 +306,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
+
 	mounted() {
 		highlightAll();
 		plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
@@ -320,14 +328,18 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-.v-application {
-	.title {
-		font-size: unset !important;
-		font-weight: unset;
-		line-height: unset;
-		letter-spacing: unset !important;
-		font-family: unset !important;
+<style lang="scss">
+.category-language {
+	&.page-pug {
+		.v-application {
+			.title {
+				font-family: unset !important;
+				font-size: unset !important;
+				font-weight: unset;
+				line-height: unset;
+				letter-spacing: unset !important;
+			}
+		}
 	}
 }
 </style>

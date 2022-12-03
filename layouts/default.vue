@@ -1,8 +1,11 @@
 <template lang="pug">
 v-app#inspire
+	//- サイドバー
+	//- 内部処理はサイドバーコンポーネント参照
 	v-navigation-drawer(v-model='drawer', app)
 		SideList
 
+	//- ページヘッダー
 	v-app-bar(app)
 		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
 		HeaderVue(:title='title')
@@ -31,6 +34,7 @@ v-app#inspire
 					v-list-item-content
 						v-list-item-title {{ locale.name }}
 
+	//- ページコンテンツ
 	v-main
 		v-container(fluid)
 			router-view
@@ -53,9 +57,10 @@ export default Vue.extend({
 		FooterVue,
 		SideList,
 	},
+
 	data() {
 		return {
-			drawer: null,
+			drawer: true,
 			title: '',
 			headMenu: [
 				{ title: 'header.title', icon: 'mdi-home', link: '/' },
@@ -64,15 +69,25 @@ export default Vue.extend({
 			],
 		};
 	},
+
 	computed: {
 		availableLocales() {
 			return this.$i18n.locales;
 		},
 	},
+
+	beforeCreate() {
+		this.$store.dispatch('fetchRandomWords');
+		this.$store.dispatch('fetchList');
+	},
+
 	created() {
 		// this.$vuetify.theme.dark = true;
+		// this.$store.dispatch('fetchList');
+		// this.$store.dispatch('fetchRandomWords');
 		this.setListener();
 	},
+
 	methods: {
 		/**
 		 * イベントを作成する
@@ -106,8 +121,8 @@ section {
 	&:not(:first-child) {
 		margin-top: 1.5rem;
 		border: solid;
-		border-width: thin 0 0 0;
 		border-color: rgba(255, 255, 255, 0.12);
+		border-width: thin 0 0 0;
 	}
 }
 
@@ -116,7 +131,7 @@ section {
 }
 
 .code-toolbar {
-	+ h2, + h3 {
+	+h2, +h3 {
 		margin-top: 1.5rem;
 	}
 }
@@ -135,10 +150,10 @@ section {
 	}
 
 	&-thumb {
-		transition: all 0.1s ease;
-		border-radius: 10px;
 		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+		border-radius: 10px;
 		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+		transition: all 0.1s ease;
 
 		@media (prefers-color-scheme: light) {
 			background-image: linear-gradient(to bottom right, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25));
@@ -155,14 +170,15 @@ section {
 // Vuetify Overwrite
 .v-application {
 	.code-toolbar {
+
 		// ----------------------------------------------------------------------------------------------------
 		// Prism Overwrite
 		code, pre {
 			&[class*="language-"] {
 				margin: unset;
-				tab-size: 4;
 				font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
 				line-height: 1.2;
+				tab-size: 4;
 				-webkit-overflow-scrolling: touch;
 
 				&::-webkit-scrollbar {
@@ -177,16 +193,16 @@ section {
 			overflow-y: scroll;
 
 			&[class*="language-"] {
-				> code {
+				>code {
 					$size: 2.286em;
 
 					display: block;
-					white-space: pre;
 					font-size: 14px;
 					font-weight: normal;
 					color: unset;
-					border-radius: unset;
+					white-space: pre;
 					background-color: unset;
+					border-radius: unset;
 					box-shadow: unset;
 
 					@media (prefers-color-scheme: light) {
@@ -200,16 +216,16 @@ section {
 		// Vuetify Overwrite Fix
 		[class*="language-"] {
 			code {
-				background-color: transparent;
 				padding: 0;
+				background-color: transparent;
 			}
 
 			.title {
-				letter-spacing: 0 !important;
 				font-family: inherit !important;
 				font-size: inherit !important;
 				font-weight: inherit;
 				line-height: inherit;
+				letter-spacing: 0 !important;
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-other.page-editor-config
 	section
 		h2 EditorConfigとは
 		p EditorConfigとはエディター毎に存在するインデント設定や改行コードの設定等を統一する設定ファイルとそのプラグインである。ファイル毎に応じてその設定を変更することができ、また、プロジェクト毎に管理できるので記述ルールの整合性をある程度ではあるが保つことができる。
@@ -116,11 +116,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す

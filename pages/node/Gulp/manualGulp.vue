@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-node.sub-gulp.page-manual-gulp
 	v-alert(type='info', border='left', colored-border, dense, elevation='5')
 		h2 {{ $t('common.stub.work_in_progress.title') }}
 		p {{ $t('common.stub.work_in_progress.desc') }}
@@ -11,7 +11,7 @@ div
 
 <script lang="ts">
 import Vue from 'vue';
-import Prism from 'prismjs';
+import { highlightAll } from 'prismjs';
 
 export default Vue.extend({
 	data() {
@@ -21,11 +21,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
+	head(): object {
+		return {
+			title: this.header.title,
+		};
+	},
+
 	mounted() {
-		Prism.highlightAll();
+		highlightAll();
 		// Prism.plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
