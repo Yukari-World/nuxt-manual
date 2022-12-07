@@ -1,9 +1,8 @@
 import { sortRoutes } from '@nuxt/utils';
 import shrinkRay from 'shrink-ray-current';
 import { ja, en } from 'vuetify/src/locale';
-require('dotenv').config();
 
-export default {
+export default defineNuxtConfig({
 	// Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
 	ssr: process.env.NODE_ENV !== 'production',
 
@@ -447,4 +446,4 @@ export default {
 	// 			});
 	// 	},
 	// },
-};
+});
