@@ -99,7 +99,7 @@ export default {
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
-		// baseURL: '/',
+		baseURL: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 		retry: { retries: 5 },
 		// debug: true,
 	},
