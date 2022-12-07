@@ -39,10 +39,20 @@ interface XorShiftSeed128 {
 	w: number,
 }
 
+
+// ----------------------------------------------------------------------------------------------------
+// Type
+
+export type RootState = ReturnType<typeof state>;
+
+
+// ----------------------------------------------------------------------------------------------------
+// State
+
 export function state() {
 	const nowTime = new Date();
 	return {
-		menus: {},
+		menus: [] as object[],
 		randomWords: [] as RandomWord[],
 		XorSeed: {
 			x: Math.max(Math.floor(nowTime.getDate() ** ((nowTime.getMonth() + 1) / 4 + 2)), (nowTime.getMonth() + 1) * nowTime.getDate() * Math.max(nowTime.getSeconds() ** 2, 31) * Math.max(nowTime.getMinutes() ** 2, 53)),
@@ -53,7 +63,25 @@ export function state() {
 	};
 }
 
-export type RootState = ReturnType<typeof state>;
+
+// ----------------------------------------------------------------------------------------------------
+// Getter
+
+export const getters: GetterTree<RootState, RootState> = {
+	/**
+	 * XorShiftの乱数シードの取得
+	 *
+	 * @param   {RootState}         state   storeの中身
+	 * @returns {XorShiftSeed128}           seed値
+	 */
+	getSeed(state: RootState): XorShiftSeed128 {
+		return state.XorSeed;
+	},
+};
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mutation
 
 export const mutations: MutationTree<RootState> = {
 	/**
@@ -63,7 +91,7 @@ export const mutations: MutationTree<RootState> = {
 	 * @param   {Object}    payload 送られてきた中身
 	 * @returns {void}
 	 */
-	setLists(state: RootState, payload: object): void {
+	setLists(state: RootState, payload: object[]): void {
 		state.menus = payload;
 	},
 
@@ -96,30 +124,34 @@ export const mutations: MutationTree<RootState> = {
 	},
 };
 
-export const actions: ActionTree<RootState, RootState> = {
-};
 
-export const getters: GetterTree<RootState, RootState> = {
+// ----------------------------------------------------------------------------------------------------
+// Action
+
+export const actions: ActionTree<RootState, RootState> = {
 	/**
-	 * XorShiftの乱数シードの取得
+	 * メニューリストの取得
 	 *
-	 * @param   {RootState}         state   storeの中身
-	 * @returns {XorShiftSeed128}           seed値
+	 * @async
+	 * @returns {Promise<void>}
 	 */
-	getSeed(state: RootState): XorShiftSeed128 {
-		return state.XorSeed;
+	 async fetchList({ state, commit }): Promise<void> {
+		if (state.menus.length === 0) {
+			const xhr = await this.$axios({ url: 'json/manualList.json', method: 'GET' });
+			commit('setLists', xhr.data);
+		}
+	},
+
+	/**
+	 * ランダムワードリストの取得
+	 *
+	 * @async
+	 * @returns {Promise<void>}
+	 */
+	 async fetchRandomWords({ state, commit }): Promise<void> {
+		if (state.randomWords.length === 0) {
+			const xhr = await this.$axios({ url: 'json/randomWord.json', method: 'GET' });
+			commit('setRandomWords', xhr.data);
+		}
 	},
 };
-// export const actions = {
-// 	async fetchItems(context) {
-// 		await axios
-// 			.get(process.env.baseUrl + '/json/manualList.json')
-// 			.then((response) => {
-// 				// console.log(response.data);
-// 				context.commit('setItems', response.data);
-// 			})
-// 			.catch(function(error) {
-// 				console.error(error);
-// 			});
-// 	}
-// };

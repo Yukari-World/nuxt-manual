@@ -19,7 +19,7 @@ export default {
 	 */
 	head: {
 		title: process.env.npm_package_description || 'Nuxt Technical Manual',
-		titleTemplate: '%s - Nuxt Technical Manual v0.3.5',
+		titleTemplate: '%s - Nuxt Technical Manual v0.3.6',
 		meta: [
 			{ charset: 'utf-8' },
 			{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
@@ -31,10 +31,10 @@ export default {
 			{ rel: 'preconnect', href: 'https://cdn.jsdelivr.net/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.gstatic.com/', crossorigin: 'anonymous' },
 			{ rel: 'preconnect', href: 'https://fonts.googleapis.com/', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=6.6.96', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
-			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=7.0.96', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2', crossorigin: 'anonymous' },
+			{ rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', crossorigin: 'anonymous' },
 			// { rel: 'preload', as: 'style', type: 'text/css', href: '/css/prismTomorrowNight.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: '/css/prism.css' },
 			{ rel: 'preload', as: 'style', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css' },
@@ -99,7 +99,7 @@ export default {
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
-		baseURL: '/',
+		baseURL: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 		retry: { retries: 5 },
 		// debug: true,
 	},
@@ -118,7 +118,7 @@ export default {
 
 	router: {
 		// base: '/',
-		middleware: 'index',
+		// middleware: 'index',
 		extendRoutes(routes) {
 			// ルートをここに追加する
 
@@ -138,6 +138,10 @@ export default {
 		hostname: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
 		i18n: true,
 		path: '/sitemap.xml',
+	},
+
+	stylelint: {
+		fix: true,
 	},
 
 	// Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -307,6 +311,7 @@ export default {
 			clientsClaim: true,
 			offline: true,
 			skipWaiting: true,
+			cleanupOutdatedCaches: true,
 			runtimeCaching: [
 				{
 					urlPattern: '/_nuxt/.*.(js)$',
@@ -314,13 +319,16 @@ export default {
 					method: 'GET',
 					strategyOptions: {
 						cacheName: 'entry-cache',
-						cacheExpiration: {
-							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
-						},
-						cacheableResponse: {
-							statuses: [ 0, 200 ],
-						},
 					},
+					strategyPlugins: [{
+						use: 'Expiration',
+						config: {
+							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
+							cacheableResponse: {
+								statuses: [ 0, 200 ],
+							},
+						},
+					}],
 				},
 				{
 					urlPattern: '/img/.*.(gif|jpeg|jpg|png|webp)$',
@@ -328,13 +336,16 @@ export default {
 					method: 'GET',
 					strategyOptions: {
 						cacheName: 'image-cache',
-						cacheExpiration: {
-							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
-						},
-						cacheableResponse: {
-							statuses: [ 0, 200 ],
-						},
 					},
+					strategyPlugins: [{
+						use: 'Expiration',
+						config: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+							cacheableResponse: {
+								statuses: [ 0, 200 ],
+							},
+						},
+					}],
 				},
 				{
 					urlPattern: '^https://cdn.jsdelivr.net/',
@@ -342,13 +353,16 @@ export default {
 					method: 'GET',
 					strategyOptions: {
 						cacheName: 'jsdelivr-cache',
-						cacheExpiration: {
-							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
-						},
-						cacheableResponse: {
-							statuses: [ 0, 200 ],
-						},
 					},
+					strategyPlugins: [{
+						use: 'Expiration',
+						config: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+							cacheableResponse: {
+								statuses: [ 0, 200 ],
+							},
+						},
+					}],
 				},
 				{
 					urlPattern: '^https://fonts.googleapis.com/',
@@ -356,13 +370,16 @@ export default {
 					method: 'GET',
 					strategyOptions: {
 						cacheName: 'google-fonts-cache',
-						cacheExpiration: {
-							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
-						},
-						cacheableResponse: {
-							statuses: [ 0, 200 ],
-						},
 					},
+					strategyPlugins: [{
+						use: 'Expiration',
+						config: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+							cacheableResponse: {
+								statuses: [ 0, 200 ],
+							},
+						},
+					}],
 				},
 				{
 					urlPattern: '^https://fonts.gstatic.com/',
@@ -370,13 +387,16 @@ export default {
 					method: 'GET',
 					strategyOptions: {
 						cacheName: 'gstatic-fonts-cache',
-						cacheExpiration: {
-							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
-						},
-						cacheableResponse: {
-							statuses: [ 0, 200 ],
-						},
 					},
+					strategyPlugins: [{
+						use: 'Expiration',
+						config: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+							cacheableResponse: {
+								statuses: [ 0, 200 ],
+							},
+						},
+					}],
 				},
 			],
 		},
@@ -395,7 +415,7 @@ export default {
 		whitelist: [ 'body', 'html', 'nuxt-progress' ],
 		extractors: [
 			{
-				extractor: content => content.match(/[A-z0-9-:\\/]+/g) || [],
+				extractor: content => content.match(/[A-Za-z0-9-:\\/]+/g) || [],
 				extensions: [ 'html', 'vue', 'js' ],
 			},
 		],

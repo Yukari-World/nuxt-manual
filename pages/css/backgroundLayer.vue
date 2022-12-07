@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-css.page-background-layer
 	section
 		h2 説明
 		p 背景に画像と画像、画像とグラデーションを重ねる機会が増えてきたため、幾つかその例を取り上げる。
@@ -49,16 +49,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
@@ -68,23 +71,26 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
-.yw-layer1,
-.yw-layer2 {
-	width: 350px;
-	height: 200px;
-	margin: 5px auto;
-	border-radius: 10px;
-}
+<style lang="scss">
+.category-css {
+	&.page-background-layer {
+		.yw-layer1, .yw-layer2 {
+			width: 350px;
+			height: 200px;
+			margin: 5px auto;
+			border-radius: 10px;
+		}
 
-.yw-layer1 {
-	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%, url("/img/robert-lukeman-150146.jpg") no-repeat bottom/100%;
-}
+		.yw-layer1 {
+			background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%, url("/img/robert-lukeman-150146.jpg") no-repeat bottom/100%;
+		}
 
-.yw-layer2 {
-	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url("/img/robert-lukeman-150146.jpg");
-	background-repeat: repeat-x, no-repeat;
-	background-position: bottom, bottom;
-	background-size: 50% 100%, 100%;
+		.yw-layer2 {
+			background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url("/img/robert-lukeman-150146.jpg");
+			background-repeat: repeat-x, no-repeat;
+			background-position: bottom, bottom;
+			background-size: 50% 100%, 100%;
+		}
+	}
 }
 </style>

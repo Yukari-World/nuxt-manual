@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-home.page-index
 	section
 		p
 			| 左のメニューより閲覧したい内容を選択してください。
@@ -227,7 +227,7 @@ div
 			| 全て元ネタがあります。わからない場合、調べてみましょう。尚、内容は秒が10の倍数毎に切り替わるようになっています。
 			wbr
 			| 現在
-			span#countRandom ---
+			span {{ count }}
 			| 個の表示候補があります。
 			wbr
 			| 表示内容は
@@ -283,27 +283,31 @@ export default Vue.extend({
 				tabSize: 4,
 				theme: 'tomorrow-night-eighties',
 			},
+			count: 0,
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	computed: {
 		// storeからのデータ読み込み
 		...mapState({
 			randomWords: (state: any) => state.randomWords,
 		}),
 	},
+
 	mounted() {
-		const cntRandom = document.getElementById('countRandom') as HTMLElement;
-		cntRandom.textContent = this.randomWords.length;
+		this.count = this.randomWords.length;
 
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
@@ -313,12 +317,16 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss" scoped>
-h3 {
-	margin-top: 1.5em;
-}
+<style lang="scss">
+.category-home {
+	&.page-index {
+		h3 {
+			margin-top: 1.5em;
+		}
 
-.yw-strike {
-	padding-bottom: 1rem;
+		.yw-strike {
+			padding-bottom: 1rem;
+		}
+	}
 }
 </style>

@@ -4,7 +4,7 @@
 // Initialize
 // ----------------------------------------------------------------------------------------------------
 // Import
-@import "calc.scss";
+@import "calc";
 
 // ----------------------------------------------------------------------------------------------------
 // 変数の定義(Global)
@@ -60,17 +60,17 @@ $width-list: (
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 %blockquote {
-	margin: 10px;
 	padding: 1rem;
-	border-width: 5px;
+	margin: 10px;
 	border-style: solid;
-
-	@media print, (prefers-color-scheme: light) {
-		color: #FFFFFF;
-	}
+	border-width: 5px;
 
 	h2 {
 		margin-bottom: 1rem;
+	}
+
+	@media print, (prefers-color-scheme: light) {
+		color: #FFFFFF;
 	}
 }
 
@@ -87,11 +87,11 @@ $width-list: (
  *  License: none (public domain)
  */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-	margin: 0;
 	padding: 0;
-	vertical-align: baseline;
+	margin: 0;
 	font: inherit;
 	font-size: 100%;
+	vertical-align: baseline;
 	border: 0;
 }
 
@@ -131,8 +131,8 @@ html {
 // Page Initialize
 body {
 	display: flex;
-	justify-content: space-between;
 	align-items: flex-start;
+	justify-content: space-between;
 	font-family: "Noto Sans JP", "メイリオ", "Meiryo", sans-serif;
 	font-size: 1rem;
 	line-height: 1.2;
@@ -142,8 +142,8 @@ body {
 
 	@include max-screen(md) {
 		flex-direction: column;
-		justify-content: unset;
 		align-items: unset;
+		justify-content: unset;
 	}
 
 	@media print, (prefers-color-scheme: light) {
@@ -170,11 +170,11 @@ body {
 				&:not(:checked) {
 					+ nav {
 						@include max-screen(md) {
+							height: 0;
+							padding: 0;
+							margin: 0;
 							// display: none;
 							overflow: hidden;
-							height: 0;
-							margin: 0;
-							padding: 0;
 							border: none;
 						}
 					}
@@ -203,13 +203,9 @@ body {
 }
 
 a {
-	transition: all 0.25s ease-out;
-	text-decoration: none;
 	color: #9999FF;
-
-	@media print, (prefers-color-scheme: light) {
-		color: #3333CC;
-	}
+	text-decoration: none;
+	transition: all 0.25s ease-out;
 
 	&:hover {
 		color: #FFCC66;
@@ -217,6 +213,10 @@ a {
 		@media (prefers-color-scheme: light) {
 			color: #FF9900;
 		}
+	}
+
+	@media print, (prefers-color-scheme: light) {
+		color: #3333CC;
 	}
 }
 
@@ -272,53 +272,53 @@ ol {
 blockquote {
 	&.stub {
 		@extend %blockquote;
-
-		border-color: #1164FF;
-		border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
 		background-color: #000033;
 		background-image: linear-gradient(to top left, #000011, #000033 20%, #000033 80%, #000011);
 
+		border-color: #1164FF;
+		border-image: linear-gradient(to top right, #1164FF, #000011, #1164FF) 1/5px 5px/0 stretch;
+
 		@media print, (prefers-color-scheme: light) {
-			border-image-source: linear-gradient(to top right, #1164FF, #FFFFFF, #1164FF);
 			background-image: linear-gradient(to top left, #FFFFFF, #000033 20%, #000033 80%, #FFFFFF);
+			border-image-source: linear-gradient(to top right, #1164FF, #FFFFFF, #1164FF);
 		}
 	}
 
 	&.cation {
 		@extend %blockquote;
-
-		border-color: #FFFF33;
-		border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
 		background-color: #333300;
 		background-image: linear-gradient(to top left, #000011, #333300 20%, #333300 80%, #000011);
 
+		border-color: #FFFF33;
+		border-image: linear-gradient(to top right, #FFFF33, #000011, #FFFF33) 1/5px 5px/0 stretch;
+
 		@media print, (prefers-color-scheme: light) {
-			border-image-source: linear-gradient(to top right, #FFFF33, #FFFFFF, #FFFF33);
 			background-image: linear-gradient(to top left, #FFFFFF, #333300 20%, #333300 80%, #FFFFFF);
+			border-image-source: linear-gradient(to top right, #FFFF33, #FFFFFF, #FFFF33);
 		}
 	}
 
 	&.danger {
 		@extend %blockquote;
-
-		border-color: #FF0F0F;
-		border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
 		background-color: #330000;
 		background-image: linear-gradient(to top left, #000011, #330000 20%, #330000 80%, #000011);
 
+		border-color: #FF0F0F;
+		border-image: linear-gradient(to top right, #FF0F0F, #000011, #FF0F0F) 1/5px 5px/0 stretch;
+
 		@media print, (prefers-color-scheme: light) {
-			border-image-source: linear-gradient(to top right, #FF0F0F, #FFFFFF, #FF0F0F);
 			background-image: linear-gradient(to top left, #FFFFFF, #330000 20%, #330000 80%, #FFFFFF);
+			border-image-source: linear-gradient(to top right, #FF0F0F, #FFFFFF, #FF0F0F);
 		}
 	}
 
 	&.deprecated {
 		@extend %blockquote;
+		background-color: #330000;
+		background-image: linear-gradient(to top left, #330000, #000033 20%, #000033 80%, #330000);
 
 		border-color: #1164FF;
 		border-image: linear-gradient(to top right, #1164FF, #FF0F0F, #1164FF) 1/5px 5px/0 stretch;
-		background-color: #330000;
-		background-image: linear-gradient(to top left, #330000, #000033 20%, #000033 80%, #330000);
 	}
 }
 
@@ -356,10 +356,10 @@ blockquote {
 	}
 
 	&-thumb {
-		transition: all 0.1s ease;
-		border-radius: 10px;
 		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+		border-radius: 10px;
 		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+		transition: all 0.1s ease;
 
 		@media (prefers-color-scheme: light) {
 			background-image: linear-gradient(to bottom right, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25));
@@ -424,22 +424,22 @@ blockquote {
 code, pre {
 	&[class*="language-"] {
 		margin: 10px 0;
-		tab-size: 4;
 		font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
 		line-height: 1.2;
+		tab-size: 4;
 		-webkit-overflow-scrolling: touch;
 
 		@include max-screen(xs) {
 			max-height: 80vh;
 		}
 
-		@media print {
-			// color: #000000;
-		}
-
 		&::-webkit-scrollbar {
 			width: 5px;
 			height: 5px;
+		}
+
+		@media print {
+			// color: #000000;
 		}
 	}
 }
@@ -484,15 +484,15 @@ pre {
 	position: fixed;
 	top: 0;
 	left: 0;
-	overflow-y: scroll;
 	box-sizing: border-box;
 	width: 240px;
 	min-width: 240px;
 	height: 100vh;
 	min-height: 100vh;
 	padding: 10px 0 2rem;
-	border-width: 0;
+	overflow-y: scroll;
 	border-style: solid;
+	border-width: 0;
 	border-right-width: 3px;
 	border-image: linear-gradient(to bottom, #000011, #1164FF) 1/0 3px 0 0/0 stretch;
 
@@ -501,24 +501,16 @@ pre {
 		width: 100%;
 		height: auto;
 		min-height: unset;
-		margin-bottom: 20px;
 		padding-left: 2px;
-		transition: all 0.5s ease-out;
+		margin-bottom: 20px;
 		border-bottom-width: 3px;
 		border-left-width: 3px;
 		border-image: linear-gradient(to bottom, #000011, #1164FF) 1/0 3px 5px/0 stretch;
+		transition: all 0.5s ease-out;
 
 		@media (prefers-color-scheme: light) {
 			border-image-source: linear-gradient(to bottom, #FFFFFF, #1164FF);
 		}
-	}
-
-	@media (prefers-color-scheme: light) {
-		border-image-source: linear-gradient(to bottom, #FFFFFF, #1164FF);
-	}
-
-	@media print {
-		display: none;
 	}
 
 	h2 {
@@ -552,31 +544,31 @@ pre {
 				align-items: center;
 				padding-top: 3px;
 				padding-left: $menu-margin;
-				animation: flashString 10s linear infinite;
-				border-width: 0;
 				border-style: solid;
+				border-width: 0;
 				border-top-width: 3px;
 				border-image: $gradation-pattern1 1/3px 0 0/0 stretch;
+				animation: flashString 10s linear infinite;
 
 				@include max-screen(md) {
 					padding-left: 0;
-				}
-
-				@media (prefers-color-scheme: light) {
-					animation-name: flashStringLight;
-					border-image-source: $gradation-pattern2;
 				}
 
 				a {
 					display: inline-flex;
 					align-items: center;
 					margin: auto 0;
-					animation: flashString 10s linear infinite;
 					line-height: 1em;
+					animation: flashString 10s linear infinite;
 
 					@media (prefers-color-scheme: light) {
 						animation-name: flashStringLight;
 					}
+				}
+
+				@media (prefers-color-scheme: light) {
+					border-image-source: $gradation-pattern2;
+					animation-name: flashStringLight;
 				}
 			}
 
@@ -615,11 +607,11 @@ pre {
 			}
 
 			ul {
-				margin-left: calc(1em + #{$menu-margin + 2px});
 				padding-right: 2px;
-				transition: all 0.5s ease-out;
+				margin-left: calc(1em + #{$menu-margin + 2px});
 				// animation: openList 0.2s linear all;
 				text-indent: -1em;
+				transition: all 0.5s ease-out;
 
 				@include max-screen(md) {
 					margin-left: calc(1em + 2px);
@@ -630,8 +622,8 @@ pre {
 					transition: all 0.5s ease-out;
 
 					&:before {
-						content: "├";
 						padding-right: 2px;
+						content: "├";
 						transition: all 0.5s ease-out;
 						animation: flashString 10s linear infinite;
 
@@ -648,7 +640,7 @@ pre {
 				}// End of li
 			}// End of ul
 		}// End of li
-	}// End of ul
+	}
 
 	&::-webkit-scrollbar {
 		width: 5px;
@@ -660,8 +652,8 @@ pre {
 		}
 
 		&-track {
-			border-radius: 10px;
 			background-image: linear-gradient(to bottom, #000011, #1164FF);
+			border-radius: 10px;
 
 			@media (prefers-color-scheme: light) {
 				background-image: linear-gradient(to bottom, #FFFFFF, #1164FF);
@@ -669,11 +661,19 @@ pre {
 		}
 
 		&-thumb {
-			border-radius: 10px;
 			background-image: linear-gradient(to bottom right, #CCCCCC, #888888);
+			border-radius: 10px;
 			// box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
 		}
 	}
+
+	@media (prefers-color-scheme: light) {
+		border-image-source: linear-gradient(to bottom, #FFFFFF, #1164FF);
+	}
+
+	@media print {
+		display: none;
+	}// End of ul
 }
 
 .nav-button {
@@ -687,29 +687,29 @@ pre {
 	button {
 		width: 100px;
 		height: 24px;
-		cursor: pointer;
 		font-size: 0.85rem;
 		color: #FFFFFF;
+		cursor: pointer;
+		background-color: #1164FF;
 		border: none;
 		border-radius: 5px;
-		background-color: #1164FF;
 	}
 }
 
 .expand-box {
 	$box-size: 20px;
 	$font-size: 0.85rem;
+	box-sizing: border-box;
 
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	box-sizing: border-box;
+	justify-content: center;
 	width: $box-size;
 	height: $box-size;
 	margin: auto 5px auto 0;
-	cursor: pointer;
 	font-size: $font-size;
 	line-height: $font-size;
+	cursor: pointer;
 	border: 1px #FFFFFF solid;
 
 	@media print, (prefers-color-scheme: light) {
@@ -724,22 +724,14 @@ pre {
 
 header {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 	margin-top: 1rem;
 	margin-bottom: 0.35rem;
-	border-width: 0;
 	border-style: solid;
+	border-width: 0;
 	border-bottom-width: 5px;
 	border-image: $gradation-pattern1 1/0 0 5px/0 stretch;
-
-	@media print, (prefers-color-scheme: light) {
-		border-image-source: $gradation-pattern2;
-	}
-
-	@media print {
-		margin-top: 0;
-	}
 
 	h1 {
 		padding-left: 2.5rem;
@@ -758,16 +750,24 @@ header {
 
 		@include max-screen(md) {
 			display: inline-flex;
-			justify-content: center;
 			align-items: center;
+			justify-content: center;
 			width: 160px;
 			height: 32px;
 			margin: 0 5px 5px;
-			cursor: pointer;
 			font-size: 1.25rem;
-			border-radius: 5px;
+			cursor: pointer;
 			background-color: #1164FF;
+			border-radius: 5px;
 		}
+	}
+
+	@media print, (prefers-color-scheme: light) {
+		border-image-source: $gradation-pattern2;
+	}
+
+	@media print {
+		margin-top: 0;
 	}
 }
 
@@ -789,8 +789,8 @@ section {
 
 	&:not(:first-child) {
 		padding-top: 5px;
-		border-width: 0;
 		border-style: solid;
+		border-width: 0;
 		border-top-width: 2px;
 		border-image: $gradation-pattern1 1/2px 0 0/0 stretch;
 
@@ -814,9 +814,9 @@ section {
 	}
 
 	h3 {
+		padding-left: 5px;
 		margin-top: 5px;
 		margin-left: 5px;
-		padding-left: 5px;
 		border-left: 10px solid #1164FF;
 
 		// -webkit-box-reflect: below -10px -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.6));
@@ -903,23 +903,19 @@ section {
 
 .layout-footer {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	margin-top: 0.35rem;
+	justify-content: space-between;
 	padding-top: 0.35rem;
 	padding-bottom: 0.35rem;
-	border-width: 0;
+	margin-top: 0.35rem;
 	border-style: solid;
+	border-width: 0;
 	border-top-width: 5px;
 	border-bottom-width: 20px;
 	border-image: $gradation-pattern1 1/5px 0 20px/0 stretch;
 
 	@include max-screen(sm) {
 		flex-direction: column-reverse;
-	}
-
-	@media print, (prefers-color-scheme: light) {
-		border-image-source: $gradation-pattern2;
 	}
 
 	p {
@@ -931,17 +927,17 @@ section {
 		&:first-child {
 			a {
 				padding: 0 0 0 0.5rem;
-				animation: flashString 10s linear infinite;
-				text-decoration: line-through;
 				color: unset;
+				text-decoration: line-through;
+				animation: flashString 10s linear infinite;
 
 				@media (prefers-color-scheme: light) {
 					animation-name: flashStringLight;
 				}
 
 				@media print {
-					animation: unset;
 					color: #000000;
+					animation: unset;
 				}
 			}
 
@@ -963,6 +959,10 @@ section {
 				white-space: normal;
 			}
 		}
+	}
+
+	@media print, (prefers-color-scheme: light) {
+		border-image-source: $gradation-pattern2;
 	}
 }
 

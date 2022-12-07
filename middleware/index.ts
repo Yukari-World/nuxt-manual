@@ -37,6 +37,12 @@ async function middleIndex(context: Context): Promise<void> {
 				console.log('Request canceled', error);
 			} else {
 				console.error('Axios Error: ' + error);
+				if (error.response) {
+					// The client was given an error response (5xx, 4xx)
+					console.log(error.response.data);
+					console.log(error.response.status);
+					console.log(error.response.headers);
+				}
 			}
 		});
 

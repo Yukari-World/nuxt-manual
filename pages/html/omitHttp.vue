@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category-html.page-omit-http
 	v-alert(type='error', border='left', colored-border, dense, elevation='5')
 		h2(v-t="'common.stub.deprecated.title'")
 		p(v-t="'common.stub.deprecated.desc'")
@@ -44,16 +44,19 @@ export default Vue.extend({
 			},
 		};
 	},
+
 	head(): object {
 		return {
 			title: this.header.title,
 		};
 	},
+
 	mounted() {
 		highlightAll();
 		// plugins.fileHighlight.highlight();
 		this.updateHeader();
 	},
+
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
