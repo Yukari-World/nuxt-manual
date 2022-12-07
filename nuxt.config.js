@@ -11,7 +11,7 @@ export default {
 	target: 'static',
 
 	env: {
-		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
+		baseUrl: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.app/',
 	},
 
 	/*
@@ -99,7 +99,7 @@ export default {
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
-		// baseURL: '/',
+		baseURL: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.app/',
 		retry: { retries: 5 },
 		// debug: true,
 	},
@@ -135,7 +135,7 @@ export default {
 			priority: 1,
 			lastmod: new Date(),
 		},
-		hostname: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
+		hostname: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.app/',
 		i18n: true,
 		path: '/sitemap.xml',
 	},
@@ -298,12 +298,12 @@ export default {
 			default_locale: 'ja',
 			description: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ',
 			display: 'standalone',
-			homepage_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
+			homepage_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.app/',
 			lang: 'ja',
 			manifest_version: 2,
 			name: 'Nuxt Technical Manual',
 			short_name: 'Nuxt Manual',
-			start_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.com/',
+			start_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.app/',
 			theme_color: '#000011',
 			version: '1.0.0.0',
 		},
