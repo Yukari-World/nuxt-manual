@@ -13,7 +13,7 @@
 			| 各ページのコードのハイライトには
 			a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
 			| が使用されています。
-		v-alert(type='info', border='left', colored-border, dense, elevation='5')
+		v-alert(type='info', colored-border, dense, elevation='5')
 			//- h2 注意事項
 			p
 				| このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。
@@ -80,9 +80,9 @@
 				}
 			}
 
-		h3 CodeMirror
-		client-only(placeholder='Codemirror Loading...')
-			codemirror(ref='cmEditor', :options='cmOptions', :value='code')
+		//- h3 CodeMirror
+		//- client-only(placeholder='Codemirror Loading...')
+		//- 	codemirror(ref='cmEditor', :options='cmOptions', :value='code')
 
 	section
 		h2 マニュアル作成について
@@ -245,14 +245,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { mapState } from 'vuex';
+// import Vue from 'vue';
+// import { mapState } from 'vuex';
 import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-pug';
 import 'prismjs/components/prism-scss';
 
-export default Vue.extend({
+export default {
 	data() {
 		return {
 			header: {
@@ -284,6 +284,7 @@ export default Vue.extend({
 				theme: 'tomorrow-night-eighties',
 			},
 			count: 0,
+			randomWords: [],
 		};
 	},
 
@@ -295,9 +296,9 @@ export default Vue.extend({
 
 	computed: {
 		// storeからのデータ読み込み
-		...mapState({
-			randomWords: (state: any) => state.randomWords,
-		}),
+		// ...mapState({
+		// 	randomWords: (state: any) => state.randomWords,
+		// }),
 	},
 
 	mounted() {
@@ -311,10 +312,10 @@ export default Vue.extend({
 	methods: {
 		updateHeader() {
 			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
+			// this.$nuxt.$emit('update-header', this.header.title);
 		},
 	},
-});
+};
 </script>
 
 <style lang="scss">

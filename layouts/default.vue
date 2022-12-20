@@ -3,61 +3,50 @@ v-app#inspire
 	//- サイドバー
 	//- 内部処理はサイドバーコンポーネント参照
 	v-navigation-drawer(v-model='drawer', app)
-		SideList
+		CommonSidebar
 
 	//- ページヘッダー
 	v-app-bar(app)
 		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
-		HeaderVue(:title='title')
-		v-spacer
+		CommonHeader(:title='title')
+		//- v-spacer
 
-		v-btn(icon, aria-label='Search')
-			v-icon mdi-magnify
+		//- v-btn(icon, aria-label='Search')
+		//- 	v-icon mdi-magnify
 
-		v-menu(bottom, left, offset-y, transition='slide-y-transition')
-			template(v-slot:activator='{ on }')
-				v-btn(icon, aria-label='Menu', v-on='on')
-					v-icon mdi-dots-vertical
-			v-list
-				v-list-item(v-for='(temp, index) in headMenu', active-class='light-blue--text', link, nuxt, :to='temp.link', :key='index')
-					v-list-item-icon
-						v-icon {{ temp.icon }}
-					v-list-item-content
-						v-list-item-title(v-t='temp.title')
+		//- v-menu(bottom, left, offset-y, transition='slide-y-transition')
+		//- 	template(v-slot:activator='{ on }')
+		//- 		v-btn(icon, aria-label='Menu', v-on='on')
+		//- 			v-icon mdi-dots-vertical
+		//- 	v-list
+		//- 		v-list-item(v-for='(temp, index) in headMenu', active-class='light-blue--text', link, nuxt, :to='temp.link', :key='index')
+		//- 			v-list-item-icon
+		//- 				v-icon {{ temp.icon }}
+		//- 			v-list-item-content
+		//- 				v-list-item-title(v-t='temp.title')
 
-		v-menu(bottom, left, offset-y, transition='slide-y-transition')
-			template(v-slot:activator='{ on }')
-				v-btn(icon, aria-label='Translate', v-on='on')
-					v-icon mdi-translate
-			v-list
-				v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', link, nuxt, :to='switchLocalePath(locale.code)', :key='locale.code')
-					v-list-item-content
-						v-list-item-title {{ locale.name }}
+		//- v-menu(bottom, left, offset-y, transition='slide-y-transition')
+		//- 	template(v-slot:activator='{ on }')
+		//- 		v-btn(icon, aria-label='Translate', v-on='on')
+		//- 			v-icon mdi-translate
+		//- 	v-list
+		//- 		v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', link, nuxt, :to='switchLocalePath(locale.code)', :key='locale.code')
+		//- 			v-list-item-content
+		//- 				v-list-item-title {{ locale.name }}
 
 	//- ページコンテンツ
 	v-main
 		v-container(fluid)
-			router-view
-				nuxt
-		FooterVue
+			//- router-view
+			slot
+		CommonFooter
 
-		v-btn(color='red', fab, fixed, bottom, right, aria-label='Page Top', @click="$vuetify.goTo('#inspire', {duration: 500, offset: 0, easing: 'easeOutCubic'})")
-			v-icon mdi-chevron-up
+		//- v-btn(color='red', fab, fixed, bottom, right, aria-label='Page Top', @click="$vuetify.goTo('#inspire', {duration: 500, offset: 0, easing: 'easeOutCubic'})")
+		//- 	v-icon mdi-chevron-up
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import HeaderVue from '@/components/_Header.vue';
-import FooterVue from '@/components/_Footer.vue';
-import SideList from '@/components/_SideList.vue';
-
-export default Vue.extend({
-	components: {
-		HeaderVue,
-		FooterVue,
-		SideList,
-	},
-
+export default {
 	data() {
 		return {
 			drawer: true,
@@ -71,14 +60,14 @@ export default Vue.extend({
 	},
 
 	computed: {
-		availableLocales() {
-			return this.$i18n.locales;
-		},
+		// availableLocales() {
+		// 	return this.$i18n.locales;
+		// },
 	},
 
 	beforeCreate() {
-		this.$store.dispatch('fetchRandomWords');
-		this.$store.dispatch('fetchList');
+		// this.$store.dispatch('fetchRandomWords');
+		// this.$store.dispatch('fetchList');
 	},
 
 	created() {
@@ -96,7 +85,7 @@ export default Vue.extend({
 		 */
 		setListener(): void {
 			// emitで発火させたイベント名にする
-			this.$nuxt.$on('update-header', this.setHeader);
+			// this.$nuxt.$on('update-header', this.setHeader);
 		},
 
 		/**
@@ -111,7 +100,7 @@ export default Vue.extend({
 			this.title = title || '';
 		},
 	},
-});
+};
 </script>
 
 <style lang="scss">
