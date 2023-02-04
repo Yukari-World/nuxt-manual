@@ -244,14 +244,16 @@
 			| はい。
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 // import Vue from 'vue';
 // import { mapState } from 'vuex';
 import { highlightAll } from 'prismjs';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-pug';
 import 'prismjs/components/prism-scss';
+</script>
 
+<script lang="ts">
 export default {
 	data() {
 		return {

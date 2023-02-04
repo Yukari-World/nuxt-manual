@@ -1,4 +1,16 @@
 export default defineNuxtConfig({
+	app: {
+		head: {
+			meta: [
+				{ charset: 'utf-8' },
+				{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
+				{ hid: 'theme-color', name: 'theme-color', content: '#000011' },
+				{ hid: 'color-scheme', name: 'color-scheme', content: 'dark light' },
+				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+			],
+		},
+	},
+
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: [
 		// 'codemirror/lib/codemirror.css',
@@ -22,8 +34,8 @@ export default defineNuxtConfig({
 		langDir: 'locales/',
 		lazy: true,
 		locales: [
-			{ code: 'en-US', iso: 'en-US', name: 'English', files: [ 'en.yml', 'en-US.yml' ] },
-			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.yml', 'ja-JP.yml' ] },
+			{ code: 'en-US', iso: 'en-US', name: 'English', files: [ 'en.yaml', 'en-US.yaml' ] },
+			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.yaml', 'ja-JP.yaml' ] },
 		],
 		vueI18n: {
 			legacy: false,

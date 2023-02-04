@@ -9,30 +9,28 @@ v-app#inspire
 	v-app-bar(app)
 		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
 		CommonHeader(:title='title')
-		//- v-spacer
+		v-spacer
 
-		//- v-btn(icon, aria-label='Search')
-		//- 	v-icon mdi-magnify
+		v-btn(icon, aria-label='Search')
+			v-icon mdi-magnify
 
-		//- v-menu(bottom, left, offset-y, transition='slide-y-transition')
-		//- 	template(v-slot:activator='{ on }')
-		//- 		v-btn(icon, aria-label='Menu', v-on='on')
-		//- 			v-icon mdi-dots-vertical
-		//- 	v-list
-		//- 		v-list-item(v-for='(temp, index) in headMenu', active-class='light-blue--text', link, nuxt, :to='temp.link', :key='index')
-		//- 			v-list-item-icon
-		//- 				v-icon {{ temp.icon }}
-		//- 			v-list-item-content
-		//- 				v-list-item-title(v-t='temp.title')
+		v-menu(location='bottom left', transition='slide-y-transition')
+			template(v-slot:activator='{ props }')
+				v-btn(icon, aria-label='Menu', v-on='props')
+					v-icon mdi-dots-vertical
+			v-list
+				v-list-item(v-for='(temp, index) in headMenu', active-class='light-blue--text', link, nuxt, :to='temp.link', :key='index')
+					v-icon {{ temp.icon }}
+					//- v-list-item-title(v-text="$t(temp.title)")
+					v-list-item-title {{ $t(temp.title) }}
 
-		//- v-menu(bottom, left, offset-y, transition='slide-y-transition')
-		//- 	template(v-slot:activator='{ on }')
-		//- 		v-btn(icon, aria-label='Translate', v-on='on')
-		//- 			v-icon mdi-translate
-		//- 	v-list
-		//- 		v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', link, nuxt, :to='switchLocalePath(locale.code)', :key='locale.code')
-		//- 			v-list-item-content
-		//- 				v-list-item-title {{ locale.name }}
+		v-menu(location='bottom left', transition='slide-y-transition')
+			template(v-slot:activator='{ props }')
+				v-btn(icon, aria-label='Translate', v-on='props')
+					v-icon mdi-translate
+			v-list
+				v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', link, nuxt, :to='useSwitchLocalePath(locale.code)', :key='locale.code')
+					v-list-item-title {{ locale.name }}
 
 	//- ページコンテンツ
 	v-main
@@ -44,6 +42,15 @@ v-app#inspire
 		//- v-btn(color='red', fab, fixed, bottom, right, aria-label='Page Top', @click="$vuetify.goTo('#inspire', {duration: 500, offset: 0, easing: 'easeOutCubic'})")
 		//- 	v-icon mdi-chevron-up
 </template>
+
+<script setup lang="ts">
+const { locale, locales } = useI18n();
+// const switchLocalePath = useSwitchLocalePath();
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const availableLocales = computed(() => {
+	return locales.value.filter((i: { code: string; }) => i.code !== locale.value);
+});
+</script>
 
 <script lang="ts">
 export default {
@@ -116,7 +123,7 @@ section {
 }
 
 .no-speak {
-	speak: none;
+	speak-as: none;
 }
 
 .code-toolbar {

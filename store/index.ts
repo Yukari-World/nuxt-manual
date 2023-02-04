@@ -54,6 +54,9 @@ export const useIndexStore = defineStore('index', {
 		};
 	},
 
+	// ----------------------------------------------------------------------------------------------------
+	// Getter
+
 	getters: {
 		/**
 		 * XorShiftの乱数シードの取得
@@ -65,4 +68,9 @@ export const useIndexStore = defineStore('index', {
 			return state.XorSeed;
 		},
 	},
+
+	// ----------------------------------------------------------------------------------------------------
+	// Action
+
+	actions: {},
 });
