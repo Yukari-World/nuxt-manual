@@ -20,9 +20,10 @@ export default defineNuxtConfig({
 	i18n: {
 		defaultLocale: 'ja-JP',
 		langDir: 'locales/',
+		lazy: true,
 		locales: [
-			{ code: 'en-US', iso: 'en-US', name: 'English', file: 'en-US.js' },
-			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', file: 'ja-JP.js' },
+			{ code: 'en-US', iso: 'en-US', name: 'English', files: [ 'en.yml', 'en-US.yml' ] },
+			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.yml', 'ja-JP.yml' ] },
 		],
 		vueI18n: {
 			legacy: false,

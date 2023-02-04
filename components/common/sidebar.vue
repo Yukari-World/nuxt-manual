@@ -4,10 +4,10 @@ nav#menu.sidebar
 
 	p.text-center {{ now }}
 
-	//- .d-flex.justify-space-around
-	//- 	v-btn#expandAll(color='secondary', small, v-t="'sidebar.expand'")
-	//- 	v-btn#collapseAll(color='secondary', small, v-t="'sidebar.compress'")
-	//- v-switch(v-model='threeLine' class='ma-2' :label='$t("sidebar.show_description")')
+	.d-flex.justify-space-around
+		v-btn#expandAll(color='secondary', small) {{ $t('sidebar.expand') }}
+		v-btn#collapseAll(color='secondary', small) {{ $t('sidebar.compress') }}
+	v-switch(v-model='threeLine' class='ma-2' :label="$t('sidebar.showDescription')")
 
 	//- template(v-if='loading')
 	//- 	- for (var i = 0; i < 15; i++)
