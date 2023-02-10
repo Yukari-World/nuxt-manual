@@ -16,20 +16,21 @@ v-app#inspire
 
 		v-menu(location='bottom left', transition='slide-y-transition')
 			template(v-slot:activator='{ props }')
-				v-btn(icon, aria-label='Menu', v-on='props')
+				v-btn(icon, aria-label='Menu', v-bind='props')
 					v-icon mdi-dots-vertical
 			v-list
 				v-list-item(v-for='(temp, index) in headMenu', active-class='light-blue--text', link, nuxt, :to='temp.link', :key='index')
-					v-icon {{ temp.icon }}
+					template(v-slot:prepend)
+						v-icon {{ temp.icon }}
 					//- v-list-item-title(v-text="$t(temp.title)")
 					v-list-item-title {{ $t(temp.title) }}
 
 		v-menu(location='bottom left', transition='slide-y-transition')
 			template(v-slot:activator='{ props }')
-				v-btn(icon, aria-label='Translate', v-on='props')
+				v-btn(icon, aria-label='Translate', v-bind='props')
 					v-icon mdi-translate
 			v-list
-				v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', link, nuxt, :to='useSwitchLocalePath(locale.code)', :key='locale.code')
+				v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', @click.prevent.stop='useSwitchLocalePath(locale.code)', :key='locale.code')
 					v-list-item-title {{ locale.name }}
 
 	//- ページコンテンツ
@@ -44,6 +45,16 @@ v-app#inspire
 </template>
 
 <script setup lang="ts">
+import { useIndexStore } from '../store/index';
+
+const indexStore = useIndexStore();
+
+async function products() {
+	await indexStore.fetchMenuList();
+}
+
+await products();
+
 const { locale, locales } = useI18n();
 // const switchLocalePath = useSwitchLocalePath();
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
