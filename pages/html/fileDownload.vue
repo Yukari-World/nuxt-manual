@@ -28,37 +28,34 @@
 			a(href='https://chaika.hatenablog.com/entry/2016/03/25/073203', target='_blank', rel='external noopener') HTML5 ファイルをダウンロードさせるリンクを作りたい。 - かもメモ
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
-import 'prismjs/components/prism-markup';
+import { useIndexStore } from '@/store/index';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'ファイルダウンロード',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	mounted() {
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
+const header = reactive({ title: 'ファイルダウンロード' });
+const indexStore = useIndexStore();
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

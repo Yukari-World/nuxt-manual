@@ -13,84 +13,69 @@ nav#menu.sidebar
 	//- アイコンは https://materialdesignicons.com/ を参照
 	v-list#navMenu(dense, expand, nav, subheader, :three-line='threeLine')
 		v-list-subheader(v-t="'sidebar.contents'")
-		v-list-group(active-class='light-blue--text', v-for='(listIndex, index) in indexStore.getMenuList', :value='$t(listIndex.category)', :key='index', :id='listIndex.category', :prepend-icon='listIndex.icon')
+		v-list-group(v-for="(listIndex, index) in indexStore.getMenuList", active-class='text-light-blue', :id='listIndex.category', :value='$t(listIndex.category)', :prepend-icon='listIndex.icon', :key='index')
 			template(v-slot:activator="{ props }")
 				v-list-item(v-bind='props')
 					v-list-item-title {{ $t(listIndex.category) }}
 					v-list-item-subtitle(v-if='threeLine' v-text='listIndex.description')
 			//- サブカテゴリ。templateに含ますことで不要な要素を作成させない
-			template(v-for='(subIndex, i) in listIndex.subCategory')
+			template(v-for="(subIndex, i) in listIndex.subCategory")
 				//- リスト行
-				template(v-for='(lists, j) in subIndex.list', link)
+				template(v-for="(lists, j) in subIndex.list")
 					//- リンクは v-list-item が持つ
 					//- サブカテゴリは1000足してキーの重複を回避する
 					//- サブカテゴリ毎に表示方法を変える
-					v-list-item(v-if='subIndex.name !== "Default"', active-class='light-blue--text', nuxt, :to="listIndex.baseURL + '/' + subIndex.url + lists.link", :title='lists.title', :key='i * 1000 + j')
-						template(v-if='lists.workInProgress === true', v-slot:appendIcon)
-							v-icon mdi-border-color
-						v-list-item-title(v-text='"[" + $t(subIndex.name) + "] " + lists.title')
-					v-list-item(v-else, active-class='light-blue--text', nuxt, :to="listIndex.baseURL + lists.link", :title='lists.title', :key='i * 1000 + j')
-						template(v-if='lists.workInProgress === true', v-slot:appendIcon)
-							v-icon mdi-border-color
-						v-list-item-title(v-text='lists.title')
+					template(v-if="subIndex.name !== 'Default'")
+						v-list-item(active-class='text-light-blue', link, nuxt, :to="listIndex.baseURL + '/' + subIndex.url + lists.link", :key='i * 1000 + j')
+							template(v-if="lists.workInProgress === true", v-slot:appendIcon)
+								v-icon mdi-border-color
+							v-list-item-title(v-text="'[' + $t(subIndex.name) + '] ' + lists.title")
+					template(v-else)
+						v-list-item(active-class='text-light-blue', link, nuxt, :to="listIndex.baseURL + lists.link", :key='i * 1000 + j')
+							template(v-if="lists.workInProgress === true", v-slot:appendIcon)
+								v-icon mdi-border-color
+							v-list-item-title(v-text='lists.title')
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs';
+import 'dayjs/locale/ja';
+import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 import { useIndexStore } from '@/store/index';
 
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
 const indexStore = useIndexStore();
+const threeLine = ref(false);
+const now = ref('');
 
-async function products() {
-	await indexStore.fetchMenuList();
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	dayjs.extend(LocalizedFormat);
+	dayjs.locale('ja');
+	roopEvent();
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Function List
+
+/**
+ * ループイベントの呼び出し
+ * @returns {void}
+ */
+function roopEvent(): void {
+	now.value = dayjs().format('L LTS');
+	requestAnimationFrame(roopEvent);
 }
-
-await products();
-
 </script>
 
 <script lang="ts">
-// import Vue from 'vue';
-// import { mapState } from 'vuex';
-
-export default {
-	name: 'CommonSidebar',
-
-	data() {
-		return {
-			loading: true,
-			now: '',
-			threeLine: false,
-			listActive: {},
-			categoryList: [],
-		};
-	},
-
-	computed: {
-		// storeからのデータ読み込み
-		// ...mapState({
-		// 	categoryList: (state: any) => state.menus.categoryList,
-		// }),
-	},
-
-	mounted() {
-		// this.loading = false;
-		// this.now = this.$dayjs().format('L LTS');
-
-		// // ループイベント呼び出し
-		// requestAnimationFrame(this.roopEvent);
-	},
-
-	methods: {
-		// /**
-		//  * ループイベントの呼び出し
-		//  * @returns {void}
-		//  */
-		// roopEvent(): void {
-		// 	this.now = this.$dayjs().format('L LTS');
-		// 	requestAnimationFrame(this.roopEvent);
-		// },
-	},
-};
 </script>
 
 <style lang="scss">

@@ -1,16 +1,21 @@
 <template lang="pug">
-v-toolbar-title {{ title }}
+v-toolbar-title {{ headerTitle }}
 </template>
 
-<script lang="ts">
-export default {
-	name: 'CommonHeader',
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-	props: {
-		title: {
-			type: String,
-			default: 'Now Loading...',
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Computed
+
+const headerTitle = computed(function() {
+	return indexStore.getTitle;
+});
 </script>

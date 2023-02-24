@@ -28,37 +28,36 @@
 			a(href='https://xn--web-oi9du9bc8tgu2a.com/how-to-use-php-in-html-files/', target='_blank', rel='external noopener') htaccessに3行足すだけ！『.html』内でPHPを実行する方法！ | WEB改善事例集(GMOソリューションパートナー株式会社)
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-markup';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'HTMLファイル内でPHPを動かす',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	mounted() {
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
+const header = reactive({ title: 'HTMLファイル内でPHPを動かす' });
+const indexStore = useIndexStore();
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+
+<script lang="ts">
 </script>

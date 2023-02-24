@@ -1,6 +1,7 @@
 <template lang="pug">
-v-app
+v-app#inspire
 	NuxtLayout
+		NuxtLoadingIndicator
 		NuxtPage
 </template>
 

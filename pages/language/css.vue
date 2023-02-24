@@ -1,17 +1,10 @@
 <template lang="pug">
-.category-sql.page-delete-flag
+.category-language.page-index
 	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section
 		h2 説明
-		p データベースのデータを削除する時、古いデータを保持しておきたい時、役に立つのが削除フラグである。削除フラグを使用しない(データの削除)場合、そのデータを利用していたデータベースリンクが消失してしまうが、削除フラグを使用する場合、データは残っているのでリンクは保持することができる。
-
-	section
-
-	section
-		h2 使用上の注意
-		ul
-			li 生成と削除を多く繰り返すデータベースの場合、この方法はあまり推奨されない。データベースに古いデータが残り続けるため、容量を圧迫するためである。
+		p 記述前
 </template>
 
 <script setup lang="ts">
@@ -22,7 +15,7 @@ import { useIndexStore } from '@/store/index';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '削除フラグ' });
+const header = reactive({ title: 'CSS' });
 const indexStore = useIndexStore();
 
 

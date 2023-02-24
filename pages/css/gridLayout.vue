@@ -1,38 +1,40 @@
 <template lang="pug">
 .category-css.page-grid-layout
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2(v-t="'common.stub.work_in_progress.title'")
-		p(v-t="'common.stub.work_in_progress.desc'")
+	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section
 		h2 説明
 		p 記述前
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'Grid Layout',
-			},
-		};
-	},
 
-	mounted() {
-		highlightAll();
-		// Prism.plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+const header = reactive({ title: 'Grid Layout' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

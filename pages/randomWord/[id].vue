@@ -1,28 +1,35 @@
 <template lang="pug">
 .ad
 	dt(:id='"wordID" + ($route.params.id)')
-		h3(v-html='randomWords[$route.params.id - 1].title')
-		h4 出典: {{ randomWords[$route.params.id - 1].original }}
+		h3(v-html='wordList[Number($route.params.id) - 1].title')
+		h4 出典: {{ wordList[Number($route.params.id) - 1].original }}
 	dd
-		div(v-html='randomWords[$route.params.id - 1].summary')
+		div(v-html='wordList[Number($route.params.id) - 1].summary')
 		.boxTag
 			ul.tagList
 				//- <a data-tag="' + searchTag + '">' + searchTag + '</a>
 				//- コンテンツタグの出力
-				li(v-for='(tag) in randomWords[$route.params.id - 1].tags')
+				li(v-for='(tag) in wordList[Number($route.params.id) - 1].tags')
 					a(:data-tag='tag') {{ $t(tag) }}
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import { mapState } from 'vuex';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default Vue.extend({
-	computed: {
-		// storeからのデータ読み込み
-		...mapState({
-			randomWords: (state: any) => state.randomWords,
-		}),
-	},
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Computed
+
+const wordList = computed(function() {
+	return indexStore.getRandomWords;
 });
+</script>
+
+<script lang="ts">
 </script>

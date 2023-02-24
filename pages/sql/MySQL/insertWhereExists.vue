@@ -60,37 +60,35 @@
 				| を使用する方法がある。SQL文が非常に短くなるメリットがあるが、こちらはエラーを出力しないのでこの方法は推奨しない。
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sql';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'INSERT WHERE EXISTS',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	mounted() {
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
+const header = reactive({ title: 'INSERT WHERE EXISTS' });
+const indexStore = useIndexStore();
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

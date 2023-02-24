@@ -1,5 +1,5 @@
 <template lang="pug">
-v-app#inspire
+div
 	//- サイドバー
 	//- 内部処理はサイドバーコンポーネント参照
 	v-navigation-drawer(v-model='drawer', app)
@@ -8,7 +8,7 @@ v-app#inspire
 	//- ページヘッダー
 	v-app-bar(app)
 		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
-		CommonHeader(:title='title')
+		CommonHeader
 		v-spacer
 
 		v-btn(icon, aria-label='Search')
@@ -19,7 +19,7 @@ v-app#inspire
 				v-btn(icon, aria-label='Menu', v-bind='props')
 					v-icon mdi-dots-vertical
 			v-list
-				v-list-item(v-for='(temp, index) in headMenu', active-class='light-blue--text', link, nuxt, :to='temp.link', :key='index')
+				v-list-item(v-for="(temp, index) in headMenu", active-class='text-light-blue', link, nuxt, :to='temp.link', :key='index')
 					template(v-slot:prepend)
 						v-icon {{ temp.icon }}
 					//- v-list-item-title(v-text="$t(temp.title)")
@@ -30,7 +30,7 @@ v-app#inspire
 				v-btn(icon, aria-label='Translate', v-bind='props')
 					v-icon mdi-translate
 			v-list
-				v-list-item(v-for='(locale, index) in availableLocales', active-class='light-blue--text', @click.prevent.stop='useSwitchLocalePath(locale.code)', :key='locale.code')
+				v-list-item(v-for="(locale, index) in availableLocales", active-class='text-light-blue', @click.prevent.stop='useSwitchLocalePath(locale.code)', :key='locale.code')
 					v-list-item-title {{ locale.name }}
 
 	//- ページコンテンツ
@@ -46,79 +46,46 @@ v-app#inspire
 
 <script setup lang="ts">
 import { useIndexStore } from '../store/index';
+import 'prismjs/plugins/toolbar/prism-toolbar';
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
+import 'prismjs/plugins/show-language/prism-show-language';
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
+import 'prismjs/plugins/line-highlight/prism-line-highlight';
 
-const indexStore = useIndexStore();
 
-async function products() {
-	await indexStore.fetchMenuList();
-}
-
-await products();
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
 const { locale, locales } = useI18n();
+const indexStore = useIndexStore();
 // const switchLocalePath = useSwitchLocalePath();
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const availableLocales = computed(() => {
+const drawer = ref(true);
+const headMenu = reactive([
+	{ title: 'header.title', icon: 'mdi-home', link: '/' },
+	{ title: 'header.log', icon: 'mdi-history', link: '/updateLog' },
+	{ title: 'header.login', icon: 'mdi-login', link: '/user/login' },
+]);
+
+
+// ----------------------------------------------------------------------------------------------------
+// Store Initialize
+
+async function storeInit() {
+	await indexStore.fetchMenuList();
+	await indexStore.fetchRandomWords();
+}
+await storeInit();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Computed
+
+const availableLocales = computed(function() {
 	return locales.value.filter((i: { code: string; }) => i.code !== locale.value);
 });
 </script>
 
 <script lang="ts">
-export default {
-	data() {
-		return {
-			drawer: true,
-			title: '',
-			headMenu: [
-				{ title: 'header.title', icon: 'mdi-home', link: '/' },
-				{ title: 'header.log', icon: 'mdi-history', link: '/updateLog' },
-				{ title: 'header.login', icon: 'mdi-login', link: '/user/login' },
-			],
-		};
-	},
-
-	computed: {
-		// availableLocales() {
-		// 	return this.$i18n.locales;
-		// },
-	},
-
-	beforeCreate() {
-		// this.$store.dispatch('fetchRandomWords');
-		// this.$store.dispatch('fetchList');
-	},
-
-	created() {
-		// this.$vuetify.theme.dark = true;
-		// this.$store.dispatch('fetchList');
-		// this.$store.dispatch('fetchRandomWords');
-		this.setListener();
-	},
-
-	methods: {
-		/**
-		 * イベントを作成する
-		 *
-		 * @returns {void}
-		 */
-		setListener(): void {
-			// emitで発火させたイベント名にする
-			// this.$nuxt.$on('update-header', this.setHeader);
-		},
-
-		/**
-		 * タイトルの表示内容の更新
-		 *
-		 * @param   {string}    title   ヘッダーに表示するタイトル
-		 * @returns {void}
-		 */
-		setHeader(title: string): void {
-			// 第1引数にはemitで渡した値が入ってくる。
-			// 第2引数以降を渡す場合も同様に、それ以降の引数で受け取れる
-			this.title = title || '';
-		},
-	},
-};
 </script>
 
 <style lang="scss">
@@ -176,64 +143,62 @@ section {
 // ----------------------------------------------------------------------------------------------------
 // Vuetify Overwrite
 .v-application {
-	.code-toolbar {
+	// ----------------------------------------------------------------------------------------------------
+	// Prism Overwrite
 
-		// ----------------------------------------------------------------------------------------------------
-		// Prism Overwrite
-		code, pre {
-			&[class*="language-"] {
-				margin: unset;
-				font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
-				line-height: 1.2;
-				tab-size: 4;
-				-webkit-overflow-scrolling: touch;
+	code, pre {
+		&[class*="language-"] {
+			margin: unset;
+			font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+			line-height: 1.2;
+			tab-size: 4;
+			-webkit-overflow-scrolling: touch;
 
-				&::-webkit-scrollbar {
-					width: 5px;
-					height: 5px;
+			&::-webkit-scrollbar {
+				width: 5px;
+				height: 5px;
+			}
+		}
+	}
+
+	pre {
+		max-height: 75vh;
+		overflow-y: scroll;
+
+		&[class*="language-"] {
+			>code {
+				$size: 2.286em;
+
+				display: block;
+				font-size: 14px;
+				font-weight: normal;
+				color: unset;
+				white-space: pre;
+				background-color: unset;
+				border-radius: unset;
+				box-shadow: unset;
+
+				@media (prefers-color-scheme: light) {
+					background-size: $size $size;
 				}
 			}
 		}
+	}
 
-		pre {
-			max-height: 75vh;
-			overflow-y: scroll;
-
-			&[class*="language-"] {
-				>code {
-					$size: 2.286em;
-
-					display: block;
-					font-size: 14px;
-					font-weight: normal;
-					color: unset;
-					white-space: pre;
-					background-color: unset;
-					border-radius: unset;
-					box-shadow: unset;
-
-					@media (prefers-color-scheme: light) {
-						background-size: $size $size;
-					}
-				}
-			}
+	// ----------------------------------------------------------------------------------------------------
+	// Vuetify Overwrite Fix
+	[class*="language-"] {
+		code {
+			padding: 0;
+			background-color: transparent;
 		}
 
-		// ----------------------------------------------------------------------------------------------------
-		// Vuetify Overwrite Fix
-		[class*="language-"] {
-			code {
-				padding: 0;
-				background-color: transparent;
-			}
-
-			.title {
-				font-family: inherit !important;
-				font-size: inherit !important;
-				font-weight: inherit;
-				line-height: inherit;
-				letter-spacing: 0 !important;
-			}
+		.title {
+			font-family: inherit !important;
+			font-size: inherit !important;
+			font-weight: inherit;
+			line-height: inherit;
+			letter-spacing: 0 !important;
 		}
 	}
 
