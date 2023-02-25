@@ -1,50 +1,9 @@
 {
-	"compilerOptions": {
-		"target": "ES2018",
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"lib": [
-			"ESNext",
-			"ESNext.AsyncIterable",
-			"DOM"
-		],
-		"esModuleInterop": true,
-		"allowJs": true,
-		"sourceMap": true,
-		"strict": true,
-		"noEmit": true,
-		"experimentalDecorators": true,
-		"baseUrl": ".",
-		"paths": {
-			"~/*": ["./*"],
-			"@/*": ["./*"],
-			"~~/*": ["./*"],
-			"@@/*": ["./*"]
-		},
-		"types": [
-			"@nuxtjs/axios",
-			"@nuxtjs/dayjs",
-			"@nuxt/types",
-			"@types/dedent",
-			"@types/jest",
-			"@types/js-yaml",
-			"@types/node",
-			"@types/prismjs",
-			"nuxt-i18n",
-			"vuetify"
-		],
-		"jsx": "preserve"
-	},
+	// https://v3.nuxtjs.org/concepts/typescript
+	"extends": "./.nuxt/tsconfig.json",
 	"vueCompilerOptions": {
-		"target": 2.7, // delete after migrating to vue3 (or nuxt3)
-		"experimentalTemplateCompilerOptions": {
-			"compatConfig": {
-				"MODE": 2
-			} // delete after migrating to vue3 (or nuxt3)
-		},
 		"plugins": [
 			"@volar/vue-language-plugin-pug"
 		]
-	},
-	"exclude": ["node_modules", ".nuxt", "dist"]
+	}
 }

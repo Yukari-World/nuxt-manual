@@ -44,39 +44,37 @@
 			a(href='https://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes', target='_blank', rel='external noopener') types - What is the size of column of int(11) in mysql in bytes? - Stack Overflow
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-sql';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'INT(11) の意味',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	mounted() {
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
+const header = reactive({ title: 'INT(11) の意味' });
+const indexStore = useIndexStore();
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

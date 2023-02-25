@@ -1,8 +1,6 @@
 <template lang="pug">
 .category-css.page-range-layout
-	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
-		h2(v-t="'common.stub.non_standard.title'")
-		p(v-t="'common.stub.non_standard.desc'")
+	v-alert(type='warning', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.nonStandard.title')", :text="$t('common.stub.nonStandard.desc')")
 
 	section
 		h2 説明
@@ -108,40 +106,38 @@
 			a(href='https://www.w3schools.com/howto/howto_js_rangeslider.asp', target='_blank', rel='external noopener') W3Schools (English)
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-markup';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'スライダーレイアウト',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	mounted() {
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
+const header = reactive({ title: 'スライダーレイアウト' });
+const indexStore = useIndexStore();
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>
 
 <style lang="scss">

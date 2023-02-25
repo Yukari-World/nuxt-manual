@@ -67,7 +67,7 @@ module.exports = {
 		'no-useless-rename': 'error',
 		'object-curly-spacing': [ 'warn', 'always' ],
 		'operator-linebreak': [ 'error', 'after' ],
-		'padded-blocks': [ 'error', 'never' ],
+		'padded-blocks': [ 'off', 'never' ],
 		'prefer-const': 'error',
 		'prefer-exponentiation-operator': 'error',
 		'prettier/prettier': 'off',
@@ -85,5 +85,7 @@ module.exports = {
 		'template-curly-spacing': [ 'warn', 'always' ],
 		'yield-star-spacing': [ 'error', 'before' ],
 		'vue/multi-word-component-names': 'off',
+		'@typescript-eslint/no-inferrable-types': 'off',
+		'@typescript-eslint/no-unused-vars': 'off',
 	},
 };
