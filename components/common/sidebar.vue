@@ -13,7 +13,7 @@ nav#menu.sidebar
 	//- アイコンは https://materialdesignicons.com/ を参照
 	v-list#navMenu(dense, expand, nav, subheader, :three-line='threeLine')
 		v-list-subheader(v-t="'sidebar.contents'")
-		v-list-group(v-for="(listIndex, index) in indexStore.getMenuList", active-class='text-light-blue', :id='listIndex.category', :value='$t(listIndex.category)', :prepend-icon='listIndex.icon', :key='index')
+		v-list-group(v-for="(listIndex, index) in menuList", active-class='text-light-blue', :id='listIndex.category', :value='$t(listIndex.category)', :prepend-icon='listIndex.icon', :key='index')
 			template(v-slot:activator="{ props }")
 				v-list-item(v-bind='props')
 					v-list-item-title {{ $t(listIndex.category) }}
@@ -26,12 +26,12 @@ nav#menu.sidebar
 					//- サブカテゴリは1000足してキーの重複を回避する
 					//- サブカテゴリ毎に表示方法を変える
 					template(v-if="subIndex.name !== 'Default'")
-						v-list-item(active-class='text-light-blue', link, nuxt, :to="listIndex.baseURL + '/' + subIndex.url + lists.link", :key='i * 1000 + j')
+						v-list-item(active-class='text-light-blue', nuxt, :to="listIndex.baseURL + '/' + subIndex.url + lists.link", :key='i * 1000 + j')
 							template(v-if="lists.workInProgress === true", v-slot:appendIcon)
 								v-icon mdi-border-color
 							v-list-item-title(v-text="'[' + $t(subIndex.name) + '] ' + lists.title")
 					template(v-else)
-						v-list-item(active-class='text-light-blue', link, nuxt, :to="listIndex.baseURL + lists.link", :key='i * 1000 + j')
+						v-list-item(active-class='text-light-blue', nuxt, :to="listIndex.baseURL + lists.link", :key='i * 1000 + j')
 							template(v-if="lists.workInProgress === true", v-slot:appendIcon)
 								v-icon mdi-border-color
 							v-list-item-title(v-text='lists.title')
@@ -50,6 +50,14 @@ import { useIndexStore } from '@/store/index';
 const indexStore = useIndexStore();
 const threeLine = ref(false);
 const now = ref('');
+
+
+// ----------------------------------------------------------------------------------------------------
+// Computed
+
+const menuList = computed(function() {
+	return indexStore.getMenuList;
+});
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -82,6 +90,7 @@ function roopEvent(): void {
 // ----------------------------------------------------------------------------------------------------
 // Vender Profile Initialize
 .v-navigation-drawer {
+
 	// Vender Profile Initialize
 	::-webkit-scrollbar {
 		width: 5px;

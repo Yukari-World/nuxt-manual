@@ -84,6 +84,7 @@ module.exports = {
 		'spaced-comment': [ 'error', 'always' ],
 		'template-curly-spacing': [ 'warn', 'always' ],
 		'yield-star-spacing': [ 'error', 'before' ],
+		'import/no-named-as-default-member': 'off',
 		'vue/multi-word-component-names': 'off',
 		'@typescript-eslint/no-inferrable-types': 'off',
 		'@typescript-eslint/no-unused-vars': 'off',

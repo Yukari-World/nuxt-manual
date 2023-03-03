@@ -43,6 +43,7 @@ export default defineNuxtConfig({
 			cookieKey: 'i18n_redirected',
 			redirectOn: 'root',
 			useCookie: true,
+			cookieSecure: true,
 		},
 		langDir: 'locales/',
 		lazy: true,
@@ -50,6 +51,7 @@ export default defineNuxtConfig({
 			{ code: 'en-US', iso: 'en-US', name: 'English', files: [ 'en.json', 'en-US.json' ] },
 			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.json', 'ja-JP.json' ] },
 		],
+		strategy: 'prefix_except_default',
 		vueI18n: {
 			availableLocales: [ 'en-US', 'ja-JP' ],
 			fallbackLocale: 'ja-JP',

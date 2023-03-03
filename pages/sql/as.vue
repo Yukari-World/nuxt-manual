@@ -18,7 +18,7 @@
 				a(href='https://mariadb.org/', target='_blank', rel='external noopener') MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
-			a(href='scp-sample.html#sqlSample') サンプルデータに移行。
+			nuxt-link(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
 
 		h3 使用方法
 		p 今回以下のSQL文から説明を行う
@@ -193,6 +193,7 @@ import 'prismjs/components/prism-sql';
 
 const header = reactive({ title: 'AS(別名)' });
 const indexStore = useIndexStore();
+const localePath = useLocalePath();
 
 
 // ----------------------------------------------------------------------------------------------------
