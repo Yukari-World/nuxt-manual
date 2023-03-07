@@ -1,9 +1,9 @@
 <template lang="pug">
 dl#randomOutput
 	template(v-if='$route.params.id !== undefined')
-		nuxt-child
+		NuxtPage
 	template(v-else)
-		template(v-for='(words, index) in randomWords')
+		template(v-for='(words, index) in wordList')
 			dt(:id='"wordID" + (index + 1)')
 				h3(v-html='words.title')
 				h4 出典: {{ words.original }}
@@ -17,46 +17,34 @@ dl#randomOutput
 							a(:data-tag='tag') {{ $t(tag) }}
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import { mapState } from 'vuex';
-import { highlightAll } from 'prismjs';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'ランダムワード集',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	computed: {
-		// storeからのデータ読み込み
-		...mapState({
-			randomWords: (state: any) => state.randomWords,
-		}),
-	},
+const header = reactive({ title: 'ランダムワード集' });
+const indexStore = useIndexStore();
 
-	mounted() {
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+// ----------------------------------------------------------------------------------------------------
+// Computed
+
+const wordList = computed(function() {
+	return indexStore.getRandomWords;
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+</script>
+
+<script lang="ts">
 </script>
 
 <style lang="scss">

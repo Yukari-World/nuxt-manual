@@ -1,8 +1,6 @@
 <template lang="pug">
 .category-sql.page-as
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2(v-t="'common.stub.work_in_progress.title'")
-		p(v-t="'common.stub.work_in_progress.desc'")
+	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section
 		h2 説明
@@ -20,7 +18,7 @@
 				a(href='https://mariadb.org/', target='_blank', rel='external noopener') MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
-			a(href='scp-sample.html#sqlSample') サンプルデータに移行。
+			nuxt-link(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
 
 		h3 使用方法
 		p 今回以下のSQL文から説明を行う
@@ -184,39 +182,38 @@
 			li 別名には日本語が使用することができる。しかし、それを使うのはMicrosoft Office Access位だろう。通常はプログラム側で表題をやカラム名を用意するのが好ましい
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sql';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'AS(別名)',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	mounted() {
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
+const header = reactive({ title: 'AS(別名)' });
+const indexStore = useIndexStore();
+const localePath = useLocalePath();
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>
 
 <style lang="scss">

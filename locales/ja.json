@@ -5,11 +5,11 @@
 				"title": "非推奨項目",
 				"desc": "このページの内容は非推奨です。テスト目的以外で利用することは避けてください。"
 			},
-			"non_standard": {
+			"nonStandard": {
 				"title": "非標準の機能",
 				"desc": "ここに記述されている内容はW3Cで標準化されていません。予告なく仕様変更、廃止される可能性があります。"
 			},
-			"work_in_progress": {
+			"workInProgress": {
 				"title": "書きかけのページ",
 				"desc": "このページの内容は書きかけです。不定期なタイミングで記述内容が追加、変更されることがあります。"
 			}
@@ -24,7 +24,7 @@
 		"compress": "全て折りたたむ",
 		"contents": "コンテンツ",
 		"expand": "全て展開",
-		"show_description": "概要表示"
+		"showDescription": "概要表示"
 	},
 	"menu": {
 		"main": {

@@ -13,7 +13,7 @@
 			| 各ページのコードのハイライトには
 			a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
 			| が使用されています。
-		v-alert(type='info', border='left', colored-border, dense, elevation='5')
+		v-alert(type='info', border='start', colored-border, dense, elevation='5')
 			//- h2 注意事項
 			p
 				| このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。
@@ -80,9 +80,9 @@
 				}
 			}
 
-		h3 CodeMirror
-		client-only(placeholder='Codemirror Loading...')
-			codemirror(ref='cmEditor', :options='cmOptions', :value='code')
+		//- h3 CodeMirror
+		//- client-only(placeholder='Codemirror Loading...')
+		//- 	codemirror(ref='cmEditor', :options='cmOptions', :value='code')
 
 	section
 		h2 マニュアル作成について
@@ -100,7 +100,7 @@
 			li
 				a(href='https://pugjs.org/', title='Pug: Getting Started', target='_blank', rel='external noopener') Pug(Jade)
 			li
-				a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
+				a(href='https://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
 		h3 画像
 		ul
 			li
@@ -144,11 +144,13 @@
 					li
 						a(href='https://gulpjs.com/', title='gulp.js', target='_blank', rel='external noopener') gulp.js
 					li
-						a(href='https://ja.nuxtjs.org/', title='Nuxt.js - ユニバーサル Vue.js アプリケーション', target='_blank', rel='external noopener') Nuxt.js
+						a(href='https://nuxt.com/', title='Nuxt: The Intuitive Web Framework', target='_blank', rel='external noopener') Nuxt.js
 					li
 						a(href='https://postcss.org/', title='PostCSS - a tool for transforming CSS with JavaScript', target='_blank', rel='external noopener') PostCSS
 					li
-						a(href='https://vuetifyjs.com/ja/', title='マテリアルデザインコンポーネントフレームワーク — Vuetify.js', target='_blank', rel='external noopener') Vuetify.js
+						a(href='https://stylelint.io/', title='Stylelint', target='_blank', rel='external noopener') Stylelint
+					li
+						a(href='https://vuetifyjs.com/en/', title='Vuetify — A Vue Component Framework', target='_blank', rel='external noopener') Vuetify.js
 					li
 						a(href='https://webpack.js.org/', title='webpack', target='_blank', rel='external noopener') webpack
 
@@ -244,77 +246,72 @@
 			| はい。
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import { mapState } from 'vuex';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-pug';
 import 'prismjs/components/prism-scss';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'Nuxt Manual',
-			},
-			code: 'import Vue from \'vue\';\n',
-			cmOptions: {
-				extraKeys: {
-					'F11'(cm: any) {
-						cm.setOption('fullScreen', !cm.getOption('fullScreen'));
-					},
-					'Esc'(cm: any) {
-						if (cm.getOption('fullScreen')) { cm.setOption('fullScreen', false); }
-					},
-				},
-				foldGutter: true,
-				gutters: [
-					'CodeMirror-foldgutter',
-					'CodeMirror-linenumbers',
-				],
-				indentUnit: 4,
-				indentWithTabs: true,
-				lineNumbers: true,
-				lineWrapping: true,
-				mode: 'text/javascript',
-				styleActiveLine: true,
-				styleSelectedText: true,
-				tabSize: 4,
-				theme: 'tomorrow-night-eighties',
-			},
-			count: 0,
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	computed: {
-		// storeからのデータ読み込み
-		...mapState({
-			randomWords: (state: any) => state.randomWords,
-		}),
-	},
-
-	mounted() {
-		this.count = this.randomWords.length;
-
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
-
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
+const header = reactive({ title: 'Nuxt Manual' });
+const indexStore = useIndexStore();
+const code = ref('import Vue from \'vue\';\n');
+const cmOptions = reactive({
+	extraKeys: {
+		'F11'(cm: any) {
+			cm.setOption('fullScreen', !cm.getOption('fullScreen'));
+		},
+		'Esc'(cm: any) {
+			if (cm.getOption('fullScreen')) { cm.setOption('fullScreen', false); }
 		},
 	},
+	foldGutter: true,
+	gutters: [
+		'CodeMirror-foldgutter',
+		'CodeMirror-linenumbers',
+	],
+	indentUnit: 4,
+	indentWithTabs: true,
+	lineNumbers: true,
+	lineWrapping: true,
+	mode: 'text/javascript',
+	styleActiveLine: true,
+	styleSelectedText: true,
+	tabSize: 4,
+	theme: 'tomorrow-night-eighties',
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Computed
+
+const count = computed(function() {
+	return indexStore.getRandomWords.length;
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>
 
 <style lang="scss">

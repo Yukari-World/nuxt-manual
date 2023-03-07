@@ -142,58 +142,57 @@
 			li アニメーション時間が長すぎるとストレスの要因にもなりうるため、長くても1秒程度には収めること。
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-markup';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'フェードイン',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	mounted() {
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
+const header = reactive({ title: 'フェードイン' });
+const indexStore = useIndexStore();
 
-		window.addEventListener(
-			'scroll',
-			function() {
-				const myFade = document.getElementsByClassName('yw-anim');
-				for (let i = 0; i < myFade.length; i++) {
-					const targetElement = myFade[i].getBoundingClientRect(); // ターゲット要素の高さ
-					const scroll = document.documentElement.scrollTop || document.body.scrollTop; // スクロール
-					const windowHeight = window.innerHeight; // ウィンドウの高さ
-					if (scroll > scroll + targetElement.top - windowHeight + 200) {
-						myFade[i].classList.add('yw-show');
-					}
-				}
-			},
-			false,
-		);
-	},
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+
+	window.addEventListener(
+		'scroll',
+		function() {
+			const myFade = document.getElementsByClassName('yw-anim');
+			for (let i = 0; i < myFade.length; i++) {
+				const targetElement = myFade[i].getBoundingClientRect(); // ターゲット要素の高さ
+				const scroll = document.documentElement.scrollTop || document.body.scrollTop; // スクロール
+				const windowHeight = window.innerHeight; // ウィンドウの高さ
+				if (scroll > scroll + targetElement.top - windowHeight + 200) {
+					myFade[i].classList.add('yw-show');
+				}
+			}
+		},
+		false,
+	);
+
+});
+</script>
+
+<script lang="ts">
 </script>
 
 <style lang="scss">

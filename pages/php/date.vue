@@ -72,62 +72,60 @@
 			a(href='http://php.net/manual/ja/function.date.php', target='_blank', rel='external noopener') PHP.net
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-php';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: '日付時間 date()',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	mounted() {
-		const date01 = document.getElementById('date01') as HTMLElement;
-		const date02 = document.getElementById('date02') as HTMLElement;
-		const date03 = document.getElementById('date03') as HTMLElement;
-		const date04 = document.getElementById('date04') as HTMLElement;
-		const date05 = document.getElementById('date05') as HTMLElement;
-		const date06 = document.getElementById('date06') as HTMLElement;
+const header = reactive({ title: '日付時間 date()' });
+const indexStore = useIndexStore();
 
-		const dToday = new Date();
-		const year = dToday.getFullYear();
-		const month = ('0' + (dToday.getMonth() + 1)).slice(-2);
-		const day = ('0' + dToday.getDate()).slice(-2);
-		const hour = ('0' + dToday.getHours()).slice(-2);
-		const minute = ('0' + dToday.getMinutes()).slice(-2);
-		const second = ('0' + dToday.getSeconds()).slice(-2);
 
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
+// ----------------------------------------------------------------------------------------------------
+// Header Data
 
-		date01.textContent = year + '-' + month + '-' + day;
-		date02.textContent = year.toString().substr(2, 2) + '-' + month + '-' + day;
-		date03.textContent = year + '年' + (dToday.getMonth() + 1) + '月' + dToday.getDate() + '日';
-		date04.textContent = hour + ':' + minute + ':' + second;
-		date05.textContent = year + month + day;
-		date06.textContent = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
-	},
-
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+
+	const date01 = document.getElementById('date01') as HTMLElement;
+	const date02 = document.getElementById('date02') as HTMLElement;
+	const date03 = document.getElementById('date03') as HTMLElement;
+	const date04 = document.getElementById('date04') as HTMLElement;
+	const date05 = document.getElementById('date05') as HTMLElement;
+	const date06 = document.getElementById('date06') as HTMLElement;
+
+	const dToday = new Date();
+	const year = dToday.getFullYear();
+	const month = ('0' + (dToday.getMonth() + 1)).slice(-2);
+	const day = ('0' + dToday.getDate()).slice(-2);
+	const hour = ('0' + dToday.getHours()).slice(-2);
+	const minute = ('0' + dToday.getMinutes()).slice(-2);
+	const second = ('0' + dToday.getSeconds()).slice(-2);
+
+	date01.textContent = year + '-' + month + '-' + day;
+	date02.textContent = year.toString().substr(2, 2) + '-' + month + '-' + day;
+	date03.textContent = year + '年' + (dToday.getMonth() + 1) + '月' + dToday.getDate() + '日';
+	date04.textContent = hour + ':' + minute + ':' + second;
+	date05.textContent = year + month + day;
+	date06.textContent = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+});
+</script>
+
+<script lang="ts">
 </script>

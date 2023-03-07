@@ -1,8 +1,6 @@
 <template lang="pug">
 .category-html.page-omit-http
-	v-alert(type='error', border='left', colored-border, dense, elevation='5')
-		h2(v-t="'common.stub.deprecated.title'")
-		p(v-t="'common.stub.deprecated.desc'")
+	v-alert(type='error', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.deprecated.title')", :text="$t('common.stub.deprecated.desc')")
 
 	section
 		h2 説明
@@ -31,37 +29,36 @@
 		a(href='https://prokatsu.com/http-not-omit/', target='_blank', rel='external noopener') 【2018年版】http,httpsは省略しない方がいい | プロカツ！
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-http';
 
-export default Vue.extend({
-	data() {
-		return {
-			header: {
-				title: 'httpの省略',
-			},
-		};
-	},
 
-	head(): object {
-		return {
-			title: this.header.title,
-		};
-	},
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-	mounted() {
-		highlightAll();
-		// plugins.fileHighlight.highlight();
-		this.updateHeader();
-	},
+const header = reactive({ title: 'httpの省略' });
+const indexStore = useIndexStore();
 
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+
+<script lang="ts">
 </script>
