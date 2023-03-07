@@ -92,3 +92,4 @@ sw.*
 *.swp
 
 *.old
+.stylelintcache

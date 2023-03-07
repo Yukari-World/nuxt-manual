@@ -30,7 +30,7 @@ div
 				v-btn(icon, aria-label='Translate', v-bind='props')
 					v-icon mdi-translate
 			v-list
-				v-list-item(v-for="(locale, index) in availableLocales", active-class='text-light-blue', @click.prevent.stop='useSwitchLocalePath(locale.code)', :key='locale.code')
+				v-list-item(v-for="(locale, index) in availableLocales", active-class='text-light-blue', @click.prevent.stop="setLocale(locale.code)", :key='locale.code')
 					v-list-item-title {{ locale.name }}
 
 	//- ページコンテンツ
@@ -56,7 +56,7 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const { locale, locales } = useI18n();
+const { locale, locales, setLocale } = useI18n();
 const indexStore = useIndexStore();
 // const switchLocalePath = useSwitchLocalePath();
 const drawer = ref(true);
@@ -93,7 +93,7 @@ const availableLocales = computed(function() {
 // Common Style
 section {
 	&:not(:first-child) {
-		margin-top: 1.5rem;
+		margin-top: 3rem;
 		border: solid;
 		border-color: rgba(255, 255, 255, 0.12);
 		border-width: thin 0 0 0;
@@ -199,6 +199,16 @@ section {
 			font-weight: inherit;
 			line-height: inherit;
 			letter-spacing: 0 !important;
+		}
+	}
+
+	.code-toolbar {
+		> .toolbar {
+			> .toolbar-item {
+				&:not(:last-child) {
+					margin-right: 0.2rem;
+				}
+			}
 		}
 	}
 

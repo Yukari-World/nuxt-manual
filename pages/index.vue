@@ -100,7 +100,7 @@
 			li
 				a(href='https://pugjs.org/', title='Pug: Getting Started', target='_blank', rel='external noopener') Pug(Jade)
 			li
-				a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
+				a(href='https://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
 		h3 画像
 		ul
 			li
@@ -144,11 +144,13 @@
 					li
 						a(href='https://gulpjs.com/', title='gulp.js', target='_blank', rel='external noopener') gulp.js
 					li
-						a(href='https://ja.nuxtjs.org/', title='Nuxt.js - ユニバーサル Vue.js アプリケーション', target='_blank', rel='external noopener') Nuxt.js
+						a(href='https://nuxt.com/', title='Nuxt: The Intuitive Web Framework', target='_blank', rel='external noopener') Nuxt.js
 					li
 						a(href='https://postcss.org/', title='PostCSS - a tool for transforming CSS with JavaScript', target='_blank', rel='external noopener') PostCSS
 					li
-						a(href='https://vuetifyjs.com/ja/', title='マテリアルデザインコンポーネントフレームワーク — Vuetify.js', target='_blank', rel='external noopener') Vuetify.js
+						a(href='https://stylelint.io/', title='Stylelint', target='_blank', rel='external noopener') Stylelint
+					li
+						a(href='https://vuetifyjs.com/en/', title='Vuetify — A Vue Component Framework', target='_blank', rel='external noopener') Vuetify.js
 					li
 						a(href='https://webpack.js.org/', title='webpack', target='_blank', rel='external noopener') webpack
 

@@ -16,7 +16,7 @@ v-footer(padless)
 					a(href='https://code.visualstudio.com/', title='Visual Studio Code - Code Editing. Redefined', target='_blank', rel='external noopener') Visual Stdio Code
 				p
 					| Design Framework:&nbsp;
-					a(href='https://vuetifyjs.com/ja/', title='マテリアルデザインコンポーネントフレームワーク — Vuetify.js', target='_blank', rel='external noopener') Vuetify.js
+					a(href='https://vuetifyjs.com/en/', title='Vuetify — A Vue Component Framework', target='_blank', rel='external noopener') Vuetify.js
 				p
 					| Syntax Highlightor:&nbsp;
 					a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
@@ -24,7 +24,7 @@ v-footer(padless)
 					| Coding Language: JavaScript,&nbsp;
 					a(href='https://pugjs.org/', title='Pug: Getting Started', target='_blank', rel='external noopener') Pug(Jade)
 					| ,&nbsp;
-					a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(SCSS)
+					a(href='https://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(SCSS)
 </template>
 
 <script setup lang="ts">
