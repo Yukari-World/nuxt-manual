@@ -93,7 +93,7 @@ const availableLocales = computed(function() {
 // Common Style
 section {
 	&:not(:first-child) {
-		margin-top: 1.5rem;
+		margin-top: 3rem;
 		border: solid;
 		border-color: rgba(255, 255, 255, 0.12);
 		border-width: thin 0 0 0;
@@ -199,6 +199,16 @@ section {
 			font-weight: inherit;
 			line-height: inherit;
 			letter-spacing: 0 !important;
+		}
+	}
+
+	.code-toolbar {
+		> .toolbar {
+			> .toolbar-item {
+				&:not(:last-child) {
+					margin-right: 0.2rem;
+				}
+			}
 		}
 	}
 

@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ['stylelint-config-recommended-scss', 'stylelint-config-prettier', 'stylelint-config-recess-order'],
+	extends: ['stylelint-config-recommended-scss', 'stylelint-config-recess-order'],
 	// add your custom config here
 	// https://stylelint.io/user-guide/configuration
 	plugins: [
