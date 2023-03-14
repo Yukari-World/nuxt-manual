@@ -297,7 +297,7 @@
 
 	section
 		h2 リンク
-		a(href='http://sass-lang.com/', target='_blank', rel='external noopener') Sass: Syntactically Awesome Style Sheets
+		NuxtLink(to='http://sass-lang.com/', target='_blank', rel='external noopener') Sass: Syntactically Awesome Style Sheets
 </template>
 
 <script setup lang="ts">

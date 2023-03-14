@@ -32,7 +32,7 @@
 		h4 HTML
 		p
 			| 出力結果。実際の出力結果は全く整形されていないので必要に応じて
-			a(href='https://github.com/beautify-web/js-beautify', target='_blank', rel='external noopener') JS-Beautify
+			NuxtLink(to='https://github.com/beautify-web/js-beautify', target='_blank', rel='external noopener') JS-Beautify
 			| 等で整形する必要がある。尚、Pugの変換オプションに自動整形するオプションがあるが、現在は非推奨なので注意。
 		pre.language-html.line-numbers: code.
 			&lt;!DOCTYPE html&gt;
@@ -80,7 +80,7 @@
 		pre.language-pug.line-numbers: code.
 			p
 				| 参照元は
-				a(href='#', target='_blank', rel='external noopener') こちら
+				NuxtLink(to='#', target='_blank', rel='external noopener') こちら
 		h4 HTML
 		pre.language-html.line-numbers: code.
 			&lt;p&gt;参照元は&lt;a href="#" target="_blank" rel="external noopener"&gt;こちら&lt;/a&gt;&lt;/p&gt;
@@ -277,7 +277,7 @@
 				code.language-html: span.token.tag &amp;lt;
 				| といった特殊文字を使用することが推奨さている。特殊文字については以下のリンクを参照。
 				br
-				a(href='http://www.htmq.com/text/', target='_blank', rel='external noopener') 特殊文字リファレンス - HTMLクイックリファレンス
+				NuxtLink(to='http://www.htmq.com/text/', target='_blank', rel='external noopener') 特殊文字リファレンス - HTMLクイックリファレンス
 
 	section
 		h2 最後に
@@ -286,7 +286,7 @@
 
 	section
 		h2 リンク
-		a(href='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
+		NuxtLink(to='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
 </template>
 
 <script setup lang="ts">
