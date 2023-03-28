@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 	app: {
 		baseURL: '/',
 		head: {
-			titleTemplate: '%s | Nuxt Technical Manual v0.4.0',
+			titleTemplate: '%s | Nuxt Technical Manual v0.4.1',
 			meta: [
 				{ charset: 'utf-8' },
 				{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
