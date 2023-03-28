@@ -33,6 +33,7 @@ export default defineNuxtConfig({
 	// Module list and configuration
 
 	modules: [
+		'@nuxtjs/eslint-module',
 		'@nuxtjs/i18n',
 		'@pinia/nuxt',
 		// 'nuxt-purgecss',
