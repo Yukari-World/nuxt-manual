@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-css.page-background-layer
+.category--css.page--background-layer
 	section
 		h2 説明
 		p 背景に画像と画像、画像とグラデーションを重ねる機会が増えてきたため、幾つかその例を取り上げる。
@@ -70,8 +70,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-css {
-	&.page-background-layer {
+.category--css {
+	&.page--background-layer {
 		.yw-layer1, .yw-layer2 {
 			width: 350px;
 			height: 200px;

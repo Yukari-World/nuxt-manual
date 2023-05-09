@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 	app: {
 		baseURL: '/',
 		head: {
-			titleTemplate: '%s | Nuxt Technical Manual v0.4.1',
+			titleTemplate: '%s | Nuxt Technical Manual v0.4.2',
 			meta: [
 				{ charset: 'utf-8' },
 				{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
@@ -22,6 +22,7 @@ export default defineNuxtConfig({
 		// 'codemirror/lib/codemirror.css',
 		// 'codemirror/theme/material.css',
 		// 'codemirror/theme/tomorrow-night-eighties.css',
+		'@/assets/scss/style.scss',
 		'vuetify/lib/styles/main.sass',
 		'prismjs/themes/prism-tomorrow.css',
 		'prismjs/plugins/toolbar/prism-toolbar.css',
@@ -36,6 +37,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/i18n',
 		'@pinia/nuxt',
+		'@vite-pwa/nuxt',
 		// 'nuxt-purgecss',
 	],
 
@@ -54,10 +56,65 @@ export default defineNuxtConfig({
 			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.json', 'ja-JP.json' ] },
 		],
 		strategy: 'prefix_except_default',
-		vueI18n: {
-			availableLocales: [ 'en-US', 'ja-JP' ],
-			fallbackLocale: 'ja-JP',
-			locale: 'ja-JP',
+	},
+
+	pwa: {
+		manifest: {
+			background_color: '#000011',
+			description: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ',
+			display: 'standalone',
+			lang: 'ja',
+			name: 'Nuxt Technical Manual',
+			short_name: 'Nuxt Manual',
+			start_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.app/',
+			theme_color: '#000011',
+		},
+		workbox: {
+			clientsClaim: true,
+			skipWaiting: true,
+			cleanupOutdatedCaches: true,
+			runtimeCaching: [
+				{
+					urlPattern: '/_nuxt/.*.(js)$',
+					handler: 'StaleWhileRevalidate',
+					method: 'GET',
+					options: {
+						cacheName: 'entry-cache',
+						expiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
+						},
+						cacheableResponse: {
+							statuses: [ 0, 200 ],
+						},
+					},
+				}, {
+					urlPattern: '/_nuxt/.*.(css)$',
+					handler: 'StaleWhileRevalidate',
+					method: 'GET',
+					options: {
+						cacheName: 'style-cache',
+						expiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
+						},
+						cacheableResponse: {
+							statuses: [ 0, 200 ],
+						},
+					},
+				}, {
+					urlPattern: '/img/.*.(gif|jpeg|jpg|png|webp)$',
+					handler: 'CacheFirst',
+					method: 'GET',
+					options: {
+						cacheName: 'image-cache',
+						expiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+						},
+						cacheableResponse: {
+							statuses: [ 0, 200 ],
+						},
+					},
+				},
+			],
 		},
 	},
 

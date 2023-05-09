@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-sql.page-in
+.category--sql.page--in
 	section
 		h2 説明
 		p

@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-html.page-input
+.category--html.page--input
 	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section
@@ -389,8 +389,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-html {
-	&.page-input {
+.category--html {
+	&.page--input {
 		label {
 			display: inline-flex;
 			align-items: center;

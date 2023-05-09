@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-node.page-npm
+.category--node.page--npm
 	section
 		h2 説明
 		p Node.jsのパッケージはコマンドプロンプトで操作を行う。その際によく利用されるコマンドを記述する。

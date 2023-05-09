@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-scss.page-gradation-list
+.category--scss.page--gradation-list
 	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 	v-alert(type='warning', border='start', colored-border, dense, elevation='5', title='応用技術', text='ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。')
 
@@ -441,8 +441,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-scss {
-	&.page-gradation-list {
+.category--scss {
+	&.page--gradation-list {
 		.exsample-area {
 			display: flex;
 			align-items: center;

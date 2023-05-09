@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-js.sub-ajax.page-fetch-api
+.category--js.sub--ajax.page--fetch-api
 	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section

@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-sql.sub-mysql.page-int
+.category--sql.sub--mysql.page--int
 	section
 		h2 説明
 		p MySQLのテーブル上にINT(11)やTINYINT(4)といったカッコの数字がある。これの意味を説明する。

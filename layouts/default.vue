@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+div.layout--default
 	//- サイドバー
 	//- 内部処理はサイドバーコンポーネント参照
 	v-navigation-drawer(v-model='drawer', app)
@@ -33,6 +33,11 @@ div
 				v-list-item(v-for="(locale, index) in availableLocales", active-class='text-light-blue', @click.prevent.stop="setLocale(locale.code)", :key='locale.code')
 					v-list-item-title {{ locale.name }}
 
+		//- テーマ切り替えスイッチ
+		v-btn(icon, @click="toggleTheme")
+			v-icon(v-if="theme.global.current.value.dark") mdi-weather-night
+			v-icon(v-else) mdi-weather-sunny
+
 	//- ページコンテンツ
 	v-main
 		v-container(fluid)
@@ -45,6 +50,7 @@ div
 </template>
 
 <script setup lang="ts">
+import { useTheme } from 'vuetify';
 import { useIndexStore } from '../store/index';
 import 'prismjs/plugins/toolbar/prism-toolbar';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
@@ -58,6 +64,7 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight';
 
 const { locale, locales, setLocale } = useI18n();
 const indexStore = useIndexStore();
+const theme = useTheme();
 // const switchLocalePath = useSwitchLocalePath();
 const drawer = ref(true);
 const headMenu = reactive([
@@ -65,16 +72,18 @@ const headMenu = reactive([
 	{ title: 'header.log', icon: 'mdi-history', link: '/updateLog' },
 	{ title: 'header.login', icon: 'mdi-login', link: '/user/login' },
 ]);
+const globalStorage = reactive({
+	themeName: '',
+});
 
 
 // ----------------------------------------------------------------------------------------------------
-// Store Initialize
+// Script Initialize
 
-async function storeInit() {
+async function scriptInitialize() {
 	await indexStore.fetchMenuList();
 	await indexStore.fetchRandomWords();
 }
-await storeInit();
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -83,152 +92,41 @@ await storeInit();
 const availableLocales = computed(function() {
 	return locales.value.filter((i: { code: string; }) => i.code !== locale.value);
 });
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	const themeName = localStorage.getItem('NM-themeName');
+	if (themeName !== null) {
+		globalStorage.themeName = themeName;
+		theme.global.name.value = themeName;
+	}
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Function List
+
+/**
+ * テーマ切り替え
+ *
+ * @returns {string}    テーマ切り替え先のテーマ名
+ */
+function toggleTheme(): string {
+	theme.global.name.value = theme.global.current.value.dark ? 'themeLight' : 'themeDark';
+
+	// ストレージ保存処理
+	globalStorage.themeName = theme.global.name.value;
+	localStorage.setItem('NM-themeName', globalStorage.themeName);
+
+	return theme.global.name.value;
+}
+
+
+scriptInitialize();
 </script>
 
 <script lang="ts">
 </script>
-
-<style lang="scss">
-// ----------------------------------------------------------------------------------------------------
-// Common Style
-section {
-	&:not(:first-child) {
-		margin-top: 3rem;
-		border: solid;
-		border-color: rgba(255, 255, 255, 0.12);
-		border-width: thin 0 0 0;
-	}
-}
-
-.no-speak {
-	speak-as: none;
-}
-
-.code-toolbar {
-	+h2, +h3 {
-		margin-top: 1.5rem;
-	}
-}
-
-// ----------------------------------------------------------------------------------------------------
-// Vender Profile Initialize
-::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-	background-color: #303030;
-
-	&-track {
-		// border-radius: 10px;
-		background-color: transparent;
-		// box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-	}
-
-	&-thumb {
-		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
-		border-radius: 10px;
-		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
-		transition: all 0.1s ease;
-
-		@media (prefers-color-scheme: light) {
-			background-image: linear-gradient(to bottom right, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25));
-			box-shadow: 0 0 0 1px rgba(102, 102, 102, 0.3);
-		}
-	}
-
-	&-corner {
-		background-color: transparent;
-	}
-}
-
-// ----------------------------------------------------------------------------------------------------
-// Vuetify Overwrite
-.v-application {
-	// ----------------------------------------------------------------------------------------------------
-	// Prism Overwrite
-
-	code, pre {
-		&[class*="language-"] {
-			margin: unset;
-			font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
-			line-height: 1.2;
-			tab-size: 4;
-			-webkit-overflow-scrolling: touch;
-
-			&::-webkit-scrollbar {
-				width: 5px;
-				height: 5px;
-			}
-		}
-	}
-
-	pre {
-		max-height: 75vh;
-		overflow-y: scroll;
-
-		&[class*="language-"] {
-			>code {
-				$size: 2.286em;
-
-				display: block;
-				font-size: 14px;
-				font-weight: normal;
-				color: unset;
-				white-space: pre;
-				background-color: unset;
-				border-radius: unset;
-				box-shadow: unset;
-
-				@media (prefers-color-scheme: light) {
-					background-size: $size $size;
-				}
-			}
-		}
-	}
-
-	// ----------------------------------------------------------------------------------------------------
-	// Vuetify Overwrite Fix
-	[class*="language-"] {
-		code {
-			padding: 0;
-			background-color: transparent;
-		}
-
-		.title {
-			font-family: inherit !important;
-			font-size: inherit !important;
-			font-weight: inherit;
-			line-height: inherit;
-			letter-spacing: 0 !important;
-		}
-	}
-
-	.code-toolbar {
-		> .toolbar {
-			> .toolbar-item {
-				&:not(:last-child) {
-					margin-right: 0.2rem;
-				}
-			}
-		}
-	}
-
-	code {
-		font-weight: normal;
-
-		&:before {
-			content: unset;
-		}
-
-		&:after {
-			content: unset;
-		}
-	}
-}
-
-// ----------------------------------------------------------------------------------------------------
-// CodeMirror Overwrite
-.CodeMirror {
-	font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
-	font-size: 14px;
-}
-</style>

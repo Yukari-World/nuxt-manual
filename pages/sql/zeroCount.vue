@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-sql.page-zero-count
+.category--sql.page--zero-count
 	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section

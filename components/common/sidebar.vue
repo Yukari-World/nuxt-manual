@@ -27,14 +27,14 @@ nav#menu.sidebar
 					//- サブカテゴリ毎に表示方法を変える
 					template(v-if="subIndex.name !== 'Default'")
 						v-list-item(active-class='text-light-blue', nuxt, :to="listIndex.baseURL + '/' + subIndex.url + lists.link", :key='i * 1000 + j')
-							template(v-if="lists.workInProgress === true", v-slot:appendIcon)
-								v-icon mdi-border-color
-							v-list-item-title(v-text="'[' + $t(subIndex.name) + '] ' + lists.title")
+							template(v-if="lists.workInProgress === true", v-slot:append)
+								v-icon(icon='mdi-border-color')
+							v-list-item-title(v-text="'[' + $t(subIndex.name) + '] ' + lists.title", :title="lists.title")
 					template(v-else)
 						v-list-item(active-class='text-light-blue', nuxt, :to="listIndex.baseURL + lists.link", :key='i * 1000 + j')
-							template(v-if="lists.workInProgress === true", v-slot:appendIcon)
-								v-icon mdi-border-color
-							v-list-item-title(v-text='lists.title')
+							template(v-if="lists.workInProgress === true", v-slot:append)
+								v-icon(icon='mdi-border-color')
+							v-list-item-title(v-text='lists.title', :title="lists.title")
 </template>
 
 <script setup lang="ts">
@@ -75,6 +75,7 @@ onMounted(function() {
 
 /**
  * ループイベントの呼び出し
+ *
  * @returns {void}
  */
 function roopEvent(): void {
@@ -89,13 +90,36 @@ function roopEvent(): void {
 <style lang="scss">
 // ----------------------------------------------------------------------------------------------------
 // Vender Profile Initialize
-.v-navigation-drawer {
 
+.v-navigation-drawer {
 	// Vender Profile Initialize
 	::-webkit-scrollbar {
 		width: 5px;
 		height: 5px;
 		background-color: transparent;
+	}
+}
+
+.sidebar {
+	// ----------------------------------------------------------------------------------------------------
+	// Vuetify Overwrite
+
+	.v-list-item {
+		&__prepend {
+			> .v-icon {
+				margin-inline-end: 16px;
+			}
+		}
+
+		&__append {
+			> .v-icon {
+				margin-inline-start: 0;
+			}
+		}
+	}
+
+	h2 {
+		font-size: 1.5rem;
 	}
 }
 </style>

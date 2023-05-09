@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-sql.sub-mysql.page-insert-where-exists
+.category--sql.sub--mysql.page--insert-where-exists
 	section
 		h2 説明
 		p

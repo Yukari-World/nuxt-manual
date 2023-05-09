@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-css.page-text-shadow
+.category--css.page--text-shadow
 	section
 		h2 説明
 		p 画像の上に文字を出力させる時、白地に白文字や黒地に黒文字といったことが発生することがある。これは可読性に大きく影響する。しかし、文字装飾を付与することで可読性の向上を望める場合がある。
@@ -77,8 +77,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-css {
-	&.page-text-shadow {
+.category--css {
+	&.page--text-shadow {
 		.yw-exsample-area {
 			display: flex;
 			align-items: center;

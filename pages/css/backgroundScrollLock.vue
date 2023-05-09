@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-css.page-background-scroll-lock
+.category--css.page--background-scroll-lock
 	section
 		h2 説明
 		p Parallaxの一つに背景のスクロールを固定させたままでコンテンツをスクロールさせる方法がある。これはその一例である。
@@ -124,8 +124,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-css {
-	&.page-background-scroll-lock {
+.category--css {
+	&.page--background-scroll-lock {
 		.yw-layer1, .yw-layer2 {
 			width: 80%;
 			max-width: 800px;

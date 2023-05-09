@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-php.page-date
+.category--php.page--date
 	section
 		h2 説明
 		p 日付の表示は非常にややこしいものが多い。これはMySQLのDATE_FORMAT()にも言えることなのだが、今回はよく使用されるPHPの処理のみをピックアップする。

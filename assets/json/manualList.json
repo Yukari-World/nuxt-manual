@@ -387,7 +387,7 @@
 					"list": [
 						{
 							"title": "データベース接続",
-							"link": "/Database",
+							"link": "/database",
 							"summary": "",
 							"tags": ["PHP"],
 							"deprecated": false,

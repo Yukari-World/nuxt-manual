@@ -1,0 +1,163 @@
+// ----------------------------------------------------------------------------------------------------
+// Vuetify Overwrite
+
+.v-application {
+	// ----------------------------------------------------------------------------------------------------
+	// Prism Overwrite
+
+	code, pre {
+		&[class*="language-"] {
+			margin: unset;
+			font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+			line-height: 1.2;
+			tab-size: 4;
+			-webkit-overflow-scrolling: touch;
+
+			&::-webkit-scrollbar {
+				width: 5px;
+				height: 5px;
+			}
+		}
+	}
+
+	pre {
+		max-height: 75vh;
+		overflow-y: scroll;
+
+		&[class*="language-"] {
+			>code {
+				$size: 2.286em;
+
+				display: block;
+				font-size: 14px;
+				font-weight: normal;
+				color: unset;
+				white-space: pre;
+				background-color: unset;
+				border-radius: unset;
+				box-shadow: unset;
+
+				@media (prefers-color-scheme: light) {
+					background-size: $size $size;
+				}
+			}
+		}
+	}
+
+	// ----------------------------------------------------------------------------------------------------
+	// Vuetify Overwrite Fix
+
+	[class*="language-"] {
+		code {
+			padding: 0;
+			background-color: transparent;
+		}
+
+		.title {
+			font-family: inherit !important;
+			font-size: inherit !important;
+			font-weight: inherit;
+			line-height: inherit;
+			letter-spacing: 0 !important;
+		}
+	}
+
+	.code-toolbar {
+		> .toolbar {
+			> .toolbar-item {
+				&:not(:last-child) {
+					margin-right: 0.2rem;
+				}
+			}
+		}
+	}
+
+	code {
+		font-weight: normal;
+
+		&:before {
+			content: unset;
+		}
+
+		&:after {
+			content: unset;
+		}
+	}
+}
+
+// ----------------------------------------------------------------------------------------------------
+// CodeMirror Overwrite
+
+.CodeMirror {
+	font-family: "Migu 1M", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+	font-size: 14px;
+}
+
+// ----------------------------------------------------------------------------------------------------
+// Vender Profile Initialize
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background-color: #303030;
+
+	&-track {
+		// border-radius: 10px;
+		background-color: transparent;
+		// box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+	}
+
+	&-thumb {
+		background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+		border-radius: 10px;
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+		transition: all 0.1s ease;
+
+		@media (prefers-color-scheme: light) {
+			background-image: linear-gradient(to bottom right, rgba(102, 102, 102, 0.75), rgba(102, 102, 102, 0.25));
+			box-shadow: 0 0 0 1px rgba(102, 102, 102, 0.3);
+		}
+	}
+
+	&-corner {
+		background-color: transparent;
+	}
+}
+
+// ----------------------------------------------------------------------------------------------------
+// Common Style
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 1.75rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+h4 {
+	font-size: 1.1rem;
+}
+
+section {
+	&:not(:first-child) {
+		margin-top: 3rem;
+		border: solid;
+		border-color: rgba(255, 255, 255, 0.12);
+		border-width: thin 0 0 0;
+	}
+}
+
+.no-speak {
+	speak-as: none;
+}
+
+.code-toolbar {
+	+ h2, + h3 {
+		margin-top: 1.5rem;
+	}
+}

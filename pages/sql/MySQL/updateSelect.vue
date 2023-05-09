@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-sql.sub-mysql.page-update-select
+.category--sql.sub--mysql.page--update-select
 	section
 		h2 説明
 		p
