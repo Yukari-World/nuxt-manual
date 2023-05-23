@@ -72,6 +72,26 @@ interface XorShiftSeed128 {
 
 
 // ----------------------------------------------------------------------------------------------------
+// Function List
+
+/**
+ * ログ用10進数→4byte16進数出力
+ *
+ * @public
+ * @param   {number}    val 変換する10進数
+ * @returns {string}        16進数
+ */
+function toHex(val: number): string {
+	let number = val;
+	if (number < 0) {
+		number = 0xFFFFFFFF + number + 1;
+	}
+
+	return '0x' + number.toString(16).toUpperCase().padStart(8, '0');
+}
+
+
+// ----------------------------------------------------------------------------------------------------
 // Store Data
 
 export const useIndexStore = defineStore('index', {
@@ -134,6 +154,13 @@ export const useIndexStore = defineStore('index', {
 			this.XorSeed.y = this.XorSeed.z;
 			this.XorSeed.z = this.XorSeed.w;
 			this.XorSeed.w = this.XorSeed.w ^ this.XorSeed.w >>> 19 ^ (t ^ t >>> 8);
+
+			console.log('XorShift Seed Info:\n' +
+				'X: ' + toHex(this.XorSeed.x) + ' (' + this.XorSeed.x + ')\n' +
+				'Y: ' + toHex(this.XorSeed.y) + ' (' + this.XorSeed.y + ')\n' +
+				'Z: ' + toHex(this.XorSeed.z) + ' (' + this.XorSeed.z + ')\n' +
+				'W: ' + toHex(this.XorSeed.w) + ' (' + this.XorSeed.w + ')',
+			);
 		},
 
 		/**

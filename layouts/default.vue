@@ -90,7 +90,7 @@ async function scriptInitialize() {
 // Computed
 
 const availableLocales = computed(function() {
-	return locales.value.filter((i: { code: string; }) => i.code !== locale.value);
+	return locales.value;
 });
 
 
