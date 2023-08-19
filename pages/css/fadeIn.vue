@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-css.page-fade-in
+.category--css.page--fade-in
 	section
 		h2 説明
 		p 下から上へのコンテンツフェードインが要求されることが多いためその一例を記述する。
@@ -196,8 +196,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-css {
-	&.page-fade-in {
+.category--css {
+	&.page--fade-in {
 		.yw-area {
 			display: flex;
 			flex-wrap: wrap;
@@ -229,13 +229,12 @@ onMounted(function() {
 				transform: none;
 			}
 
-			.v-image {
+			img {
 				position: absolute;
 				top: 0;
 				left: 50%;
-				height: 100%;
-				-webkit-transform: translate(-50%, 0);
-				-ms-transform: translate(-50%, 0);
+				width: 30vw;
+				max-height: 100%;
 				transform: translate(-50%, 0);
 			}
 

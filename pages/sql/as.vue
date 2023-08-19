@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-sql.page-as
+.category--sql.page--as
 	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section
@@ -11,7 +11,7 @@
 		h2 使用方法と解説
 		h3 使用するデータベース
 		p
-			s
+			span.text-decoration-line-through
 				| 解説にあたり以下のデータベースを利用する。コピーすることで簡単に利用できる。尚このSQLコードは
 				a(href='https://www.mysql.com/jp/', target='_blank', rel='external noopener') MySQL
 				| もしくは
@@ -217,8 +217,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-sql {
-	&.page-as {
+.category--sql {
+	&.page--as {
 		table {
 			margin: 1rem auto;
 			border-collapse: collapse;

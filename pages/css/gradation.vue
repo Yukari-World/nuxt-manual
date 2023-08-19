@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-css.page-gradation
+.category--css.page--gradation
 	section
 		h2 グラデーション
 		p HTML上でのグラデーションはいくつか方法があるがその一例
@@ -106,8 +106,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-css {
-	&.page-gradation {
+.category--css {
+	&.page--gradation {
 		.yw-gradient1, .yw-gradient2, .yw-gradient3, .yw-gradient4 {
 			width: 350px;
 			height: 200px;

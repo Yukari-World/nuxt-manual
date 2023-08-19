@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-user.page-login
+.category--user.page--login
 	v-form
 		v-row
 			v-col(cols='12', md='6')

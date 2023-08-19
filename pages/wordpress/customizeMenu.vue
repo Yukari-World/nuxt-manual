@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-wordpress.page-customize-menu
+.category--wordpress.page--customize-menu
 	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section

@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-sql.page-transaction
+.category--sql.page--transaction
 	section
 		h2 説明
 		p

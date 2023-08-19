@@ -6,8 +6,6 @@
 // Import
 
 import { defineStore } from 'pinia';
-import menuData from '@/assets/json/manualList.json';
-import randomWordData from '@/assets/json/randomWord.json';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -68,6 +66,26 @@ interface XorShiftSeed128 {
 	y: number,
 	z: number,
 	w: number,
+}
+
+
+// ----------------------------------------------------------------------------------------------------
+// Function List
+
+/**
+ * ログ用10進数→4byte16進数出力
+ *
+ * @public
+ * @param   {number}    val 変換する10進数
+ * @returns {string}        16進数
+ */
+function toHex(val: number): string {
+	let number = val;
+	if (number < 0) {
+		number = 0xFFFFFFFF + number + 1;
+	}
+
+	return '0x' + number.toString(16).toUpperCase().padStart(8, '0');
 }
 
 
@@ -134,6 +152,13 @@ export const useIndexStore = defineStore('index', {
 			this.XorSeed.y = this.XorSeed.z;
 			this.XorSeed.z = this.XorSeed.w;
 			this.XorSeed.w = this.XorSeed.w ^ this.XorSeed.w >>> 19 ^ (t ^ t >>> 8);
+
+			console.log('XorShift Seed Info:\n' +
+				'X: ' + toHex(this.XorSeed.x) + ' (' + this.XorSeed.x + ')\n' +
+				'Y: ' + toHex(this.XorSeed.y) + ' (' + this.XorSeed.y + ')\n' +
+				'Z: ' + toHex(this.XorSeed.z) + ' (' + this.XorSeed.z + ')\n' +
+				'W: ' + toHex(this.XorSeed.w) + ' (' + this.XorSeed.w + ')',
+			);
 		},
 
 		/**
@@ -142,9 +167,12 @@ export const useIndexStore = defineStore('index', {
 		 * @async
 		 * @returns {Promise<void>}
 		 */
-		fetchMenuList(): void {
+		async fetchMenuList(): Promise<void> {
 			if (this.menus.categoryList.length === 0) {
-				this.menus = menuData;
+				const { data, pending, error, refresh } = await useFetch<menuList>('/json/manualList.json');
+				if (data.value !== null) {
+					this.menus = data.value;
+				}
 			}
 		},
 
@@ -154,9 +182,12 @@ export const useIndexStore = defineStore('index', {
 		 * @async
 		 * @returns {Promise<void>}
 		 */
-		fetchRandomWords(): void {
+		async fetchRandomWords(): Promise<void> {
 			if (this.randomWords.length === 0) {
-				this.randomWords = randomWordData;
+				const { data, pending, error, refresh } = await useFetch<RandomWord[]>('/json/randomWord.json');
+				if (data.value !== null) {
+					this.randomWords = data.value;
+				}
 			}
 		},
 

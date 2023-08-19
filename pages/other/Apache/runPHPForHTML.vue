@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-other.sub-apache.page-run-php-for-html
+.category--other.sub--apache.page--run-php-for-html
 	section
 		h2 説明
 		p

@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-sql.page-insert-select
+.category--sql.page--insert-select
 	section
 		h2 説明
 		p

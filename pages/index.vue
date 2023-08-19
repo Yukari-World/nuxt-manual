@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-home.page-index
+.category--home.page--index
 	section
 		p
 			| 左のメニューより閲覧したい内容を選択してください。
@@ -94,7 +94,7 @@
 		ul
 			li
 				| JavaScript(ECMAScript 2017),&nbsp;
-				s Babelにより後方互換確保済み
+				span.text-decoration-line-through Babelにより後方互換確保済み
 			li
 				a(href='https://ja.nuxtjs.org/', title='Nuxt.js - ユニバーサル Vue.js アプリケーション', target='_blank', rel='external noopener') Nuxt.js
 			li
@@ -136,13 +136,16 @@
 					li
 						a(href='http://babeljs.io/', title='Babel · The compiler for next generation JavaScript', target='_blank', rel='external noopener') Babel
 					li
-						a(href='https://browsersync.io/', title='Browsersync - Time-saving synchronised browser testing', target='_blank', rel='external noopener') Browsersync
+						span.text-decoration-line-through
+							a(href='https://browsersync.io/', title='Browsersync - Time-saving synchronised browser testing', target='_blank', rel='external noopener') Browsersync
 					li
-						a(href='http://csscomb.com/', title='CSScomb: Makes your code beautiful', target='_blank', rel='external noopener') CSScomb
+						span.text-decoration-line-through
+							a(href='http://csscomb.com/', title='CSScomb: Makes your code beautiful', target='_blank', rel='external noopener') CSScomb
 					li
 						a(href='https://eslint.org/', title='ESLint - Pluggable JavaScript linter', target='_blank', rel='external noopener') ESLint
 					li
-						a(href='https://gulpjs.com/', title='gulp.js', target='_blank', rel='external noopener') gulp.js
+						span.text-decoration-line-through
+							a(href='https://gulpjs.com/', title='gulp.js', target='_blank', rel='external noopener') gulp.js
 					li
 						a(href='https://nuxt.com/', title='Nuxt: The Intuitive Web Framework', target='_blank', rel='external noopener') Nuxt.js
 					li
@@ -174,7 +177,7 @@
 
 		h3 HTMLソースが汚い
 		p
-			s
+			span.text-decoration-line-through
 				| 自動整形ツールの仕様です。
 				wbr
 				| HTML自体はPugテンプレートに基づいてMinifyされたHTMLが出力されており、その後自動整形ツールでHTMLソースを整形しています。
@@ -187,7 +190,7 @@
 
 		h3 このHTMLに使用されているCSSファイルが読めない
 		p
-			s
+			span.text-decoration-line-through
 				| 圧縮済みCSSファイルを使用しているので読めないのが仕様です。どうしても読みたい場合は
 				a(href='https://gitlab.com/fcc-y/html-manual', target='_blank', rel='external noopener') Gitlabリポジトリ
 				| から未圧縮のCSSファイルを取得するか、圧縮済みCSSファイルをテキストエディタのプラグイン等でフォーマットしてみてください。
@@ -315,8 +318,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-home {
-	&.page-index {
+.category--home {
+	&.page--index {
 		h3 {
 			margin-top: 1.5em;
 		}

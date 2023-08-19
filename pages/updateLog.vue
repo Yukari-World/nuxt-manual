@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-home.page-update-log
+.category--home.page--update-log
 	v-timeline(reverse)
 		//- カードの出力
 		v-timeline-item(v-for='(logIndex, index) in log', :key='index')

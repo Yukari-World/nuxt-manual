@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-node.page-manual-browser-sync
+.category--node.page--manual-browser-sync
 	section
 		h2 説明
 		p Browsersyncとは、ファイルの更新があった時に自動でブラウザを更新する機能である。更新するブラウザの更新は複数の端末や複数のブラウザで同時に行われ、逐次F5更新を行う必要がなくなる。また、CSSボックス配置のデバッグ、フォーム入力の同期等の機能もある。
@@ -88,7 +88,7 @@
 			li 複数のブラウザを同時にリロードする関係上、ブラウザの再描画及び通信等で一時的に負荷が非常に大きくなる。
 			li
 				| gulp等のスクリプトにも利用できるため、Sass/SCSSコンパイル後にリロードの指示が出来る。
-				s 但し、gulpの性質上、非同期処理なので、少し特殊な記述が必要(後日記述予定)。
+				span.text-decoration-line-through 但し、gulpの性質上、非同期処理なので、少し特殊な記述が必要(後日記述予定)。
 				| gulp4が公開されたことにより処理手順を直列化できるようになった。
 
 	section

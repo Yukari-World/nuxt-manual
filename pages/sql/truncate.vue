@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-sql.page-truncate
+.category--sql.page--truncate
 	section
 		h2 説明
 		h3 まず最初に

@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-home.page-sample
+.category--home.page--sample
 	section
 		h2 サンプルデータについて
 		p
