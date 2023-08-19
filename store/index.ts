@@ -169,7 +169,7 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchMenuList(): Promise<void> {
 			if (this.menus.categoryList.length === 0) {
-				const { data, pending, error, refresh } = await useFetch<menuList>('/json/manualList.json');
+				const { data } = await useFetch<menuList>('/json/manualList.json');
 				if (data.value !== null) {
 					this.menus = data.value;
 				}
@@ -184,7 +184,7 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchRandomWords(): Promise<void> {
 			if (this.randomWords.length === 0) {
-				const { data, pending, error, refresh } = await useFetch<RandomWord[]>('/json/randomWord.json');
+				const { data } = await useFetch<RandomWord[]>('/json/randomWord.json');
 				if (data.value !== null) {
 					this.randomWords = data.value;
 				}
