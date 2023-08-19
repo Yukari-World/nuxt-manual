@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-css.page-disable-br-tag
+.category--css.page--disable-br-tag
 	section
 		h2 説明
 		p スマートフォン等のブラウザでは表示できる情報量の違いで改行してほしくない場合が発生する。この改行をCSSで簡単に無効にする方法が存在するため記述する。

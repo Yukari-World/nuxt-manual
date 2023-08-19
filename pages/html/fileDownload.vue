@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-html.page-file-download
+.category--html.page--file-download
 	section
 		h2 説明
 		p メディアリンク等を作成した場合、再生ではなくダウンロードさせたい場合がある。HTML5を利用することでダウンロードさせることができるので説明する。

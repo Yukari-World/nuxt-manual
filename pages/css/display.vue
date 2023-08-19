@@ -1,24 +1,24 @@
 <template lang="pug">
-.category-css.page-display
+.category--css.page--display
 	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section
-		h2 display-outside
+		h3 display-outside
 		p 記述前
 
-		h2 display-inside
+		h3 display-inside
 		p 記述前
 
-		h2 display-listitem
+		h3 display-listitem
 		p 記述前
 
-		h2 display-internal
+		h3 display-internal
 		p 記述前
 
-		h2 display-box
+		h3 display-box
 		p 記述前
 
-		h2 display-legacy
+		h3 display-legacy
 		p 記述前
 
 	section

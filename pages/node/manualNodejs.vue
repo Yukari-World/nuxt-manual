@@ -1,5 +1,5 @@
 <template lang="pug">
-.category--css.page--grid-layout
+.category--node.page--manual-node-js
 	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
 
 	section
@@ -15,7 +15,7 @@ import { useIndexStore } from '@/store/index';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: 'Grid Layout' });
+const header = reactive({ title: 'Node.js導入マニュアル' });
 const indexStore = useIndexStore();
 
 

@@ -12,15 +12,13 @@ module.exports = {
 		// '@nuxtjs',
 		'prettier',
 		'plugin:prettier/recommended',
-		'plugin:nuxt/recommended',
-		'@nuxtjs/eslint-config-typescript',
+		'@nuxt/eslint-config',
 	],
 	plugins: [
 		'prettier',
 	],
 	// add your custom rules here
 	rules: {
-
 		'array-bracket-spacing': [ 'warn', 'always', { objectsInArrays: false }],
 		'comma-spacing': [ 'error', {
 			before: false,

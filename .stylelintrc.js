@@ -3,8 +3,9 @@ module.exports = {
 	// add your custom config here
 	// https://stylelint.io/user-guide/configuration
 	plugins: [
-		'stylelint-scss',
 		'stylelint-order',
+		'stylelint-scss',
+		'stylelint-stylistic',
 	],
 	overrides: [
 		{
@@ -15,32 +16,13 @@ module.exports = {
 	rules: {
 		'at-rule-no-unknown': null,
 		'block-no-empty': null,
-		'block-closing-brace-empty-line-before': 'never',
-		'block-closing-brace-newline-after': 'always',
-		'block-closing-brace-newline-before': 'always',
-		'block-opening-brace-newline-after': 'always',
-		'block-opening-brace-space-before': 'always',
-		'color-hex-case': 'upper',
 		'color-hex-length': 'long',
 		'color-no-invalid-hex': true,
-		'declaration-block-semicolon-newline-after': 'always',
-		'declaration-block-semicolon-space-before': 'never',
-		'declaration-colon-space-after': 'always',
-		'declaration-colon-space-before': 'never',
 		'font-family-name-quotes': 'always-unless-keyword',
 		'font-family-no-duplicate-names': true,
 		'function-calc-no-unspaced-operator': true,
-		'function-comma-space-after': 'always',
-		'indentation': ['tab', {
-			indentInsideParens: 'twice',
-			except: [
-				'value',
-			],
-		}],
 		'length-zero-no-unit': true,
-		'max-empty-lines': 1,
 		'no-descending-specificity': null,
-		'number-no-trailing-zeros': true,
 		'property-no-vendor-prefix': null,
 		'rule-empty-line-before': ['always', {
 			except: [
@@ -50,11 +32,6 @@ module.exports = {
 				'after-comment',
 			],
 		}],
-		'selector-list-comma-newline-after': 'always-multi-line',
-		'selector-list-comma-space-after': 'always',
-		'string-quotes': 'double',
-		'unit-case': 'lower',
-		'value-list-comma-space-after': 'always',
 		'order/order': [
 			[
 				{ type: 'at-rule', name: 'extend' },
@@ -74,5 +51,29 @@ module.exports = {
 		'scss/comment-no-empty': null,
 		'scss/double-slash-comment-empty-line-before': null,
 		'scss/double-slash-comment-whitespace-inside': 'always',
+		'stylistic/block-closing-brace-empty-line-before': 'never',
+		'stylistic/block-closing-brace-newline-after': 'always',
+		'stylistic/block-closing-brace-newline-before': 'always',
+		'stylistic/block-opening-brace-newline-after': 'always',
+		'stylistic/block-opening-brace-space-before': 'always',
+		'stylistic/color-hex-case': 'upper',
+		'stylistic/declaration-block-semicolon-newline-after': 'always',
+		'stylistic/declaration-block-semicolon-space-before': 'never',
+		'stylistic/declaration-colon-space-after': 'always',
+		'stylistic/declaration-colon-space-before': 'never',
+		'stylistic/function-comma-space-after': 'always',
+		'stylistic/indentation': ['tab', {
+			indentInsideParens: 'twice',
+			except: [
+				'value',
+			],
+		}],
+		'stylistic/max-empty-lines': 1,
+		'stylistic/number-no-trailing-zeros': true,
+		'stylistic/selector-list-comma-newline-after': 'always-multi-line',
+		'stylistic/selector-list-comma-space-after': 'always',
+		'stylistic/string-quotes': 'double',
+		'stylistic/unit-case': 'lower',
+		'stylistic/value-list-comma-space-after': 'always',
 	},
 };

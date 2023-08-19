@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-css.page-range-layout
+.category--css.page--range-layout
 	v-alert(type='warning', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.nonStandard.title')", :text="$t('common.stub.nonStandard.desc')")
 
 	section
@@ -86,7 +86,7 @@
 		h2 使用上の注意
 		ul
 			li
-				s Microsoft Edgeではwebkitの仕様が採用されるが、スライダーのポインターは範囲をはみ出して表示する事は出来ない。
+				span.text-decoration-line-through Microsoft Edgeではwebkitの仕様が採用されるが、スライダーのポインターは範囲をはみ出して表示する事は出来ない。
 				br
 				| バージョンアップでChromiumベースへと変更されたことで、現在この不具合は発生しない。
 			li visibilityを使用することでポインターを消すとこができる。なお、display: noneでは数値が編集できなくなるため、この方法は推奨しない。
@@ -141,8 +141,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-css {
-	&.page-range-layout {
+.category--css {
+	&.page--range-layout {
 		fieldset {
 			min-height: 50px;
 			padding: 15px;
@@ -166,41 +166,41 @@ onMounted(function() {
 
 			&.yw-slider {
 				height: 5px;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
 				background: #CCCCCC;
 				border-radius: 10px;
 				outline: none;
 				opacity: 0.7;
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				appearance: none;
 
 				&::-webkit-slider-thumb {
 					box-sizing: border-box;
 					width: 25px;
 					height: 25px;
 					min-height: 25px;
+					-webkit-appearance: none;
+					appearance: none;
 					cursor: pointer;
 					background: #FFFF33;
 					border: 2px outset #CCCCCC;
 					border-right-style: inset;
 					border-bottom-style: inset;
 					border-radius: 50%;
-					-webkit-appearance: none;
-					appearance: none;
 				}
 
 				&::-moz-slider-thumb {
 					box-sizing: border-box;
 					width: 25px;
 					height: 25px;
+					-moz-appearance: none;
+					appearance: none;
 					cursor: pointer;
 					background: #FFFF33;
 					border: 2px outset #CCCCCC;
 					border-right-style: inset;
 					border-bottom-style: inset;
 					border-radius: 50%;
-					-moz-appearance: none;
-					appearance: none;
 				}
 			}
 		}

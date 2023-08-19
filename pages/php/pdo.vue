@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-php.page-pdo
+.category--php.page--pdo
 	section
 		h2 説明
 		p PDO(PHP Data Objects)とはデータベースの接続方法の一つである。PDOクラスを利用してデータベースから取得、更新、削除を行う。

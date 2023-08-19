@@ -1,5 +1,5 @@
 <template lang="pug">
-.category-language.page-pug
+.category--language.page--pug
 	section
 		h2 Pugとは
 		p
@@ -245,7 +245,7 @@
 			li
 				p
 					| gulpfile.jsが存在しない場合は作成を行い、以下のように入力を行う。
-					s ファイル行頭が_(アンダーバー)のファイルを除外することで各種テンプレートファイルを変換しなくなる。
+					span.text-decoration-line-through ファイル行頭が_(アンダーバー)のファイルを除外することで各種テンプレートファイルを変換しなくなる。
 					br
 					| ファイル行頭が_(アンダーバー)のファイルはデフォルトでコンパイラ側にて無視されるため、気にする必要はない。
 				pre.language-javascript.line-numbers(data-line='1, 4'): code.
@@ -328,8 +328,8 @@ onMounted(function() {
 </script>
 
 <style lang="scss">
-.category-language {
-	&.page-pug {
+.category--language {
+	&.page--pug {
 		.v-application {
 			.title {
 				font-family: unset !important;
