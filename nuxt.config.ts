@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 	// Module list and configuration
 
 	modules: [
-		'@nuxtjs/eslint-module',
+		// '@nuxtjs/eslint-module',
 		'@nuxtjs/i18n',
 		'@pinia/nuxt',
 		'@vite-pwa/nuxt',
@@ -129,9 +129,6 @@ export default defineNuxtConfig({
 	// Vite configuration
 
 	vite: {
-		define: {
-			'process.env.DEBUG': false,
-		},
 		plugins: [
 			stylelint({
 				fix: true,
@@ -150,10 +147,5 @@ export default defineNuxtConfig({
 				],
 			}),
 		],
-		server: {
-			watch: {
-				usePolling: true,
-			},
-		},
 	},
 });

@@ -166,41 +166,41 @@ onMounted(function() {
 
 			&.yw-slider {
 				height: 5px;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
 				background: #CCCCCC;
 				border-radius: 10px;
 				outline: none;
 				opacity: 0.7;
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				appearance: none;
 
 				&::-webkit-slider-thumb {
 					box-sizing: border-box;
 					width: 25px;
 					height: 25px;
 					min-height: 25px;
+					-webkit-appearance: none;
+					appearance: none;
 					cursor: pointer;
 					background: #FFFF33;
 					border: 2px outset #CCCCCC;
 					border-right-style: inset;
 					border-bottom-style: inset;
 					border-radius: 50%;
-					-webkit-appearance: none;
-					appearance: none;
 				}
 
 				&::-moz-slider-thumb {
 					box-sizing: border-box;
 					width: 25px;
 					height: 25px;
+					-moz-appearance: none;
+					appearance: none;
 					cursor: pointer;
 					background: #FFFF33;
 					border: 2px outset #CCCCCC;
 					border-right-style: inset;
 					border-bottom-style: inset;
 					border-radius: 50%;
-					-moz-appearance: none;
-					appearance: none;
 				}
 			}
 		}

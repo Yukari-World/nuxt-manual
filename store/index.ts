@@ -6,8 +6,6 @@
 // Import
 
 import { defineStore } from 'pinia';
-import menuData from '@/assets/json/manualList.json';
-import randomWordData from '@/assets/json/randomWord.json';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -169,9 +167,12 @@ export const useIndexStore = defineStore('index', {
 		 * @async
 		 * @returns {Promise<void>}
 		 */
-		fetchMenuList(): void {
+		async fetchMenuList(): Promise<void> {
 			if (this.menus.categoryList.length === 0) {
-				this.menus = menuData;
+				const { data, pending, error, refresh } = await useFetch<menuList>('/json/manualList.json');
+				if (data.value !== null) {
+					this.menus = data.value;
+				}
 			}
 		},
 
@@ -181,9 +182,12 @@ export const useIndexStore = defineStore('index', {
 		 * @async
 		 * @returns {Promise<void>}
 		 */
-		fetchRandomWords(): void {
+		async fetchRandomWords(): Promise<void> {
 			if (this.randomWords.length === 0) {
-				this.randomWords = randomWordData;
+				const { data, pending, error, refresh } = await useFetch<RandomWord[]>('/json/randomWord.json');
+				if (data.value !== null) {
+					this.randomWords = data.value;
+				}
 			}
 		},
 
