@@ -30,7 +30,7 @@ module.exports = {
 
 	// An array of regexp pattern strings used to skip coverage collection
 	coveragePathIgnorePatterns: [
-		'\\\\node_modules\\\\',
+		'/node_modules/',
 	],
 
 	// Indicates which provider should be used to instrument code for coverage
@@ -80,7 +80,7 @@ module.exports = {
 		'vue',
 	],
 
-	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
+	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources w                                                   ith a single module
 	moduleNameMapper: {
 		'^~/(.*)$': '<rootDir>/$1',
 		'^~~/(.*)$': '<rootDir>/$1',
@@ -97,7 +97,7 @@ module.exports = {
 	// notifyMode: "failure-change",
 
 	// A preset that is used as a base for Jest's configuration
-	// preset: undefined,
+	preset: 'ts-jest',
 
 	// Run tests from one or more projects
 	// projects: undefined,
@@ -158,7 +158,7 @@ module.exports = {
 
 	// An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
 	testPathIgnorePatterns: [
-		'\\\\node_modules\\\\',
+		'/node_modules/',
 	],
 
 	// The regexp pattern or array of patterns that Jest uses to detect test files

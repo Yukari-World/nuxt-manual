@@ -1,4 +1,7 @@
 {
+	"files.associations": {
+		".prettierrc": "yaml"
+	},
 	"i18n-ally.enabledFrameworks": [
 		"vue"
 	],

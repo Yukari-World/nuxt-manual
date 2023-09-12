@@ -48,6 +48,7 @@ import { useIndexStore } from '@/store/index';
 // Data Initialize
 
 const indexStore = useIndexStore();
+
 const threeLine = ref(false);
 const now = ref('');
 
