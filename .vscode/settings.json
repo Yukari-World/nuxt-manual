@@ -1,4 +1,7 @@
 {
+	"files.associations": {
+		".prettierrc": "yaml"
+	},
 	"i18n-ally.enabledFrameworks": [
 		"vue"
 	],
@@ -24,5 +27,5 @@
 		"scss",
 		"vue"
 	],
-	"typescript.tsdk": "node_modules\\typescript\\lib"
+	"typescript.tsdk": "node_modules\\typescript\\lib",
 }

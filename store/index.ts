@@ -6,6 +6,7 @@
 // Import
 
 import { defineStore } from 'pinia';
+import YAML from 'yaml';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -169,9 +170,9 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchMenuList(): Promise<void> {
 			if (this.menus.categoryList.length === 0) {
-				const { data } = await useFetch<menuList>('/json/manualList.json');
+				const { data } = await useFetch<string>('/yaml/manualList.yaml');
 				if (data.value !== null) {
-					this.menus = data.value;
+					this.menus = YAML.parse(data.value);
 				}
 			}
 		},
@@ -184,9 +185,9 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchRandomWords(): Promise<void> {
 			if (this.randomWords.length === 0) {
-				const { data } = await useFetch<RandomWord[]>('/json/randomWord.json');
+				const { data } = await useFetch<string>('/yaml/randomWord.yaml');
 				if (data.value !== null) {
-					this.randomWords = data.value;
+					this.randomWords = YAML.parse(data.value);
 				}
 			}
 		},
