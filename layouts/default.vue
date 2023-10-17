@@ -2,8 +2,7 @@
 div.layout--default
 	//- サイドバー
 	//- 内部処理はサイドバーコンポーネント参照
-	v-navigation-drawer(v-model='drawer', app)
-		CommonSidebar
+	CommonSidebar(:open='drawer')
 
 	//- ページヘッダー
 	v-app-bar(app)

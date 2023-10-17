@@ -10,7 +10,13 @@
 *.gitattributes text
 .gitignore      text
 *.md            text diff=markdown
+*.js            text eol=lf
+*.json          text eol=lf
+*.toml          text eol=lf
+*.ts            text eol=lf
 *.vue           text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
 
 #
 # Exclude files from exporting

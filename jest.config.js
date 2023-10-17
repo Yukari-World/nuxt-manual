@@ -74,11 +74,7 @@ module.exports = {
 	// ],
 
 	// An array of file extensions your modules use
-	moduleFileExtensions: [
-		'js',
-		'json',
-		'vue',
-	],
+	moduleFileExtensions: [ 'js', 'json', 'ts', 'vue' ],
 
 	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources w                                                   ith a single module
 	moduleNameMapper: {
@@ -97,7 +93,7 @@ module.exports = {
 	// notifyMode: "failure-change",
 
 	// A preset that is used as a base for Jest's configuration
-	preset: 'ts-jest',
+	// preset: 'ts-jest',
 
 	// Run tests from one or more projects
 	// projects: undefined,
@@ -178,6 +174,7 @@ module.exports = {
 
 	// A map from regular expressions to paths to transformers
 	transform: {
+		'^.+\\.ts$': 'ts-jest',
 		'^.+\\.js$': 'babel-jest',
 		'.*\\.(vue)$': '@vue/vue3-jest',
 	},

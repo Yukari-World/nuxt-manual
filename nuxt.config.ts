@@ -17,7 +17,9 @@ export default defineNuxtConfig({
 		},
 	},
 
+	// ----------------------------------------------------------------------------------------------------
 	// Global CSS: https://go.nuxtjs.dev/config-css
+
 	css: [
 		// 'codemirror/lib/codemirror.css',
 		// 'codemirror/theme/material.css',
@@ -41,6 +43,9 @@ export default defineNuxtConfig({
 		// 'nuxt-purgecss',
 	],
 
+	// ----------------------------------------------------------------------------------------------------
+	// i18n configuration
+
 	i18n: {
 		defaultLocale: 'ja-JP',
 		detectBrowserLanguage: {
@@ -52,11 +57,14 @@ export default defineNuxtConfig({
 		langDir: 'locales/',
 		lazy: true,
 		locales: [
-			{ code: 'en-US', iso: 'en-US', name: 'English', files: [ 'en.json', 'en-US.json' ] },
-			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.json', 'ja-JP.json' ] },
+			{ code: 'en-US', iso: 'en-US', name: 'English', files: [ 'en.yaml', 'en-US.yaml' ] },
+			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.yaml', 'ja-JP.yaml' ] },
 		],
 		strategy: 'prefix_except_default',
 	},
+
+	// ----------------------------------------------------------------------------------------------------
+	// PWA configuration
 
 	pwa: {
 		manifest: {
@@ -147,5 +155,12 @@ export default defineNuxtConfig({
 				],
 			}),
 		],
+	},
+
+	// ----------------------------------------------------------------------------------------------------
+	// Development server configuration
+
+	devServer: {
+		host: '0.0.0.0',
 	},
 });
