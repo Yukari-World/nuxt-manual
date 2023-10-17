@@ -262,7 +262,9 @@ import 'prismjs/components/prism-scss';
 
 const header = reactive({ title: 'Nuxt Manual' });
 const indexStore = useIndexStore();
+
 const code = ref('import Vue from \'vue\';\n');
+
 const cmOptions = reactive({
 	extraKeys: {
 		'F11'(cm: any) {

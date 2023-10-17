@@ -20,11 +20,21 @@ import { useIndexStore } from '@/store/index';
 
 
 // ----------------------------------------------------------------------------------------------------
+// Interface
+
+interface ILog {
+	date: string,
+	opposite?: string,
+	summary: string[],
+}
+
+
+// ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
 const header = reactive({ title: '更新履歴' });
 const indexStore = useIndexStore();
-const log = reactive([
+const log = reactive<ILog[]>([
 	{
 		date: '2022/12/20',
 		summary: [

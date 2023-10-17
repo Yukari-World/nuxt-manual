@@ -12,7 +12,7 @@ import YAML from 'yaml';
 // ----------------------------------------------------------------------------------------------------
 // Interface
 
-interface categoryList {
+interface ICategoryList {
 	category: string,
 	baseURL: string,
 	description: string,
@@ -36,9 +36,9 @@ interface categoryList {
  *
  * @interface
  */
-interface menuList {
+interface IMenuList {
 	type: string,
-	categoryList: categoryList[],
+	categoryList: ICategoryList[],
 }
 
 /**
@@ -46,7 +46,7 @@ interface menuList {
  *
  * @interface
  */
-interface RandomWord {
+interface IRandomWord {
 	/** タイトル */
 	title: string,
 	/** 出典 */
@@ -62,7 +62,7 @@ interface RandomWord {
  *
  * @interface
  */
-interface XorShiftSeed128 {
+interface IXorShiftSeed128 {
 	x: number,
 	y: number,
 	z: number,
@@ -100,15 +100,15 @@ export const useIndexStore = defineStore('index', {
 	state() {
 		const nowTime = new Date();
 		return {
-			menus: { type: 'No Data', categoryList: [] } as menuList,
-			randomWords: [] as RandomWord[],
+			menus: { type: 'No Data', categoryList: [] } as IMenuList,
+			randomWords: [] as IRandomWord[],
 			title: '' as string,
 			XorSeed: {
 				x: Math.max(Math.floor(nowTime.getDate() ** ((nowTime.getMonth() + 1) / 4 + 2)), (nowTime.getMonth() + 1) * nowTime.getDate() * Math.max(nowTime.getSeconds() ** 2, 31) * Math.max(nowTime.getMinutes() ** 2, 53)),
 				y: Math.max(Math.max(nowTime.getSeconds(), 5) ** Math.floor(Math.max(nowTime.getMinutes(), 10) / 10) + Math.max(nowTime.getSeconds(), 1) * Math.max(nowTime.getMinutes(), 1) * Math.floor(nowTime.getFullYear() / 10)),
 				z: 0,
 				w: Math.floor(Date.now() / 1000),
-			} as XorShiftSeed128,
+			} as IXorShiftSeed128,
 		};
 	},
 
@@ -116,24 +116,39 @@ export const useIndexStore = defineStore('index', {
 	// Getter
 
 	getters: {
-		getMenuList(): categoryList[] {
+		/**
+		 * メニューカテゴリ一覧の取得
+		 *
+		 * @returns {ICategoryList[]}   メニューカテゴリリスト
+		 */
+		getMenuList(): ICategoryList[] {
 			return this.menus.categoryList;
 		},
 
-		getTitle(): string {
-			return this.title;
+		/**
+		 * ランダムワードリストの取得
+		 *
+		 * @returns {IRandomWord[]} ランダムワードリスト
+		 */
+		getRandomWords(): IRandomWord[] {
+			return this.randomWords;
 		},
 
-		getRandomWords(): RandomWord[] {
-			return this.randomWords;
+		/**
+		 * ヘッダータイトルデータの取得
+		 *
+		 * @returns {string}    保管しているタイトルデータ
+		 */
+		getTitle(): string {
+			return this.title;
 		},
 
 		/**
 		 * XorShiftの乱数シードの取得
 		 *
-		 * @returns {XorShiftSeed128}   seed値
+		 * @returns {IXorShiftSeed128}  seed値
 		 */
-		getSeed(): XorShiftSeed128 {
+		getSeed(): IXorShiftSeed128 {
 			return this.XorSeed;
 		},
 	},
@@ -170,7 +185,7 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchMenuList(): Promise<void> {
 			if (this.menus.categoryList.length === 0) {
-				const { data } = await useFetch<string>('/yaml/manualList.yaml');
+				const { data } = await useFetch<string>('/json/manualList.json');
 				if (data.value !== null) {
 					this.menus = YAML.parse(data.value);
 				}
@@ -185,14 +200,22 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchRandomWords(): Promise<void> {
 			if (this.randomWords.length === 0) {
-				const { data } = await useFetch<string>('/yaml/randomWord.yaml');
+				const { data } = await useFetch<string>('/json/randomWord.json');
 				if (data.value !== null) {
 					this.randomWords = YAML.parse(data.value);
 				}
 			}
 		},
 
-		setTitle(title: string) {
+		/**
+		 * ヘッダータイトルデータのセット
+		 *
+		 * ストアから取得させる回りくどい手法だが、レイアウト経由では何とかならなさそうなのでこの手法で行う
+		 *
+		 * @param   {string}    title ヘッダータイトル情報
+		 * @returns {void}
+		 */
+		setTitle(title: string): void {
 			this.title = title;
 		},
 	},

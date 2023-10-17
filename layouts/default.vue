@@ -2,8 +2,7 @@
 div.layout--default
 	//- サイドバー
 	//- 内部処理はサイドバーコンポーネント参照
-	v-navigation-drawer(v-model='drawer', app)
-		CommonSidebar
+	CommonSidebar(:open='drawer')
 
 	//- ページヘッダー
 	v-app-bar(app)
@@ -54,6 +53,8 @@ import { useTheme } from 'vuetify';
 import { useIndexStore } from '../store/index';
 import 'prismjs/plugins/toolbar/prism-toolbar';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
+import 'prismjs/plugins/download-button/prism-download-button';
+import 'prismjs/plugins/highlight-keywords/prism-highlight-keywords';
 import 'prismjs/plugins/show-language/prism-show-language';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
@@ -66,7 +67,9 @@ const { locale, locales, setLocale } = useI18n();
 const indexStore = useIndexStore();
 const theme = useTheme();
 // const switchLocalePath = useSwitchLocalePath();
+
 const drawer = ref(true);
+
 const headMenu = reactive([
 	{ title: 'header.title', icon: 'mdi-home', link: '/' },
 	{ title: 'header.log', icon: 'mdi-history', link: '/updateLog' },
