@@ -1,5 +1,5 @@
 <template lang="pug">
-nav#menu.sidebar
+v-navigation-drawer(v-model='props.open', app).yw-sidebar
 	h2.text-center Nuxt Manual Menu
 
 	p.text-center {{ now }}
@@ -14,7 +14,7 @@ nav#menu.sidebar
 	v-list#navMenu(dense, expand, nav, subheader, :three-line='threeLine')
 		v-list-subheader(v-t="'sidebar.contents'")
 		v-list-group(v-for="(listIndex, index) in menuList", active-class='text-light-blue', :id='listIndex.category', :value='$t(listIndex.category)', :prepend-icon='listIndex.icon', :key='index')
-			template(v-slot:activator="{ props }")
+			template(v-slot:activator="{ isOpen, props }")
 				v-list-item(v-bind='props')
 					v-list-item-title {{ $t(listIndex.category) }}
 					v-list-item-subtitle(v-if='threeLine' v-text='listIndex.description')
@@ -48,8 +48,20 @@ import { useIndexStore } from '@/store/index';
 // Data Initialize
 
 const indexStore = useIndexStore();
+
 const threeLine = ref(false);
 const now = ref('');
+
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Props List
+
+const props = defineProps({
+	open: {
+		type: Boolean,
+		default: true,
+	},
+});
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -100,7 +112,7 @@ function roopEvent(): void {
 	}
 }
 
-.sidebar {
+.yw-sidebar {
 	// ----------------------------------------------------------------------------------------------------
 	// Vuetify Overwrite
 

@@ -57,6 +57,7 @@ import { useIndexStore } from '@/store/index';
 // Data Initialize
 
 const indexStore = useIndexStore();
+
 const bWordDecide = ref(false);
 const bLoading = ref(true);
 const sLink = ref('');
@@ -102,6 +103,7 @@ function randomInt32(): number {
  */
 function randomFloat(): number {
 	let randNumber = randomInt32();
+
 	if (randNumber < 0) {
 		randNumber = ~randNumber;
 	}

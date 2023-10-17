@@ -34,6 +34,7 @@ module.exports = {
 		}],
 		'order/order': [
 			[
+				{ type: 'at-rule', name: 'use' },
 				{ type: 'at-rule', name: 'extend' },
 				'custom-properties',
 				'dollar-variables',
@@ -41,12 +42,14 @@ module.exports = {
 				{ type: 'at-rule', name: 'supports', hasBlock: true },
 				{ type: 'at-rule', name: 'import', hasBlock: true },
 				{ type: 'at-rule', name: 'include', hasBlock: true },
+				{ type: 'at-rule', name: 'mixin', hasBlock: true },
+				{ type: 'at-rule', name: 'function', hasBlock: true },
 				'rules',
 				'at-rules',
 			],
 			{ severity: 'warning' },
 		],
-		'scss/at-function-parentheses-space-before': 'always',
+		'scss/at-function-parentheses-space-before': 'never',
 		'scss/at-rule-no-unknown': true,
 		'scss/comment-no-empty': null,
 		'scss/double-slash-comment-empty-line-before': null,
