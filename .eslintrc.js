@@ -1,13 +1,13 @@
 module.exports = {
 	root: true,
-	env: {
-		browser: true,
-		node: true,
-	},
-	parserOptions: {
-		// parser: 'babel-eslint',
-		sourceType: 'module',
-	},
+	// env: {
+	// 	browser: true,
+	// 	node: true,
+	// },
+	// parserOptions: {
+	// 	// parser: 'babel-eslint',
+	// 	sourceType: 'module',
+	// },
 	extends: [
 		// '@nuxtjs',
 		'prettier',
@@ -84,7 +84,19 @@ module.exports = {
 		'yield-star-spacing': [ 'error', 'before' ],
 		'import/no-named-as-default-member': 'off',
 		'vue/multi-word-component-names': 'off',
+		'vue/script-indent': [ 'error', 'tab' ],
+		'@typescript-eslint/array-type': [ 'warn', { default: 'array-simple' }],
+		// '@typescript-eslint/no-duplicate-type-constituents': 'error',
+		'@typescript-eslint/no-empty-interface': 'error',
 		'@typescript-eslint/no-inferrable-types': 'off',
 		'@typescript-eslint/no-unused-vars': 'off',
 	},
+	overrides: [
+		{
+			files: [ '*.vue' ],
+			rules: {
+				indent: 'off',
+			},
+		},
+	],
 };
