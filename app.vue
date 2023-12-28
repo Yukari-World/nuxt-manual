@@ -6,6 +6,7 @@ v-app#inspire
 </template>
 
 <script setup lang="ts">
+// null
 </script>
 
 <script lang="ts">

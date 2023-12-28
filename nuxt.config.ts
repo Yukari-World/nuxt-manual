@@ -1,3 +1,4 @@
+import eslint from 'vite-plugin-eslint';
 import stylelint from 'vite-plugin-stylelint';
 
 export default defineNuxtConfig({
@@ -36,7 +37,6 @@ export default defineNuxtConfig({
 	// Module list and configuration
 
 	modules: [
-		// '@nuxtjs/eslint-module',
 		'@nuxtjs/i18n',
 		'@pinia/nuxt',
 		'@vite-pwa/nuxt',
@@ -138,6 +138,7 @@ export default defineNuxtConfig({
 
 	vite: {
 		plugins: [
+			eslint(),
 			stylelint({
 				fix: true,
 				include: [
@@ -162,5 +163,9 @@ export default defineNuxtConfig({
 
 	devServer: {
 		host: '0.0.0.0',
+	},
+
+	devtools: {
+		enabled: false,
 	},
 });
