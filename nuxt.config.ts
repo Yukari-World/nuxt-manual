@@ -166,6 +166,6 @@ export default defineNuxtConfig({
 	},
 
 	devtools: {
-		enabled: false,
+		componentInspector: false,
 	},
 });
