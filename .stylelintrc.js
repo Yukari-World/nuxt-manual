@@ -3,9 +3,9 @@ module.exports = {
 	// add your custom config here
 	// https://stylelint.io/user-guide/configuration
 	plugins: [
+		'@stylistic/stylelint-plugin',
 		'stylelint-order',
 		'stylelint-scss',
-		'stylelint-codeguide',
 	],
 	overrides: [
 		{
@@ -32,30 +32,30 @@ module.exports = {
 				'after-comment',
 			],
 		}],
-		'codeguide/block-closing-brace-empty-line-before': 'never',
-		'codeguide/block-closing-brace-newline-after': 'always',
-		'codeguide/block-closing-brace-newline-before': 'always',
-		'codeguide/block-opening-brace-newline-after': 'always',
-		'codeguide/block-opening-brace-space-before': 'always',
-		'codeguide/color-hex-case': 'upper',
-		'codeguide/declaration-block-semicolon-newline-after': 'always',
-		'codeguide/declaration-block-semicolon-space-before': 'never',
-		'codeguide/declaration-colon-space-after': 'always',
-		'codeguide/declaration-colon-space-before': 'never',
-		'codeguide/function-comma-space-after': 'always',
-		'codeguide/indentation': ['tab', {
+		'@stylistic/block-closing-brace-empty-line-before': 'never',
+		'@stylistic/block-closing-brace-newline-after': 'always',
+		'@stylistic/block-closing-brace-newline-before': 'always',
+		'@stylistic/block-opening-brace-newline-after': 'always',
+		'@stylistic/block-opening-brace-space-before': 'always',
+		'@stylistic/color-hex-case': 'upper',
+		'@stylistic/declaration-block-semicolon-newline-after': 'always',
+		'@stylistic/declaration-block-semicolon-space-before': 'never',
+		'@stylistic/declaration-colon-space-after': 'always',
+		'@stylistic/declaration-colon-space-before': 'never',
+		'@stylistic/function-comma-space-after': 'always',
+		'@stylistic/indentation': ['tab', {
 			indentInsideParens: 'twice',
 			except: [
 				'value',
 			],
 		}],
-		'codeguide/max-empty-lines': 1,
-		'codeguide/number-no-trailing-zeros': true,
-		'codeguide/selector-list-comma-newline-after': 'always-multi-line',
-		'codeguide/selector-list-comma-space-after': 'always',
-		'codeguide/string-quotes': 'double',
-		'codeguide/unit-case': 'lower',
-		'codeguide/value-list-comma-space-after': 'always',
+		'@stylistic/max-empty-lines': 1,
+		'@stylistic/number-no-trailing-zeros': true,
+		'@stylistic/selector-list-comma-newline-after': 'always-multi-line',
+		'@stylistic/selector-list-comma-space-after': 'always',
+		'@stylistic/string-quotes': 'double',
+		'@stylistic/unit-case': 'lower',
+		'@stylistic/value-list-comma-space-after': 'always',
 		'order/order': [
 			[
 				{ type: 'at-rule', name: 'use' },
