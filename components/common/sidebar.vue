@@ -26,7 +26,7 @@ v-navigation-drawer(v-model='props.open', app).yw-sidebar
 					//- サブカテゴリは1000足してキーの重複を回避する
 					//- サブカテゴリ毎に表示方法を変える
 					template(v-if="subIndex.name !== 'Default'")
-						v-list-item(active-class='text-light-blue', nuxt, :to="listIndex.baseURL + '/' + subIndex.url + lists.link", :key='i * 1000 + j')
+						v-list-item(active-class='text-light-blue', nuxt, :to="listIndex.baseURL + subIndex.url + lists.link", :key='i * 1000 + j')
 							template(v-if="lists.workInProgress === true", v-slot:append)
 								v-icon(icon='mdi-border-color')
 							v-list-item-title(v-text="'[' + $t(subIndex.name) + '] ' + lists.title", :title="lists.title")
