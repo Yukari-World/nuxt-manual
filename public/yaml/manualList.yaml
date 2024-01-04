@@ -217,7 +217,7 @@ categoryList:
             deprecated: false
             workInProgress: true
       - name: menu.js.subCategory.Ajax
-        url: Ajax
+        url: /Ajax
         list:
           - title: Fetch API
             link: /FetchAPI
@@ -302,7 +302,7 @@ categoryList:
             deprecated: false
             workInProgress: false
       - name: menu.node.subCategory.Gulp
-        url: Gulp
+        url: /Gulp
         list:
           - title: Gulp導入マニュアル
             link: /manualGulp
@@ -350,7 +350,7 @@ categoryList:
             deprecated: false
             workInProgress: false
       - name: menu.php.subCategory.CodeIgniter
-        url: CodeIgniter
+        url: /CodeIgniter
         list:
           - title: データベース接続
             link: /database
@@ -444,7 +444,7 @@ categoryList:
             deprecated: false
             workInProgress: true
       - name: menu.sql.subCategory.MySQL
-        url: MySQL
+        url: /MySQL
         list:
           - title: INSERT WHERE EXISTS
             link: /insertWhereExists
@@ -479,7 +479,7 @@ categoryList:
             deprecated: false
             workInProgress: true
       - name: menu.sql.subCategory.SQLite
-        url: SQLite
+        url: /SQLite
         list: []
   - category: menu.vue.title
     baseURL: /vue
@@ -496,7 +496,7 @@ categoryList:
             deprecated: false
             workInProgress: true
       - name: menu.vue.subCategory.Nuxt
-        url: Nuxtjs
+        url: /Nuxtjs
         list:
           - title: 近日公開
             link: /
@@ -542,7 +542,7 @@ categoryList:
             deprecated: false
             workInProgress: true
       - name: menu.other.subCategory.Apache
-        url: Apache
+        url: /Apache
         list:
           - title: HTMLファイル内でPHPを動かす
             link: /runPHPForHTML
@@ -552,7 +552,7 @@ categoryList:
             deprecated: false
             workInProgress: false
       - name: menu.other.subCategory.Atom
-        url: Atom
+        url: /Atom
         list:
           - title: Atom 導入マニュアル
             link: /atomInstall
@@ -569,7 +569,7 @@ categoryList:
             deprecated: false
             workInProgress: true
       - name: menu.other.subCategory.Unix
-        url: Unix
+        url: /Unix
         list:
           - title: Console Command
             link: /unixConsole
@@ -579,7 +579,7 @@ categoryList:
             deprecated: false
             workInProgress: true
       - name: menu.other.subCategory.XAMPP
-        url: XAMPP
+        url: /XAMPP
         list:
           - title: ローカルネットワーク接続
             link: /localNetwork

@@ -167,5 +167,9 @@ export default defineNuxtConfig({
 
 	devtools: {
 		componentInspector: false,
+
+		timeline: {
+			enabled: true,
+		},
 	},
 });
