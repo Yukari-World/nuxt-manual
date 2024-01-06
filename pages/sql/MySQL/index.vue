@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--sql.sub--mysql.page--index
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

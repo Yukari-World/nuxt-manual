@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--language.page--scss
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

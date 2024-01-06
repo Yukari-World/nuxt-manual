@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--node.page--manual-node-js
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--js.sub--ajax.page--xml-http-request
-	AlartStub
+	AlertStub
 </template>
 
 <script setup lang="ts">

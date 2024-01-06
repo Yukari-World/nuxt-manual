@@ -1,6 +1,6 @@
 <template lang="pug">
 .page--vue.sub--nuxtjs.page--index
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

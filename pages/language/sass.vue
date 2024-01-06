@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--language.page--sass
-	AlartStub
+	AlertStub
 
 	section
 		h2 Sassとは

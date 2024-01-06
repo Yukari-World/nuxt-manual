@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--css.page--grid-layout
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

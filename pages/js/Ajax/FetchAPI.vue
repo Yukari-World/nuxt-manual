@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--js.sub--ajax.page--fetch-api
-	AlartStub
+	AlertStub
 
 	section
 		h2 互換性に関する注意事項

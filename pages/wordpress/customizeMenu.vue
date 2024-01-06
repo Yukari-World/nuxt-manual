@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--wordpress.page--customize-menu
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

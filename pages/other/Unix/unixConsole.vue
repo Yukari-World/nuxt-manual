@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--other.sub--unix.page--unix-console
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

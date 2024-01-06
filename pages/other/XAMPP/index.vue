@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--other.sub--xampp.page--index
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

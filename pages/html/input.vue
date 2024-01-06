@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--html.page--input
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

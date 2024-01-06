@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--git.page--head
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

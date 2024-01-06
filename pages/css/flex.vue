@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--css.page--flex
-	AlartStub
+	AlertStub
 
 	section
 		h2 flexレイアウトの設定

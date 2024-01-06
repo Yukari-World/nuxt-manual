@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--js.page--indexed-db-api
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

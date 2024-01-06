@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--sql.page--like
-	AlartStub
+	AlertStub
 </template>
 
 <script setup lang="ts">

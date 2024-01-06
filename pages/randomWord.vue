@@ -4,17 +4,7 @@ dl#randomOutput
 		NuxtPage
 	template(v-else)
 		template(v-for='(words, index) in wordList')
-			dt(:id='"wordID" + (index + 1)')
-				h3(v-html='words.title')
-				h4 出典: {{ words.original }}
-			dd
-				div(v-html='words.summary')
-				.boxTag
-					ul.tagList
-						//- <a data-tag="' + searchTag + '">' + searchTag + '</a>
-						//- コンテンツタグの出力
-						li(v-for='(tag) in words.tags')
-							a(:data-tag='tag') {{ $t(tag) }}
+			BlockRandomWord(:target-id="index + 1", :word-list="words")
 </template>
 
 <script setup lang="ts">

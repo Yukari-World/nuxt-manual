@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--sql.page--delete-flag
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

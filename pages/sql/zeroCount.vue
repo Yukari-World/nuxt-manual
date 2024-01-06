@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--sql.page--zero-count
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

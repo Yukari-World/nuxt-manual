@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--html.page--omit-http
-	v-alert(type='error', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.deprecated.title')", :text="$t('common.stub.deprecated.desc')")
+	AlertDeprecated
 
 	section
 		h2 説明

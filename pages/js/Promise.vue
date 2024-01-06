@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--js.page--promise
-	AlartStub
+	AlertStub
 </template>
 
 <script setup lang="ts">

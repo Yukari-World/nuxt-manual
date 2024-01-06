@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--other.sub--atom.page--apm
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

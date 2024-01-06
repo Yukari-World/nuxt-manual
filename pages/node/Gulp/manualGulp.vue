@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--node.sub--gulp.page--manual-gulp
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

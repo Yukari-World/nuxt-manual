@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--home.page--prism-highlight
-	AlartStub
+	AlertStub
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--css.page--reset-css
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

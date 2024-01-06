@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--other.sub--xampp.page--local-network
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明

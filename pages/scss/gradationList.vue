@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--scss.page--gradation-list
-	AlartStub
+	AlertStub
 	v-alert(type='warning', border='start', colored-border, dense, elevation='5', title='応用技術', text='ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。')
 
 	section

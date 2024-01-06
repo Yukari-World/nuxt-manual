@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--css.page--display
-	AlartStub
+	AlertStub
 
 	section
 		h3 display-outside

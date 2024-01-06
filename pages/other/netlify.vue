@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--other.page--netlify
-	AlartStub
+	AlertStub
 
 	section
 		h2 説明
