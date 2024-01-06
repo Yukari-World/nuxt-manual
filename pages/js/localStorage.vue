@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--js.page--local-storage
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明
@@ -33,7 +33,7 @@
 		h2 使用上の注意
 		ul
 			li ブラウザによってはストレージが使用できないことがある。以下のソースを使用することで使用できるかどうかを調べることができる。
-				pre.language-javascript.line-numbers: code.
+				BlockCode.language-javascript: pre.
 					/**
 					 * ローカルストレージの環境が利用可能か調べる関数
 					 *
@@ -67,10 +67,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -92,7 +89,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

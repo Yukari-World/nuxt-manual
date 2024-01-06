@@ -9,11 +9,11 @@
 	section
 		h2 使用方法と解説
 		p このようなリンクがあるとする。
-		pre.language-http.line-numbers: code.
+		BlockCode.language-http: pre.
 			https://prismjs.com/
 
 		p これを以下のように記述することができる。
-		pre.language-http.line-numbers: code.
+		BlockCode.language-http: pre.
 			//prismjs.com/
 
 		p 詳細な内容は省略する。
@@ -30,9 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-http';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -54,7 +52,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

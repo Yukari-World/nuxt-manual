@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--js.sub--ajax.page--fetch-api
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 互換性に関する注意事項

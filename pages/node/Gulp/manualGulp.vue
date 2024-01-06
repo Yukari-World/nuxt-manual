@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--node.sub--gulp.page--manual-gulp
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明

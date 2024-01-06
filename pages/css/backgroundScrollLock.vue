@@ -6,7 +6,7 @@
 
 	section
 		h2 使用方法と解説
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			.header-background {
 				background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px/100% 50% local, url(./img/nicholas-loo-372788.jpg) repeat top left center;
 			}
@@ -16,7 +16,7 @@
 			code.language-css: span.token.property background
 			| で1行に収める場合の記述方法。詰め込み過ぎているあまり理解し辛いと思われるので、これを細かな単位に分解する。
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			.header-background {
 				background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
 				background-repeat: repeat-x, repeat;
@@ -38,7 +38,7 @@
 			code.language-css: span.token.property border
 			| 等もこれに該当する)として補完している。ここで表示されているプロパティの値は各初期値である。
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			background-image: none;/* 背景画像指定 */
 			background-position: 0% 0%;/* 背景画像の位置指定 */
 			background-size: auto auto;/* 背景画像の大きさを指定 */
@@ -63,7 +63,7 @@
 		h2 おまけ SCSSで記述
 		p SCSSで記述する場合、以下のように記述しても同様のことを行うことができる。
 		h3 SCSS(Input)
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			.header-background {
 				background: {
 					image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
@@ -73,8 +73,9 @@
 					attachment: local, fixed;
 				}
 			}
+
 		h3 CSS(Output)
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			.header-background {
 				background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
 				background-repeat: repeat-x, repeat;

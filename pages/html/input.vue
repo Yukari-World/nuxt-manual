@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--html.page--input
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明
@@ -38,7 +38,7 @@
 			dt: h3#input-button button
 			dd
 				p 機能を持たないボタンを作成する。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="button" value="ボタン"&gt;
 
 				fieldset
@@ -47,7 +47,7 @@
 			dt: h3#input-checkbox checkbox
 			dd
 				p チェックボックスを作成する。ラジオボタンと異なり複数選択することができる。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;label&gt;&lt;input type="checkbox" value="1"&gt;内容1&lt;/label&gt;
 					&lt;label&gt;&lt;input type="checkbox" value="2"&gt;内容2&lt;/label&gt;
 					&lt;label&gt;&lt;input type="checkbox" value="3"&gt;内容3&lt;/label&gt;
@@ -65,7 +65,7 @@
 
 			dt: h3#input-color color
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="color" value="#FFFFFF"&gt;
 
 				fieldset
@@ -74,7 +74,7 @@
 			dt: h3#input-date date
 			dd
 				p 日付入力フォームを作成する。ブラウザによってはカレンダーが表示されたりする。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="date"&gt;
 
 				fieldset
@@ -82,7 +82,7 @@
 
 			dt: h3#input-datetime-local datetime-local
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="datetime-local"&gt;
 
 				fieldset
@@ -91,7 +91,7 @@
 			dt: h3#input-email email
 			dd
 				p メールアドレス入力フォームを作成する。ブラウザ毎にメールアドレスの検証機能が異なる。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="email"&gt;
 
 				fieldset
@@ -99,7 +99,7 @@
 
 			dt: h3#input-file file
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="file"&gt;
 
 				fieldset
@@ -107,7 +107,7 @@
 
 			dt: h3#input-hidden hidden
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="hidden"&gt;
 
 				fieldset
@@ -115,7 +115,7 @@
 
 			dt: h3#input-image image
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="image"&gt;
 
 				fieldset
@@ -123,7 +123,7 @@
 
 			dt: h3#input-month month
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="month"&gt;
 
 				fieldset
@@ -131,7 +131,7 @@
 
 			dt: h3#input-number number
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="number"&gt;
 
 				fieldset
@@ -140,7 +140,7 @@
 			dt: h3#input-password password
 			dd
 				p パスワード入力フォームを作成する。パスワード入力時、文字は全て●で表示される。また、非SSLページ(暗号化されていないページ)ではブラウザによっては警告が表示される。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="password"&gt;
 
 				fieldset
@@ -149,7 +149,7 @@
 			dt: h3#input-radio radio
 			dd
 				p 複数の選択肢から1つを選ぶラジオボタンを作成する。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;label&gt;&lt;input type="radio" value="1"&gt;内容1&lt;/label&gt;
 
 				fieldset
@@ -158,7 +158,7 @@
 						| 内容1
 
 				p ラジオボタンはname属性に同じ名前を指定することで同一グループであると認識する。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;label&gt;&lt;input type="radio" name="bread" value="1"&gt;内容1&lt;/label&gt;
 					&lt;label&gt;&lt;input type="radio" name="bread" value="2"&gt;内容1&lt;/label&gt;
 					&lt;label&gt;&lt;input type="radio" name="bread" value="3"&gt;内容1&lt;/label&gt;
@@ -177,7 +177,7 @@
 			dt: h3#input-range range
 			dd
 				p 数値の正確さが重要ではない数値の入力要素を作成する。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="range"&gt;
 
 				fieldset
@@ -186,7 +186,7 @@
 			dt: h3#input-reset reset
 			dd
 				p 入力されている項目を初期化する
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="reset"&gt;
 
 				fieldset
@@ -194,7 +194,7 @@
 
 			dt: h3#input-search search
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="search"&gt;
 
 				fieldset
@@ -203,7 +203,7 @@
 			dt: h3#input-submit submit
 			dd
 				p フォームの入力を完了し送信するボタンを作成する。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="submit"&gt;
 
 				fieldset
@@ -212,7 +212,7 @@
 			dt: h3#input-tel tel
 			dd
 				p 電話番号を入力フォームを作成する。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="tel"&gt;
 
 				fieldset
@@ -220,7 +220,7 @@
 
 			dt: h3#input-text text
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="text"&gt;
 
 				fieldset
@@ -228,7 +228,7 @@
 
 			dt: h3#input-time time
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="time"&gt;
 
 				fieldset
@@ -236,7 +236,7 @@
 
 			dt: h3#input-url url
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="url"&gt;
 
 				fieldset
@@ -244,7 +244,7 @@
 
 			dt: h3#input-week week
 			dd
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="week"&gt;
 
 				fieldset
@@ -262,7 +262,7 @@
 			code.language-html
 				span.token.attr-name autofocus
 			| のみでも問題はない。尚サンプルは性質上ページこの位置まで勝手に移動してしまうので用意していない。
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;input type="text" name="your-name" autofocus="autofocus"&gt;
 
 		h3 formaction
@@ -276,7 +276,7 @@
 			code.language-html
 				span.token.attr-name action
 			| 属性よりも優先される。この属性はimageもしくはsubmitにのみ指定できる。
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;input type="submit" formaction="sample.php"&gt;
 
 		h3 list
@@ -289,7 +289,7 @@
 				span.token.tag label
 				span.token.punctuation &gt;
 			| 等を使用してどの様な項目なのか記入する必要がある。JavaScriptのパーツとして使用する場合を除きほぼ必須項目である。
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;input type="text" name="your-name"&gt;
 
 		fieldset
@@ -321,7 +321,7 @@
 				| submitの場合
 				br
 				| ボタンに表示される文字列。フォーム送信時にその文字列も一緒に送られる。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="submit" name="submit" value="送信確認"&gt;
 
 				fieldset
@@ -330,7 +330,7 @@
 				| それ以外の項目の場合
 				br
 				| フォーム項目の初期値。
-				pre.language-html.line-numbers: code.
+				BlockCode.language-html: pre.
 					&lt;input type="text" name="your-name" value="山田太郎"&gt;
 
 				fieldset
@@ -356,9 +356,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-markup';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -380,7 +378,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

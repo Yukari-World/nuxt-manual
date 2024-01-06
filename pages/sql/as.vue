@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--sql.page--as
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明
@@ -22,7 +22,7 @@
 
 		h3 使用方法
 		p 今回以下のSQL文から説明を行う
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			SELECT
 				`customer`.`name`,
 				`product`.`name`,
@@ -106,7 +106,7 @@
 			code.language-sql: span.token.keyword.keyword-AS AS
 			| を使用することで別名をつけることができる
 
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			SELECT
 				`customer`.`name` AS `customerName`,
 				`product`.`name` AS `productName`,

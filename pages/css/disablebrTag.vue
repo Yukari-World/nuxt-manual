@@ -7,13 +7,13 @@
 	section
 		h2 使用方法と解説
 		p 非常に単純なため、細かい説明は省略する。
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			br {
 				display: none;
 			}
 
 		p 再度有効にする場合、以下の方法で行う。
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			br {
 				display: inline;
 			}
@@ -31,9 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -55,7 +53,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

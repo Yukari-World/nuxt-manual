@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--js.page--indexed-db-api
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明
@@ -12,7 +12,7 @@
 
 		h3 初回接続
 		p IndexedDBはSQLの様にデータベースとデータテーブルというものが存在している。データベースもデータテーブルはストレージに存在しない場合作成されるが、あらかじめ定義したうえで作成する必要がある。
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			// 各種定義。基本的にこの項目を何度も使いまわすのであらかじめ定義しておくと修正が楽になる
 			// データベースの名前
 			const dbName = 'Technical-Manual';
@@ -48,7 +48,7 @@
 
 		h3 データの入力
 		p 入力するデータは構造体のような形式で入力する。
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			// データベースの名前
 			const dbName = 'Technical-Manual';
 			// データテーブル名
@@ -90,7 +90,7 @@
 
 		h3 データの取得
 		p 返ってくる値は構造体と同じである。
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			// データベースの名前
 			const dbName = 'Technical-Manual';
 			// データテーブル名
@@ -125,7 +125,7 @@
 			});
 
 		h3 データベースの削除
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			// データベースの名前
 			const dbName = 'Technical-Manual';
 
@@ -148,7 +148,7 @@
 			li テーブル構造はSQLみたいなリレーショナルデータベースではなく、オブジェクト指向である。
 			li
 				| ブラウザによってはIndexedDBが使用できないことがある。以下のソースを使用することで使用できるかどうかを調べることができる。
-				pre.language-javascript.line-numbers: code.
+				BlockCode.language-javascript: pre.
 					if (window.indexedDB) {
 						// 処理内容
 					}
@@ -161,10 +161,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -186,7 +183,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

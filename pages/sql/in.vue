@@ -12,7 +12,7 @@
 	section
 		h2 使用方法と解説
 		p ユーザーテーブルからID 200, 224, 371, 441, 503のユーザーデータを取得する場合、通常通り記述する場合、
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			SELECT
 				*
 			FROM
@@ -23,7 +23,7 @@
 		p となる。対象となる列の文字列が短い分、記述ミスがあった場合でもすぐに気付けるが、長く複雑になると難しくなる。
 
 		p 次に上記と同じ内容をIN()を使用して記述する場合、
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			SELECT
 				*
 			FROM

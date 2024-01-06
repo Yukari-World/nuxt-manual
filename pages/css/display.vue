@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--css.page--display
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h3 display-outside

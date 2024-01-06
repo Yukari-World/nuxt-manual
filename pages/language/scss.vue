@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--language.page--scss
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明
@@ -12,7 +12,7 @@
 			| 記述方法はCSSに近い。内部に要素を指定していくことで階層を表す事が出来る。
 			| この記述方法はPostCSSでも使用する事が出来る。
 		h4 SCSS
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			h1, h2, h3, h4, h5, h6 {
 				font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 			}
@@ -55,7 +55,7 @@
 
 		p これを出力した場合、以下のように出力される。尚、Gulpコンパイル時、様々な追加処理を行っている都合上通常の結果と異なる場合がある。
 		h4 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			h1, h2, h3, h4, h5, h6 {
 				font-family: 游ゴシック体,Yu Gothic,YuGothic,ヒラギノ角ゴシック Pro,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,Osaka,ＭＳ Ｐゴシック,MS PGothic,sans-serif;
 			}
@@ -99,7 +99,7 @@
 		h3 変数
 		p Sass及びSCSSでは変数を使用することができる。また、変数を演算に使用することができる。
 		h4 SCSS
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 			$background-color: #000011;
 			$footer-line: 5px;
@@ -130,7 +130,7 @@
 			}
 
 		h4 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			body {
 				display: flex;
 				justify-content: space-between;
@@ -156,10 +156,10 @@
 		h3 レスポンシブ
 		p
 			| タグ内に
-			code.language-sass: span.token.keyword @media
+			code.language-scss: span.token.keyword @media
 			| タグを記述することで簡単にレスポンシブ対応ができる。
 		h4 SCSS
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 
 			footer {
@@ -213,9 +213,9 @@
 		h4 CSS
 		p
 			| 出力結果。以下の通り
-			code.language-sass: span.token.keyword @media
+			code.language-scss: span.token.keyword @media
 			| タブは要素分だけ個別で出力されるため、何らかの整形ツールで纏めると見栄え等で良くなる。
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			footer {
 				display: flex;
 				justify-content: space-between;
@@ -270,10 +270,10 @@
 
 		p
 			| また
-			code.language-sass: span.token.keyword @media
+			code.language-scss: span.token.keyword @media
 			| タブは幾つかの要素に分割することもできる。
 		h4 SCSS
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 
 			footer {
@@ -297,7 +297,7 @@
 			}
 
 		h4 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			footer {
 				display: flex;
 				justify-content: space-between;
@@ -319,11 +319,11 @@
 	section
 		h2 最後に
 		p かつてHTML時代のマニュアルに使われていたSCSSファイルを置いているので参考程度に。
-		pre.line-numbers(data-src='/sass/style.scss', data-download-link)
+		BlockCode(data-src='/sass/style.scss', data-download-link)
 
 	section
 		h2 リンク
-			a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
+		a(href='http://scss-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
 </template>
 
 <script setup lang="ts">

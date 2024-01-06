@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--scss.page--gradation-list
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 	v-alert(type='warning', border='start', colored-border, dense, elevation='5', title='応用技術', text='ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。')
 
 	section
@@ -33,7 +33,7 @@
 	section
 		h2 コードの生成
 		h3 pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			.list
 				ul
 					li.num-1
@@ -47,7 +47,7 @@
 						p リスト項目3
 
 		p これでも良いが、リストの追加や配置の入れ替え等を効率良く行えるようにするため以下のように記述する。
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			.list
 				-
 					var boxList = [
@@ -71,7 +71,7 @@
 			| SCSSファイル。これを基にCSSに出力する。細かい記述ルールは
 			nuxt-link(:to="localePath('/language/sass')" title='SASS') こちら
 			| を参照。
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			@charset "UTF-8";
 
 			// Import
@@ -226,7 +226,7 @@
 	section
 		h2 コードの出力結果
 		h3 HTML
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;div class="list"&gt;
 				&lt;ul&gt;
 					&lt;li class="num-1"&gt;
@@ -252,7 +252,7 @@
 			| CSSの出力結果。メディアクエリはプラグインによりマージされている。また、互換性は
 			a(href='https://github.com/postcss/autoprefixer', target='_blank', rel='external noopener') autoprefixer
 			| により自動で確認、付与されている。
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			.list ul {
 				width: 480px;
 				height: 500px;
@@ -404,12 +404,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-pug';
-import 'prismjs/components/prism-scss';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -432,7 +427,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

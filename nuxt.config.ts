@@ -37,10 +37,12 @@ export default defineNuxtConfig({
 	// Module list and configuration
 
 	modules: [
+		// '@nuxtjs/eslint-module',
 		'@nuxtjs/i18n',
 		'@pinia/nuxt',
 		'@vite-pwa/nuxt',
 		// 'nuxt-purgecss',
+		// 'nuxt-simple-sitemap',
 	],
 
 	// ----------------------------------------------------------------------------------------------------

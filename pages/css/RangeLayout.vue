@@ -18,7 +18,7 @@
 				span.token.punctuation &gt;
 			| の使い方は別ページを参照。
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			input[type="range"] {
 				box-sizing: border-box;
 				width: 70%;
@@ -26,14 +26,14 @@
 			}
 
 		p HTMLは以下の通りである。
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;input type="range" min="0" max="1000" step="1" value="500"&gt;
 
 		fieldset
 			legend デフォルト
 			input(type='range', min='0', max='1000', step='1', value='500')
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			input[type="range"].slider {
 				box-sizing: border-box;
 				height: 5px;
@@ -107,10 +107,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-markup';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -132,7 +129,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

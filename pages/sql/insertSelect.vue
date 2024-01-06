@@ -13,7 +13,7 @@
 	section
 		h2 使用方法と解説
 		p 通常、INSERT文は
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			INSERT INTO
 				`table_name`(`column1`, `column2`, `column3`, ...)
 				VALUES(value1, value2, value3, ...);
@@ -27,7 +27,7 @@
 			| 文の場合、以下の記述となる。
 			br
 			| ここでは移転先をtable_name_a、移転元をtable_name_bとする。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			INSERT INTO
 				`table_name_a`(`column_a1`, `column_a2`, `column_a3`, ...)
 				SELECT

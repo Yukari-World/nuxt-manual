@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--php.sub--code-igniter.page--database
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明
@@ -16,7 +16,7 @@
 			br
 			| 共同作業等でデータベースの接続情報が各個人で異なる場合はCodeIgniter\configにdevelopmentフォルダを作成し、そこにdatabase.phpを複製し設置する。
 
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			$db['default'] = array(
 				'dsn'	=> '',
 				# xamppやローカルサーバーで利用する場合はこのままで問題ない
@@ -57,12 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-php';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -84,7 +79,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--other.sub--xampp.page--local-network
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明
@@ -12,13 +12,13 @@
 		ol
 			li
 				p httpd.confファイルを開き以下の内容を検索する。
-				pre.language-apacheconf.line-numbers: code.
+				BlockCode.language-apacheconf: pre.
 					ServerName localhost:80
 				p ※デフォルト値。既に変更済みの場合、この値通りでない可能性がある。
 
 			li
 				p この内容を以下の内容に書き換える
-				pre.language-apacheconf.line-numbers: code.
+				BlockCode.language-apacheconf: pre.
 					ServerName 192.168.24.10:80
 
 				p
@@ -44,9 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-apacheconf';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -68,7 +66,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

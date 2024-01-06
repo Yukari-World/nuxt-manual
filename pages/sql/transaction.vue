@@ -18,7 +18,7 @@
 		p
 			code.language-sql: span.token.keyword.keyword-COMMIT COMMIT
 			| とは処理を確定させるために使う。使用方法は至って単純である。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			START TRANSACTION;
 			-- ~~~ SQL CODE ~~~
 			COMMIT;
@@ -28,7 +28,7 @@
 		p
 			code.language-sql: span.token.keyword.keyword-ROLLBACK ROLLBACK
 			| とは、データベースを更新前のデータに戻す時に使用される。こちらも使用方法は至って単純である。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			START TRANSACTION;
 			-- ~~~ SQL CODE ~~~
 			ROLLBACK;

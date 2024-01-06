@@ -9,7 +9,7 @@
 		h2 使用方法と解説
 		p .htaccessファイルに以下の記述を追加する。
 
-		pre.language-xml.line-numbers: code.
+		BlockCode.language-xml: pre.
 			&lt;Files "\.html$"&gt;
 			AddHandler application/x-httpd-php .html
 			&lt;/Files&gt;
@@ -29,9 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-markup';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -53,7 +51,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

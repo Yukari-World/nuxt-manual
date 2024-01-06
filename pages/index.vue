@@ -29,7 +29,7 @@
 			br
 			| また、CSSの要素の場合、クリックすることで説明ページに飛ぶことができます(但し、英語)。
 		h3 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			* {
 				margin: 0;
 				padding: 0;
@@ -50,7 +50,7 @@
 			}
 
 		h3 Pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			doctype html
 			html(lang='ja')
 				head
@@ -66,7 +66,7 @@
 					footer(role='contentinfo')
 
 		h3 SCSS
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			header {
 				position: fixed;
 				width: 100%;
@@ -250,11 +250,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-pug';
-import 'prismjs/components/prism-scss';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -311,7 +307,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

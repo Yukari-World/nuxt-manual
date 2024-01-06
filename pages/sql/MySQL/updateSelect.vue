@@ -14,7 +14,7 @@
 		h2 使用方法と解説
 		p
 			| 以下の方法で同じことを再現できる。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			UPDATE
 				`table1`,
 				`table2`

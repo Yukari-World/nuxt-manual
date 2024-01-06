@@ -9,7 +9,7 @@
 		p シングルクォーテーションを使用しているが、ダブルクォーテーションでも問題ない。尚、出力結果はJavaScriptを利用して出力している。
 
 		h3 年月日を表示する
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			date('Y-m-d')
 		p
 			| 出力結果:&nbsp;
@@ -17,14 +17,14 @@
 			br
 			| `Y`を小文字にした場合、年の下2桁が出力される。
 
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			date('y-m-d')
 		p
 			| 出力結果:&nbsp;
 			time#date02
 
 		h3 年月日を0を省いて表示する
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			date('Y年n月j日')
 		p
 			| 出力結果:&nbsp;
@@ -33,7 +33,7 @@
 			| 日本語はdate関数に含めても問題なく出力されるが、英語はルールに従って変換されるので含めないように。
 
 		h3 時間を表示する
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			date('H:i:s')
 		p
 			| 出力結果:&nbsp;
@@ -42,14 +42,14 @@
 			| 注意すべき点として分は`m`ではなく`i`であることである。`m`を使用した場合、月が出力されるため、注意が必要。
 
 		h3 年月日を連結して表示する
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			date('Ymd')
 		p
 			| 出力結果:&nbsp;
 			time#date05
 
 		h3 日時を表示する
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			date('Y-m-d H:i:s')
 		p
 			| 出力結果:&nbsp;
@@ -62,23 +62,18 @@
 		ul
 			li
 				| php.iniのタイムゾーン設定がない場合、標準時間(UTC+0)を元に出力される。PHPソースでこれを解決する場合、
-				pre.language-php.line-numbers: code.
+				BlockCode.language-php: pre.
 					date_default_timezone_set('Asia/Tokyo');
 				| を入力することで解決できる。
 
 	section
 		h2 参考リンク
 		p
-			a(href='http://php.net/manual/ja/function.date.php', target='_blank', rel='external noopener') PHP.net
+			a(href='https://www.php.net/manual/ja/function.date.php', target='_blank', rel='external noopener') PHP.net
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-php';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -100,7 +95,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 
 	const date01 = document.getElementById('date01') as HTMLElement;

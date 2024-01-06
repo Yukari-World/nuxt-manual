@@ -1,13 +1,13 @@
 <template lang="pug">
 .category--css.page--reset-css
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明
 		p 記述前
 
 	section
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			/* http://meyerweb.com/eric/tools/css/reset/
 			 v2.0 | 20110126
 			 License: none (public domain)
@@ -61,9 +61,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -85,7 +83,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

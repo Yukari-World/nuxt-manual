@@ -15,7 +15,7 @@
 	section
 		h2 使用方法と解説
 		p 至って単純である。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			TRUNCATE `table_name1`, `table_name2`, ...;
 
 	section
@@ -25,7 +25,7 @@
 			li 外部参照を行っていた場合、整合性を一切確認しないためデータベースに不釣合いが起こる場合がある。実行する場合は後述するコマンドの方が好ましい場合がある。但し、データベースによっては外部参照がある場合、実行されないことがある。
 			li
 				| 似た手法に
-				pre.language-sql.line-numbers: code.
+				BlockCode.language-sql: pre.
 					DELETE FROM `table_name`;
 				| があるが、こちらは
 				code.language-sql: span.token.keyword.keyword-AUTO_INCREMENT AUTO_INCREMENT

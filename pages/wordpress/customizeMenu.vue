@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--wordpress.page--customize-menu
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlartStub
 
 	section
 		h2 説明
@@ -59,7 +59,7 @@
 		p
 			| メニュー項目を追加するには関数を追加する必要がある。
 			| まず、メニュー項目を追加したいテーマのfunctions.phpに以下の関数を追加する。
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			function theme_customizer($wp_customize) : void {
 				// ここに内容を入力
 			}
@@ -76,7 +76,7 @@
 				span.token.punctuation (
 				span.token.punctuation )
 			| の関数はテーマのローカライズに使用するため、必要なければ省略してよい。
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			function theme_customizer($wp_customize) : void {
 				$wp_customize-&gt;add_section('social_link', // セクションID。同じ名前は使わないこと(必須)
 					array(
@@ -108,7 +108,7 @@
 				span.token.punctuation (
 				span.token.punctuation )
 			| の2つの関数を必要とする。
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			$wp_customize-&gt;add_setting(
 				'theme_options[option_tag]', // 設定を格納する変数(必須)
 				array(

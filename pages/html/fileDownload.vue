@@ -8,7 +8,7 @@
 		h2 使用方法と解説
 		p 使い方は非常に単純でaタグにダウンロード要素を付与すれば良い。
 
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;a download="exsample.txt" href="saa/exsample.txt"&gt;ダウンロード&lt;/a&gt;
 
 	section
@@ -29,7 +29,6 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
 
 
@@ -52,7 +51,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

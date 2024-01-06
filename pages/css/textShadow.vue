@@ -7,26 +7,26 @@
 	section
 		h2 使用方法と解説
 		h3 基本的な使い方
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			text-shadow: 0 0 6px #000000;
 		.yw-exsample-area.yw-exsample1
 			p I was once an adventurer like you;then I took an arrow in the knee.
 		p 文字の真下にぼかし6pxの黒の影を付与する。数値が小さい程文字の原型が残り、大きくなる程ぼやけたようになる。
 
 		h4 値が小さい場合
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			text-shadow: 0 0 2px #000000;
 		.yw-exsample-area.yw-exsample1-1
 			p I was once an adventurer like you;then I took an arrow in the knee.
 
 		h4 値が大きい場合
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			text-shadow: 0 0 10px #000000;
 		.yw-exsample-area.yw-exsample1-2
 			p I was once an adventurer like you;then I took an arrow in the knee.
 
 		h3 複数の影をつける
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;
 		.yw-exsample-area.yw-exsample2
 			p I was once an adventurer like you;then I took an arrow in the knee.
@@ -44,9 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -68,7 +66,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

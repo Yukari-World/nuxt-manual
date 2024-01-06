@@ -15,7 +15,7 @@
 		h2 使用方法と解説
 		p 少し長いが一連の処理。ロックファイルがdefineで指定してあるのは使用するファイル名が共通であり、ファイル名変更などで起こるコーディング時の修正やミスを減らすための工夫である。
 
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			/**
 			 * ロックファイル
 			 * @var string
@@ -49,12 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-php';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -76,7 +71,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>
