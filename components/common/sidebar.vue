@@ -1,5 +1,5 @@
 <template lang="pug">
-v-navigation-drawer(v-model='props.open', app).yw-sidebar
+div
 	h2.text-center Nuxt Manual Menu
 
 	p.text-center {{ now }}
@@ -51,17 +51,6 @@ const indexStore = useIndexStore();
 
 const threeLine = ref(false);
 const now = ref('');
-
-
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Props List
-
-const props = defineProps({
-	open: {
-		type: Boolean,
-		default: true,
-	},
-});
 
 
 // ----------------------------------------------------------------------------------------------------
