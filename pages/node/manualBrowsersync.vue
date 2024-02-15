@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--node.page--manual-browser-sync
 	section
 		h2 説明
 		p Browsersyncとは、ファイルの更新があった時に自動でブラウザを更新する機能である。更新するブラウザの更新は複数の端末や複数のブラウザで同時に行われ、逐次F5更新を行う必要がなくなる。また、CSSボックス配置のデバッグ、フォーム入力の同期等の機能もある。
@@ -13,7 +13,7 @@ div
 				| をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。
 			li
 				| コマンドプロンプトを起動し、
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npm install -g browser-sync
 				| と入力する。これでグローバル環境にBrowsersyncがインストールされる。
 		h3 ローカルインストール
@@ -23,12 +23,12 @@ div
 				| をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。
 			li
 				| コマンドプロンプトを起動し、プロジェクトフォルダに移動する。対象パスにpackage.jsonが存在しない場合
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npm init
 				| と入力し、パッケージの作成を行う。作成手順は省略する。
 			li
 				| パッケージを作成した、もしくは存在する場合は
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npm install browser-sync --save-dev
 				| と入力する。これでローカルのプロジェクト環境にBrowsersyncがインストールされる。
 
@@ -38,14 +38,14 @@ div
 		ol
 			li
 				| コマンドプロンプトを起動し、
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					browser-sync start --proxy localhost:80 --files "*.html, *.css, *.js"
 				| と入力する。
 				code.language-batch: span.token.parameter.attr-name --files
 				| の引数を変更することでファイル更新時の再読み込み対象を指定する事が出来る。
 				br
 				| ローカルインストールの場合、 パッケージを作成したディレクトリに移動し
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npx browser-sync start --proxy localhost:80 --files "*.html, *.css, *.js"
 				| と入力する。
 
@@ -53,12 +53,12 @@ div
 		ol
 			li
 				| コマンドプロンプトを起動し、
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					browser-sync start --server --files "css/*.css"
 				| と入力する。コマンドを起動した地点をルートパスとして起動する。但し、Browsersync単体ではPHP等の動的ページには対応できない。
 				br
 				| ローカルインストールの場合、 パッケージを作成したディレクトリに移動し
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npx browser-sync start --server --files "css/*.css"
 				| と入力する。尚、
 				code.language-batch: span.token.keyword.keyword-npx npx
@@ -68,12 +68,12 @@ div
 		ol
 			li
 				| ローカルPCのネットブラウザのURLに
-				pre.language-http.line-numbers: code.
+				BlockCode.language-http: pre.
 					http://127.0.0.1:3001/
 				| と入力することで開く。
 			li
 				| 外部からのネットブラウザから開く場合、アドレスURLに
-				pre.language-http.line-numbers: code.
+				BlockCode.language-http: pre.
 					http://(対象のLocal IP Address):3001/
 				| と入力することで開く。
 
@@ -88,7 +88,7 @@ div
 			li 複数のブラウザを同時にリロードする関係上、ブラウザの再描画及び通信等で一時的に負荷が非常に大きくなる。
 			li
 				| gulp等のスクリプトにも利用できるため、Sass/SCSSコンパイル後にリロードの指示が出来る。
-				s 但し、gulpの性質上、非同期処理なので、少し特殊な記述が必要(後日記述予定)。
+				span.text-decoration-line-through 但し、gulpの性質上、非同期処理なので、少し特殊な記述が必要(後日記述予定)。
 				| gulp4が公開されたことにより処理手順を直列化できるようになった。
 
 	section
@@ -97,29 +97,35 @@ div
 			a(href='https://browsersync.io/', target='_blank', rel='external noopener') Browsersync - Time-saving synchronised browser testing
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-batch';
-import 'prismjs/components/prism-http';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'Browsersync導入マニュアル',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'Browsersync導入マニュアル' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

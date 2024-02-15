@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--sql.page--insert-select
 	section
 		h2 説明
 		p
@@ -13,7 +13,7 @@ div
 	section
 		h2 使用方法と解説
 		p 通常、INSERT文は
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			INSERT INTO
 				`table_name`(`column1`, `column2`, `column3`, ...)
 				VALUES(value1, value2, value3, ...);
@@ -27,7 +27,7 @@ div
 			| 文の場合、以下の記述となる。
 			br
 			| ここでは移転先をtable_name_a、移転元をtable_name_bとする。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			INSERT INTO
 				`table_name_a`(`column_a1`, `column_a2`, `column_a3`, ...)
 				SELECT
@@ -53,28 +53,36 @@ div
 				nuxt-link(:to="localePath('/sql/MySQL/insertWhereExists')", title='[MySQL] INSERT WHERE EXISTS') 別のページにて参照されたし。
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sql';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'INSERT SELECT',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'INSERT SELECT' });
+const indexStore = useIndexStore();
+const localePath = useLocalePath();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

@@ -1,28 +1,22 @@
-{
-	"arrowParens": "always",
-	"printWidth": 120,
-	"semi": true,
-	"singleQuote": true,
-	"tabWidth": 4,
-	"useTabs":true,
-	"overrides": [
-		{
-			"files": "*.js",
-			"options": {
-				"parser": "babel",
-				"trailingComma": "all"
-			}
-		}, {
-			"files": "*.scss",
-			"options": {
-				"parser": "scss",
-				"singleQuote": false
-			}
-		}, {
-			"files": "*.vue",
-			"options": {
-				"parser": "vue"
-			}
-		}
-	]
-}
+arrowParens: always
+printWidth: 120
+semi: true
+singleQuote: true
+tabWidth: 4
+useTabs: true
+overrides:
+  - files: "*.js"
+    options:
+      parser: babel
+      trailingComma: all
+  - files: "*.scss"
+    options:
+      parser: scss
+      singleQuote: false
+  - files: "*.vue"
+    options:
+      parser: vue
+  - files: "*.yml"
+    options:
+      tabWidth: 2
+      useTabs: false

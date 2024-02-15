@@ -1,8 +1,6 @@
 <template lang="pug">
-div
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+.category--wordpress.page--customize-menu
+	AlertStub
 
 	section
 		h2 説明
@@ -61,7 +59,7 @@ div
 		p
 			| メニュー項目を追加するには関数を追加する必要がある。
 			| まず、メニュー項目を追加したいテーマのfunctions.phpに以下の関数を追加する。
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			function theme_customizer($wp_customize) : void {
 				// ここに内容を入力
 			}
@@ -78,7 +76,7 @@ div
 				span.token.punctuation (
 				span.token.punctuation )
 			| の関数はテーマのローカライズに使用するため、必要なければ省略してよい。
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			function theme_customizer($wp_customize) : void {
 				$wp_customize-&gt;add_section('social_link', // セクションID。同じ名前は使わないこと(必須)
 					array(
@@ -110,7 +108,7 @@ div
 				span.token.punctuation (
 				span.token.punctuation )
 			| の2つの関数を必要とする。
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			$wp_customize-&gt;add_setting(
 				'theme_options[option_tag]', // 設定を格納する変数(必須)
 				array(
@@ -132,31 +130,38 @@ div
 			);
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-php';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'カスタマイズ項目の追加',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'カスタマイズ項目の追加' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

@@ -1,8 +1,6 @@
 <template lang="pug">
-div
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+.category--other.sub--xampp.page--local-network
+	AlertStub
 
 	section
 		h2 説明
@@ -14,13 +12,13 @@ div
 		ol
 			li
 				p httpd.confファイルを開き以下の内容を検索する。
-				pre.language-apacheconf.line-numbers: code.
+				BlockCode.language-apacheconf: pre.
 					ServerName localhost:80
 				p ※デフォルト値。既に変更済みの場合、この値通りでない可能性がある。
 
 			li
 				p この内容を以下の内容に書き換える
-				pre.language-apacheconf.line-numbers: code.
+				BlockCode.language-apacheconf: pre.
 					ServerName 192.168.24.10:80
 
 				p
@@ -45,28 +43,32 @@ div
 
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-apacheconf';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'ローカルネットワーク接続',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'ローカルネットワーク接続' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--home.page--sample
 	section
 		h2 サンプルデータについて
 		p
@@ -11,19 +11,19 @@ div
 	section
 		h2 サンプルデータ
 		h3 SCSS
-		pre.line-numbers(data-src='/sass/sample.scss', data-download-link)
+		BlockCode(data-src='/sass/sample.scss', data-download-link)
 
 		h3#sqlSample SQL
-		pre.line-numbers(data-src='/files/sample.sql', data-download-link)
+		BlockCode(data-src='/files/sample.sql', data-download-link)
 
 		h3 Fetch API ECMAScript 2015
-		pre.line-numbers(data-src='/js/nomodule/ajax-response.js', data-download-link)
+		BlockCode(data-src='/js/nomodule/ajax-response.js', data-download-link)
 
 		h3 Fetch API ECMAScript 2017
-		pre.line-numbers(data-src='/js/ajax-response.js', data-download-link)
+		BlockCode(data-src='/js/ajax-response.js', data-download-link)
 
 		h3 Fetch API 呼び出し
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			/**
 			&nbsp;* Fetch API呼び出し
 			&nbsp;*
@@ -55,39 +55,41 @@ div
 		p
 			code.language-html: span.token.attr-name nomodule
 			| を使うことでECMAScript 2017非対応コードの分岐を行っている
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;script type="module" src="js/sm-debug15.js"&gt;&lt;/script&gt;
 			&lt;script type="application/javascript" nomodule src="js/nomodule/ajax-response.js"&gt;&lt;/script&gt;
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-scss';
-import 'prismjs/components/prism-sql';
 
-export default {
-	title: 'test',
-	data() {
-		return {
-			header: {
-				title: 'サンプルデータ',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'サンプルデータ' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

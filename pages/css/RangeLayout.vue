@@ -1,8 +1,6 @@
 <template lang="pug">
-div
-	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.non_standard.title') }}
-		p {{ $t('common.stub.non_standard.desc') }}
+.category--css.page--range-layout
+	AlertNonStandard
 
 	section
 		h2 説明
@@ -20,7 +18,7 @@ div
 				span.token.punctuation &gt;
 			| の使い方は別ページを参照。
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			input[type="range"] {
 				box-sizing: border-box;
 				width: 70%;
@@ -28,14 +26,14 @@ div
 			}
 
 		p HTMLは以下の通りである。
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;input type="range" min="0" max="1000" step="1" value="500"&gt;
 
 		fieldset
 			legend デフォルト
 			input(type='range', min='0', max='1000', step='1', value='500')
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			input[type="range"].slider {
 				box-sizing: border-box;
 				height: 5px;
@@ -82,13 +80,13 @@ div
 
 		fieldset
 			legend CSSを適応後
-			input.slider(type='range', min='0', max='1000', step='1', value='500')
+			input.yw-slider(type='range', min='0', max='1000', step='1', value='500')
 
 	section
 		h2 使用上の注意
 		ul
 			li
-				s Microsoft Edgeではwebkitの仕様が採用されるが、スライダーのポインターは範囲をはみ出して表示する事は出来ない。
+				span.text-decoration-line-through Microsoft Edgeではwebkitの仕様が採用されるが、スライダーのポインターは範囲をはみ出して表示する事は出来ない。
 				br
 				| バージョンアップでChromiumベースへと変更されたことで、現在この不具合は発生しない。
 			li visibilityを使用することでポインターを消すとこができる。なお、display: noneでは数値が編集できなくなるため、この方法は推奨しない。
@@ -108,104 +106,112 @@ div
 			a(href='https://www.w3schools.com/howto/howto_js_rangeslider.asp', target='_blank', rel='external noopener') W3Schools (English)
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-markup';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'スライダーレイアウト',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'スライダーレイアウト' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
 </script>
 
-<style scoped lang="scss">
-fieldset {
-	padding: 15px;
-	color: #000000;
-	border: 2px solid #FFFFFF;
-	background-color: #9999CC;
-}
+<script lang="ts">
+</script>
 
-legend {
-	padding: 0.25rem 0.75rem;
-	line-height: 1;
-	color: #FFFFFF;
-	border: 2px solid #FFFFFF;
-	background-color: #000011;
-}
-
-input[type="range"] {
-	box-sizing: border-box;
-	width: 70%;
-	max-width: 600px;
-
-	&.slider {
-		height: 5px;
-		opacity: 0.7;
-		border-radius: 10px;
-		outline: none;
-		background: #CCCCCC;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-
-		&::-webkit-slider-thumb {
-			box-sizing: border-box;
-			width: 25px;
-			height: 25px;
-			min-height: 25px;
-			cursor: pointer;
-			border: 2px outset #CCCCCC;
-			border-right-style: inset;
-			border-bottom-style: inset;
-			border-radius: 50%;
-			background: #FFFF33;
-			-webkit-appearance: none;
-			appearance: none;
+<style lang="scss">
+.category--css {
+	&.page--range-layout {
+		fieldset {
+			min-height: 50px;
+			padding: 15px;
+			color: #000000;
+			background-color: #9999CC;
+			border: 2px solid #FFFFFF;
 		}
 
-		&::-moz-slider-thumb {
-			box-sizing: border-box;
-			width: 25px;
-			height: 25px;
-			cursor: pointer;
-			border: 2px outset #CCCCCC;
-			border-right-style: inset;
-			border-bottom-style: inset;
-			border-radius: 50%;
-			background: #FFFF33;
-			-moz-appearance: none;
-			appearance: none;
+		legend {
+			padding: 0.25rem 0.75rem;
+			line-height: 1;
+			color: #FFFFFF;
+			background-color: #000011;
+			border: 2px solid #FFFFFF;
 		}
-	}
-}
 
-@media (prefers-color-scheme: light) {
-	fieldset {
-		border-color: #CCCCCC;
-	}
+		input[type="range"] {
+			box-sizing: border-box;
+			width: 70%;
+			max-width: 600px;
 
-	legend {
-		color: #000000;
-		border-color: #CCCCCC;
-		background-color: #FFFFFF;
+			&.yw-slider {
+				height: 5px;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				background: #CCCCCC;
+				border-radius: 10px;
+				outline: none;
+				opacity: 0.7;
+
+				&::-webkit-slider-thumb {
+					box-sizing: border-box;
+					width: 25px;
+					height: 25px;
+					min-height: 25px;
+					-webkit-appearance: none;
+					appearance: none;
+					cursor: pointer;
+					background: #FFFF33;
+					border: 2px outset #CCCCCC;
+					border-right-style: inset;
+					border-bottom-style: inset;
+					border-radius: 50%;
+				}
+
+				&::-moz-slider-thumb {
+					box-sizing: border-box;
+					width: 25px;
+					height: 25px;
+					-moz-appearance: none;
+					appearance: none;
+					cursor: pointer;
+					background: #FFFF33;
+					border: 2px outset #CCCCCC;
+					border-right-style: inset;
+					border-bottom-style: inset;
+					border-radius: 50%;
+				}
+			}
+		}
+
+		@media (prefers-color-scheme: light) {
+			fieldset {
+				border-color: #CCCCCC;
+			}
+
+			legend {
+				color: #000000;
+				background-color: #FFFFFF;
+				border-color: #CCCCCC;
+			}
+		}
 	}
 }
 </style>

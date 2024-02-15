@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--sql.sub--mysql.page--int
 	section
 		h2 説明
 		p MySQLのテーブル上にINT(11)やTINYINT(4)といったカッコの数字がある。これの意味を説明する。
@@ -10,7 +10,7 @@ div
 			| このカッコの値は桁数制限と見えるが、そうではなく空白、もしくは0で埋める文字数のことを示している。phpMyAdminやHeidiSQL等のGUIでは分かりづらいが、コンソールの場合、この結果が理解しやすい。
 			br
 			| 例えば、INT(6)の場合、
-		pre.language-markdown.line-numbers: code.
+		BlockCode.language-markdown: pre.
 			123456
 			     1
 			    12
@@ -24,7 +24,7 @@ div
 	section
 		h2 主な使い道
 		p ZEROFILL(残りの桁部分を0で埋める)に対して最も使い道が多い。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			CREATE TABLE `test` (
 				`id` INT ZEROFILL NOT NULL,
 				`name` VARCHAR(20) NOT NULL,
@@ -44,30 +44,32 @@ div
 			a(href='https://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes', target='_blank', rel='external noopener') types - What is the size of column of int(11) in mysql in bytes? - Stack Overflow
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markdown';
-import 'prismjs/components/prism-sql';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'INT(11) の意味',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'INT(11) の意味' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

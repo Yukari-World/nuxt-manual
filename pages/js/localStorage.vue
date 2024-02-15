@@ -1,8 +1,6 @@
 <template lang="pug">
-div
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+.category--js.page--local-storage
+	AlertStub
 
 	section
 		h2 説明
@@ -35,7 +33,7 @@ div
 		h2 使用上の注意
 		ul
 			li ブラウザによってはストレージが使用できないことがある。以下のソースを使用することで使用できるかどうかを調べることができる。
-				pre.language-javascript.line-numbers: code.
+				BlockCode.language-javascript: pre.
 					/**
 					 * ローカルストレージの環境が利用可能か調べる関数
 					 *
@@ -68,29 +66,32 @@ div
 					}
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'localStorage',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'localStorage' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

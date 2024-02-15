@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--other.sub--apache.page--run-php-for-html
 	section
 		h2 説明
 		p
@@ -9,7 +9,7 @@ div
 		h2 使用方法と解説
 		p .htaccessファイルに以下の記述を追加する。
 
-		pre.language-xml.line-numbers: code.
+		BlockCode.language-xml: pre.
 			&lt;Files "\.html$"&gt;
 			AddHandler application/x-httpd-php .html
 			&lt;/Files&gt;
@@ -28,28 +28,33 @@ div
 			a(href='https://xn--web-oi9du9bc8tgu2a.com/how-to-use-php-in-html-files/', target='_blank', rel='external noopener') htaccessに3行足すだけ！『.html』内でPHPを実行する方法！ | WEB改善事例集(GMOソリューションパートナー株式会社)
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-markup';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'HTMLファイル内でPHPを動かす',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'HTMLファイル内でPHPを動かす' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+
+<script lang="ts">
 </script>

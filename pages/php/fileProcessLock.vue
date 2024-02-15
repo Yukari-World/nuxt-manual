@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--php.page--file-process-lock
 	section
 		h2 説明
 		p データベースなどでプロセスが複数起動しては困る処理が存在する場合、使える処理である。なお、この方法はファイル専有ロックとは異なるため、用途によってはこちらの方法より好ましい場合があるので注意。
@@ -15,7 +15,7 @@ div
 		h2 使用方法と解説
 		p 少し長いが一連の処理。ロックファイルがdefineで指定してあるのは使用するファイル名が共通であり、ファイル名変更などで起こるコーディング時の修正やミスを減らすための工夫である。
 
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			/**
 			 * ロックファイル
 			 * @var string
@@ -48,31 +48,32 @@ div
 			li ロックされており強制終了する場合、処理の都合上ユーザー側は何が起きたのか理解できないので何らかのメッセージを表示させることが好ましい。
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-php';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'ファイルを利用した二重起動防止',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'ファイルを利用した二重起動防止' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

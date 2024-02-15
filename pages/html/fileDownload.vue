@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--html.page--file-download
 	section
 		h2 説明
 		p メディアリンク等を作成した場合、再生ではなくダウンロードさせたい場合がある。HTML5を利用することでダウンロードさせることができるので説明する。
@@ -8,7 +8,7 @@ div
 		h2 使用方法と解説
 		p 使い方は非常に単純でaタグにダウンロード要素を付与すれば良い。
 
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;a download="exsample.txt" href="saa/exsample.txt"&gt;ダウンロード&lt;/a&gt;
 
 	section
@@ -28,28 +28,32 @@ div
 			a(href='https://chaika.hatenablog.com/entry/2016/03/25/073203', target='_blank', rel='external noopener') HTML5 ファイルをダウンロードさせるリンクを作りたい。 - かもメモ
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-markup';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'ファイルダウンロード',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'ファイルダウンロード' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

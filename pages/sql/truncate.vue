@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--sql.page--truncate
 	section
 		h2 説明
 		h3 まず最初に
@@ -15,7 +15,7 @@ div
 	section
 		h2 使用方法と解説
 		p 至って単純である。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			TRUNCATE `table_name1`, `table_name2`, ...;
 
 	section
@@ -25,7 +25,7 @@ div
 			li 外部参照を行っていた場合、整合性を一切確認しないためデータベースに不釣合いが起こる場合がある。実行する場合は後述するコマンドの方が好ましい場合がある。但し、データベースによっては外部参照がある場合、実行されないことがある。
 			li
 				| 似た手法に
-				pre.language-sql.line-numbers: code.
+				BlockCode.language-sql: pre.
 					DELETE FROM `table_name`;
 				| があるが、こちらは
 				code.language-sql: span.token.keyword.keyword-AUTO_INCREMENT AUTO_INCREMENT
@@ -54,28 +54,35 @@ div
 			a(href='https://ja.wikipedia.org/wiki/TRUNCATE_(SQL)', target='_blank', rel='external noopener') Wikipedia
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sql';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'TRUNCATE(テーブルを空にする)',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'TRUNCATE(テーブルを空にする)' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

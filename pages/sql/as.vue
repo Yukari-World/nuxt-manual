@@ -1,8 +1,6 @@
 <template lang="pug">
-div
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+.category--sql.page--as
+	AlertStub
 
 	section
 		h2 説明
@@ -13,18 +11,18 @@ div
 		h2 使用方法と解説
 		h3 使用するデータベース
 		p
-			s
+			span.text-decoration-line-through
 				| 解説にあたり以下のデータベースを利用する。コピーすることで簡単に利用できる。尚このSQLコードは
 				a(href='https://www.mysql.com/jp/', target='_blank', rel='external noopener') MySQL
 				| もしくは
 				a(href='https://mariadb.org/', target='_blank', rel='external noopener') MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
-			a(href='scp-sample.html#sqlSample') サンプルデータに移行。
+			nuxt-link(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
 
 		h3 使用方法
 		p 今回以下のSQL文から説明を行う
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			SELECT
 				`customer`.`name`,
 				`product`.`name`,
@@ -108,7 +106,7 @@ div
 			code.language-sql: span.token.keyword.keyword-AS AS
 			| を使用することで別名をつけることができる
 
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			SELECT
 				`customer`.`name` AS `customerName`,
 				`product`.`name` AS `productName`,
@@ -184,57 +182,73 @@ div
 			li 別名には日本語が使用することができる。しかし、それを使うのはMicrosoft Office Access位だろう。通常はプログラム側で表題をやカラム名を用意するのが好ましい
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sql';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'AS(別名)',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'AS(別名)' });
+const indexStore = useIndexStore();
+const localePath = useLocalePath();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
 </script>
 
-<style scoped lang="scss">
-table {
-	margin: 1rem auto;
-	border-collapse: collapse;
-}
+<script lang="ts">
+</script>
 
-thead {
-	tr {
-		color: CaptionText;
-		background-color: ActiveCaption;
+<style lang="scss">
+.category--sql {
+	&.page--as {
+		table {
+			margin: 1rem auto;
+			border-collapse: collapse;
+		}
+
+		thead {
+			tr {
+				color: CaptionText;
+				background-color: ActiveCaption;
+			}
+		}
+
+		th {
+			color: #000000;
+		}
+
+		th, td {
+			padding: 5px;
+			font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
+			font-size: 1rem;
+			vertical-align: top;
+		}
+
+		table, td {
+			border: 1px solid silver;
+		}
+
+		.col2, .col3, .col4 {
+			text-align: right;
+		}
 	}
-}
-
-th, td {
-	padding: 3px;
-	vertical-align: top;
-	font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
-	font-size: 1rem;
-}
-
-table, td {
-	border: 1px solid silver;
-}
-
-.col2, .col3, .col4 {
-	text-align: right;
 }
 </style>

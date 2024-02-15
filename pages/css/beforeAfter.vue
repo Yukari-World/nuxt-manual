@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--css.page--before-after
 	section
 		h2 疑似要素 :before / :afterとは
 		p ある要素の前、もしくはその後に追加される疑似要素である。指定がなければ中身は常に空であり、ブラウザ上にある検証機能にも表示されない。
@@ -7,7 +7,7 @@ div
 	section
 		h2 使用方法と解説
 		h3 SCSS
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			ul {
 				margin-left: 1em;
 				padding-right: 2px;
@@ -29,7 +29,7 @@ div
 			}
 
 		h3 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			ul {
 				margin-left: 1em;
 				padding-right: 2px;
@@ -79,29 +79,32 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/content', target='_blank', rel='external noopener') MDN Web Docs / content
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-scss';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: '疑似要素 :before / :after',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: '疑似要素 :before / :after' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

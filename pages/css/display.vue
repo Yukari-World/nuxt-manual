@@ -1,26 +1,24 @@
 <template lang="pug">
-div
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+.category--css.page--display
+	AlertStub
 
 	section
-		h2 display-outside
+		h3 display-outside
 		p 記述前
 
-		h2 display-inside
+		h3 display-inside
 		p 記述前
 
-		h2 display-listitem
+		h3 display-listitem
 		p 記述前
 
-		h2 display-internal
+		h3 display-internal
 		p 記述前
 
-		h2 display-box
+		h3 display-box
 		p 記述前
 
-		h2 display-legacy
+		h3 display-legacy
 		p 記述前
 
 	section
@@ -28,27 +26,34 @@ div
 		a(href='https://developer.mozilla.org/ja/docs/Web/CSS/display', target='_blank', rel='external noopener') MDN Web Docs
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'display',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'display' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

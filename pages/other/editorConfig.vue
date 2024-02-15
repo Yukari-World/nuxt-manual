@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--other.page--editor-config
 	section
 		h2 EditorConfigとは
 		p EditorConfigとはエディター毎に存在するインデント設定や改行コードの設定等を統一する設定ファイルとそのプラグインである。ファイル毎に応じてその設定を変更することができ、また、プロジェクト毎に管理できるので記述ルールの整合性をある程度ではあるが保つことができる。
@@ -14,7 +14,7 @@ div
 		h3 Atom
 		h4 コマンドラインからインストール
 		p コマンドラインに以下のコマンドを入力することでインストールできる。但し、Atomがマニュアルインストールの場合使用することができない。
-		pre.language-batch.line-numbers: code.
+		BlockCode.language-batch: pre.
 			apm install editorconfig
 		h4 パッケージからインストール
 		p EditorConfigと検索すると結果に出てくるのでそれをインストールする。
@@ -29,7 +29,7 @@ div
 		h2 設定ファイル
 		p 設定ファイルは.editorconfigファイルに記述する。
 		h3 .editorconfigの例
-		pre.language-ini.line-numbers: code.
+		BlockCode.language-ini: pre.
 			# EditorConfigの最上位ファイルであることを示す
 			root = true
 
@@ -102,29 +102,32 @@ div
 			a(href='https://editorconfig.org/', target='_blank', rel='external noopener') EditorConfig
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-batch';
-import 'prismjs/components/prism-ini';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'EditorConfig',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'EditorConfig' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

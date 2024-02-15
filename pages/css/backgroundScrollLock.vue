@@ -1,22 +1,22 @@
 <template lang="pug">
-div
+.category--css.page--background-scroll-lock
 	section
 		h2 説明
 		p Parallaxの一つに背景のスクロールを固定させたままでコンテンツをスクロールさせる方法がある。これはその一例である。
 
 	section
 		h2 使用方法と解説
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			.header-background {
 				background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px/100% 50% local, url(./img/nicholas-loo-372788.jpg) repeat top left center;
 			}
 
-		.layer1
+		.yw-layer1
 		p
 			code.language-css: span.token.property background
 			| で1行に収める場合の記述方法。詰め込み過ぎているあまり理解し辛いと思われるので、これを細かな単位に分解する。
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			.header-background {
 				background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
 				background-repeat: repeat-x, repeat;
@@ -25,7 +25,7 @@ div
 				background-attachment: local, fixed;
 			}
 
-		.layer2
+		.yw-layer2
 		p
 			| 上の内容を分解した時の内容。カンマを利用することで細かく分解した場合でも複数の背景を指定することができる。
 			br
@@ -38,7 +38,7 @@ div
 			code.language-css: span.token.property border
 			| 等もこれに該当する)として補完している。ここで表示されているプロパティの値は各初期値である。
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			background-image: none;/* 背景画像指定 */
 			background-position: 0% 0%;/* 背景画像の位置指定 */
 			background-size: auto auto;/* 背景画像の大きさを指定 */
@@ -63,7 +63,7 @@ div
 		h2 おまけ SCSSで記述
 		p SCSSで記述する場合、以下のように記述しても同様のことを行うことができる。
 		h3 SCSS(Input)
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			.header-background {
 				background: {
 					image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
@@ -73,8 +73,9 @@ div
 					attachment: local, fixed;
 				}
 			}
+
 		h3 CSS(Output)
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			.header-background {
 				background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
 				background-repeat: repeat-x, repeat;
@@ -89,57 +90,68 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/background', target='_blank', rel='external noopener') MDN Web Docs
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-scss';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: '背景画像スクロールの固定',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: '背景画像スクロールの固定' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
 </script>
 
-<style scoped lang="scss">
-.layer1, .layer2 {
-	width: 80%;
-	max-width: 800px;
-	height: 200px;
-	margin: 5px auto;
-	border-radius: 10px;
-}
+<script lang="ts">
+</script>
 
-.layer1 {
-	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px/100% 50% local, url(/img/nicholas-loo-372788.jpg) repeat top center fixed;
-}
+<style lang="scss">
+.category--css {
+	&.page--background-scroll-lock {
+		.yw-layer1, .yw-layer2 {
+			width: 80%;
+			max-width: 800px;
+			height: 200px;
+			margin: 5px auto;
+			border-radius: 10px;
+		}
 
-.layer2 {
-	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(/img/nicholas-loo-372788.jpg);
-	background-repeat: repeat-x, repeat;
-	background-position: 0 100px, top center;
-	background-size: 100% 50%, auto;
-	background-attachment: local, fixed;
-}
+		.yw-layer1 {
+			background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px / 100% 50% local, url("/img/nicholas-loo-372788.jpg") repeat top center fixed;
+		}
 
-@media only screen and (max-width: 992px) {
-	.layer1, .layer2 {
-		background-position: 0 100px, top left 10vw;
+		.yw-layer2 {
+			background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url("/img/nicholas-loo-372788.jpg");
+			background-repeat: repeat-x, repeat;
+			background-attachment: local, fixed;
+			background-position: 0 100px, top center;
+			background-size: 100% 50%, auto;
+		}
+
+		@media only screen and (max-width: 992px) {
+			.yw-layer1, .yw-layer2 {
+				background-position: 0 100px, top left 10vw;
+			}
+		}
 	}
 }
 </style>

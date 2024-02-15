@@ -1,12 +1,7 @@
 <template lang="pug">
-div
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
-
-	v-alert(type='warning', border='left', colored-border, dense, elevation='5')
-		h2 応用技術
-		p ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。
+.category--scss.page--gradation-list
+	AlertStub
+	v-alert(type='warning', border='start', colored-border, dense, elevation='5', title='応用技術', text='ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。')
 
 	section
 		h2 説明
@@ -38,7 +33,7 @@ div
 	section
 		h2 コードの生成
 		h3 pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			.list
 				ul
 					li.num-1
@@ -52,7 +47,7 @@ div
 						p リスト項目3
 
 		p これでも良いが、リストの追加や配置の入れ替え等を効率良く行えるようにするため以下のように記述する。
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			.list
 				-
 					var boxList = [
@@ -76,7 +71,7 @@ div
 			| SCSSファイル。これを基にCSSに出力する。細かい記述ルールは
 			nuxt-link(:to="localePath('/language/sass')" title='SASS') こちら
 			| を参照。
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			@charset "UTF-8";
 
 			// Import
@@ -231,7 +226,7 @@ div
 	section
 		h2 コードの出力結果
 		h3 HTML
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;div class="list"&gt;
 				&lt;ul&gt;
 					&lt;li class="num-1"&gt;
@@ -257,7 +252,7 @@ div
 			| CSSの出力結果。メディアクエリはプラグインによりマージされている。また、互換性は
 			a(href='https://github.com/postcss/autoprefixer', target='_blank', rel='external noopener') autoprefixer
 			| により自動で確認、付与されている。
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			.list ul {
 				width: 480px;
 				height: 500px;
@@ -408,213 +403,195 @@ div
 			}
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-pug';
-import 'prismjs/components/prism-scss';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: '特殊なグラデーションリスト',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: '特殊なグラデーションリスト' });
+const indexStore = useIndexStore();
+const localePath = useLocalePath();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
 </script>
 
-<style scoped lang="scss">
-.exsample-area {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 500px;
-	height: 200px;
-	margin: 5px auto;
-	color: #000000;
-	border-radius: 10px;
-	background-color: #F5F9FA;
-}
+<script lang="ts">
+</script>
 
-.list {
-	ul {
-		width: 480px;
-		height: 500px;
-		margin: 5px 120px 5px 25px;
-		list-style: none;
-	}
-
-	li {
-		&:not(:last-child) {
-			margin-bottom: 70px;
+<style lang="scss">
+.category--scss {
+	&.page--gradation-list {
+		.exsample-area {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 500px;
+			height: 200px;
+			margin: 5px auto;
+			color: #000000;
+			background-color: #F5F9FA;
+			border-radius: 10px;
 		}
 
-		&:nth-of-type(1) {
-			margin-left: 120px;
-		}
-
-		&:nth-of-type(2) {
-			margin-left: 60px;
-		}
-	}
-}
-
-.list-gradient {
-	width: 360px;
-	height: 120px;
-	-webkit-transform: skew(-20deg);
-	-ms-transform: skew(-20deg);
-	transform: skew(-20deg);
-	background-image: -webkit-gradient(
-		linear,
-		right top,
-		left bottom,
-		from(rgba(58, 58, 58, 0.84)),
-		to(rgba(177, 171, 171, 0.84))
-	);
-	background-image: -webkit-linear-gradient(right top, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
-	background-image: -o-linear-gradient(right top, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
-	background-image: linear-gradient(to left bottom, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
-	background-size: 480px 500px;
-
-	p {
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: start;
-		-webkit-justify-content: flex-start;
-		-ms-flex-pack: start;
-		justify-content: flex-start;
-		-webkit-box-align: center;
-		-webkit-align-items: center;
-		-ms-flex-align: center;
-		align-items: center;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-		width: 360px;
-		height: 120px;
-		padding-left: 20px;
-		-webkit-transform: skew(20deg);
-		-ms-transform: skew(20deg);
-		transform: skew(20deg);
-		font-size: calc(1rem + 1.354vw);
-		font-weight: 600;
-	}
-}
-
-.num-1 .list-gradient {
-	background-position: left -120px top 0;
-}
-
-.num-2 .list-gradient {
-	background-position: left -60px top -190px;
-}
-
-.num-3 .list-gradient {
-	background-position: left 0 top -380px;
-}
-
-@media only screen and (max-width: 1200px) {
-	.list {
-		ul {
-			width: 40vw;
-			height: 41.667vw;
-			margin: 0.417vw 10vw 0.417vw 2.083vw;
-		}
-
-		li {
-			&:not(:last-child) {
-				margin-bottom: 5.833vw;
+		.list {
+			ul {
+				width: 480px;
+				height: 500px;
+				margin: 5px 120px 5px 25px;
+				list-style: none;
 			}
 
-			&:nth-of-type(1) {
-				margin-left: 10vw;
-			}
+			li {
+				&:not(:last-child) {
+					margin-bottom: 70px;
+				}
 
-			&:nth-of-type(2) {
-				margin-left: 5vw;
-			}
-		}
-	}
+				&:nth-of-type(1) {
+					margin-left: 120px;
+				}
 
-	.list-gradient {
-		background-size: 40vw 41.667vw;
-
-		&,
-		p {
-			width: 30vw;
-			height: 10vw;
-		}
-	}
-
-	.num-1 .list-gradient {
-		background-position: left -10vw top 0;
-	}
-
-	.num-2 .list-gradient {
-		background-position: left -5vw top -15.833vw;
-	}
-
-	.num-3 .list-gradient {
-		background-position: left 0 top -31.667vw;
-	}
-}
-
-@media only screen and (max-width: 576px) {
-	.list {
-		ul {
-			width: 85%;
-			margin: 0.868vw 20.833vw 0.868vw 4.34vw;
-		}
-
-		li {
-			&:nth-of-type(1) {
-				margin-left: 0;
-			}
-
-			&:nth-of-type(2) {
-				margin-left: 0;
+				&:nth-of-type(2) {
+					margin-left: 60px;
+				}
 			}
 		}
-	}
 
-	.list-gradient {
-		width: 85vw;
-		max-width: 360px;
-		background-size: 85vw 41.667vw;
+		.list-gradient {
+			width: 360px;
+			height: 120px;
+			background-image: linear-gradient(to left bottom, rgba(58, 58, 58, 0.84), rgba(177, 171, 171, 0.84));
+			background-size: 480px 500px;
+			transform: skew(-20deg);
 
-		p {
-			width: 85vw;
-			max-width: 360px;
-			padding-left: 30px;
+			p {
+				box-sizing: border-box;
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				width: 360px;
+				height: 120px;
+				padding-left: 20px;
+				font-size: calc(1rem + 1.354vw);
+				font-weight: 600;
+				transform: skew(20deg);
+			}
 		}
-	}
 
-	.num-1 .list-gradient {
-		background-position: left 0 top 0;
-	}
+		.num-1 .list-gradient {
+			background-position: left -120px top 0;
+		}
 
-	.num-2 .list-gradient {
-		background-position: left 0 top -15.833vw;
-	}
+		.num-2 .list-gradient {
+			background-position: left -60px top -190px;
+		}
 
-	.num-3 .list-gradient {
-		background-position: left 0 top -31.667vw;
+		.num-3 .list-gradient {
+			background-position: left 0 top -380px;
+		}
+
+		@media only screen and (max-width: 1200px) {
+			.list {
+				ul {
+					width: 40vw;
+					height: 41.667vw;
+					margin: 0.417vw 10vw 0.417vw 2.083vw;
+				}
+
+				li {
+					&:not(:last-child) {
+						margin-bottom: 5.833vw;
+					}
+
+					&:nth-of-type(1) {
+						margin-left: 10vw;
+					}
+
+					&:nth-of-type(2) {
+						margin-left: 5vw;
+					}
+				}
+			}
+
+			.list-gradient {
+				background-size: 40vw 41.667vw;
+
+				&, p {
+					width: 30vw;
+					height: 10vw;
+				}
+			}
+
+			.num-1 .list-gradient {
+				background-position: left -10vw top 0;
+			}
+
+			.num-2 .list-gradient {
+				background-position: left -5vw top -15.833vw;
+			}
+
+			.num-3 .list-gradient {
+				background-position: left 0 top -31.667vw;
+			}
+		}
+
+		@media only screen and (max-width: 576px) {
+			.list {
+				ul {
+					width: 85%;
+					margin: 0.868vw 20.833vw 0.868vw 4.34vw;
+				}
+
+				li {
+					&:nth-of-type(1) {
+						margin-left: 0;
+					}
+
+					&:nth-of-type(2) {
+						margin-left: 0;
+					}
+				}
+			}
+
+			.list-gradient {
+				width: 85vw;
+				max-width: 360px;
+				background-size: 85vw 41.667vw;
+
+				p {
+					width: 85vw;
+					max-width: 360px;
+					padding-left: 30px;
+				}
+			}
+
+			.num-1 .list-gradient {
+				background-position: left 0 top 0;
+			}
+
+			.num-2 .list-gradient {
+				background-position: left 0 top -15.833vw;
+			}
+
+			.num-3 .list-gradient {
+				background-position: left 0 top -31.667vw;
+			}
+		}
 	}
 }
 </style>

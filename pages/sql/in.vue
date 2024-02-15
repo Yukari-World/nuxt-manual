@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--sql.page--in
 	section
 		h2 説明
 		p
@@ -12,7 +12,7 @@ div
 	section
 		h2 使用方法と解説
 		p ユーザーテーブルからID 200, 224, 371, 441, 503のユーザーデータを取得する場合、通常通り記述する場合、
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			SELECT
 				*
 			FROM
@@ -23,7 +23,7 @@ div
 		p となる。対象となる列の文字列が短い分、記述ミスがあった場合でもすぐに気付けるが、長く複雑になると難しくなる。
 
 		p 次に上記と同じ内容をIN()を使用して記述する場合、
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			SELECT
 				*
 			FROM
@@ -44,28 +44,35 @@ div
 				| 句で区切るか別にSQL文を用意する必要がある。PHP等でSQL文を生成する場合はその点を念頭に加えたうえでコーディングする必要がある。
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sql';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'IN()(複数選択)',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'IN()(複数選択)' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

@@ -1,0 +1,31 @@
+{
+	"files.associations": {
+		".prettierrc": "yaml"
+	},
+	"i18n-ally.enabledFrameworks": [
+		"vue"
+	],
+	"i18n-ally.enabledParsers": ["yaml"],
+	"i18n-ally.keystyle": "nested",
+	"i18n-ally.localesPaths": [
+		"locales",
+		"pages/language",
+		"static/locales"
+	],
+	"i18n-ally.sourceLanguage": "ja-JP",
+	"stylelint.snippet": [
+		"css",
+		"less",
+		"postcss",
+		"scss",
+		"vue"
+	],
+	"stylelint.validate": [
+		"css",
+		"less",
+		"postcss",
+		"scss",
+		"vue"
+	],
+	"typescript.tsdk": "node_modules\\typescript\\lib"
+}

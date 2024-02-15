@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--sql.sub--mysql.page--update-select
 	section
 		h2 説明
 		p
@@ -14,7 +14,7 @@ div
 		h2 使用方法と解説
 		p
 			| 以下の方法で同じことを再現できる。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			UPDATE
 				`table1`,
 				`table2`
@@ -36,28 +36,35 @@ div
 				| 句の使用方法は既に解説があるので省略する。
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sql';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'UPDATE SELECT',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'UPDATE SELECT' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

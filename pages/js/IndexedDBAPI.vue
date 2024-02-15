@@ -1,8 +1,6 @@
 <template lang="pug">
-div
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+.category--js.page--indexed-db-api
+	AlertStub
 
 	section
 		h2 説明
@@ -14,7 +12,7 @@ div
 
 		h3 初回接続
 		p IndexedDBはSQLの様にデータベースとデータテーブルというものが存在している。データベースもデータテーブルはストレージに存在しない場合作成されるが、あらかじめ定義したうえで作成する必要がある。
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			// 各種定義。基本的にこの項目を何度も使いまわすのであらかじめ定義しておくと修正が楽になる
 			// データベースの名前
 			const dbName = 'Technical-Manual';
@@ -50,7 +48,7 @@ div
 
 		h3 データの入力
 		p 入力するデータは構造体のような形式で入力する。
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			// データベースの名前
 			const dbName = 'Technical-Manual';
 			// データテーブル名
@@ -67,7 +65,8 @@ div
 				const trans = db.transaction(dbTable, 'readwrite');
 				// 参照するデータテーブル
 				const store = trans.objectStore(dbTable);
-				// 他にもaddを使った挿入方法があるが、putと異なり重複した場合、値の更新は行われない
+				// 値の挿入を行う
+				// 似たものにaddを使った挿入方法があるが、putと異なり重複した場合、値の更新は行われない
 				const putReq = store.put(value);
 
 				putReq.addEventListener('success', function () {
@@ -91,13 +90,13 @@ div
 
 		h3 データの取得
 		p 返ってくる値は構造体と同じである。
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			// データベースの名前
 			const dbName = 'Technical-Manual';
 			// データテーブル名
 			const dbTable = 'tableTemp';
 			// 取得するデータの値
-			let value = 34;
+			const value = 22;
 
 			// データベースに接続
 			const dbSourse = indexedDB.open(dbName);
@@ -108,6 +107,7 @@ div
 				const trans = db.transaction(dbTable, 'readonly');
 				// 参照するデータテーブル
 				const store = trans.objectStore(dbTable);
+				// 取得するデータ
 				const getReq = store.get(value);
 
 				getReq.addEventListener('success', function (event) {
@@ -125,7 +125,7 @@ div
 			});
 
 		h3 データベースの削除
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			// データベースの名前
 			const dbName = 'Technical-Manual';
 
@@ -148,7 +148,7 @@ div
 			li テーブル構造はSQLみたいなリレーショナルデータベースではなく、オブジェクト指向である。
 			li
 				| ブラウザによってはIndexedDBが使用できないことがある。以下のソースを使用することで使用できるかどうかを調べることができる。
-				pre.language-javascript.line-numbers: code.
+				BlockCode.language-javascript: pre.
 					if (window.indexedDB) {
 						// 処理内容
 					}
@@ -160,29 +160,32 @@ div
 			a(href='https://developer.mozilla.org/ja/docs/Web/API/IndexedDB_API', target='_blank', rel='external noopener') MDN Web Docs
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'IndexedDB',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'IndexedDB' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

@@ -1,8 +1,6 @@
 <template lang="pug">
-div
-	v-alert(type='error', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.deprecated.title') }}
-		p {{ $t('common.stub.deprecated.desc') }}
+.category--html.page--omit-http
+	AlertDeprecated
 
 	section
 		h2 説明
@@ -11,11 +9,11 @@ div
 	section
 		h2 使用方法と解説
 		p このようなリンクがあるとする。
-		pre.language-http.line-numbers: code.
+		BlockCode.language-http: pre.
 			https://prismjs.com/
 
 		p これを以下のように記述することができる。
-		pre.language-http.line-numbers: code.
+		BlockCode.language-http: pre.
 			//prismjs.com/
 
 		p 詳細な内容は省略する。
@@ -31,28 +29,33 @@ div
 		a(href='https://prokatsu.com/http-not-omit/', target='_blank', rel='external noopener') 【2018年版】http,httpsは省略しない方がいい | プロカツ！
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-http';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'httpの省略',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'httpの省略' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+
+<script lang="ts">
 </script>

@@ -1,12 +1,12 @@
 # Nuxt Manual
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Yukari-World/nuxt-manual.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Yukari-World/nuxt-manual/context:javascript)
+[![CodeQL](https://github.com/Yukari-World/nuxt-manual/actions/workflows/codeql.yml/badge.svg)](https://github.com/Yukari-World/nuxt-manual/actions/workflows/codeql.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/edb34a32-c688-4a49-b48e-eb3a85f5e98b/deploy-status)](https://app.netlify.com/sites/nuxt-technical-manual/deploys)
 
-Nuxtで作成された主にHTML関係の小さな技術マニュアル
+Nuxt3で作成された主にHTML関係の小さな技術マニュアル
 
 ## What's Nuxt Manual?
 ### 概要
-Nuxt ManualはHTMLで作成したページを基にNuxtで移植、再作成したページです。
+Nuxt ManualはHTMLで作成したページを基にNuxt2で移植(後にNuxt3に再移植)、再作成したページです。
 主にHTML関連の技術がメインとなっています。
 
 ソースコードのハイライトには[Prism](https://prismjs.com/)を使用し、ソースを素早くコピー可能にしたうえで、プレビュー機能による詳細をわかりやすく表示します。
@@ -41,18 +41,7 @@ HTML版との差異は基本時にありませんが、Nuxt版は技術開発の
 また、このサイトはFirebaseを使用しています。
 Firebaseの設定項目はセキュリティの都合でGitにアップロードしていないので各自用意してください。
 
-.envファイルの作成例は以下の通りです。
-```
-BASE_URL="http://localhost:8080/"
-
-APIKEY=
-AUTHDOMAIN=
-DATABASEURL=
-PROJECTID=
-STORAGEBUCKET=
-APPID=
-MESSAGINGSENDERID=
-```
+envは使用されていましたが、Nuxt3移植の際、使用しなくなりました
 
 ## 記録
 このソースコードは、2020年ソースコード保管プロジェクトにてノルウェーの永久凍土に保管されたようです。

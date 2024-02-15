@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--sql.page--transaction
 	section
 		h2 説明
 		p
@@ -18,7 +18,7 @@ div
 		p
 			code.language-sql: span.token.keyword.keyword-COMMIT COMMIT
 			| とは処理を確定させるために使う。使用方法は至って単純である。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			START TRANSACTION;
 			-- ~~~ SQL CODE ~~~
 			COMMIT;
@@ -28,7 +28,7 @@ div
 		p
 			code.language-sql: span.token.keyword.keyword-ROLLBACK ROLLBACK
 			| とは、データベースを更新前のデータに戻す時に使用される。こちらも使用方法は至って単純である。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			START TRANSACTION;
 			-- ~~~ SQL CODE ~~~
 			ROLLBACK;
@@ -72,28 +72,35 @@ div
 			a(href='https://dev.mysql.com/doc/refman/5.6/ja/commit.html', target='_blank', rel='external noopener') MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.3.1 START TRANSACTION、COMMIT、および ROLLBACK 構文
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sql';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'TRANSACTION(トランザクション)',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'TRANSACTION(トランザクション)' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

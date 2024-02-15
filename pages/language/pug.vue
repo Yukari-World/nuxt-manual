@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--language.page--pug
 	section
 		h2 Pugとは
 		p
@@ -12,7 +12,7 @@ div
 		h3 基本的な記述
 		p 記述方法はRubyやYAMLの記述方法に近い。タブで階層を示し、HTMLタグを囲む必要はない。但し、HTMLタグをそのまま記述しても特に問題はない。
 		h4 Pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			doctype html
 			html(lang='ja')
 				head
@@ -34,7 +34,7 @@ div
 			| 出力結果。実際の出力結果は全く整形されていないので必要に応じて
 			a(href='https://github.com/beautify-web/js-beautify', target='_blank', rel='external noopener') JS-Beautify
 			| 等で整形する必要がある。尚、Pugの変換オプションに自動整形するオプションがあるが、現在は非推奨なので注意。
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;!DOCTYPE html&gt;
 			&lt;html lang="ja"&gt;
 			&lt;head&gt;
@@ -61,12 +61,12 @@ div
 			br
 			| 複数プロパティがある場合はカンマで区切る。但し、こちらは必須ではない。
 		h4 Pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			input(type='text', name='school', placeholder='学校名')		//- ←OK
 			input (type='text', name='school', placeholder='学校名')	//- ←NG
 			input(type='text' name='school' placeholder='学校名')		//- ←一応OK
 		h4 HTML
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;input type="text" name="school" placeholder="学校名"&gt;
 
 		h3 複数行の記述
@@ -77,29 +77,29 @@ div
 				span.token.punctuation &gt;
 			| タグの様に内容が長くなる場合や同一タグの中に文章とHTMLタグが混在する場合、文章部分は|で始める。
 		h4 Pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			p
 				| 参照元は
 				a(href='#', target='_blank', rel='external noopener') こちら
 		h4 HTML
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;p&gt;参照元は&lt;a href="#" target="_blank" rel="external noopener"&gt;こちら&lt;/a&gt;&lt;/p&gt;
 		p 尚、どうしても一行で済ましたいならば以下のように記述する。
 		h4 Pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			p 参照元は&lt;a href="#" target="_blank" rel="external noopener"&gt;こちら&lt;/a&gt;
 
 		h3 IDとクラス
 		p IDとクラスはプロパティを記述する方法で記述してもよいが、以下のように記述することができる。
 		h4 Pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			table.contets
 				tr
 					td#test1 Test1
 					td#test2 Test2
 
 		h4 HTML
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;table class="contets"&gt;
 				&lt;tr&gt;
 					&lt;td id="test1"&gt;Test1&lt;/td&gt;
@@ -120,14 +120,14 @@ div
 				span.token.punctuation &gt;
 			| タグを省略して記述することができる。
 		h4 Pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			#top.box
 				p Message
 			#bottom.box
 				p Message
 
 		h4 HTML
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;div id="top" class="box"&gt;
 				&lt;p&gt;Message&lt;/p&gt;
 			&lt;/div&gt;
@@ -137,12 +137,12 @@ div
 
 		p 同一のHTMLタグに複数のクラスを指定する場合は、CSSの記述方法の様に連続して記述する。
 		h4 Pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			.box.left
 				p.this.is.four.pens Test
 
 		h4 HTML
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;div class="box left"&gt;
 				&lt;p class="this is four pens"&gt;Test&lt;/p&gt;
 			&lt;/div&gt;
@@ -151,10 +151,10 @@ div
 		h2 拡張機能
 		h3 mixinの定義
 		h4 Pug
-		pre.line-numbers(data-src='/pug/_mixin/_sql.pug', data-download-link, data-line='1, 5-16'): code.
+		BlockCode(data-src='/pug/_mixin/_sql.pug', data-download-link, data-line='1, 5-16')
 
 		h4 HTML
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;ul&gt;
 				&lt;li role="menuitem"&gt;&lt;a href="sql-as.html" title="AS(別名)"&gt;AS(別名)&lt;/a&gt;&lt;/li&gt;
 				&lt;li role="menuitem"&gt;&lt;a href="sql-in.html" title="IN()(複数選択)"&gt;IN()(複数選択)&lt;/a&gt;&lt;/li&gt;
@@ -173,7 +173,7 @@ div
 		h3 include インクルード
 		h4 Pug
 		p 複数のパーツを使い回したり、パーツを細分化する際に使用する。尚、pugテンプレートファイルを指定する場合は拡張子を記述する必要はない。
-		pre.line-numbers(data-src='/pug/_mixin/_sideList.pug', data-download-link, data-line='13, 19, 25, 31, 37, 43, 49, 55, 61, 67, 73')
+		BlockCode(data-src='/pug/_mixin/_sideList.pug', data-download-link, data-line='13, 19, 25, 31, 37, 43, 49, 55, 61, 67, 73')
 
 		h3 extends 継承
 		h4 Pug
@@ -184,7 +184,7 @@ div
 			| を追加することで継承先にて要素を追加したり変更できるようになる。また、
 			code.language-pug: span.token.keyword block
 			| 以降に要素を記述することでデフォルトの内容を記述することができる。追加しない場合、デフォルトは空となる。
-		pre.line-numbers(data-src='/pug/_includes/_layout.pug', data-download-link, data-line='5, 26, 37, 40, 48, 51, 58')
+		BlockCode(data-src='/pug/_includes/_layout.pug', data-download-link, data-line='5, 26, 37, 40, 48, 51, 58')
 		p
 			| 子(継承先)ファイル。
 			br
@@ -200,7 +200,7 @@ div
 			| でブロック要素を指定した場合、継承元の内容を保持しつつ要素を追加することができる。
 			code.language-pug: span.token.keyword block
 			| を指定していない箇所がある場合、継承元の内容が出力される。
-		pre.line-numbers(data-src='/pug/css-textShadow.pug', data-download-link, data-line='1, 2, 5, 35, 37')
+		BlockCode(data-src='/pug/css-textShadow.pug', data-download-link, data-line='1, 2, 5, 35, 37')
 
 	section
 		h2 変換方法
@@ -215,24 +215,24 @@ div
 		ol
 			li
 				p コンソールを起動し、以下のコマンドからPugのインストールを行う
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npm i pug-cli -g
 				p ローカルパッケージにインストールする場合は以下のように入力を行う。ローカル環境インストールの場合、プロジェクトパッケージが存在するディレクトリに予め移動すること。
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npm i pug-cli -D
 			li
 				p インストールに完了した場合、正しく動作するか確認するために以下のコマンドを入力する。
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					pug --version
 				p ローカルパッケージにインストールした場合は以下のように入力を行う。
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npx pug --version
 			li
 				p ファイルを変換する場合、以下のように入力する。ファイル名は変換する対象ファイルに応じて適時変更すること。
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					pug index.pug
 				p ローカルパッケージにインストールした場合は以下のように入力を行う。
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npx pug index.pug
 
 		h3 Gulpで変換
@@ -240,15 +240,15 @@ div
 		ol
 			li
 				p プロジェクトパッケージにがあるフォルダに移動し、以下のコマンドを入力を行う。
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npm i gulp-pug -D
 			li
 				p
 					| gulpfile.jsが存在しない場合は作成を行い、以下のように入力を行う。
-					s ファイル行頭が_(アンダーバー)のファイルを除外することで各種テンプレートファイルを変換しなくなる。
+					span.text-decoration-line-through ファイル行頭が_(アンダーバー)のファイルを除外することで各種テンプレートファイルを変換しなくなる。
 					br
 					| ファイル行頭が_(アンダーバー)のファイルはデフォルトでコンパイラ側にて無視されるため、気にする必要はない。
-				pre.language-javascript.line-numbers(data-line='1, 4'): code.
+				BlockCode.language-javascript(data-line='1, 4'): pre.
 					const pug = require('gulp-pug');
 
 					gulp.task('pug', function {
@@ -259,10 +259,10 @@ div
 
 			li
 				p 保存した後に以下のコマンドを入力し、実行する。
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					gulp pug
 				p gulpをローカルパッケージにインストールした場合は以下のように入力を行う。
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npx gulp pug
 
 	section
@@ -282,51 +282,63 @@ div
 	section
 		h2 最後に
 		p このマニュアルはPugで作られており、ソースを全て残しているので参考にする場合はPugフォルダ参照。クラシックなページデザイン故に参考になるか怪しいが。
-		pre.line-numbers(data-src='/pug/index.pug', data-download-link)
+		BlockCode(data-src='/pug/index.pug', data-download-link)
 
 	section
 		h2 リンク
 		a(href='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll, plugins } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-batch';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-pug';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'Pug',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'Pug' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	plugins.fileHighlight.highlight();
+	indexStore.setTitle(header.title);
+});
 </script>
 
-<style scoped lang="scss">
-.v-application {
-	.title {
-		font-size: unset !important;
-		font-weight: unset;
-		line-height: unset;
-		letter-spacing: unset !important;
-		font-family: unset !important;
+<script lang="ts">
+</script>
+
+<style lang="scss">
+.category--language {
+	&.page--pug {
+		.v-application {
+			.title {
+				font-family: unset !important;
+				font-size: unset !important;
+				font-weight: unset;
+				line-height: unset;
+				letter-spacing: unset !important;
+			}
+		}
 	}
 }
 </style>

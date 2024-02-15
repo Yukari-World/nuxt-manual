@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--home.page--index
 	section
 		p
 			| 左のメニューより閲覧したい内容を選択してください。
@@ -13,7 +13,7 @@ div
 			| 各ページのコードのハイライトには
 			a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
 			| が使用されています。
-		v-alert(type='info', border='left', colored-border, dense, elevation='5')
+		AlertBase(type='info')
 			//- h2 注意事項
 			p
 				| このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。
@@ -29,7 +29,7 @@ div
 			br
 			| また、CSSの要素の場合、クリックすることで説明ページに飛ぶことができます(但し、英語)。
 		h3 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			* {
 				margin: 0;
 				padding: 0;
@@ -50,7 +50,7 @@ div
 			}
 
 		h3 Pug
-		pre.language-pug.line-numbers: code.
+		BlockCode.language-pug: pre.
 			doctype html
 			html(lang='ja')
 				head
@@ -66,7 +66,7 @@ div
 					footer(role='contentinfo')
 
 		h3 SCSS
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			header {
 				position: fixed;
 				width: 100%;
@@ -80,9 +80,9 @@ div
 				}
 			}
 
-		h3 CodeMirror
-		client-only(placeholder='Codemirror Loading...')
-			codemirror(ref='cmEditor', :options='cmOptions', :value='code')
+		//- h3 CodeMirror
+		//- client-only(placeholder='Codemirror Loading...')
+		//- 	codemirror(ref='cmEditor', :options='cmOptions', :value='code')
 
 	section
 		h2 マニュアル作成について
@@ -94,13 +94,13 @@ div
 		ul
 			li
 				| JavaScript(ECMAScript 2017),&nbsp;
-				s Babelにより後方互換確保済み
+				span.text-decoration-line-through Babelにより後方互換確保済み
 			li
 				a(href='https://ja.nuxtjs.org/', title='Nuxt.js - ユニバーサル Vue.js アプリケーション', target='_blank', rel='external noopener') Nuxt.js
 			li
 				a(href='https://pugjs.org/', title='Pug: Getting Started', target='_blank', rel='external noopener') Pug(Jade)
 			li
-				a(href='http://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
+				a(href='https://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
 		h3 画像
 		ul
 			li
@@ -136,19 +136,24 @@ div
 					li
 						a(href='http://babeljs.io/', title='Babel · The compiler for next generation JavaScript', target='_blank', rel='external noopener') Babel
 					li
-						a(href='https://browsersync.io/', title='Browsersync - Time-saving synchronised browser testing', target='_blank', rel='external noopener') Browsersync
+						span.text-decoration-line-through
+							a(href='https://browsersync.io/', title='Browsersync - Time-saving synchronised browser testing', target='_blank', rel='external noopener') Browsersync
 					li
-						a(href='http://csscomb.com/', title='CSScomb: Makes your code beautiful', target='_blank', rel='external noopener') CSScomb
+						span.text-decoration-line-through
+							a(href='http://csscomb.com/', title='CSScomb: Makes your code beautiful', target='_blank', rel='external noopener') CSScomb
 					li
 						a(href='https://eslint.org/', title='ESLint - Pluggable JavaScript linter', target='_blank', rel='external noopener') ESLint
 					li
-						a(href='https://gulpjs.com/', title='gulp.js', target='_blank', rel='external noopener') gulp.js
+						span.text-decoration-line-through
+							a(href='https://gulpjs.com/', title='gulp.js', target='_blank', rel='external noopener') gulp.js
 					li
-						a(href='https://ja.nuxtjs.org/', title='Nuxt.js - ユニバーサル Vue.js アプリケーション', target='_blank', rel='external noopener') Nuxt.js
+						a(href='https://nuxt.com/', title='Nuxt: The Intuitive Web Framework', target='_blank', rel='external noopener') Nuxt.js
 					li
 						a(href='https://postcss.org/', title='PostCSS - a tool for transforming CSS with JavaScript', target='_blank', rel='external noopener') PostCSS
 					li
-						a(href='https://vuetifyjs.com/ja/', title='マテリアルデザインコンポーネントフレームワーク — Vuetify.js', target='_blank', rel='external noopener') Vuetify.js
+						a(href='https://stylelint.io/', title='Stylelint', target='_blank', rel='external noopener') Stylelint
+					li
+						a(href='https://vuetifyjs.com/en/', title='Vuetify — A Vue Component Framework', target='_blank', rel='external noopener') Vuetify.js
 					li
 						a(href='https://webpack.js.org/', title='webpack', target='_blank', rel='external noopener') webpack
 
@@ -172,7 +177,7 @@ div
 
 		h3 HTMLソースが汚い
 		p
-			s
+			span.text-decoration-line-through
 				| 自動整形ツールの仕様です。
 				wbr
 				| HTML自体はPugテンプレートに基づいてMinifyされたHTMLが出力されており、その後自動整形ツールでHTMLソースを整形しています。
@@ -180,18 +185,18 @@ div
 				| そのため出力結果は自動整形ツールの結果に依存しており、こちらで対処できる内容ではありません。
 				br
 				| また、コード整形は可能な限り自動化し手動で時間を掛けるものではないと考えているため、こちらで修正する予定もありませんので予めご了承ください。
-			br.strike
+			br.yw-strike
 			| このページは現在Nuxtで作られているため、整形ルール等はNuxtに従います。HTMLソースは整形されないものだと思ってください。
 
 		h3 このHTMLに使用されているCSSファイルが読めない
 		p
-			s
+			span.text-decoration-line-through
 				| 圧縮済みCSSファイルを使用しているので読めないのが仕様です。どうしても読みたい場合は
 				a(href='https://gitlab.com/fcc-y/html-manual', target='_blank', rel='external noopener') Gitlabリポジトリ
 				| から未圧縮のCSSファイルを取得するか、圧縮済みCSSファイルをテキストエディタのプラグイン等でフォーマットしてみてください。
 				br
 				| 但し、執筆者はSCSSファイルを使用してCSSファイルに変換したものを利用しているので可読性に関しては責任を取ることができませんので予めご了承ください。
-			br.strike
+			br.yw-strike
 			| 現在はNuxtとVuetifyにより作成されています。CSSスタイルは読めないものだと思ってください。
 
 		h3 技術マニュアルなのにお遊びが多い
@@ -227,7 +232,7 @@ div
 			| 全て元ネタがあります。わからない場合、調べてみましょう。尚、内容は秒が10の倍数毎に切り替わるようになっています。
 			wbr
 			| 現在
-			span#countRandom ---
+			span {{ count }}
 			| 個の表示候補があります。
 			wbr
 			| 表示内容は
@@ -244,74 +249,81 @@ div
 			| はい。
 </template>
 
-<script>
-import { mapState } from 'vuex';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-pug';
-import 'prismjs/components/prism-scss';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'Nuxt Manual',
-			},
-			code: 'const a = 10',
-			cmOptions: {
-				extraKeys: {
-					'F11'(cm) {
-						cm.setOption('fullScreen', !cm.getOption('fullScreen'));
-					},
-					'Esc'(cm) {
-						if (cm.getOption('fullScreen')) {cm.setOption('fullScreen', false);}
-					},
-				},
-				foldGutter: true,
-				gutters: [
-					'CodeMirror-foldgutter',
-					'CodeMirror-linenumbers',
-				],
-				indentUnit: 4,
-				indentWithTabs: true,
-				lineNumbers: true,
-				lineWrapping: true,
-				mode: 'text/javascript',
-				styleSelectedText: true,
-				tabSize: 4,
-				theme: 'tomorrow-night-eighties',
-			},
-		};
-	},
-	computed: {
-		// storeからのデータ読み込み
-		...mapState({
-			randomWords: (state) => state.randomWords,
-		}),
-	},
-	mounted() {
-		document.getElementById('countRandom').textContent = this.randomWords.length;
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
 
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
+const header = reactive({ title: 'Nuxt Manual' });
+const indexStore = useIndexStore();
+
+const code = ref('import Vue from \'vue\';\n');
+
+const cmOptions = reactive({
+	extraKeys: {
+		'F11'(cm: any) {
+			cm.setOption('fullScreen', !cm.getOption('fullScreen'));
+		},
+		'Esc'(cm: any) {
+			if (cm.getOption('fullScreen')) { cm.setOption('fullScreen', false); }
 		},
 	},
-};
+	foldGutter: true,
+	gutters: [
+		'CodeMirror-foldgutter',
+		'CodeMirror-linenumbers',
+	],
+	indentUnit: 4,
+	indentWithTabs: true,
+	lineNumbers: true,
+	lineWrapping: true,
+	mode: 'text/javascript',
+	styleActiveLine: true,
+	styleSelectedText: true,
+	tabSize: 4,
+	theme: 'tomorrow-night-eighties',
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Computed
+
+const count = computed(function() {
+	return indexStore.getRandomWords.length;
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
 </script>
 
-<style lang="scss" scoped>
-h3 {
-	margin-top: 1.5em;
-}
+<script lang="ts">
+</script>
 
-.strike {
-	padding-bottom: 1rem;
+<style lang="scss">
+.category--home {
+	&.page--index {
+		h3 {
+			margin-top: 1.5em;
+		}
+
+		.yw-strike {
+			padding-bottom: 1rem;
+		}
+	}
 }
 </style>

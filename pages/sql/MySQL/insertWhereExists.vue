@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.category--sql.sub--mysql.page--insert-where-exists
 	section
 		h2 説明
 		p
@@ -26,7 +26,7 @@ div
 	section
 		h2 使用方法と解説
 		p 以下の方法で同じことを再現できる。以下の例ではインデックスが2つある場合の例である。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			INSERT INTO -- 挿入する値
 				`insert_table`(`index_1`, `index_2`, `column_1`)
 			SELECT -- カラム重複回避のための記述
@@ -60,28 +60,35 @@ div
 				| を使用する方法がある。SQL文が非常に短くなるメリットがあるが、こちらはエラーを出力しないのでこの方法は推奨しない。
 </template>
 
-<script>
-import Prism from 'prismjs';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sql';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'INSERT WHERE EXISTS',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'INSERT WHERE EXISTS' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

@@ -1,8 +1,6 @@
 <template lang="pug">
-div
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+.category--language.page--sass
+	AlertStub
 
 	section
 		h2 Sassとは
@@ -11,7 +9,7 @@ div
 		h2 記述方法
 		p 記述方法はRubyスタイルに近い。タブで階層を示し、セミコロンと括弧は必要としない。
 		h4 Sass
-		pre.language-sass.line-numbers: code.
+		BlockCode.language-sass: pre.
 			h1, h2, h3, h4, h5, h6
 				font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
 
@@ -44,7 +42,7 @@ div
 
 		p これを出力した場合、以下のように出力される。尚、Gulpコンパイル時、様々な追加処理を行っている都合上通常の結果と異なる場合がある。
 		h4 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			h1, h2, h3, h4, h5, h6 {
 				font-family: 游ゴシック体,Yu Gothic,YuGothic,ヒラギノ角ゴシック Pro,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,Osaka,ＭＳ Ｐゴシック,MS PGothic,sans-serif;
 			}
@@ -88,7 +86,7 @@ div
 		h3 変数
 		p Sass及びSCSSでは変数を使用することができる。また、変数を演算に使用することができる。
 		h4 Sass
-		pre.language-sass.line-numbers: code.
+		BlockCode.language-sass: pre.
 			$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
 			$background-color: #000011
 			$footer-line: 5px
@@ -117,7 +115,7 @@ div
 				border-image: $gradation-pattern 1 / \#{$footer-line} 0 \#{$footer-line * 3} / 0 stretch
 
 		h4 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			body {
 				display: flex;
 				justify-content: space-between;
@@ -146,7 +144,7 @@ div
 			code.language-sass: span.token.keyword @media
 			| タグを記述することで簡単にレスポンシブ対応ができる。
 		h4 Sass
-		pre.language-sass.line-numbers: code.
+		BlockCode.language-sass: pre.
 			$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
 
 			footer
@@ -194,7 +192,7 @@ div
 			| 出力結果。以下の通り
 			code.language-sass: span.token.keyword @media
 			| タブは要素分だけ個別で出力されるため、何らかの整形ツールで纏めると見栄え等で良くなる。
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			footer {
 				display: flex;
 				justify-content: space-between;
@@ -252,7 +250,7 @@ div
 			code.language-sass: span.token.keyword @media
 			| タブは幾つかの要素に分割することもできる。
 		h4 Sass
-		pre.language-sass.line-numbers: code.
+		BlockCode.language-sass: pre.
 			$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
 
 			footer
@@ -273,7 +271,7 @@ div
 						flex-direction: column-reverse
 
 		h4 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			footer {
 				display: flex;
 				justify-content: space-between;
@@ -295,36 +293,42 @@ div
 		section
 			h2 最後に
 			p このマニュアルはSCSSをSassに変換したファイルを置いているので参考程度に。
-			pre.line-numbers(data-src='/sass/buildSass.sass', data-download-link)
+			BlockCode(data-src='/sass/buildSass.sass', data-download-link)
 
 	section
 		h2 リンク
 		a(href='http://sass-lang.com/', target='_blank', rel='external noopener') Sass: Syntactically Awesome Style Sheets
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-css';
+<script setup lang="ts">
+import { highlightAll } from 'prismjs';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-sass';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'Sass',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'Sass' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	highlightAll();
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>

@@ -1,8 +1,6 @@
 <template lang="pug">
-div
-	v-alert(type='info', border='left', colored-border, dense, elevation='5')
-		h2 {{ $t('common.stub.work_in_progress.title') }}
-		p {{ $t('common.stub.work_in_progress.desc') }}
+.category--other.sub--atom.page--apm
+	AlertStub
 
 	section
 		h2 説明
@@ -22,25 +20,25 @@ div
 
 		ul
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm install [&lt;package_name&gt;...]
 				p パッケージ名で指定してインストールする。スペースを空けて連続して入力することで複数導入できる。
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm install &lt;package_name&gt;@&lt;package_version&gt;
 				p バージョンを指定してインストールする。特定のバージョンにて不具合がある等古いバージョンである必要があるときに使う。指定しない場合、自動的に現行最新版が導入される。
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm install &lt;git_remote&gt;
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm install &lt;github_username&gt;/&lt;github_project&gt;
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm install --packages-file my-packages.txt
 				p ファイルに記入されているパッケージ情報から一括でインストールを行う。統一環境を構築する時に扱いやすい。
 
@@ -49,36 +47,36 @@ div
 
 		ul
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm list
 				p インストールされているパッケージの一覧を表示する。
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm list --themes
 				p インストールされているテーマの一覧を表示する。
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm list --packages
 				p インストールされているパッケージ(テーマは除く)の一覧を表示する。
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm list --installed
 				p apm listと同じ。
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm list --installed --enabled
 				p インストールされているパッケージの内、有効になっている一覧を表示する。
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm list --installed --bare &gt; my-packages.txt
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm list --json
 
 		h3 apm update
@@ -87,16 +85,16 @@ div
 
 		ul
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm upgrade
 				p インストールされているパッケージの内、更新可能なパッケージがある場合、更新を行う。
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm upgrade --list
 
 			li
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					apm upgrade [&lt;package_name&gt;...]
 				p パッケージ名で指定して更新を行う。スペースを空けて連続して入力することで複数更新できる。
 
@@ -106,28 +104,32 @@ div
 
 </template>
 
-<script>
-import Prism from 'prismjs';
-import 'prismjs/components/prism-batch';
+<script setup lang="ts">
+import { useIndexStore } from '@/store/index';
 
-export default {
-	data() {
-		return {
-			header: {
-				title: 'apm Command',
-			},
-		};
-	},
-	mounted() {
-		Prism.highlightAll();
-		// Prism.fileHighlight();
-		this.updateHeader();
-	},
-	methods: {
-		updateHeader() {
-			// タイトルとして使いたい情報を渡す
-			this.$nuxt.$emit('update-header', this.header.title);
-		},
-	},
-};
+
+// ----------------------------------------------------------------------------------------------------
+// Data Initialize
+
+const header = reactive({ title: 'apm Command' });
+const indexStore = useIndexStore();
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Mounted
+
+onMounted(function() {
+	indexStore.setTitle(header.title);
+});
+</script>
+
+<script lang="ts">
 </script>
