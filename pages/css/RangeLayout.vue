@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--css.page--range-layout
-	v-alert(type='warning', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.nonStandard.title')", :text="$t('common.stub.nonStandard.desc')")
+	AlertNonStandard
 
 	section
 		h2 説明

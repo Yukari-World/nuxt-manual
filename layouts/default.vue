@@ -7,7 +7,7 @@ div.layout--default
 
 	//- ページヘッダー
 	v-app-bar(app)
-		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
+		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop="drawer = !drawer")
 		CommonHeader
 		v-spacer
 
