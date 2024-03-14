@@ -10,7 +10,7 @@
 			| このカッコの値は桁数制限と見えるが、そうではなく空白、もしくは0で埋める文字数のことを示している。phpMyAdminやHeidiSQL等のGUIでは分かりづらいが、コンソールの場合、この結果が理解しやすい。
 			br
 			| 例えば、INT(6)の場合、
-		pre.language-markdown.line-numbers: code.
+		BlockCode.language-markdown: pre.
 			123456
 			     1
 			    12
@@ -24,7 +24,7 @@
 	section
 		h2 主な使い道
 		p ZEROFILL(残りの桁部分を0で埋める)に対して最も使い道が多い。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			CREATE TABLE `test` (
 				`id` INT ZEROFILL NOT NULL,
 				`name` VARCHAR(20) NOT NULL,
@@ -45,11 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markdown';
-import 'prismjs/components/prism-sql';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -71,7 +67,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

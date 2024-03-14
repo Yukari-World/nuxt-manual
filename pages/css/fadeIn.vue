@@ -8,7 +8,7 @@
 		h2 使用方法と解説
 
 		h3 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			.area {
 				display: flex;
 				flex-wrap: wrap;
@@ -45,7 +45,7 @@
 			| にspace-evenlyが使用されているが、未対応端末が多いため、その対処も忘れないように。
 
 		h3 HTML
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;div class="area"&gt;
 				&lt;div class="anim box-1"&gt;要素1&lt;/div&gt;
 				&lt;div class="anim box-2"&gt;要素2&lt;/div&gt;
@@ -68,7 +68,7 @@
 			| boxナンバリングは単純に背景画像を指定するためのものであるため省略する。
 
 		h3 JavaScript
-		pre.language-javascript.line-numbers: code.
+		BlockCode.language-javascript: pre.
 			window.addEventListener('DOMContentLoaded', function () {
 				window.addEventListener('scroll', function () {
 					let myFade = document.getElementsByClassName('anim');
@@ -143,12 +143,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-markup';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -170,7 +165,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 
 	window.addEventListener(

@@ -1,3 +1,4 @@
+import eslint from '@nabla/vite-plugin-eslint';
 import stylelint from 'vite-plugin-stylelint';
 
 export default defineNuxtConfig({
@@ -6,7 +7,7 @@ export default defineNuxtConfig({
 	app: {
 		baseURL: '/',
 		head: {
-			titleTemplate: '%s | Nuxt Technical Manual v0.4.2',
+			titleTemplate: '%s | Nuxt Technical Manual v0.4.3',
 			meta: [
 				{ charset: 'utf-8' },
 				{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
@@ -40,7 +41,9 @@ export default defineNuxtConfig({
 		'@nuxtjs/i18n',
 		'@pinia/nuxt',
 		'@vite-pwa/nuxt',
+		'@vueuse/nuxt',
 		// 'nuxt-purgecss',
+		// 'nuxt-simple-sitemap',
 	],
 
 	// ----------------------------------------------------------------------------------------------------
@@ -138,6 +141,7 @@ export default defineNuxtConfig({
 
 	vite: {
 		plugins: [
+			eslint(),
 			stylelint({
 				fix: true,
 				include: [
@@ -162,5 +166,13 @@ export default defineNuxtConfig({
 
 	devServer: {
 		host: '0.0.0.0',
+	},
+
+	devtools: {
+		componentInspector: false,
+
+		timeline: {
+			enabled: true,
+		},
 	},
 });

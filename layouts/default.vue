@@ -2,11 +2,12 @@
 div.layout--default
 	//- サイドバー
 	//- 内部処理はサイドバーコンポーネント参照
-	CommonSidebar(:open='drawer')
+	v-navigation-drawer.yw-sidebar(v-model='drawer', app)
+		CommonSidebar
 
 	//- ページヘッダー
 	v-app-bar(app)
-		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
+		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop="drawer = !drawer")
 		CommonHeader
 		v-spacer
 

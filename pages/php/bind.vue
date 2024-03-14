@@ -13,7 +13,7 @@
 			br
 			| また、本来アスタリスク(*)はテスト以外に使用することは推奨されないので要注意。これはデータベースのデータ数が多くなる程レスポンスの低下やメモリ使用量の増大、データの隠密性等多くの問題が発生するためである。
 		h3 MySQLi
-		pre.language-php.line-numbers(data-line='1'): code.
+		BlockCode.language-php(data-line='1'): pre.
 			$query = "SELECT * FROM `user` WHERE `id` = " . $id . " AND `password` = PASSWORD('" . $password . "')";
 			// SQLの実行
 			if ($result = $mysqli-&gt;query($query)) {
@@ -29,7 +29,7 @@
 		p fetch_allに関してはmysqlndというネイティブドライバでのみ使用可能なため、使用を避けている。しかし問題点として上記のSQLの内容では問題とはならないが、処理の結果数千行となる場合は処理方法を工夫する必要が出てくる可能性があるため注意。
 
 		h3 PDO
-		pre.language-php.line-numbers(data-line='2'): code.
+		BlockCode.language-php(data-line='2'): pre.
 			try {
 				$query = "SELECT * FROM `user` WHERE `id` = " . $id . " AND `password` = PASSWORD('" . $password . "')";
 				$stmt = $pdo-&gt;prepare($query); // SQL Queryの格納
@@ -53,7 +53,7 @@
 
 		p 次に上のソースコードを基にバインドを利用した記述。
 		h3 MySQLi
-		pre.language-php.line-numbers(data-line='1-9'): code.
+		BlockCode.language-php(data-line='1-9'): pre.
 			$query = "SELECT * FROM `user` WHERE `id` = ? AND `password` = PASSWORD(?)";
 			// SQL Queryの格納
 			if ($stmt = $mysqli-&gt;prepare($query)) {
@@ -82,7 +82,7 @@
 			| の第一引数は代入する変数の型を示しており、iはinterger数値を示しており、sはstring文字列を示している。第二引数以降には変数を指定する。直接値や文字列を指定することはできないので注意が必要。
 
 		h3 PDO
-		pre.language-php.line-numbers(data-line='2, 4-6'): code.
+		BlockCode.language-php(data-line='2, 4-6'): pre.
 			try {
 				$query = "SELECT * FROM `user` WHERE `id` = :id AND `password` = PASSWORD(:password)";
 				$stmt = $pdo-&gt;prepare($query); // SQL Queryの格納
@@ -156,19 +156,19 @@
 			li 日付や時間を取り扱う場合は文字列を指定する。
 			li
 				| LIKEであいまい検索を行うときは以下のように変数に対して囲むように記述する
-				pre.language-php.line-numbers: code.
+				BlockCode.language-php: pre.
 					| $stmt-&gt;bindValue(':name', '%' . $name . '%', PDO::PARAM_STR);
 
 	section
 		h2 参考リンク
 		p
-			a(href='http://php.net/manual/ja/mysqli-stmt.bind-param.php', target='_blank', rel='external noopener') PHP.net / mysqli_stmt::bind_param
+			a(href='https://www.php.net/manual/ja/mysqli-stmt.bind-param.php', target='_blank', rel='external noopener') PHP.net / mysqli_stmt::bind_param
 			br
-			a(href='http://php.net/manual/ja/mysqli-stmt.bind-result.php', target='_blank', rel='external noopener') PHP.net / mysqli_stmt::bind_result
+			a(href='https://www.php.net/manual/ja/mysqli-stmt.bind-result.php', target='_blank', rel='external noopener') PHP.net / mysqli_stmt::bind_result
 			br
-			a(href='http://php.net/manual/ja/pdostatement.bindparam.php', target='_blank', rel='external noopener') PHP.net / PDOStatement::bindParam
+			a(href='https://www.php.net/manual/ja/pdostatement.bindparam.php', target='_blank', rel='external noopener') PHP.net / PDOStatement::bindParam
 			br
-			a(href='http://php.net/manual/ja/pdostatement.bindvalue.php', target='_blank', rel='external noopener') PHP.net / PDOStatement::bindValue
+			a(href='https://www.php.net/manual/ja/pdostatement.bindvalue.php', target='_blank', rel='external noopener') PHP.net / PDOStatement::bindValue
 </template>
 
 <script setup lang="ts">

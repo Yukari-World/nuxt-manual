@@ -6,7 +6,7 @@
 
 	section
 		h2 使用方法と解説
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			.header-background {
 				background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x bottom/50% 100%, url(./img/robert-lukeman-150146.jpg) no-repeat bottom/100%;
 			}
@@ -14,7 +14,7 @@
 		.yw-layer1
 
 		p グラデーションと背景画像を重ねる1行指定の例。background要素が非常に長くなっているが、それよりも重要なのは右の要素から左の要素へ重ねられていく点である。
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			.header-background {
 				background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/robert-lukeman-150146.jpg);
 				background-repeat: repeat-x, no-repeat;
@@ -37,9 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -61,7 +59,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

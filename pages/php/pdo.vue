@@ -8,7 +8,7 @@
 		h2 使用方法と解説
 		h3 データベースへの接続
 		p まずはデータベースの接続を行う。接続先等は適時書き換えること。
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			$dsn = 'mysql:host=*データベースドメイン*;dbname=*データベース名*;charset=utf8';
 			$username = '*ユーザー名*';
 			$password = '*パスワード*';
@@ -26,7 +26,7 @@
 
 		p xamppの設定が初期設定の場合、以下のように記述することで接続することができる。
 		p データベースは適時書き換えること。
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			$dsn = 'mysql:host=localhost;dbname=*データベース名*;charset=utf8';
 			$username = 'root';
 			$password = '';
@@ -44,7 +44,7 @@
 
 		h3 データの取得
 		p 一般的なデータの取得を行う。PDOでは基本的にはtry文の中に記述していく。参照テーブルがuserとなっているが、必要に応じて参照先を変更すること。
-		pre.language-php.line-numbers: code.
+		BlockCode.language-php: pre.
 			try {
 				$query = "SELECT * FROM `user`";
 				$stmt = $pdo-&gt;prepare($query); // SQLの格納
@@ -73,16 +73,11 @@
 	section
 		h2 参考リンク
 		p
-			a(href='http://php.net/manual/ja/class.pdo.php', target='_blank', rel='external noopener') PHP.net
+			a(href='https://www.php.net/manual/ja/class.pdo.php', target='_blank', rel='external noopener') PHP.net
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-php';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -104,7 +99,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

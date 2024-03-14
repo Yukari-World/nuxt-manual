@@ -13,7 +13,7 @@
 				| をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。
 			li
 				| コマンドプロンプトを起動し、
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npm install -g browser-sync
 				| と入力する。これでグローバル環境にBrowsersyncがインストールされる。
 		h3 ローカルインストール
@@ -23,12 +23,12 @@
 				| をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。
 			li
 				| コマンドプロンプトを起動し、プロジェクトフォルダに移動する。対象パスにpackage.jsonが存在しない場合
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npm init
 				| と入力し、パッケージの作成を行う。作成手順は省略する。
 			li
 				| パッケージを作成した、もしくは存在する場合は
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npm install browser-sync --save-dev
 				| と入力する。これでローカルのプロジェクト環境にBrowsersyncがインストールされる。
 
@@ -38,14 +38,14 @@
 		ol
 			li
 				| コマンドプロンプトを起動し、
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					browser-sync start --proxy localhost:80 --files "*.html, *.css, *.js"
 				| と入力する。
 				code.language-batch: span.token.parameter.attr-name --files
 				| の引数を変更することでファイル更新時の再読み込み対象を指定する事が出来る。
 				br
 				| ローカルインストールの場合、 パッケージを作成したディレクトリに移動し
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npx browser-sync start --proxy localhost:80 --files "*.html, *.css, *.js"
 				| と入力する。
 
@@ -53,12 +53,12 @@
 		ol
 			li
 				| コマンドプロンプトを起動し、
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					browser-sync start --server --files "css/*.css"
 				| と入力する。コマンドを起動した地点をルートパスとして起動する。但し、Browsersync単体ではPHP等の動的ページには対応できない。
 				br
 				| ローカルインストールの場合、 パッケージを作成したディレクトリに移動し
-				pre.language-batch.line-numbers: code.
+				BlockCode.language-batch: pre.
 					npx browser-sync start --server --files "css/*.css"
 				| と入力する。尚、
 				code.language-batch: span.token.keyword.keyword-npx npx
@@ -68,12 +68,12 @@
 		ol
 			li
 				| ローカルPCのネットブラウザのURLに
-				pre.language-http.line-numbers: code.
+				BlockCode.language-http: pre.
 					http://127.0.0.1:3001/
 				| と入力することで開く。
 			li
 				| 外部からのネットブラウザから開く場合、アドレスURLに
-				pre.language-http.line-numbers: code.
+				BlockCode.language-http: pre.
 					http://(対象のLocal IP Address):3001/
 				| と入力することで開く。
 
@@ -101,7 +101,6 @@
 import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
 import 'prismjs/components/prism-batch';
-import 'prismjs/components/prism-http';
 
 
 // ----------------------------------------------------------------------------------------------------

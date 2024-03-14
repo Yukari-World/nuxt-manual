@@ -14,7 +14,7 @@
 		h3 Atom
 		h4 コマンドラインからインストール
 		p コマンドラインに以下のコマンドを入力することでインストールできる。但し、Atomがマニュアルインストールの場合使用することができない。
-		pre.language-batch.line-numbers: code.
+		BlockCode.language-batch: pre.
 			apm install editorconfig
 		h4 パッケージからインストール
 		p EditorConfigと検索すると結果に出てくるのでそれをインストールする。
@@ -29,7 +29,7 @@
 		h2 設定ファイル
 		p 設定ファイルは.editorconfigファイルに記述する。
 		h3 .editorconfigの例
-		pre.language-ini.line-numbers: code.
+		BlockCode.language-ini: pre.
 			# EditorConfigの最上位ファイルであることを示す
 			root = true
 
@@ -103,10 +103,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-batch';
-import 'prismjs/components/prism-ini';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -128,7 +125,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

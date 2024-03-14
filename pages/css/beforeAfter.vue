@@ -7,7 +7,7 @@
 	section
 		h2 使用方法と解説
 		h3 SCSS
-		pre.language-scss.line-numbers: code.
+		BlockCode.language-scss: pre.
 			ul {
 				margin-left: 1em;
 				padding-right: 2px;
@@ -29,7 +29,7 @@
 			}
 
 		h3 CSS
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			ul {
 				margin-left: 1em;
 				padding-right: 2px;
@@ -80,10 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-scss';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -105,7 +102,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

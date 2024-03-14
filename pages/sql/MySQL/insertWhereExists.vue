@@ -26,7 +26,7 @@
 	section
 		h2 使用方法と解説
 		p 以下の方法で同じことを再現できる。以下の例ではインデックスが2つある場合の例である。
-		pre.language-sql.line-numbers: code.
+		BlockCode.language-sql: pre.
 			INSERT INTO -- 挿入する値
 				`insert_table`(`index_1`, `index_2`, `column_1`)
 			SELECT -- カラム重複回避のための記述

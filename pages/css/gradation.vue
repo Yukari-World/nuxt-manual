@@ -6,7 +6,7 @@
 
 	section
 		h2 使用方法と解説
-		pre.language-css.line-numbers: code
+		BlockCode.language-css: pre.
 			| background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
 		.yw-gradient1
 		p
@@ -23,19 +23,19 @@
 			code.language-css: span.token.property background-image
 			| に対して適応する。
 
-		pre.language-css.line-numbers: code
+		BlockCode.language-css: pre.
 			| background: linear-gradient(45deg, red, blue);
 		.yw-gradient2
 		p
 			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient', target='_blank', rel='external noopener') MDN Web Docs
 			| に公開されている例。対角線上に赤から青となるグラデーションが生成される。
 
-		pre.language-css.line-numbers: code
+		BlockCode.language-css: pre.
 			| background: linear-gradient(to top, #004B24 0%, #DBE5E0 86.45%, #FFFFFF 100%);
 		.yw-gradient3
 		p 三色グラデーションの例。カンマで繋ぐ事で複数色設定できる。更に割合を指定することで色の変わり目の位置を指定することができる。
 
-		pre.language-css.line-numbers: code
+		BlockCode.language-css: pre.
 			| background: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 		.yw-gradient4
 		p 本マニュアルで使用されているグラデーション。%表記が省略された場合は色の変わり目が要素のサイズに対して均等な位置になるように位置が割り振られる(この場合は2個目の要素が50%の位置に来るように割り振られる)。左側の色は背景色と同じ色のため殆ど見えない。尚、このマニュアルの背景は黒ではない。
@@ -72,10 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-markup';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -97,7 +94,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>
