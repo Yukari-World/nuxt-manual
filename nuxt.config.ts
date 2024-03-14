@@ -1,4 +1,4 @@
-import eslint from 'vite-plugin-eslint';
+import eslint from '@nabla/vite-plugin-eslint';
 import stylelint from 'vite-plugin-stylelint';
 
 export default defineNuxtConfig({

@@ -13,7 +13,7 @@
 			date('Y-m-d')
 		p
 			| 出力結果:&nbsp;
-			time#date01
+			time#date01 {{ date01 }}
 			br
 			| `Y`を小文字にした場合、年の下2桁が出力される。
 
@@ -21,14 +21,14 @@
 			date('y-m-d')
 		p
 			| 出力結果:&nbsp;
-			time#date02
+			time#date02 {{ date02 }}
 
 		h3 年月日を0を省いて表示する
 		BlockCode.language-php: pre.
 			date('Y年n月j日')
 		p
 			| 出力結果:&nbsp;
-			time#date03
+			time#date03 {{ date03 }}
 			br
 			| 日本語はdate関数に含めても問題なく出力されるが、英語はルールに従って変換されるので含めないように。
 
@@ -37,7 +37,7 @@
 			date('H:i:s')
 		p
 			| 出力結果:&nbsp;
-			time#date04
+			time#date04 {{ date04 }}
 			br
 			| 注意すべき点として分は`m`ではなく`i`であることである。`m`を使用した場合、月が出力されるため、注意が必要。
 
@@ -46,14 +46,14 @@
 			date('Ymd')
 		p
 			| 出力結果:&nbsp;
-			time#date05
+			time#date05 {{ date05 }}
 
 		h3 日時を表示する
 		BlockCode.language-php: pre.
 			date('Y-m-d H:i:s')
 		p
 			| 出力結果:&nbsp;
-			time#date06
+			time#date06 {{ date06 }}
 			br
 			| MySQLのDATETIMEフォーマットの形である。
 
@@ -82,6 +82,13 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: '日付時間 date()' });
 const indexStore = useIndexStore();
 
+const date01 = ref('');
+const date02 = ref('');
+const date03 = ref('');
+const date04 = ref('');
+const date05 = ref('');
+const date06 = ref('');
+
 
 // ----------------------------------------------------------------------------------------------------
 // Header Data
@@ -97,13 +104,6 @@ useHead({
 onMounted(function() {
 	indexStore.setTitle(header.title);
 
-	const date01 = document.getElementById('date01') as HTMLElement;
-	const date02 = document.getElementById('date02') as HTMLElement;
-	const date03 = document.getElementById('date03') as HTMLElement;
-	const date04 = document.getElementById('date04') as HTMLElement;
-	const date05 = document.getElementById('date05') as HTMLElement;
-	const date06 = document.getElementById('date06') as HTMLElement;
-
 	const dToday = new Date();
 	const year = dToday.getFullYear();
 	const month = ('0' + (dToday.getMonth() + 1)).slice(-2);
@@ -112,12 +112,12 @@ onMounted(function() {
 	const minute = ('0' + dToday.getMinutes()).slice(-2);
 	const second = ('0' + dToday.getSeconds()).slice(-2);
 
-	date01.textContent = year + '-' + month + '-' + day;
-	date02.textContent = year.toString().substr(2, 2) + '-' + month + '-' + day;
-	date03.textContent = year + '年' + (dToday.getMonth() + 1) + '月' + dToday.getDate() + '日';
-	date04.textContent = hour + ':' + minute + ':' + second;
-	date05.textContent = year + month + day;
-	date06.textContent = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+	date01.value = year + '-' + month + '-' + day;
+	date02.value = year.toString().substr(2, 2) + '-' + month + '-' + day;
+	date03.value = year + '年' + (dToday.getMonth() + 1) + '月' + dToday.getDate() + '日';
+	date04.value = hour + ':' + minute + ':' + second;
+	date05.value = year + month + day;
+	date06.value = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
 });
 </script>
 

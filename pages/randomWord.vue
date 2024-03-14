@@ -1,10 +1,13 @@
 <template lang="pug">
-dl#randomOutput
-	template(v-if='$route.params.id !== undefined')
-		NuxtPage
-	template(v-else)
-		template(v-for='(words, index) in wordList')
-			BlockRandomWord(:target-id="index + 1", :word-list="words")
+.category--home.page--randomword
+	AlertStub
+	section
+		dl#randomOutput
+			template(v-if='$route.params.id !== undefined')
+				NuxtPage
+			template(v-else)
+				template(v-for='(words, index) in wordList')
+					BlockRandomWord(:target-id="index + 1", :word-list="words")
 </template>
 
 <script setup lang="ts">

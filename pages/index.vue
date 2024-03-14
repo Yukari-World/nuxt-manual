@@ -317,10 +317,6 @@ onMounted(function() {
 <style lang="scss">
 .category--home {
 	&.page--index {
-		h3 {
-			margin-top: 1.5em;
-		}
-
 		.yw-strike {
 			padding-bottom: 1rem;
 		}
