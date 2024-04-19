@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 dt(:id='"wordID" + (targetId)')
 	h3(v-html='wordList.title')
 	h4 出典: {{ wordList.original }}
@@ -8,7 +8,7 @@ dd
 		ul.tagList
 			//- <a data-tag="' + searchTag + '">' + searchTag + '</a>
 			//- コンテンツタグの出力
-			li(v-for='(tag) in wordList.tags')
+			li(v-for='(tag, index) in wordList.tags', :key='index')
 				a(:data-tag='tag') {{ $t(tag) }}
 </template>
 

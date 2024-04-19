@@ -1,8 +1,8 @@
-<template lang="pug">
-pre.line-numbers(v-if="!dataSrc", :data-download-link="dataDownloadLink", :data-line="dataLine", :class="$attrs.class")
+<template lang='pug'>
+pre.line-numbers(v-if='!dataSrc', :data-download-link='dataDownloadLink', :data-line='dataLine', :class='$attrs.class')
 	code
 		slot
-pre.line-numbers(v-else, :data-src="dataSrc", :data-download-link="dataDownloadLink", :data-line="dataLine", :class="$attrs.class")
+pre.line-numbers(v-else, :data-src='dataSrc', :data-download-link='dataDownloadLink', :data-line='dataLine', :class='$attrs.class')
 </template>
 
 <script setup lang="ts">

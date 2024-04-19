@@ -7,11 +7,14 @@
 # The above will handle all files NOT found below
 #
 # These files are text and should be normalized (Convert crlf => lf)
+*.css           text eol=lf
 *.gitattributes text
 .gitignore      text
-*.md            text diff=markdown
 *.js            text eol=lf
 *.json          text eol=lf
+*.md            text diff=markdown eol=lf
+*.scss          text eol=lf
+*.sql           text eol=lf
 *.toml          text eol=lf
 *.ts            text eol=lf
 *.vue           text eol=lf

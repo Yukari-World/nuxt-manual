@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 .category--html.page--input
 	AlertStub
 
@@ -325,7 +325,7 @@
 					&lt;input type="submit" name="submit" value="送信確認"&gt;
 
 				fieldset
-					input(type='submit', name='submit',  value='送信確認')
+					input(type='submit', name='submit', value='送信確認')
 			li
 				| それ以外の項目の場合
 				br
@@ -334,7 +334,7 @@
 					&lt;input type="text" name="your-name" value="山田太郎"&gt;
 
 				fieldset
-					input(type='text', name='your-name',  value='山田太郎')
+					input(type='text', name='your-name', value='山田太郎')
 
 	section
 		h2 使用上の注意

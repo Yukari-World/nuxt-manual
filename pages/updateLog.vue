@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 .category--home.page--update-log
 	v-timeline(reverse)
 		//- カードの出力
@@ -11,7 +11,7 @@
 				v-card-title.headline {{ logIndex.date }}
 				v-card-text
 					ul
-						li(v-for='(desc, i) in logIndex.summary') {{ desc }}
+						li(v-for='(desc, i) in logIndex.summary', :key='i') {{ desc }}
 </template>
 
 <script setup lang="ts">

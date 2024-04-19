@@ -1,5 +1,5 @@
-<template lang="pug">
-BlockRandomWord(:target-id="Number($route.params.id)", :word-list="wordList[Number($route.params.id) - 1]")
+<template lang='pug'>
+BlockRandomWord(:target-id='Number($route.params.id)', :word-list='wordList[Number($route.params.id) - 1]')
 </template>
 
 <script setup lang="ts">

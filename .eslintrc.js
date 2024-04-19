@@ -1,18 +1,11 @@
 module.exports = {
 	root: true,
-	// env: {
-	// 	browser: true,
-	// 	node: true,
-	// },
-	// parserOptions: {
-	// 	// parser: 'babel-eslint',
-	// 	sourceType: 'module',
-	// },
 	extends: [
 		// '@nuxtjs',
 		'prettier',
 		'plugin:prettier/recommended',
 		'@nuxt/eslint-config',
+		'plugin:vue-pug/vue3-recommended',
 	],
 	plugins: [
 		'prettier',
@@ -82,20 +75,29 @@ module.exports = {
 		'spaced-comment': [ 'error', 'always' ],
 		'template-curly-spacing': [ 'warn', 'always' ],
 		'yield-star-spacing': [ 'error', 'before' ],
-		'import/no-named-as-default-member': 'off',
-		'vue/multi-word-component-names': 'off',
-		'vue/script-indent': [ 'error', 'tab' ],
 		'@typescript-eslint/array-type': [ 'warn', { default: 'array-simple' }],
 		// '@typescript-eslint/no-duplicate-type-constituents': 'error',
 		'@typescript-eslint/no-empty-interface': 'error',
 		'@typescript-eslint/no-inferrable-types': 'off',
 		'@typescript-eslint/no-unused-vars': 'off',
+		'import/no-named-as-default-member': 'off',
 	},
 	overrides: [
 		{
 			files: [ '*.vue' ],
 			rules: {
-				indent: 'off',
+				'indent': 'off',
+				'vue/html-closing-bracket-newline': 'off',
+				'vue/html-closing-bracket-spacing': 'off',
+				'vue/html-quotes': [ 'warn', 'single', { avoidEscape: true }],
+				'vue/max-attributes-per-line': 'off',
+				'vue/multi-word-component-names': 'off',
+				'vue/no-multiple-template-root': 'off',
+				'vue/no-v-text-v-html-on-component': [ 'error',
+					{ allow: [ 'nuxt-link', 'router-link', 'v-list-item-subtitle', 'v-list-item-title' ] },
+				],
+				'vue/script-indent': [ 'error', 'tab' ],
+				'vue-pug/no-parsing-error': 'off',
 			},
 		},
 	],
