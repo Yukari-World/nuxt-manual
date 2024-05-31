@@ -1,4 +1,3 @@
-import eslint from '@nabla/vite-plugin-eslint';
 import stylelint from 'vite-plugin-stylelint';
 
 export default defineNuxtConfig({
@@ -37,11 +36,12 @@ export default defineNuxtConfig({
 	// Module list and configuration
 
 	modules: [
-		// '@nuxtjs/eslint-module',
+		'@nuxt/eslint',
 		'@nuxtjs/i18n',
 		'@pinia/nuxt',
 		'@vite-pwa/nuxt',
 		'@vueuse/nuxt',
+		'nuxt-link-checker',
 		// 'nuxt-purgecss',
 		// 'nuxt-simple-sitemap',
 	],
@@ -60,8 +60,8 @@ export default defineNuxtConfig({
 		langDir: 'locales/',
 		lazy: true,
 		locales: [
-			{ code: 'en-US', iso: 'en-US', name: 'English', files: [ 'en.yaml', 'en-US.yaml' ] },
-			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.yaml', 'ja-JP.yaml' ] },
+			{ code: 'en-US', iso: 'en-US', name: 'English', files: ['en.yaml', 'en-US.yaml'] },
+			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: ['ja.yaml', 'ja-JP.yaml'] },
 		],
 		strategy: 'prefix_except_default',
 	},
@@ -95,7 +95,7 @@ export default defineNuxtConfig({
 							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
 						},
 						cacheableResponse: {
-							statuses: [ 0, 200 ],
+							statuses: [0, 200],
 						},
 					},
 				}, {
@@ -108,7 +108,7 @@ export default defineNuxtConfig({
 							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
 						},
 						cacheableResponse: {
-							statuses: [ 0, 200 ],
+							statuses: [0, 200],
 						},
 					},
 				}, {
@@ -121,7 +121,7 @@ export default defineNuxtConfig({
 							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
 						},
 						cacheableResponse: {
-							statuses: [ 0, 200 ],
+							statuses: [0, 200],
 						},
 					},
 				},
@@ -133,7 +133,7 @@ export default defineNuxtConfig({
 	// Build configuration
 
 	build: {
-		transpile: [ 'vuetify' ],
+		transpile: ['vuetify'],
 	},
 
 	// ----------------------------------------------------------------------------------------------------
@@ -141,7 +141,6 @@ export default defineNuxtConfig({
 
 	vite: {
 		plugins: [
-			eslint(),
 			stylelint({
 				fix: true,
 				include: [
@@ -165,7 +164,8 @@ export default defineNuxtConfig({
 	// Development server configuration
 
 	devServer: {
-		host: '0.0.0.0',
+		host: process.env.host || '0.0.0.0',
+		port: Number(process.env.port) || 3000,
 	},
 
 	devtools: {

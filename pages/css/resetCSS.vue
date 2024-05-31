@@ -56,7 +56,7 @@
 				border-collapse: collapse;
 				border-spacing: 0;
 			}
-		a(href='https://meyerweb.com/eric/tools/css/reset/', target='_blank', rel='external noopener') CSS Tools: Reset CSS - meyerweb.com
+		a(href="https://meyerweb.com/eric/tools/css/reset/", target="_blank", rel="external noopener") CSS Tools: Reset CSS - meyerweb.com
 
 </template>
 

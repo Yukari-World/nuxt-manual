@@ -293,11 +293,11 @@
 		section
 			h2 最後に
 			p このマニュアルはSCSSをSassに変換したファイルを置いているので参考程度に。
-			BlockCode(data-src='/sass/buildSass.sass', data-download-link)
+			BlockCode(data-src="/sass/buildSass.sass", data-download-link)
 
 	section
 		h2 リンク
-		a(href='http://sass-lang.com/', target='_blank', rel='external noopener') Sass: Syntactically Awesome Style Sheets
+		a(href="http://sass-lang.com/", target="_blank", rel="external noopener") Sass: Syntactically Awesome Style Sheets
 </template>
 
 <script setup lang="ts">

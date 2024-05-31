@@ -13,11 +13,11 @@
 
 	section
 		h2 リンク
-		a(href='https://www.netlify.com/', target='_blank', rel='external noopener') Netlify: All-in-one platform for automating modern web projects.
+		a(href="https://www.netlify.com/", target="_blank", rel="external noopener") Netlify: All-in-one platform for automating modern web projects.
 
 	section
 		h2 参考リンク
-		a(href='https://qiita.com/TakahiRoyte/items/b7c4d1581df1a17a93fb', target='_blank', rel='external noopener') 高機能ホスティングサービスNetlifyについて調べて使ってみた - Qiita
+		a(href="https://qiita.com/TakahiRoyte/items/b7c4d1581df1a17a93fb", target="_blank", rel="external noopener") 高機能ホスティングサービスNetlifyについて調べて使ってみた - Qiita
 </template>
 
 <script setup lang="ts">

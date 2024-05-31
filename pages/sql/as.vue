@@ -13,9 +13,9 @@
 		p
 			span.text-decoration-line-through
 				| 解説にあたり以下のデータベースを利用する。コピーすることで簡単に利用できる。尚このSQLコードは
-				a(href='https://www.mysql.com/jp/', target='_blank', rel='external noopener') MySQL
+				a(href="https://www.mysql.com/jp/", target="_blank", rel="external noopener") MySQL
 				| もしくは
-				a(href='https://mariadb.org/', target='_blank', rel='external noopener') MariaDB
+				a(href="https://mariadb.org/", target="_blank", rel="external noopener") MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
 			nuxt-link(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
@@ -43,7 +43,7 @@
 			| このまま使用してもエラーはなく実行できる。しかし出力結果は以下の通りである。
 			br
 			| 尚、このSQL出力結果のテーブルは
-			a(href='https://www.heidisql.com/', target='_blank', rel='external noopener') HeidiSQL
+			a(href="https://www.heidisql.com/", target="_blank", rel="external noopener") HeidiSQL
 			| で実行し、出力結果をHTML変換している。
 		table
 			caption SQL Code Result 1 (7 rows)

@@ -69,7 +69,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://www.php.net/manual/ja/function.date.php', target='_blank', rel='external noopener') PHP.net
+			NuxtLink(href="https://www.php.net/manual/ja/function.date.php", target="_blank", rel="external noopener") PHP.net
 </template>
 
 <script setup lang="ts">
@@ -113,7 +113,7 @@ onMounted(function() {
 	const second = ('0' + dToday.getSeconds()).slice(-2);
 
 	date01.value = year + '-' + month + '-' + day;
-	date02.value = year.toString().substr(2, 2) + '-' + month + '-' + day;
+	date02.value = year.toString().substring(2, 4) + '-' + month + '-' + day;
 	date03.value = year + '年' + (dToday.getMonth() + 1) + '月' + dToday.getDate() + '日';
 	date04.value = hour + ':' + minute + ':' + second;
 	date05.value = year + month + day;

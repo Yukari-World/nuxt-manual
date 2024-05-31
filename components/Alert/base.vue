@@ -1,7 +1,7 @@
-<template lang='pug'>
-v-alert(v-if='(!text)', :type='type', border='start', colored-border, dense, elevation='5', :title='title')
+<template lang="pug">
+v-alert(v-if="(!text)", :type="type", border="start", colored-border, dense, elevation="5", :title="title")
 	slot
-v-alert(v-else, :type='type', border='start', colored-border, dense, elevation='5', :title='title', :text='text')
+v-alert(v-else, :type="type", border="start", colored-border, dense, elevation="5", :title="title", :text="text")
 </template>
 
 <script setup lang="ts">

@@ -10,7 +10,7 @@
 			| background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
 		.yw-gradient1
 		p
-			a(href='https://dyaddemo.wordpress.com/', title='Dyad – A theme that pairs well with any content', target='_blank', rel='external noopener') dyad
+			a(href="https://dyaddemo.wordpress.com/", title="Dyad – A theme that pairs well with any content", target="_blank", rel="external noopener") dyad
 			| で使用されている直線グラデーション。
 			br
 			| 下から上に半透明の黒のグラデーションを行う。
@@ -27,7 +27,7 @@
 			| background: linear-gradient(45deg, red, blue);
 		.yw-gradient2
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient', target='_blank', rel='external noopener') MDN Web Docs
+			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient", target="_blank", rel="external noopener") MDN Web Docs
 			| に公開されている例。対角線上に赤から青となるグラデーションが生成される。
 
 		BlockCode.language-css: pre.
@@ -68,7 +68,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient', target='_blank', rel='external noopener') MDN Web Docs
+			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/linear-gradient", target="_blank", rel="external noopener") MDN Web Docs
 </template>
 
 <script setup lang="ts">

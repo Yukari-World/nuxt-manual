@@ -1,52 +1,21 @@
 <template lang="pug">
 //- 表示にブレがあるため、表示サイズの異なる2つのフッターを用意する
-//- 表示内容は同じため、mixinで統一
-
-//- フッター内容1
-//- 右側に表示する内容
-mixin footer_a
-	p.yw-word
-		nuxt-link#randomWord(:to='sLink', v-html='sFooterText')
-
-//- フッター内容2
-//- 左側に表示する内容
-mixin footer_b
-	p Page Editor, Page Design: Yukari-World
-	p
-		| Text Editor:&nbsp;
-		a(href='https://atom.io/', title='Atom', target='_blank', rel='external noopener') Atom
-		| ,&nbsp;
-		a(href='https://notepad-plus-plus.org/', title='Notepad++ Home', target='_blank', rel='external noopener') Notepad++
-		| ,&nbsp;
-		a(href='https://code.visualstudio.com/', title='Visual Studio Code - Code Editing. Redefined', target='_blank', rel='external noopener') Visual Stdio Code
-	p
-		| Design Framework:&nbsp;
-		a(href='https://vuetifyjs.com/en/', title='Vuetify — A Vue Component Framework', target='_blank', rel='external noopener') Vuetify.js
-	p
-		| Syntax Highlightor:&nbsp;
-		a(href='https://prismjs.com/', title='Prism', target='_blank', rel='external noopener') Prism
-	p
-		| Coding Language: JavaScript,&nbsp;
-		a(href='https://pugjs.org/', title='Pug: Getting Started', target='_blank', rel='external noopener') Pug(Jade)
-		| ,&nbsp;
-		a(href='https://sass-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(SCSS)
-
 v-footer(padless)
 	//- >= 960px
 	v-row.ma-0.d-none.d-md-flex.flex-md-row
-		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols='6')
-			+footer_a
-		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols='6')
+		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="6")
+			BlockFooterLeft(:link="sLink", :footer-text="sFooterText")
+		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="6")
 			.text-center.text-md-left.yw-footer-source
-				+footer_b
+				BlockFooterRight
 
 	//- < 960px
 	v-row.ma-0.flex-column.d-md-none
-		v-col.ma-0.pb-0.d-flex.align-center.justify-center(cols='12')
-			+footer_a
-		v-col.ma-0.pb-0.d-flex.align-center.justify-center(cols='12')
+		v-col.ma-0.pb-0.d-flex.align-center.justify-center(cols="12")
+			BlockFooterLeft(:link="sLink", :footer-text="sFooterText")
+		v-col.ma-0.pb-0.d-flex.align-center.justify-center(cols="12")
 			.text-center.text-md-left.yw-footer-source
-				+footer_b
+				BlockFooterRight
 </template>
 
 <script setup lang="ts">

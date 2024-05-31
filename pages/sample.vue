@@ -11,16 +11,16 @@
 	section
 		h2 サンプルデータ
 		h3 SCSS
-		BlockCode(data-src='/sass/sample.scss', data-download-link)
+		BlockCode(data-src="/sass/sample.scss", data-download-link)
 
 		h3#sqlSample SQL
-		BlockCode(data-src='/files/sample.sql', data-download-link)
+		BlockCode(data-src="/files/sample.sql", data-download-link)
 
 		h3 Fetch API ECMAScript 2015
-		BlockCode(data-src='/js/nomodule/ajax-response.js', data-download-link)
+		BlockCode(data-src="/js/nomodule/ajax-response.js", data-download-link)
 
 		h3 Fetch API ECMAScript 2017
-		BlockCode(data-src='/js/ajax-response.js', data-download-link)
+		BlockCode(data-src="/js/ajax-response.js", data-download-link)
 
 		h3 Fetch API 呼び出し
 		BlockCode.language-javascript: pre.

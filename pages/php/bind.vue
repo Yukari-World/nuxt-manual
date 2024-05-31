@@ -13,7 +13,7 @@
 			br
 			| また、本来アスタリスク(*)はテスト以外に使用することは推奨されないので要注意。これはデータベースのデータ数が多くなる程レスポンスの低下やメモリ使用量の増大、データの隠密性等多くの問題が発生するためである。
 		h3 MySQLi
-		BlockCode.language-php(data-line='1'): pre.
+		BlockCode.language-php(data-line="1"): pre.
 			$query = "SELECT * FROM `user` WHERE `id` = " . $id . " AND `password` = PASSWORD('" . $password . "')";
 			// SQLの実行
 			if ($result = $mysqli-&gt;query($query)) {
@@ -29,7 +29,7 @@
 		p fetch_allに関してはmysqlndというネイティブドライバでのみ使用可能なため、使用を避けている。しかし問題点として上記のSQLの内容では問題とはならないが、処理の結果数千行となる場合は処理方法を工夫する必要が出てくる可能性があるため注意。
 
 		h3 PDO
-		BlockCode.language-php(data-line='2'): pre.
+		BlockCode.language-php(data-line="2"): pre.
 			try {
 				$query = "SELECT * FROM `user` WHERE `id` = " . $id . " AND `password` = PASSWORD('" . $password . "')";
 				$stmt = $pdo-&gt;prepare($query); // SQL Queryの格納
@@ -48,12 +48,12 @@
 
 		p
 			| このままでも問題はないように見えるが、入力する変数の種類に指定がないため
-			a(href='https://ja.wikipedia.org/wiki/SQL%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3', title='SQLインジェクション', target='_blank', rel='external noopener') SQLインジェクション
+			a(href="https://ja.wikipedia.org/wiki/SQL%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3", title="SQLインジェクション", target="_blank", rel="external noopener") SQLインジェクション
 			| などの問題が発生する可能性がある。もちろんこの記述方法を使う場合は大抵の場合これより手前で整合性の確認や無害化が行われている筈であるが、行っていないのであればまずはそこから見直すべきである。起こってからでは手遅れである。
 
 		p 次に上のソースコードを基にバインドを利用した記述。
 		h3 MySQLi
-		BlockCode.language-php(data-line='1-9'): pre.
+		BlockCode.language-php(data-line="1-9"): pre.
 			$query = "SELECT * FROM `user` WHERE `id` = ? AND `password` = PASSWORD(?)";
 			// SQL Queryの格納
 			if ($stmt = $mysqli-&gt;prepare($query)) {
@@ -82,7 +82,7 @@
 			| の第一引数は代入する変数の型を示しており、iはinterger数値を示しており、sはstring文字列を示している。第二引数以降には変数を指定する。直接値や文字列を指定することはできないので注意が必要。
 
 		h3 PDO
-		BlockCode.language-php(data-line='2, 4-6'): pre.
+		BlockCode.language-php(data-line="2, 4-6"): pre.
 			try {
 				$query = "SELECT * FROM `user` WHERE `id` = :id AND `password` = PASSWORD(:password)";
 				$stmt = $pdo-&gt;prepare($query); // SQL Queryの格納
@@ -162,13 +162,13 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://www.php.net/manual/ja/mysqli-stmt.bind-param.php', target='_blank', rel='external noopener') PHP.net / mysqli_stmt::bind_param
+			a(href="https://www.php.net/manual/ja/mysqli-stmt.bind-param.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_param
 			br
-			a(href='https://www.php.net/manual/ja/mysqli-stmt.bind-result.php', target='_blank', rel='external noopener') PHP.net / mysqli_stmt::bind_result
+			a(href="https://www.php.net/manual/ja/mysqli-stmt.bind-result.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_result
 			br
-			a(href='https://www.php.net/manual/ja/pdostatement.bindparam.php', target='_blank', rel='external noopener') PHP.net / PDOStatement::bindParam
+			a(href="https://www.php.net/manual/ja/pdostatement.bindparam.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindParam
 			br
-			a(href='https://www.php.net/manual/ja/pdostatement.bindvalue.php', target='_blank', rel='external noopener') PHP.net / PDOStatement::bindValue
+			a(href="https://www.php.net/manual/ja/pdostatement.bindvalue.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindValue
 </template>
 
 <script setup lang="ts">

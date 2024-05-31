@@ -26,7 +26,7 @@
 
 	section
 		h2 参考リンク
-		a(href='https://prokatsu.com/http-not-omit/', target='_blank', rel='external noopener') 【2018年版】http,httpsは省略しない方がいい | プロカツ！
+		a(href="https://prokatsu.com/http-not-omit/", target="_blank", rel="external noopener") 【2018年版】http,httpsは省略しない方がいい | プロカツ！
 </template>
 
 <script setup lang="ts">

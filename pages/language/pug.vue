@@ -32,7 +32,7 @@
 		h4 HTML
 		p
 			| 出力結果。実際の出力結果は全く整形されていないので必要に応じて
-			a(href='https://github.com/beautify-web/js-beautify', target='_blank', rel='external noopener') JS-Beautify
+			a(href="https://github.com/beautify-web/js-beautify", target="_blank", rel="external noopener") JS-Beautify
 			| 等で整形する必要がある。尚、Pugの変換オプションに自動整形するオプションがあるが、現在は非推奨なので注意。
 		BlockCode.language-html: pre.
 			&lt;!DOCTYPE html&gt;
@@ -151,7 +151,7 @@
 		h2 拡張機能
 		h3 mixinの定義
 		h4 Pug
-		BlockCode(data-src='/pug/_mixin/_sql.pug', data-download-link, data-line='1, 5-16')
+		BlockCode(data-src="/pug/_mixin/_sql.pug", data-download-link, data-line="1, 5-16")
 
 		h4 HTML
 		BlockCode.language-html: pre.
@@ -173,7 +173,7 @@
 		h3 include インクルード
 		h4 Pug
 		p 複数のパーツを使い回したり、パーツを細分化する際に使用する。尚、pugテンプレートファイルを指定する場合は拡張子を記述する必要はない。
-		BlockCode(data-src='/pug/_mixin/_sideList.pug', data-download-link, data-line='13, 19, 25, 31, 37, 43, 49, 55, 61, 67, 73')
+		BlockCode(data-src="/pug/_mixin/_sideList.pug", data-download-link, data-line="13, 19, 25, 31, 37, 43, 49, 55, 61, 67, 73")
 
 		h3 extends 継承
 		h4 Pug
@@ -184,7 +184,7 @@
 			| を追加することで継承先にて要素を追加したり変更できるようになる。また、
 			code.language-pug: span.token.keyword block
 			| 以降に要素を記述することでデフォルトの内容を記述することができる。追加しない場合、デフォルトは空となる。
-		BlockCode(data-src='/pug/_includes/_layout.pug', data-download-link, data-line='5, 26, 37, 40, 48, 51, 58')
+		BlockCode(data-src="/pug/_includes/_layout.pug", data-download-link, data-line="5, 26, 37, 40, 48, 51, 58")
 		p
 			| 子(継承先)ファイル。
 			br
@@ -200,7 +200,7 @@
 			| でブロック要素を指定した場合、継承元の内容を保持しつつ要素を追加することができる。
 			code.language-pug: span.token.keyword block
 			| を指定していない箇所がある場合、継承元の内容が出力される。
-		BlockCode(data-src='/pug/css-textShadow.pug', data-download-link, data-line='1, 2, 5, 35, 37')
+		BlockCode(data-src="/pug/css-textShadow.pug", data-download-link, data-line="1, 2, 5, 35, 37")
 
 	section
 		h2 変換方法
@@ -248,7 +248,7 @@
 					span.text-decoration-line-through ファイル行頭が_(アンダーバー)のファイルを除外することで各種テンプレートファイルを変換しなくなる。
 					br
 					| ファイル行頭が_(アンダーバー)のファイルはデフォルトでコンパイラ側にて無視されるため、気にする必要はない。
-				BlockCode.language-javascript(data-line='1, 4'): pre.
+				BlockCode.language-javascript(data-line="1, 4"): pre.
 					const pug = require('gulp-pug');
 
 					gulp.task('pug', function {
@@ -277,16 +277,16 @@
 				code.language-html: span.token.tag &amp;lt;
 				| といった特殊文字を使用することが推奨さている。特殊文字については以下のリンクを参照。
 				br
-				a(href='http://www.htmq.com/text/', target='_blank', rel='external noopener') 特殊文字リファレンス - HTMLクイックリファレンス
+				a(href="http://www.htmq.com/text/", target="_blank", rel="external noopener") 特殊文字リファレンス - HTMLクイックリファレンス
 
 	section
 		h2 最後に
 		p このマニュアルはPugで作られており、ソースを全て残しているので参考にする場合はPugフォルダ参照。クラシックなページデザイン故に参考になるか怪しいが。
-		BlockCode(data-src='/pug/index.pug', data-download-link)
+		BlockCode(data-src="/pug/index.pug", data-download-link)
 
 	section
 		h2 リンク
-		a(href='https://pugjs.org/', target='_blank', rel='external noopener') Pug: Getting Started
+		a(href="https://pugjs.org/", target="_blank", rel="external noopener") Pug: Getting Started
 </template>
 
 <script setup lang="ts">

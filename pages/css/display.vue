@@ -23,7 +23,7 @@
 
 	section
 		h2 参考リンク
-		a(href='https://developer.mozilla.org/ja/docs/Web/CSS/display', target='_blank', rel='external noopener') MDN Web Docs
+		a(href="https://developer.mozilla.org/ja/docs/Web/CSS/display", target="_blank", rel="external noopener") MDN Web Docs
 </template>
 
 <script setup lang="ts">

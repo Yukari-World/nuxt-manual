@@ -1,17 +1,17 @@
-<template lang='pug'>
+<template lang="pug">
 .category--home.page--update-log
 	v-timeline(reverse)
 		//- カードの出力
-		v-timeline-item(v-for='(logIndex, index) in log', :key='index')
+		v-timeline-item(v-for="(logIndex, index) in log", :key="index")
 			//- 反対側に出力する文字を出力
 			//- 有ったり無かったりするので、条件で分岐
-			template(v-if='logIndex.opposite !== undefined')
-				span(slot='opposite') {{ logIndex.opposite }}
-			v-card(elevation='5')
+			template(v-if="logIndex.opposite !== undefined", #opposite)
+				span {{ logIndex.opposite }}
+			v-card(elevation="5")
 				v-card-title.headline {{ logIndex.date }}
 				v-card-text
 					ul
-						li(v-for='(desc, i) in logIndex.summary', :key='i') {{ desc }}
+						li(v-for="(desc, i) in logIndex.summary", :key="i") {{ desc }}
 </template>
 
 <script setup lang="ts">

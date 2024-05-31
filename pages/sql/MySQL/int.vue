@@ -41,7 +41,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes', target='_blank', rel='external noopener') types - What is the size of column of int(11) in mysql in bytes? - Stack Overflow
+			a(href="https://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes", target="_blank", rel="external noopener") types - What is the size of column of int(11) in mysql in bytes? - Stack Overflow
 </template>
 
 <script setup lang="ts">

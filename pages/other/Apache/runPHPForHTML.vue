@@ -25,7 +25,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://xn--web-oi9du9bc8tgu2a.com/how-to-use-php-in-html-files/', target='_blank', rel='external noopener') htaccessに3行足すだけ！『.html』内でPHPを実行する方法！ | WEB改善事例集(GMOソリューションパートナー株式会社)
+			a(href="https://xn--web-oi9du9bc8tgu2a.com/how-to-use-php-in-html-files/", target="_blank", rel="external noopener") htaccessに3行足すだけ！『.html』内でPHPを実行する方法！ | WEB改善事例集(GMOソリューションパートナー株式会社)
 </template>
 
 <script setup lang="ts">

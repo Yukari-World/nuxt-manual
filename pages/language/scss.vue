@@ -319,11 +319,11 @@
 	section
 		h2 最後に
 		p かつてHTML時代のマニュアルに使われていたSCSSファイルを置いているので参考程度に。
-		BlockCode(data-src='/sass/style.scss', data-download-link)
+		BlockCode(data-src="/sass/style.scss", data-download-link)
 
 	section
 		h2 リンク
-		a(href='http://scss-lang.com/', title='Sass: Syntactically Awesome Style Sheets', target='_blank', rel='external noopener') Sass(Syntactically Awesome Style Sheets)(SCSS)
+		a(href="http://scss-lang.com/", title="Sass: Syntactically Awesome Style Sheets", target="_blank", rel="external noopener") Sass(Syntactically Awesome Style Sheets)(SCSS)
 </template>
 
 <script setup lang="ts">

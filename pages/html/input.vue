@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 .category--html.page--input
 	AlertStub
 
@@ -42,7 +42,7 @@
 					&lt;input type="button" value="ボタン"&gt;
 
 				fieldset
-					input(type='button' value='ボタン')
+					input(type="button" value="ボタン")
 
 			dt: h3#input-checkbox checkbox
 			dd
@@ -54,13 +54,13 @@
 
 				fieldset
 					label
-						input(type='checkbox' value='1')
+						input(type="checkbox" value="1")
 						p 内容1
 					label
-						input(type='checkbox' value='2')
+						input(type="checkbox" value="2")
 						p 内容2
 					label
-						input(type='checkbox' value='3')
+						input(type="checkbox" value="3")
 						p 内容3
 
 			dt: h3#input-color color
@@ -69,7 +69,7 @@
 					&lt;input type="color" value="#FFFFFF"&gt;
 
 				fieldset
-					input(type='color' value='#FFFFFF')
+					input(type="color" value="#FFFFFF")
 
 			dt: h3#input-date date
 			dd
@@ -78,7 +78,7 @@
 					&lt;input type="date"&gt;
 
 				fieldset
-					input(type='date')
+					input(type="date")
 
 			dt: h3#input-datetime-local datetime-local
 			dd
@@ -86,7 +86,7 @@
 					&lt;input type="datetime-local"&gt;
 
 				fieldset
-					input(type='datetime-local')
+					input(type="datetime-local")
 
 			dt: h3#input-email email
 			dd
@@ -95,7 +95,7 @@
 					&lt;input type="email"&gt;
 
 				fieldset
-					input(type='email')
+					input(type="email")
 
 			dt: h3#input-file file
 			dd
@@ -103,7 +103,7 @@
 					&lt;input type="file"&gt;
 
 				fieldset
-					input(type='file')
+					input(type="file")
 
 			dt: h3#input-hidden hidden
 			dd
@@ -111,7 +111,7 @@
 					&lt;input type="hidden"&gt;
 
 				fieldset
-					input(type='hidden')
+					input(type="hidden")
 
 			dt: h3#input-image image
 			dd
@@ -119,7 +119,7 @@
 					&lt;input type="image"&gt;
 
 				fieldset
-					input(type='image')
+					input(type="image")
 
 			dt: h3#input-month month
 			dd
@@ -127,7 +127,7 @@
 					&lt;input type="month"&gt;
 
 				fieldset
-					input(type='month')
+					input(type="month")
 
 			dt: h3#input-number number
 			dd
@@ -135,7 +135,7 @@
 					&lt;input type="number"&gt;
 
 				fieldset
-					input(type='number')
+					input(type="number")
 
 			dt: h3#input-password password
 			dd
@@ -144,7 +144,7 @@
 					&lt;input type="password"&gt;
 
 				fieldset
-					input(type='password')
+					input(type="password")
 
 			dt: h3#input-radio radio
 			dd
@@ -154,7 +154,7 @@
 
 				fieldset
 					label
-						input(type='radio' value='1')
+						input(type="radio" value="1")
 						| 内容1
 
 				p ラジオボタンはname属性に同じ名前を指定することで同一グループであると認識する。
@@ -165,13 +165,13 @@
 
 				fieldset
 					label
-						input(type='radio' name='bread' value='1')
+						input(type="radio" name="bread" value="1")
 						p 内容1
 					label
-						input(type='radio' name='bread' value='2')
+						input(type="radio" name="bread" value="2")
 						p 内容2
 					label
-						input(type='radio' name='bread' value='3')
+						input(type="radio" name="bread" value="3")
 						p 内容3
 
 			dt: h3#input-range range
@@ -181,7 +181,7 @@
 					&lt;input type="range"&gt;
 
 				fieldset
-					input(type='range')
+					input(type="range")
 
 			dt: h3#input-reset reset
 			dd
@@ -190,7 +190,7 @@
 					&lt;input type="reset"&gt;
 
 				fieldset
-					input(type='reset')
+					input(type="reset")
 
 			dt: h3#input-search search
 			dd
@@ -198,7 +198,7 @@
 					&lt;input type="search"&gt;
 
 				fieldset
-					input(type='search')
+					input(type="search")
 
 			dt: h3#input-submit submit
 			dd
@@ -207,7 +207,7 @@
 					&lt;input type="submit"&gt;
 
 				fieldset
-					input(type='submit')
+					input(type="submit")
 
 			dt: h3#input-tel tel
 			dd
@@ -216,7 +216,7 @@
 					&lt;input type="tel"&gt;
 
 				fieldset
-					input(type='tel')
+					input(type="tel")
 
 			dt: h3#input-text text
 			dd
@@ -224,7 +224,7 @@
 					&lt;input type="text"&gt;
 
 				fieldset
-					input(type='text')
+					input(type="text")
 
 			dt: h3#input-time time
 			dd
@@ -232,7 +232,7 @@
 					&lt;input type="time"&gt;
 
 				fieldset
-					input(type='time')
+					input(type="time")
 
 			dt: h3#input-url url
 			dd
@@ -240,7 +240,7 @@
 					&lt;input type="url"&gt;
 
 				fieldset
-					input(type='url')
+					input(type="url")
 
 			dt: h3#input-week week
 			dd
@@ -248,7 +248,7 @@
 					&lt;input type="week"&gt;
 
 				fieldset
-					input(type='week')
+					input(type="week")
 
 	section
 		h2 使用可能な属性
@@ -293,7 +293,7 @@
 			&lt;input type="text" name="your-name"&gt;
 
 		fieldset
-			input(type='text', name='your-name')
+			input(type="text", name="your-name")
 
 		h3 required
 		p
@@ -325,7 +325,7 @@
 					&lt;input type="submit" name="submit" value="送信確認"&gt;
 
 				fieldset
-					input(type='submit', name='submit', value='送信確認')
+					input(type="submit", name="submit", value="送信確認")
 			li
 				| それ以外の項目の場合
 				br
@@ -334,7 +334,7 @@
 					&lt;input type="text" name="your-name" value="山田太郎"&gt;
 
 				fieldset
-					input(type='text', name='your-name', value='山田太郎')
+					input(type="text", name="your-name", value="山田太郎")
 
 	section
 		h2 使用上の注意
@@ -352,7 +352,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input', target='_blank', rel='external noopener') MDN Web Docs
+			a(href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input", target="_blank", rel="external noopener") MDN Web Docs
 </template>
 
 <script setup lang="ts">

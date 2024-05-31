@@ -1,7 +1,7 @@
 <template lang="pug">
 .category--scss.page--gradation-list
 	AlertStub
-	v-alert(type='warning', border='start', colored-border, dense, elevation='5', title='応用技術', text='ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。')
+	v-alert(type="warning", border="start", colored-border, dense, elevation="5", title="応用技術", text="ここに記述されている内容は高度な内容なため、理解難易度が非常に高い可能性があります。")
 
 	section
 		h2 説明
@@ -69,7 +69,7 @@
 		h3 SCSS
 		p
 			| SCSSファイル。これを基にCSSに出力する。細かい記述ルールは
-			nuxt-link(:to="localePath('/language/sass')" title='SASS') こちら
+			nuxt-link(:to="localePath('/language/sass')" title="SASS") こちら
 			| を参照。
 		BlockCode.language-scss: pre.
 			@charset "UTF-8";
@@ -250,7 +250,7 @@
 		h3 CSS
 		p
 			| CSSの出力結果。メディアクエリはプラグインによりマージされている。また、互換性は
-			a(href='https://github.com/postcss/autoprefixer', target='_blank', rel='external noopener') autoprefixer
+			a(href="https://github.com/postcss/autoprefixer", target="_blank", rel="external noopener") autoprefixer
 			| により自動で確認、付与されている。
 		BlockCode.language-css: pre.
 			.list ul {

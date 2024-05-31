@@ -21,8 +21,8 @@
 				br
 				| メニュー項目は自動的に追加されないため手動での作業が必要となるが、作成することで利用者側で簡単にカスタマイズを行う事が出来るようになる。
 			div
-				v-skeleton-loader.mx-auto(type='image', width='245', max-width='245', height='544')
-					v-img(src='/img/wordpress-img1.png', eager, max-width='245', max-height='544')
+				v-skeleton-loader.mx-auto(type="image", width="245", max-width="245", height="544")
+					v-img(src="/img/wordpress-img1.png", eager, max-width="245", max-height="544")
 				p.no-speak カスタマイズメニューの例
 
 	section
@@ -41,18 +41,18 @@
 
 		.d-flex.justify-space-around.align-center.flex-column.flex-md-row
 			div
-				v-skeleton-loader.mx-auto(type='image', width='250', max-width='250', height='400')
-					v-img(src='/img/wordpress-img2.png', max-width='250')
+				v-skeleton-loader.mx-auto(type="image", width="250", max-width="250", height="400")
+					v-img(src="/img/wordpress-img2.png", max-width="250")
 				p.no-speak パネルの例
 			p.no-speak →
 			div
-				v-skeleton-loader(type='image')
-					v-img(src='/img/wordpress-img3.png', max-width='250')
+				v-skeleton-loader(type="image")
+					v-img(src="/img/wordpress-img3.png", max-width="250")
 				p.no-speak セクションの例
 			p.no-speak →
 			div
-				v-skeleton-loader(type='image')
-					v-img(src='/img/wordpress-img4.png', max-width='250')
+				v-skeleton-loader(type="image")
+					v-img(src="/img/wordpress-img4.png", max-width="250")
 				p.no-speak 設定項目の例
 
 		h3 関数の追加

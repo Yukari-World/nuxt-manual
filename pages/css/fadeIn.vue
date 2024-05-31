@@ -88,52 +88,52 @@
 		h3 実行結果
 		.yw-area
 			.yw-anim.yw-box-1
-				v-img(src='/img/sander-wehkamp-779070.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/sander-wehkamp-779070.jpg", alt="", height="30vw", max-height="250px")
 				p 要素1
 			.yw-anim.yw-box-2
-				v-img(src='/img/andrea-cau-51160.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/andrea-cau-51160.jpg", alt="", height="30vw", max-height="250px")
 				p 要素2
 			.yw-anim.yw-box-3
-				v-img(src='/img/denys-nevozhai-154974.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/denys-nevozhai-154974.jpg", alt="", height="30vw", max-height="250px")
 				p 要素3
 			.yw-anim.yw-box-4
-				v-img(src='/img/astemir-almov-265122.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/astemir-almov-265122.jpg", alt="", height="30vw", max-height="250px")
 				p 要素4
 			.yw-anim.yw-box-5
-				v-img(src='/img/denys-nevozhai-100695.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/denys-nevozhai-100695.jpg", alt="", height="30vw", max-height="250px")
 				p 要素5
 			.yw-anim.yw-box-6
-				v-img(src='/img/ben-neale-297658.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/ben-neale-297658.jpg", alt="", height="30vw", max-height="250px")
 				p 要素6
 			.yw-anim.yw-box-7
-				v-img(src='/img/denys-nevozhai-351730.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/denys-nevozhai-351730.jpg", alt="", height="30vw", max-height="250px")
 				p 要素7
 			.yw-anim.yw-box-8
-				v-img(src='/img/john-westrock-777794.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/john-westrock-777794.jpg", alt="", height="30vw", max-height="250px")
 				p 要素8
 			.yw-anim.yw-box-9
-				v-img(src='/img/kelsey-johnsen-727.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/kelsey-johnsen-727.jpg", alt="", height="30vw", max-height="250px")
 				p 要素9
 			.yw-anim.yw-box-10
-				v-img(src='/img/ray-hennessy-253874.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/ray-hennessy-253874.jpg", alt="", height="30vw", max-height="250px")
 				p 要素10
 			.yw-anim.yw-box-11
-				v-img(src='/img/scott-ruzzene-355988.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/scott-ruzzene-355988.jpg", alt="", height="30vw", max-height="250px")
 				p 要素11
 			.yw-anim.yw-box-12
-				v-img(src='/img/mark-solarski-209233.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/mark-solarski-209233.jpg", alt="", height="30vw", max-height="250px")
 				p 要素12
 			.yw-anim.yw-box-13
-				v-img(src='/img/shubhankar-sharma-51901.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/shubhankar-sharma-51901.jpg", alt="", height="30vw", max-height="250px")
 				p 要素13
 			.yw-anim.yw-box-14
-				v-img(src='/img/tyler-van-der-hoeven-357415.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/tyler-van-der-hoeven-357415.jpg", alt="", height="30vw", max-height="250px")
 				p 要素14
 			.yw-anim.yw-box-15
-				v-img(src='/img/robert-lukeman-150146.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/robert-lukeman-150146.jpg", alt="", height="30vw", max-height="250px")
 				p 要素15
 			.yw-anim.yw-box-16
-				v-img(src='/img/markus-spiske-357131.jpg', alt='', height='30vw', max-height='250px')
+				v-img(src="/img/markus-spiske-357131.jpg", alt="", height="30vw", max-height="250px")
 				p 要素16
 
 	section

@@ -31,7 +31,7 @@
 
 		fieldset
 			legend デフォルト
-			input(type='range', min='0', max='1000', step='1', value='500')
+			input(type="range", min="0", max="1000", step="1", value="500")
 
 		BlockCode.language-css: pre.
 			input[type="range"].slider {
@@ -80,7 +80,7 @@
 
 		fieldset
 			legend CSSを適応後
-			input.yw-slider(type='range', min='0', max='1000', step='1', value='500')
+			input.yw-slider(type="range", min="0", max="1000", step="1", value="500")
 
 	section
 		h2 使用上の注意
@@ -95,15 +95,15 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-thumb', target='_blank', rel='external noopener') MDN Web Docs / ::-webkit-slider-thumb
+			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-thumb", target="_blank", rel="external noopener") MDN Web Docs / ::-webkit-slider-thumb
 			br
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-runnable-track', target='_blank', rel='external noopener') MDN Web Docs / ::-webkit-slider-runnable-track
+			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-runnable-track", target="_blank", rel="external noopener") MDN Web Docs / ::-webkit-slider-runnable-track
 			br
-			a(href='https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-thumb', target='_blank', rel='external noopener') MDN Web Docs / ::-moz-range-thumb (English)
+			a(href="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-thumb", target="_blank", rel="external noopener") MDN Web Docs / ::-moz-range-thumb (English)
 			br
-			a(href='https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-track', target='_blank', rel='external noopener') MDN Web Docs / ::-moz-range-track (English)
+			a(href="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-track", target="_blank", rel="external noopener") MDN Web Docs / ::-moz-range-track (English)
 			br
-			a(href='https://www.w3schools.com/howto/howto_js_rangeslider.asp', target='_blank', rel='external noopener') W3Schools (English)
+			a(href="https://www.w3schools.com/howto/howto_js_rangeslider.asp", target="_blank", rel="external noopener") W3Schools (English)
 </template>
 
 <script setup lang="ts">

@@ -1,41 +1,41 @@
-<template lang='pug'>
+<template lang="pug">
 div.layout--default
 	//- サイドバー
 	//- 内部処理はサイドバーコンポーネント参照
-	v-navigation-drawer.yw-sidebar(v-model='drawer', app)
+	v-navigation-drawer.yw-sidebar(v-model="drawer", app)
 		CommonSidebar
 
 	//- ページヘッダー
 	v-app-bar(app)
-		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
+		v-app-bar-nav-icon(aria-label="Side Menu", @click.stop="drawer = !drawer")
 		CommonHeader
 		v-spacer
 
-		v-btn(icon, aria-label='Search')
+		v-btn(icon, aria-label="Search")
 			v-icon mdi-magnify
 
-		v-menu(location='bottom left', transition='slide-y-transition')
-			template(#activator='{ props }')
-				v-btn(icon, aria-label='Menu', v-bind='props')
+		v-menu(location="bottom left", transition="slide-y-transition")
+			template(#activator="{ props }")
+				v-btn(icon, aria-label="Menu", v-bind="props")
 					v-icon mdi-dots-vertical
 			v-list
-				v-list-item(v-for='(temp, index) in headMenu', :key='index', active-class='text-light-blue', link, nuxt, :to='temp.link')
+				v-list-item(v-for="(temp, index) in headMenu", :key="index", active-class="text-light-blue", link, nuxt, :to="temp.link")
 					template(#prepend)
 						v-icon {{ temp.icon }}
 					//- v-list-item-title(v-text="$t(temp.title)")
 					v-list-item-title {{ $t(temp.title) }}
 
-		v-menu(location='bottom left', transition='slide-y-transition')
-			template(#activator='{ props }')
-				v-btn(icon, aria-label='Translate', v-bind='props')
+		v-menu(location="bottom left", transition="slide-y-transition")
+			template(#activator="{ props }")
+				v-btn(icon, aria-label="Translate", v-bind="props")
 					v-icon mdi-translate
 			v-list
-				v-list-item(v-for='(locale) in availableLocales', :key='locale.code', active-class='text-light-blue', @click.prevent.stop='setLocale(locale.code)')
-					v-list-item-title {{ locale.name }}
+				v-list-item(v-for="(localeData) in availableLocales", :key="localeData.code", active-class="text-light-blue", @click.prevent.stop="setLocale(localeData.code)")
+					v-list-item-title {{ localeData.name }}
 
 		//- テーマ切り替えスイッチ
-		v-btn(icon, @click='toggleTheme')
-			v-icon(v-if='theme.global.current.value.dark') mdi-weather-night
+		v-btn(icon, @click="toggleTheme")
+			v-icon(v-if="theme.global.current.value.dark") mdi-weather-night
 			v-icon(v-else) mdi-weather-sunny
 
 	//- ページコンテンツ
@@ -64,7 +64,7 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const { locale, locales, setLocale } = useI18n();
+const { locales, setLocale } = useI18n();
 const indexStore = useIndexStore();
 const theme = useTheme();
 // const switchLocalePath = useSwitchLocalePath();

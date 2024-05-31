@@ -27,7 +27,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://www.msng.info/archives/2013/03/turning-off-html-br-with-css.php', target='_blank', rel='external noopener') HTML の br タグを CSS だけで消す方法 - 頭ん中
+			a(href="https://www.msng.info/archives/2013/03/turning-off-html-br-with-css.php", target="_blank", rel="external noopener") HTML の br タグを CSS だけで消す方法 - 頭ん中
 </template>
 
 <script setup lang="ts">
