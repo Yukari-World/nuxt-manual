@@ -7,7 +7,7 @@
 		ul
 			li Internet Explorer全てのバージョンにおいてFetchAPIを使用することはできない。つまりInternet Explorerを対応に含む場合はこの方法を利用できない。
 			li
-				code.language-javascript: span.token.class-name formData
+				TextToken(type="javascript").token.class-name formData
 				| はInternet ExplorerとMicrosoft Edge17までは殆どの機能が対応していない。
 
 	section
@@ -17,10 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -42,7 +39,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

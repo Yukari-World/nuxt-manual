@@ -24,17 +24,23 @@ export default createConfigForNuxt({
 	rules: {
 		// base
 		'vue/component-name-in-template-casing': 'off',
-		'vue/html-self-closing': 'off',
-		'vue/html-end-tags': 'off',
-		'vue/html-indent': 'off',
+		'vue/html-closing-bracket-newline': 'off', // ESLint Crash with pug
+		'vue/html-closing-bracket-spacing': 'off', // ESLint Crash with pug
+		'vue/html-end-tags': 'off', // wrong lint with pug
+		'vue/html-indent': 'off', // wrong lint with pug
+		'vue/html-self-closing': 'off', // wrong lint with pug
 		'vue/max-attributes-per-line': 'off',
 		'vue/multiline-html-element-content-newline': 'off',
-		'vue/no-multiple-template-root': 'off',
 		'vue/no-v-text-v-html-on-component': 'off',
 		'vue/singleline-html-element-content-newline': 'off',
 	},
+}).override('nuxt/vue/single-root', {
+	rules: {
+		'vue/no-multiple-template-root': 'off', // wrong lint with pug
+	},
 }).override('nuxt/stylistic', {
 	rules: {
+		'@stylistic/brace-style': ['warn', '1tbs'],
 		'@stylistic/member-delimiter-style': ['warn', {
 			multiline: {
 				delimiter: 'comma',
@@ -47,6 +53,7 @@ export default createConfigForNuxt({
 			multilineDetection: 'brackets',
 		}],
 		'@stylistic/no-multiple-empty-lines': ['warn', { max: 2 }],
+		'@stylistic/operator-linebreak': ['warn', 'after'],
 		'@stylistic/space-before-function-paren': ['off', {
 			anonymous: 'never',
 			asyncArrow: 'never',

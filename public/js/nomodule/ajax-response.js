@@ -5,6 +5,7 @@
  * @since   1.0.0
  * @version 1.0.3
  */
+/* eslint-disable no-unused-vars */
 
 /**
  * HTTPステータスコードの確認
@@ -49,7 +50,7 @@ function parseJSON(response) {
  * @since   1.0.0
  * @version 1.0.3
  */
-function SendAjax(sendURL, form, methodType) {
+function SendAjax(sendURL, form, methodType = 'POST') {
 	return new Promise(function(resolve, reject) {
 		if (self.fetch) {
 			let sendStruct;

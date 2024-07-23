@@ -6,7 +6,6 @@ v-app#inspire
 </template>
 
 <script setup lang="ts">
-
 const error = useError();
 const header = reactive({ title: 'Nuxt Manual' });
 
@@ -23,5 +22,4 @@ if (error.value) {
 useHead({
 	title: header.title,
 });
-
 </script>

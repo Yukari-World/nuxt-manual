@@ -1,8 +1,7 @@
 <template lang="pug">
 .category--home.page--index
 	section
-		p
-			| 左のメニューより閲覧したい内容を選択してください。
+		p 左のメニューより閲覧したい内容を選択してください。
 			br
 			| このページのコードの表示には
 			a(href="http://mix-mplus-ipa.osdn.jp/migu/", title="Miguフォント : M+とIPAの合成フォント", target="_blank", rel="external noopener") Migu 1M
@@ -15,70 +14,25 @@
 			| が使用されています。
 		AlertBase(type="info")
 			//- h2 注意事項
-			p
-				| このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。
+			p このサイトはJavaScriptに多くの新しい技術が使用されているためInternet Explorerは全て非対応、2016年辺りから更新されていないブラウザに関しても殆ど非対応です。
 				br
 				| また、JavaScript無効状態ではJavaScriptを使用したサンプルが、CSSを無効化したりオーバーライドしている場合、本マニュアルのデザインが崩れたり一部のサンプルが正しく動作しない可能性があります。予めご了承ください。
 
 	section
 		h2 Prismハイライトの例
-		p
-			| ソースコード右上のメニューからコードをコピーすることができます。
+		p ソースコード右上のメニューからコードをコピーすることができます。
 			br
 			| HEXもしくはRGBカラーコード、グラデーションの内容はマウスオーバーで色彩を表示することができます。
 			br
 			| また、CSSの要素の場合、クリックすることで説明ページに飛ぶことができます(但し、英語)。
 		h3 CSS
-		BlockCode.language-css: pre.
-			* {
-				margin: 0;
-				padding: 0;
-				line-height: 1.4;
-			}
-
-			header {
-				position: fixed;
-				width: 100%;
-				background-color: #175397;
-			}
-
-			header h1 {
-				padding: 5px 0;
-				text-align: center;
-				font-size: 32px;
-				color: #FFFFFF;
-			}
+		BlockCode.language-css {{ CB01 }}
 
 		h3 Pug
-		BlockCode.language-pug: pre.
-			doctype html
-			html(lang='ja')
-				head
-					meta(charset='utf-8')
-					title Debug Checker
-					script(type='application/javascript', src='js/prism.js')
-					link(href='css/prism.css', rel='stylesheet', type='text/css')
-				body
-					header(role='banner')
-						h1 Title
-					main(role='main')
-						h2 Easy?
-					footer(role='contentinfo')
+		BlockCode.language-pug {{ CB02 }}
 
 		h3 SCSS
-		BlockCode.language-scss: pre.
-			header {
-				position: fixed;
-				width: 100%;
-				background-color: #175397;
-
-				h1 {
-					padding: 5px 0;
-					text-align: center;
-					font-size: 32px;
-					color: #FFFFFF;
-				}
-			}
+		BlockCode.language-scss {{ CB03 }}
 
 		//- h3 CodeMirror
 		//- client-only(placeholder='Codemirror Loading...')
@@ -86,8 +40,7 @@
 
 	section
 		h2 マニュアル作成について
-		p
-			| このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは
+		p このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは
 			a(href="https://github.com/Yukari-World/nuxt-manual", target="_blank", rel="external noopener") GitHub
 			| に置いていますので参考にしてください。
 		h3 開発言語
@@ -164,14 +117,12 @@
 	section
 		h2 よくありそうな質問
 		h3 Nuxtになって何が変わったの?
-		p
-			| 全体的にサーバーサイドレンダリングに依存となり、スタイルはVuetifyに依存となりました。
+		p 全体的にサーバーサイドレンダリングに依存となり、スタイルはVuetifyに依存となりました。
 			br
 			| デザイン等は洗礼されましたが、その分若干のレスポンス低下とページの没個性化が発生しています。
 
 		h3 白紙ページが多い
-		p
-			| 筆記者が1人なので記述が間に合っていません。
+		p 筆記者が1人なので記述が間に合っていません。
 			br
 			| 早く確認したい内容がある場合、報告してください。
 
@@ -200,8 +151,7 @@
 			| 現在はNuxtとVuetifyにより作成されています。CSSスタイルは読めないものだと思ってください。
 
 		h3 技術マニュアルなのにお遊びが多い
-		p
-			| あちらこちらにあるお遊びは技術の習得段階や練習の過程、興味本位のお試し程度で作られたものが多いです。
+		p あちらこちらにあるお遊びは技術の習得段階や練習の過程、興味本位のお試し程度で作られたものが多いです。
 			br
 			| 尚、本マニュアルですが、マニュアルと言いつつソースコードそのものはお遊びなしの本気で作られています。SEO考慮等含めると下手なホームページよりも最適化されています。
 
@@ -210,14 +160,12 @@
 			| そう?
 
 		h3 マニュアルの互換性低くない?
-		p
-			| 最先端技術を取り扱うのを優先しているため、コーディングの互換性は大幅に犠牲になっています。
+		p 最先端技術を取り扱うのを優先しているため、コーディングの互換性は大幅に犠牲になっています。
 			wbr
 			| 互換性のある記述方法も順次記述していきますが、いつになるかは不明です。
 
 		h3 人によってこのページが白い(黒い)のは何故?
-		p
-			| このサイトではカラーテーマが有効となっており、現在使用しているブラウザのテーマがライトかダークかによって画面が変化します。
+		p このサイトではカラーテーマが有効となっており、現在使用しているブラウザのテーマがライトかダークかによって画面が変化します。
 			br
 			| Windowsのブラウザの場合、Windowsにあるテーマ側のダークモードが有効かどうかに委ねられることが多いため、初期設定でライトモードである場合が多くなります。
 			br
@@ -228,8 +176,7 @@
 			| ※現在ライトモードとダークモードを切り替える機能は実装予定があるものの、未だ未実装です。
 
 		h3 フッターにある取り消し線の内容は何?
-		p
-			| 全て元ネタがあります。わからない場合、調べてみましょう。尚、内容は秒が10の倍数毎に切り替わるようになっています。
+		p 全て元ネタがあります。わからない場合、調べてみましょう。尚、内容は秒が10の倍数毎に切り替わるようになっています。
 			wbr
 			| 現在
 			span {{ count }}
@@ -245,8 +192,7 @@
 			| にて公開中です。是非とも技術を自分のものにしてください。
 
 		h3 これ、本当に技術マニュアルなの?
-		p
-			| はい。
+		p はい。
 </template>
 
 <script setup lang="ts">
@@ -259,32 +205,81 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'Nuxt Manual' });
 const indexStore = useIndexStore();
 
-const code = ref('import Vue from \'vue\';\n');
+// const code = ref('import Vue from \'vue\';\n');
 
-const cmOptions = reactive({
-	extraKeys: {
-		'F11'(cm: any) {
-			cm.setOption('fullScreen', !cm.getOption('fullScreen'));
-		},
-		'Esc'(cm: any) {
-			if (cm.getOption('fullScreen')) { cm.setOption('fullScreen', false); }
-		},
-	},
-	foldGutter: true,
-	gutters: [
-		'CodeMirror-foldgutter',
-		'CodeMirror-linenumbers',
-	],
-	indentUnit: 4,
-	indentWithTabs: true,
-	lineNumbers: true,
-	lineWrapping: true,
-	mode: 'text/javascript',
-	styleActiveLine: true,
-	styleSelectedText: true,
-	tabSize: 4,
-	theme: 'tomorrow-night-eighties',
-});
+// const cmOptions = reactive({
+// 	extraKeys: {
+// 		'F11'(cm: any) {
+// 			cm.setOption('fullScreen', !cm.getOption('fullScreen'));
+// 		},
+// 		'Esc'(cm: any) {
+// 			if (cm.getOption('fullScreen')) {
+// 				cm.setOption('fullScreen', false);
+// 			}
+// 		},
+// 	},
+// 	foldGutter: true,
+// 	gutters: [
+// 		'CodeMirror-foldgutter',
+// 		'CodeMirror-linenumbers',
+// 	],
+// 	indentUnit: 4,
+// 	indentWithTabs: true,
+// 	lineNumbers: true,
+// 	lineWrapping: true,
+// 	mode: 'text/javascript',
+// 	styleActiveLine: true,
+// 	styleSelectedText: true,
+// 	tabSize: 4,
+// 	theme: 'tomorrow-night-eighties',
+// });
+
+const CB01 = ref(`* {
+	margin: 0;
+	padding: 0;
+	line-height: 1.4;
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	background-color: #175397;
+}
+
+header h1 {
+	padding: 5px 0;
+	text-align: center;
+	font-size: 32px;
+	color: #FFFFFF;
+}`);
+
+const CB02 = ref(`doctype html
+html(lang='ja')
+	head
+		meta(charset='utf-8')
+		title Debug Checker
+		script(type='application/javascript', src='js/prism.js')
+		link(href='css/prism.css', rel='stylesheet', type='text/css')
+	body
+		header(role='banner')
+			h1 Title
+		main(role='main')
+			h2 Easy?
+		footer(role='contentinfo')
+`);
+
+const CB03 = ref(`header {
+	position: fixed;
+	width: 100%;
+	background-color: #175397;
+
+	h1 {
+		padding: 5px 0;
+		text-align: center;
+		font-size: 32px;
+		color: #FFFFFF;
+	}
+}`);
 
 
 // ----------------------------------------------------------------------------------------------------

@@ -12,14 +12,12 @@
 		ol
 			li
 				p httpd.confファイルを開き以下の内容を検索する。
-				BlockCode.language-apacheconf: pre.
-					ServerName localhost:80
+				BlockCode.language-apacheconf: pre ServerName localhost:80
 				p ※デフォルト値。既に変更済みの場合、この値通りでない可能性がある。
 
 			li
 				p この内容を以下の内容に書き換える
-				BlockCode.language-apacheconf: pre.
-					ServerName 192.168.24.10:80
+				BlockCode.language-apacheconf: pre ServerName 192.168.24.10:80
 
 				p
 					| ※IPアドレスは一例であり、実際には固定したローカルIPアドレスを入力する事。
@@ -40,7 +38,6 @@
 	section
 		h2 参考リンク
 		a(href="http://weble.org/2009/11/28/xampp-intranet", target="_blank", rel="external noopener") XAMPP にイントラネット内 (LAN 内) のPC から接続する設定 | ウェブル
-
 </template>
 
 <script setup lang="ts">

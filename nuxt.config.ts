@@ -17,6 +17,7 @@ export default defineNuxtConfig({
 		},
 	},
 
+
 	// ----------------------------------------------------------------------------------------------------
 	// Global CSS: https://go.nuxtjs.dev/config-css
 
@@ -32,6 +33,7 @@ export default defineNuxtConfig({
 		'prismjs/plugins/line-numbers/prism-line-numbers.css',
 	],
 
+
 	// ----------------------------------------------------------------------------------------------------
 	// Module list and configuration
 
@@ -45,6 +47,18 @@ export default defineNuxtConfig({
 		// 'nuxt-purgecss',
 		// 'nuxt-simple-sitemap',
 	],
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// postcss configuration
+
+	postcss: {
+		plugins: {
+			autoprefixer: {},
+			cssnano: {},
+		},
+	},
+
 
 	// ----------------------------------------------------------------------------------------------------
 	// i18n configuration
@@ -65,6 +79,7 @@ export default defineNuxtConfig({
 		],
 		strategy: 'prefix_except_default',
 	},
+
 
 	// ----------------------------------------------------------------------------------------------------
 	// PWA configuration
@@ -129,12 +144,14 @@ export default defineNuxtConfig({
 		},
 	},
 
+
 	// ----------------------------------------------------------------------------------------------------
 	// Build configuration
 
 	build: {
 		transpile: ['vuetify'],
 	},
+
 
 	// ----------------------------------------------------------------------------------------------------
 	// Vite configuration
@@ -160,6 +177,7 @@ export default defineNuxtConfig({
 		],
 	},
 
+
 	// ----------------------------------------------------------------------------------------------------
 	// Development server configuration
 
@@ -168,6 +186,10 @@ export default defineNuxtConfig({
 		port: Number(process.env.port) || 3000,
 	},
 
+
+	// ----------------------------------------------------------------------------------------------------
+	// Development tools configuration
+
 	devtools: {
 		componentInspector: false,
 
@@ -175,4 +197,6 @@ export default defineNuxtConfig({
 			enabled: true,
 		},
 	},
+
+	compatibilityDate: '2024-07-11',
 });

@@ -9,10 +9,7 @@
 		h2 使用方法と解説
 		p .htaccessファイルに以下の記述を追加する。
 
-		BlockCode.language-xml: pre.
-			&lt;Files "\.html$"&gt;
-			AddHandler application/x-httpd-php .html
-			&lt;/Files&gt;
+		BlockCode.language-xml {{ CB }}
 
 		p 原理としてはHTMLファイルをPHPページであるとMIMEタイプを偽装することでPHPの処理を実行させることができる。
 
@@ -37,6 +34,12 @@ import { useIndexStore } from '@/store/index';
 
 const header = reactive({ title: 'HTMLファイル内でPHPを動かす' });
 const indexStore = useIndexStore();
+
+const CB = ref(
+`<Files "\\.html$">
+AddHandler application/x-httpd-php .html
+</Files>
+`);
 
 
 // ----------------------------------------------------------------------------------------------------

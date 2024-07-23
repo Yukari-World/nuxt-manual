@@ -69,7 +69,7 @@
 		h3 SCSS
 		p
 			| SCSSファイル。これを基にCSSに出力する。細かい記述ルールは
-			nuxt-link(:to="localePath('/language/sass')" title="SASS") こちら
+			NuxtLink(:to="localePath('/language/sass')" title="SASS") こちら
 			| を参照。
 		BlockCode.language-scss: pre.
 			@charset "UTF-8";

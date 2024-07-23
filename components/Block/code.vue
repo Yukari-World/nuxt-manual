@@ -19,6 +19,7 @@ import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-pug';
+import 'prismjs/components/prism-sass';
 import 'prismjs/components/prism-scss';
 import 'prismjs/components/prism-sql';
 
@@ -26,7 +27,7 @@ import 'prismjs/components/prism-sql';
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Property List
 
-const props = defineProps({
+defineProps({
 	dataLine: {
 		type: String,
 		default: '',

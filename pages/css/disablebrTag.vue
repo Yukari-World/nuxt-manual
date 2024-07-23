@@ -7,16 +7,10 @@
 	section
 		h2 使用方法と解説
 		p 非常に単純なため、細かい説明は省略する。
-		BlockCode.language-css: pre.
-			br {
-				display: none;
-			}
+		BlockCode.language-css {{ CBNone }}
 
 		p 再度有効にする場合、以下の方法で行う。
-		BlockCode.language-css: pre.
-			br {
-				display: inline;
-			}
+		BlockCode.language-css {{ CBActive }}
 
 	section
 		h2 使用上の注意
@@ -39,6 +33,16 @@ import { useIndexStore } from '@/store/index';
 
 const header = reactive({ title: 'brタグによる改行を無効化' });
 const indexStore = useIndexStore();
+
+const CBNone = ref(
+`br {
+	display: none;
+}`);
+
+const CBActive = ref(
+`br {
+	display: inline;
+}`);
 
 
 // ----------------------------------------------------------------------------------------------------

@@ -10,28 +10,15 @@
 			| このカッコの値は桁数制限と見えるが、そうではなく空白、もしくは0で埋める文字数のことを示している。phpMyAdminやHeidiSQL等のGUIでは分かりづらいが、コンソールの場合、この結果が理解しやすい。
 			br
 			| 例えば、INT(6)の場合、
-		BlockCode.language-markdown: pre.
-			123456
-			     1
-			    12
-			   123
-			  1234
-			 12345
-			123456
-			123456
+		BlockCode.language-markdown {{ TextB }}
 		p となる。
+			br
+			| この時、6桁より大きい値が挿入された場合、その行だけ桁がはみ出て表示される
 
 	section
 		h2 主な使い道
 		p ZEROFILL(残りの桁部分を0で埋める)に対して最も使い道が多い。
-		BlockCode.language-sql: pre.
-			CREATE TABLE `test` (
-				`id` INT ZEROFILL NOT NULL,
-				`name` VARCHAR(20) NOT NULL,
-				PRIMARY KEY (`id`)
-			)
-			COLLATE='utf8mb4_bin'
-			;
+		BlockCode.language-sql {{ CBSQL }}
 
 	section
 		h2 使用上の注意
@@ -54,6 +41,24 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'INT(11) の意味' });
 const indexStore = useIndexStore();
 
+const TextB = ref(
+`123456
+     1
+    12
+   123
+  1234
+ 12345
+123456
+1234567`);
+
+const CBSQL = ref(
+`CREATE TABLE \`test\` (
+	\`id\` INT ZEROFILL NOT NULL,
+	\`name\` VARCHAR(20) NOT NULL,
+	PRIMARY KEY (\`id\`)
+)
+COLLATE='utf8mb4_bin'
+;`);
 
 // ----------------------------------------------------------------------------------------------------
 // Header Data

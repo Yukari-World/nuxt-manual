@@ -8,8 +8,7 @@
 		h2 使用方法と解説
 		p 使い方は非常に単純でaタグにダウンロード要素を付与すれば良い。
 
-		BlockCode.language-html: pre.
-			&lt;a download="exsample.txt" href="saa/exsample.txt"&gt;ダウンロード&lt;/a&gt;
+		BlockCode.language-html {{ CB }}
 
 	section
 		h2 使用上の注意
@@ -37,6 +36,8 @@ import { useIndexStore } from '@/store/index';
 
 const header = reactive({ title: 'ファイルダウンロード' });
 const indexStore = useIndexStore();
+
+const CB = ref(`<a download="exsample.txt" href="saa/exsample.txt">ダウンロード</a>`);
 
 
 // ----------------------------------------------------------------------------------------------------

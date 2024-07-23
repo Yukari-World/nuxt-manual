@@ -14,7 +14,7 @@ type TAlert = 'error' | 'success' | 'warning' | 'info' | undefined;
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Property List
 
-const props = defineProps({
+defineProps({
 	type: {
 		type: String as PropType<TAlert>,
 		required: true,

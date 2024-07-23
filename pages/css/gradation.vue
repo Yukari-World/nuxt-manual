@@ -16,11 +16,11 @@
 			| 下から上に半透明の黒のグラデーションを行う。
 			br
 			| なお、
-			code.language-css: span.token.property background
+			TextToken(type="css").property background
 			| プロパティは
-			code.language-css: span.token.property background
+			TextToken(type="css").property background
 			| の各プロパティのショートハンドとして補完しており、
-			code.language-css: span.token.property background-image
+			TextToken(type="css").property background-image
 			| に対して適応する。
 
 		BlockCode.language-css: pre.
@@ -55,13 +55,9 @@
 			li 複数利用する場合、スペックによっては表示速度に著しく影響するので注意が必要。対処法としてグラデーション背景を用意する方法がある。
 			li
 				| 画像タグ(
-				code.language-markup
-					span.token.punctuation &lt;
-					span.token.tag img
-					span.token.punctuation &gt;
+				TextTag img
 				| )に対して適応する場合、beforeに付与する必要がある。また、必要に応じて
-				code.language-css
-					span.token.property z-index
+				TextToken(type="css").property z-index
 				| による重なりを気にする必要がある。
 			li 複数のブラウザで実装する場合、ベンダープレフィックスを忘れずに。gulpで自動付与する方法もあるが、詳細はgulpの項目を参照。
 

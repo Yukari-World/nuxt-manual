@@ -169,7 +169,8 @@ export const useIndexStore = defineStore('index', {
 			this.XorSeed.z = this.XorSeed.w;
 			this.XorSeed.w = this.XorSeed.w ^ this.XorSeed.w >>> 19 ^ (t ^ t >>> 8);
 
-			console.log('XorShift Seed Info:\n' +
+			console.log(
+				'XorShift Seed Info:\n' +
 				'X: ' + toHex(this.XorSeed.x) + ' (' + this.XorSeed.x + ')\n' +
 				'Y: ' + toHex(this.XorSeed.y) + ' (' + this.XorSeed.y + ')\n' +
 				'Z: ' + toHex(this.XorSeed.z) + ' (' + this.XorSeed.z + ')\n' +

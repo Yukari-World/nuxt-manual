@@ -14,32 +14,22 @@
 		h2 使用方法と解説
 		p
 			| 以下の方法で同じことを再現できる。
-		BlockCode.language-sql: pre.
-			UPDATE
-				`table1`,
-				`table2`
-			SET
-				`table1`.`value` = `table2`.`value`
-			WHERE
-				`table1`.`id` = `table2`.`id`
-			;
+		BlockCode.language-sql {{ CBSample }}
 
 	section
 		h2 使用上の注意
 		ul
 			li
-				code.language-sql: span.token.keyword.keyword-UPDATE UPDATE
+				TextToken(type="sql").keyword.keyword-UPDATE UPDATE
 				| 句なのでテストを行う際は
-				code.language-sql: span.token.keyword.keyword-TRANSACTION TRANSACTION
+				TextToken(type="sql").keyword.keyword-TRANSACTION TRANSACTION
 				| 句と併用することを推奨する。
-				code.language-sql: span.token.keyword.keyword-TRANSACTION TRANSACTION
+				TextToken(type="sql").keyword.keyword-TRANSACTION TRANSACTION
 				| 句の使用方法は既に解説があるので省略する。
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-sql';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -47,6 +37,17 @@ import 'prismjs/components/prism-sql';
 
 const header = reactive({ title: 'UPDATE SELECT' });
 const indexStore = useIndexStore();
+
+const CBSample = ref(
+`UPDATE
+	\`table1\`,
+	\`table2\`
+SET
+	\`table1\`.\`value\` = \`table2\`.\`value\`
+WHERE
+	\`table1\`.\`id\` = \`table2\`.\`id\`
+;
+`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -61,7 +62,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

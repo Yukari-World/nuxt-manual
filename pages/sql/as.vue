@@ -18,26 +18,11 @@
 				a(href="https://mariadb.org/", target="_blank", rel="external noopener") MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
-			nuxt-link(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
+			NuxtLink(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
 
 		h3 使用方法
 		p 今回以下のSQL文から説明を行う
-		BlockCode.language-sql: pre.
-			SELECT
-				`customer`.`name`,
-				`product`.`name`,
-				`price`,
-				`amount`,
-				`price` * `amount`
-			FROM
-				`order`
-			INNER JOIN
-				`customer`
-					ON `customer`.`id` = `order`.`customerID`
-			INNER JOIN
-				`product`
-					ON `product`.`id` = `order`.`productID`
-			;
+		BlockCode.language-sql {{ CBWithoutAS }}
 
 		p
 			| このまま使用してもエラーはなく実行できる。しかし出力結果は以下の通りである。
@@ -103,25 +88,10 @@
 			| また、金額を示すカラムについては式がカラム名となっており、不自然である。
 			br
 			| そこで
-			code.language-sql: span.token.keyword.keyword-AS AS
+			TextToken(type="sql").keyword.keyword-AS AS
 			| を使用することで別名をつけることができる
 
-		BlockCode.language-sql: pre.
-			SELECT
-				`customer`.`name` AS `customerName`,
-				`product`.`name` AS `productName`,
-				`price`,
-				`amount`,
-				`price` * `amount` AS `totalPrice`
-			FROM
-				`order`
-			INNER JOIN
-				`customer`
-					ON `customer`.`id` = `order`.`customerID`
-			INNER JOIN
-				`product`
-					ON `product`.`id` = `order`.`productID`
-			;
+		BlockCode.language-sql {{ CBWithAS }}
 
 		table
 			caption SQL Code Result 2 (7 rows)
@@ -183,9 +153,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-sql';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -194,6 +162,40 @@ import 'prismjs/components/prism-sql';
 const header = reactive({ title: 'AS(別名)' });
 const indexStore = useIndexStore();
 const localePath = useLocalePath();
+
+const CBWithoutAS = ref(
+`SELECT
+	\`customer\`.\`name\`,
+	\`product\`.\`name\`,
+	\`price\`,
+	\`amount\`,
+	\`price\` * \`amount\`
+FROM
+	\`order\`
+INNER JOIN
+	\`customer\`
+		ON \`customer\`.\`id\` = \`order\`.\`customerID\`
+INNER JOIN
+	\`product\`
+		ON \`product\`.\`id\` = \`order\`.\`productID\`
+;`);
+
+const CBWithAS = ref(
+`SELECT
+	\`customer\`.\`name\` AS \`customerName\`,
+	\`product\`.\`name\` AS \`productName\`,
+	\`price\`,
+	\`amount\`,
+	\`price\` * \`amount\` AS \`totalPrice\`
+FROM
+	\`order\`
+INNER JOIN
+	\`customer\`
+		ON \`customer\`.\`id\` = \`order\`.\`customerID\`
+INNER JOIN
+	\`product\`
+		ON \`product\`.\`id\` = \`order\`.\`productID\`
+;`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -208,7 +210,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

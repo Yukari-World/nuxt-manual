@@ -8,80 +8,18 @@
 		h2 使用方法と解説
 
 		h3 CSS
-		BlockCode.language-css: pre.
-			.area {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-evenly;
-			}
-
-			@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill)) {
-				.area {
-					justify-content: space-around;
-				}
-			}
-
-			.area .anim {
-				width: 30vw;
-				max-width: 250px;
-				height: 30vw;
-				max-height: 250px;
-				margin-bottom: 15px;
-				background: #0E2EBB no-repeat top/auto 100%;
-			}
-
-			.anim {
-				opacity: 0;
-				transition: all 1s ease;
-				transform: translateY(100px);
-			}
-
-			.anim.show {
-				opacity: 1;
-				transform: none;
-			}
+		BlockCode.language-css {{ CBCss }}
 		p
-			code.language-css: span.token.property justify-content
+			TextToken(type="css").token.property justify-content
 			| にspace-evenlyが使用されているが、未対応端末が多いため、その対処も忘れないように。
 
 		h3 HTML
-		BlockCode.language-html: pre.
-			&lt;div class="area"&gt;
-				&lt;div class="anim box-1"&gt;要素1&lt;/div&gt;
-				&lt;div class="anim box-2"&gt;要素2&lt;/div&gt;
-				&lt;div class="anim box-3"&gt;要素3&lt;/div&gt;
-				&lt;div class="anim box-4"&gt;要素4&lt;/div&gt;
-				&lt;div class="anim box-5"&gt;要素5&lt;/div&gt;
-				&lt;div class="anim box-6"&gt;要素6&lt;/div&gt;
-				&lt;div class="anim box-7"&gt;要素7&lt;/div&gt;
-				&lt;div class="anim box-8"&gt;要素8&lt;/div&gt;
-				&lt;div class="anim box-9"&gt;要素9&lt;/div&gt;
-				&lt;div class="anim box-10"&gt;要素10&lt;/div&gt;
-				&lt;div class="anim box-11"&gt;要素11&lt;/div&gt;
-				&lt;div class="anim box-12"&gt;要素12&lt;/div&gt;
-				&lt;div class="anim box-13"&gt;要素13&lt;/div&gt;
-				&lt;div class="anim box-14"&gt;要素14&lt;/div&gt;
-				&lt;div class="anim box-15"&gt;要素15&lt;/div&gt;
-				&lt;div class="anim box-16"&gt;要素16&lt;/div&gt;
-			&lt;/div&gt;
+		BlockCode.language-html {{ CBHtml }}
 		p
 			| boxナンバリングは単純に背景画像を指定するためのものであるため省略する。
 
 		h3 JavaScript
-		BlockCode.language-javascript: pre.
-			window.addEventListener('DOMContentLoaded', function () {
-				window.addEventListener('scroll', function () {
-					let myFade = document.getElementsByClassName('anim');
-					for (let i = 0; i &lt; myFade.length; i++) {
-						let targetElement = myFade[i].getBoundingClientRect(); // ターゲット要素の高さ
-						let scroll = document.documentElement.scrollTop || document.body.scrollTop; // スクロール
-						let windowHeight = window.innerHeight; // ウィンドウの高さ
-						if (scroll &gt; scroll + targetElement.top - windowHeight + 200) {
-							myFade[i].classList.add('show');
-						}
-					}
-				}, false);
-			}, false);
+		BlockCode.language-javascript {{ CBJs }}
 		p
 			| 執筆者はjQuery撲滅派なのでjQueryを利用した記述方法はないと考えて良い。
 
@@ -152,6 +90,74 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'フェードイン' });
 const indexStore = useIndexStore();
 
+const CBCss = ref(
+`.area {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+@supports (-ms-ime-align: auto) or ((-webkit-text-size-adjust: none) and (-webkit-marquee-repetition: infinite) and (object-fit: fill)) {
+	.area {
+		justify-content: space-around;
+	}
+}
+
+.area .anim {
+	width: 30vw;
+	max-width: 250px;
+	height: 30vw;
+	max-height: 250px;
+	margin-bottom: 15px;
+	background: #0E2EBB no-repeat top/auto 100%;
+}
+
+.anim {
+	opacity: 0;
+	transition: all 1s ease;
+	transform: translateY(100px);
+}
+
+.anim.show {
+	opacity: 1;
+	transform: none;
+}`);
+
+const CBHtml = ref(
+`<div class="area">
+	<div class="anim box-1">要素1</div>
+	<div class="anim box-2">要素2</div>
+	<div class="anim box-3">要素3</div>
+	<div class="anim box-4">要素4</div>
+	<div class="anim box-5">要素5</div>
+	<div class="anim box-6">要素6</div>
+	<div class="anim box-7">要素7</div>
+	<div class="anim box-8">要素8</div>
+	<div class="anim box-9">要素9</div>
+	<div class="anim box-10">要素10</div>
+	<div class="anim box-11">要素11</div>
+	<div class="anim box-12">要素12</div>
+	<div class="anim box-13">要素13</div>
+	<div class="anim box-14">要素14</div>
+	<div class="anim box-15">要素15</div>
+	<div class="anim box-16">要素16</div>
+</div>`);
+
+const CBJs = ref(
+`window.addEventListener('DOMContentLoaded', function () {
+	window.addEventListener('scroll', function () {
+		let myFade = document.getElementsByClassName('anim');
+		for (let i = 0; i < myFade.length; i++) {
+			let targetElement = myFade[i].getBoundingClientRect(); // ターゲット要素の高さ
+			let scroll = document.documentElement.scrollTop || document.body.scrollTop; // スクロール
+			let windowHeight = window.innerHeight; // ウィンドウの高さ
+			if (scroll > scroll + targetElement.top - windowHeight + 200) {
+				myFade[i].classList.add('show');
+			}
+		}
+	}, false);
+}, false);`);
+
 
 // ----------------------------------------------------------------------------------------------------
 // Header Data
@@ -182,7 +188,6 @@ onMounted(function() {
 		},
 		false,
 	);
-
 });
 </script>
 

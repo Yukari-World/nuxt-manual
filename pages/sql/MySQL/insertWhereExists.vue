@@ -26,44 +26,23 @@
 	section
 		h2 使用方法と解説
 		p 以下の方法で同じことを再現できる。以下の例ではインデックスが2つある場合の例である。
-		BlockCode.language-sql: pre.
-			INSERT INTO -- 挿入する値
-				`insert_table`(`index_1`, `index_2`, `column_1`)
-			SELECT -- カラム重複回避のための記述
-				`from_table`.`index_1`,
-				`from_table`.`index_2`,
-				`from_table`.`column_1`
-			FROM -- 移行元のテーブル名
-				`from_table`
-			WHERE -- 重複確認
-				NOT EXISTS(
-					SELECT
-						`insert_table`.`index_1`,
-						`insert_table`.`index_2`
-					FROM
-						`insert_table`
-					WHERE
-						`insert_table`.`index_1` = `from_table`.`index_1` AND `insert_table`.`index_2` = `from_table`.`index_2` -- 重複確認する値。参照先に此等の値が既に存在する場合、挿入されない
-				)
-			;
+		BlockCode.language-sql {{ CBSample }}
 
 	section
 		h2 使用上の注意
 		ul
 			li
 				| 値として代入する内容に同じ値が存在する場合、重複エラーとなる。対策としてカラム名を付ける事で対処できる。PHP等を使用しての
-				code.language-sql: span.token.keyword.keyword-INSERT INSERT
+				TextToken(type="sql").keyword.keyword-INSERT INSERT
 				| やのループ処理等で応用できるため非常に重要である。
 			li
 				| 近い方法に
-				code.language-sql: span.token.keyword.keyword-IGNORE IGNORE
+				TextToken(type="sql").keyword.keyword-IGNORE IGNORE
 				| を使用する方法がある。SQL文が非常に短くなるメリットがあるが、こちらはエラーを出力しないのでこの方法は推奨しない。
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-sql';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -71,6 +50,28 @@ import 'prismjs/components/prism-sql';
 
 const header = reactive({ title: 'INSERT WHERE EXISTS' });
 const indexStore = useIndexStore();
+
+
+const CBSample = ref(
+`INSERT INTO -- 挿入する値
+	\`insert_table\`(\`index_1\`, \`index_2\`, \`column_1\`)
+SELECT -- カラム重複回避のための記述
+	\`from_table\`.\`index_1\`,
+	\`from_table\`.\`index_2\`,
+	\`from_table\`.\`column_1\`
+FROM -- 移行元のテーブル名
+	\`from_table\`
+WHERE -- 重複確認
+	NOT EXISTS(
+		SELECT
+			\`insert_table\`.\`index_1\`,
+			\`insert_table\`.\`index_2\`
+		FROM
+			\`insert_table\`
+		WHERE
+			\`insert_table\`.\`index_1\` = \`from_table\`.\`index_1\` AND \`insert_table\`.\`index_2\` = \`from_table\`.\`index_2\` -- 重複確認する値。参照先に此等の値が既に存在する場合、挿入されない
+	)
+;`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -85,7 +86,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

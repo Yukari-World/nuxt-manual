@@ -9,12 +9,10 @@
 	section
 		h2 使用方法と解説
 		p このようなリンクがあるとする。
-		BlockCode.language-http: pre.
-			https://prismjs.com/
+		BlockCode.language-http: pre https://prismjs.com/
 
 		p これを以下のように記述することができる。
-		BlockCode.language-http: pre.
-			//prismjs.com/
+		BlockCode.language-http: pre //prismjs.com/
 
 		p 詳細な内容は省略する。
 

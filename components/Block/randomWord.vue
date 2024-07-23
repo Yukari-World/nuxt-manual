@@ -1,5 +1,5 @@
 <template lang="pug">
-dt(:id='"wordID" + (targetId)')
+dt(:id="'wordID' + (targetId)")
 	h3(v-html="wordList.title")
 	h4 出典: {{ wordList.original }}
 dd
@@ -16,7 +16,7 @@ dd
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Property List
 
-const props = defineProps({
+defineProps({
 	targetId: {
 		type: Number,
 		required: true,

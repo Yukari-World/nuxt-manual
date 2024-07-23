@@ -33,37 +33,7 @@
 		h2 使用上の注意
 		ul
 			li ブラウザによってはストレージが使用できないことがある。以下のソースを使用することで使用できるかどうかを調べることができる。
-				BlockCode.language-javascript: pre.
-					/**
-					 * ローカルストレージの環境が利用可能か調べる関数
-					 *
-					 * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API MDN}より参照
-					 *
-					 * @param  {String}     type    調べる項目
-					 * @return {boolean}            利用可能かのbool
-					 */
-					function storageAvailable(type) {
-						let storage = window[type];
-						try {
-							let	x = '__storage_test__';
-							storage.setItem(x, x);
-							storage.removeItem(x);
-							return true;
-						} catch (e) {
-							return e instanceof DOMException &amp;&amp; (
-								// everything except Firefox
-								e.code === 22 ||
-								// Firefox
-								e.code === 1014 ||
-								// test name field too, because code might not be present
-								// everything except Firefox
-								e.name === 'QuotaExceededError' ||
-								// Firefox
-								e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &amp;&amp;
-								// acknowledge QuotaExceededError only if there's something already stored
-								storage.length !== 0;
-						}
-					}
+				BlockCode.language-javascript {{ CBCheck }}
 </template>
 
 <script setup lang="ts">
@@ -75,6 +45,38 @@ import { useIndexStore } from '@/store/index';
 
 const header = reactive({ title: 'localStorage' });
 const indexStore = useIndexStore();
+
+const CBCheck = `/**
+ * ローカルストレージの環境が利用可能か調べる関数
+ *
+ * {@link https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API MDN}より参照
+ *
+ * @param  {String}     type    調べる項目
+ * @return {boolean}            利用可能かのbool
+ */
+function storageAvailable(type) {
+	let storage = window[type];
+	try {
+		let	x = '__storage_test__';
+		storage.setItem(x, x);
+		storage.removeItem(x);
+		return true;
+	} catch (e) {
+		return e instanceof DOMException && (
+				// everything except Firefox
+				e.code === 22 ||
+				// Firefox
+				e.code === 1014 ||
+				// test name field too, because code might not be present
+				// everything except Firefox
+				e.name === 'QuotaExceededError' ||
+				// Firefox
+				e.name === 'NS_ERROR_DOM_QUOTA_REACHED'
+			) &&
+			// acknowledge QuotaExceededError only if there's something already stored
+			storage.length !== 0;
+	}
+}`;
 
 
 // ----------------------------------------------------------------------------------------------------

@@ -84,7 +84,7 @@ function randomFloat(): number {
  *
  * 但し、格納データが0件の場合、処理を行わない
  *
- * @returns {boolean}
+ * @returns {boolean}   処理結果
  */
 function setRandomWord(): boolean {
 	// 格納データの件数の確認

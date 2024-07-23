@@ -12,10 +12,7 @@
 		p
 			| 本題に入る前に、本ページでは以下のCSSを適応している。
 			br
-			code.language-html
-				span.token.punctuation &lt;
-				span.token.tag input type="range"
-				span.token.punctuation &gt;
+			TextTag input type="range"
 			| の使い方は別ページを参照。
 
 		BlockCode.language-css: pre.
