@@ -1,22 +1,15 @@
 # THIS IS ONLY FOR THE gitattributes REPOSITORY.
 # Handle line endings automatically for files detected as text
 # and leave all files detected as binary untouched.
-*               text=auto
+*               text=auto eol=lf
 
 #
 # The above will handle all files NOT found below
 #
 # These files are text and should be normalized (Convert crlf => lf)
-*.gitattributes text
-.gitignore      text
-*.md            text diff=markdown
-*.js            text eol=lf
-*.json          text eol=lf
-*.toml          text eol=lf
-*.ts            text eol=lf
-*.vue           text eol=lf
-*.yml           text eol=lf
-*.yaml          text eol=lf
+# *.css           text eol=lf
+# *.gitattributes text
+# *.md            text diff=markdown eol=lf
 
 #
 # Exclude files from exporting

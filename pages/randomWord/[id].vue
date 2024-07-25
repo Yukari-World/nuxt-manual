@@ -1,16 +1,5 @@
 <template lang="pug">
-.ad
-	dt(:id='"wordID" + ($route.params.id)')
-		h3(v-html='wordList[Number($route.params.id) - 1].title')
-		h4 出典: {{ wordList[Number($route.params.id) - 1].original }}
-	dd
-		div(v-html='wordList[Number($route.params.id) - 1].summary')
-		.boxTag
-			ul.tagList
-				//- <a data-tag="' + searchTag + '">' + searchTag + '</a>
-				//- コンテンツタグの出力
-				li(v-for='(tag) in wordList[Number($route.params.id) - 1].tags')
-					a(:data-tag='tag') {{ $t(tag) }}
+BlockRandomWord(:target-id="Number($route.params.id)", :word-list="wordList[Number($route.params.id) - 1]")
 </template>
 
 <script setup lang="ts">

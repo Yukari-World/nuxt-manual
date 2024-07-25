@@ -9,10 +9,7 @@
 		h2 使用方法と解説
 		p .htaccessファイルに以下の記述を追加する。
 
-		pre.language-xml.line-numbers: code.
-			&lt;Files "\.html$"&gt;
-			AddHandler application/x-httpd-php .html
-			&lt;/Files&gt;
+		BlockCode.language-xml {{ CB }}
 
 		p 原理としてはHTMLファイルをPHPページであるとMIMEタイプを偽装することでPHPの処理を実行させることができる。
 
@@ -25,13 +22,11 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://xn--web-oi9du9bc8tgu2a.com/how-to-use-php-in-html-files/', target='_blank', rel='external noopener') htaccessに3行足すだけ！『.html』内でPHPを実行する方法！ | WEB改善事例集(GMOソリューションパートナー株式会社)
+			a(href="https://xn--web-oi9du9bc8tgu2a.com/how-to-use-php-in-html-files/", target="_blank", rel="external noopener") htaccessに3行足すだけ！『.html』内でPHPを実行する方法！ | WEB改善事例集(GMOソリューションパートナー株式会社)
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-markup';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -39,6 +34,12 @@ import 'prismjs/components/prism-markup';
 
 const header = reactive({ title: 'HTMLファイル内でPHPを動かす' });
 const indexStore = useIndexStore();
+
+const CB = ref(
+`<Files "\\.html$">
+AddHandler application/x-httpd-php .html
+</Files>
+`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -53,7 +54,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

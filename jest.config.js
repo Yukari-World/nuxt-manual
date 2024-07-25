@@ -74,7 +74,7 @@ module.exports = {
 	// ],
 
 	// An array of file extensions your modules use
-	moduleFileExtensions: [ 'js', 'json', 'ts', 'vue' ],
+	moduleFileExtensions: ['js', 'json', 'ts', 'vue'],
 
 	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources w                                                   ith a single module
 	moduleNameMapper: {
@@ -134,7 +134,7 @@ module.exports = {
 	// slowTestThreshold: 5,
 
 	// A list of paths to snapshot serializer modules Jest should use for snapshot testing
-	snapshotSerializers: [ '<rootDir>/node_modules/jest-serializer-vue' ],
+	snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
 
 	// The test environment that will be used for testing
 	// testEnvironment: "jest-environment-jsdom",

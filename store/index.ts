@@ -6,6 +6,7 @@
 // Import
 
 import { defineStore } from 'pinia';
+import YAML from 'yaml';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -16,18 +17,18 @@ interface ICategoryList {
 	baseURL: string,
 	description: string,
 	icon: string,
-	subCategory: {
+	subCategory: Array<{
 		name: string,
 		url?: string,
-		list: {
+		list: Array<{
 			title: string,
 			link: string,
 			summary: string,
 			tags: string[],
 			deprecated: boolean,
 			workInProgress: boolean,
-		}[],
-	}[],
+		}>,
+	}>,
 }
 
 /**
@@ -168,7 +169,8 @@ export const useIndexStore = defineStore('index', {
 			this.XorSeed.z = this.XorSeed.w;
 			this.XorSeed.w = this.XorSeed.w ^ this.XorSeed.w >>> 19 ^ (t ^ t >>> 8);
 
-			console.log('XorShift Seed Info:\n' +
+			console.log(
+				'XorShift Seed Info:\n' +
 				'X: ' + toHex(this.XorSeed.x) + ' (' + this.XorSeed.x + ')\n' +
 				'Y: ' + toHex(this.XorSeed.y) + ' (' + this.XorSeed.y + ')\n' +
 				'Z: ' + toHex(this.XorSeed.z) + ' (' + this.XorSeed.z + ')\n' +
@@ -184,9 +186,9 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchMenuList(): Promise<void> {
 			if (this.menus.categoryList.length === 0) {
-				const { data } = await useFetch<IMenuList>('/json/manualList.json');
+				const { data } = await useFetch<string>('/yaml/manualList.yaml');
 				if (data.value !== null) {
-					this.menus = data.value;
+					this.menus = YAML.parse(data.value);
 				}
 			}
 		},
@@ -199,9 +201,9 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchRandomWords(): Promise<void> {
 			if (this.randomWords.length === 0) {
-				const { data } = await useFetch<IRandomWord[]>('/json/randomWord.json');
+				const { data } = await useFetch<string>('/yaml/randomWord.yaml');
 				if (data.value !== null) {
-					this.randomWords = data.value;
+					this.randomWords = YAML.parse(data.value);
 				}
 			}
 		},

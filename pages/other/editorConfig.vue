@@ -6,49 +6,32 @@
 
 	section
 		h2 導入方法
-		p
-			| エディターによってはデフォルトで対応している場合もあるが、プラグインを必要としているものもある。
+		p エディターによってはデフォルトで対応している場合もあるが、プラグインを必要としているものもある。
 			br
 			| 詳細な導入方法は別日記述予定。
 
 		h3 Atom
 		h4 コマンドラインからインストール
 		p コマンドラインに以下のコマンドを入力することでインストールできる。但し、Atomがマニュアルインストールの場合使用することができない。
-		pre.language-batch.line-numbers: code.
-			apm install editorconfig
+		BlockCode.language-batch {{ CBApm }}
+
 		h4 パッケージからインストール
 		p EditorConfigと検索すると結果に出てくるのでそれをインストールする。
+
 		h4 インストールにおける注意点
 		p whitespace(Atomのデフォルトパッケージ)のパッケージが競合するため、設定変更、もしくは無効化をすること。
 		p インデントの設定をautoに設定すること。
 
 		h3 Visual Stdio Code
-		p 拡張機能からEditorConfig for VS Codeをインストールする。インストール後、エディタを再起動する。特別な設定は必要としない。
+		p 拡張機能からEditorConfig for VS Codeをインストールする。
+			span.text-decoration-line-through インストール後、エディタを再起動する。
+			|現在は再起動不要、特別な設定は必要としない。
 
 	section
 		h2 設定ファイル
 		p 設定ファイルは.editorconfigファイルに記述する。
 		h3 .editorconfigの例
-		pre.language-ini.line-numbers: code.
-			# EditorConfigの最上位ファイルであることを示す
-			root = true
-
-			# 全体共通設定
-			[*]
-			charset = utf-8
-			end_of_line = lf
-			indent_size = 4
-			indent_style = tab
-			insert_final_newline = true
-			trim_trailing_whitespace = true
-
-			# PHPファイル全体に適応する内容
-			[*.php]
-			indent_style = space
-
-			# ファイル名を直接指定することもできる
-			[package.json]
-			indent_size = 2
+		BlockCode.language-ini {{ CBConfig }}
 
 		p 設定は上から下へと適応される。
 
@@ -99,14 +82,11 @@
 	section
 		h2 リンク
 		p
-			a(href='https://editorconfig.org/', target='_blank', rel='external noopener') EditorConfig
+			a(href="https://editorconfig.org/", target="_blank", rel="external noopener") EditorConfig
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-batch';
-import 'prismjs/components/prism-ini';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -114,6 +94,34 @@ import 'prismjs/components/prism-ini';
 
 const header = reactive({ title: 'EditorConfig' });
 const indexStore = useIndexStore();
+
+const CBApm = ref(`apm install editorconfig`);
+
+const CBConfig = ref(
+`# EditorConfigの最上位ファイルであることを示す
+root = true
+
+# 全体共通設定
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# PHPファイル全体に適応する内容
+[*.php]
+indent_style = space
+
+# YAMLファイルへの指定。複数の拡張子指定も可能だが、カンマの間にスペースを入れてはならない
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+# ファイル名を直接指定することもできる
+[package.json]
+indent_size = 2`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -128,7 +136,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

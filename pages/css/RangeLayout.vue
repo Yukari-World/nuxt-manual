@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--css.page--range-layout
-	v-alert(type='warning', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.nonStandard.title')", :text="$t('common.stub.nonStandard.desc')")
+	AlertNonStandard
 
 	section
 		h2 説明
@@ -12,13 +12,10 @@
 		p
 			| 本題に入る前に、本ページでは以下のCSSを適応している。
 			br
-			code.language-html
-				span.token.punctuation &lt;
-				span.token.tag input type="range"
-				span.token.punctuation &gt;
+			TextTag input type="range"
 			| の使い方は別ページを参照。
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			input[type="range"] {
 				box-sizing: border-box;
 				width: 70%;
@@ -26,14 +23,14 @@
 			}
 
 		p HTMLは以下の通りである。
-		pre.language-html.line-numbers: code.
+		BlockCode.language-html: pre.
 			&lt;input type="range" min="0" max="1000" step="1" value="500"&gt;
 
 		fieldset
 			legend デフォルト
-			input(type='range', min='0', max='1000', step='1', value='500')
+			input(type="range", min="0", max="1000", step="1", value="500")
 
-		pre.language-css.line-numbers: code.
+		BlockCode.language-css: pre.
 			input[type="range"].slider {
 				box-sizing: border-box;
 				height: 5px;
@@ -80,7 +77,7 @@
 
 		fieldset
 			legend CSSを適応後
-			input.yw-slider(type='range', min='0', max='1000', step='1', value='500')
+			input.yw-slider(type="range", min="0", max="1000", step="1", value="500")
 
 	section
 		h2 使用上の注意
@@ -95,22 +92,19 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-thumb', target='_blank', rel='external noopener') MDN Web Docs / ::-webkit-slider-thumb
+			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-thumb", target="_blank", rel="external noopener") MDN Web Docs / ::-webkit-slider-thumb
 			br
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-runnable-track', target='_blank', rel='external noopener') MDN Web Docs / ::-webkit-slider-runnable-track
+			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-runnable-track", target="_blank", rel="external noopener") MDN Web Docs / ::-webkit-slider-runnable-track
 			br
-			a(href='https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-thumb', target='_blank', rel='external noopener') MDN Web Docs / ::-moz-range-thumb (English)
+			a(href="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-thumb", target="_blank", rel="external noopener") MDN Web Docs / ::-moz-range-thumb (English)
 			br
-			a(href='https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-track', target='_blank', rel='external noopener') MDN Web Docs / ::-moz-range-track (English)
+			a(href="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-track", target="_blank", rel="external noopener") MDN Web Docs / ::-moz-range-track (English)
 			br
-			a(href='https://www.w3schools.com/howto/howto_js_rangeslider.asp', target='_blank', rel='external noopener') W3Schools (English)
+			a(href="https://www.w3schools.com/howto/howto_js_rangeslider.asp", target="_blank", rel="external noopener") W3Schools (English)
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-markup';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -132,7 +126,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

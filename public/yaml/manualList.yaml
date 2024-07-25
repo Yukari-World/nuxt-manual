@@ -1,6 +1,6 @@
 type: menuList
 categoryList:
-- category: Main
+- category: menu.main.title
   baseURL: ''
   description: ''
   icon: mdi-home
@@ -40,7 +40,7 @@ categoryList:
       tags: []
       deprecated: false
       workInProgress: false
-- category: CSS
+- category: menu.css.title
   baseURL: '/css'
   description: ''
   icon: mdi-language-css3
@@ -110,7 +110,7 @@ categoryList:
       - CSS
       deprecated: false
       workInProgress: false
-- category: Git
+- category: menu.git.title
   baseURL: '/git'
   description: ''
   icon: mdi-git
@@ -131,7 +131,7 @@ categoryList:
       - Git
       deprecated: false
       workInProgress: true
-- category: HTML
+- category: menu.html.title
   baseURL: '/html'
   description: ''
   icon: mdi-language-html5
@@ -159,7 +159,7 @@ categoryList:
       - HTML
       deprecated: true
       workInProgress: false
-- category: JavaScript
+- category: menu.js.title
   baseURL: '/js'
   description: ''
   icon: mdi-language-javascript
@@ -187,7 +187,8 @@ categoryList:
       - JavaScript
       deprecated: false
       workInProgress: true
-  - name: Ajax
+  - name:  menu.js.subCategory.Ajax
+    url: '/Ajax'
     list:
     - title: Fetch API
       link: '/FetchAPI'
@@ -205,7 +206,7 @@ categoryList:
       - JavaScript
       deprecated: false
       workInProgress: true
-- category: Language
+- category: menu.lang.title
   baseURL: '/language'
   description: ''
   icon: mdi-translate
@@ -240,7 +241,7 @@ categoryList:
       - SCSS
       deprecated: false
       workInProgress: true
-- category: Node.js
+- category: menu.node.title
   baseURL: '/node'
   description: ''
   icon: mdi-nodejs
@@ -271,7 +272,8 @@ categoryList:
       - Node
       deprecated: false
       workInProgress: false
-  - name: Gulp
+  - name:  menu.node.subCategory.Gulp
+    url: '/Gulp'
     list:
     - title: Gulp導入マニュアル
       link: '/manualGulp'
@@ -282,7 +284,7 @@ categoryList:
       - Node
       deprecated: false
       workInProgress: true
-- category: PHP
+- category: menu.php.title
   baseURL: '/php'
   description: ''
   icon: mdi-language-php
@@ -318,16 +320,17 @@ categoryList:
       - PHP
       deprecated: false
       workInProgress: false
-  - name: CodeIgniter
+  - name:  menu.php.subCategory.CodeIgniter
+    url: '/CodeIgniter'
     list:
     - title: データベース接続
-      link: '/CIDatabase'
+      link: '/Database'
       summary: ''
       tags:
       - PHP
       deprecated: false
       workInProgress: true
-- category: SCSS
+- category: menu.scss.title
   baseURL: '/scss'
   description: ''
   icon: mdi-sass
@@ -341,7 +344,7 @@ categoryList:
       - SCSS
       deprecated: false
       workInProgress: true
-- category: SQL
+- category: menu.sql.title
   baseURL: '/sql'
   description: ''
   icon: mdi-server
@@ -404,10 +407,11 @@ categoryList:
       - SQL
       deprecated: false
       workInProgress: true
-  - name: MySQL
+  - name:  menu.sql.subCategory.MySQL
+    url: '/MySQL'
     list:
     - title: INSERT WHERE EXISTS
-      link: '/MySQLinsertWhereExists'
+      link: '/insertWhereExists'
       summary: ''
       tags:
       - MySQL
@@ -415,7 +419,7 @@ categoryList:
       deprecated: false
       workInProgress: false
     - title: INT(11) の意味
-      link: '/MySQLint'
+      link: '/int'
       summary: ''
       tags:
       - MySQL
@@ -423,7 +427,7 @@ categoryList:
       deprecated: false
       workInProgress: false
     - title: UPDATE SELECT
-      link: '/MySQLupdateSelect'
+      link: '/updateSelect'
       summary: ''
       tags:
       - MySQL
@@ -431,14 +435,14 @@ categoryList:
       deprecated: false
       workInProgress: false
     - title: UTF-8のあれこれ
-      link: '/MySQLutf-8'
+      link: '/utf-8'
       summary: ''
       tags:
       - MySQL
       - SQL
       deprecated: false
       workInProgress: true
-- category: Vue.js
+- category: menu.vue.title
   baseURL: '/vue'
   description: ''
   icon: mdi-vuejs
@@ -452,7 +456,8 @@ categoryList:
       - Vue.js
       deprecated: false
       workInProgress: true
-  - name: Nuxt.js
+  - name:  menu.vue.subCategory.Nuxt
+    url: '/Nuxtjs'
     list:
     - title: 近日公開
       link: '/'
@@ -461,7 +466,7 @@ categoryList:
       - Nuxt.js
       deprecated: false
       workInProgress: true
-- category: Wordpress
+- category: menu.wordpress.title
   baseURL: '/wordpress'
   description: ''
   icon: mdi-wordpress
@@ -475,7 +480,7 @@ categoryList:
       - Wordpress
       deprecated: false
       workInProgress: true
-- category: Other
+- category: menu.other.title
   baseURL: '/other'
   description: その他上記のカテゴリに該当しない項目
   icon: mdi-alert-circle
@@ -497,7 +502,8 @@ categoryList:
       - Server
       deprecated: false
       workInProgress: true
-  - name: Apache
+  - name: menu.other.subCategory.Apache
+    url: '/Apache'
     list:
     - title: HTMLファイル内でPHPを動かす
       link: '/runPHPForHTML'
@@ -506,7 +512,8 @@ categoryList:
       - Server
       deprecated: false
       workInProgress: false
-  - name: Atom
+  - name: menu.other.subCategory.Atom
+    url: '/Atom'
     list:
     - title: Atom 導入マニュアル
       link: '/atomInstall'
@@ -522,7 +529,8 @@ categoryList:
       - Console
       deprecated: false
       workInProgress: true
-  - name: Unix
+  - name: menu.other.subCategory.Unix
+    url: '/Unix'
     list:
     - title: Console Command
       link: '/unixConsole'
@@ -531,7 +539,8 @@ categoryList:
       - Console
       deprecated: false
       workInProgress: true
-  - name: XAMPP
+  - name: menu.other.subCategory.XAMPP
+    url: '/XAMPP'
     list:
     - title: ローカルネットワーク接続
       link: '/'

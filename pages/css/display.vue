@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--css.page--display
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlertStub
 
 	section
 		h3 display-outside
@@ -23,11 +23,10 @@
 
 	section
 		h2 参考リンク
-		a(href='https://developer.mozilla.org/ja/docs/Web/CSS/display', target='_blank', rel='external noopener') MDN Web Docs
+		a(href="https://developer.mozilla.org/ja/docs/Web/CSS/display", target="_blank", rel="external noopener") MDN Web Docs
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
 
 
@@ -50,7 +49,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--other.sub--atom.page--apm
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlertStub
 
 	section
 		h2 説明
@@ -20,26 +20,23 @@
 
 		ul
 			li
-				pre.language-batch.line-numbers: code.
-					apm install [&lt;package_name&gt;...]
+				BlockCode.language-batch {{ CBInstallBatch01 }}
 				p パッケージ名で指定してインストールする。スペースを空けて連続して入力することで複数導入できる。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm install &lt;package_name&gt;@&lt;package_version&gt;
+				BlockCode.language-batch {{ CBInstallBatch02 }}
 				p バージョンを指定してインストールする。特定のバージョンにて不具合がある等古いバージョンである必要があるときに使う。指定しない場合、自動的に現行最新版が導入される。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm install &lt;git_remote&gt;
+				BlockCode.language-batch {{ CBInstallBatch03 }}
+				p Gitにて配布されているパッケージをインストールする。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm install &lt;github_username&gt;/&lt;github_project&gt;
+				BlockCode.language-batch {{ CBInstallBatch04 }}
+				p Gitにて配布されているパッケージをインストールする。特定のバージョンにて不具合がある等古いバージョンである必要があるときに使う。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm install --packages-file my-packages.txt
+				BlockCode.language-batch {{ CBInstallBatch05 }}
 				p ファイルに記入されているパッケージ情報から一括でインストールを行う。統一環境を構築する時に扱いやすい。
 
 		h3 apm list
@@ -47,37 +44,30 @@
 
 		ul
 			li
-				pre.language-batch.line-numbers: code.
-					apm list
+				BlockCode.language-batch {{ CBListBatch01 }}
 				p インストールされているパッケージの一覧を表示する。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm list --themes
+				BlockCode.language-batch {{ CBListBatch02 }}
 				p インストールされているテーマの一覧を表示する。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm list --packages
+				BlockCode.language-batch {{ CBListBatch03 }}
 				p インストールされているパッケージ(テーマは除く)の一覧を表示する。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm list --installed
+				BlockCode.language-batch {{ CBListBatch04 }}
 				p apm listと同じ。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm list --installed --enabled
+				BlockCode.language-batch {{ CBListBatch05 }}
 				p インストールされているパッケージの内、有効になっている一覧を表示する。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm list --installed --bare &gt; my-packages.txt
+				BlockCode.language-batch {{ CBListBatch06 }}
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm list --json
+				BlockCode.language-batch {{ CBListBatch07 }}
 
 		h3 apm update
 		h3 apm upgrade
@@ -85,29 +75,23 @@
 
 		ul
 			li
-				pre.language-batch.line-numbers: code.
-					apm upgrade
+				BlockCode.language-batch {{ CBUpgradeBatch01 }}
 				p インストールされているパッケージの内、更新可能なパッケージがある場合、更新を行う。
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm upgrade --list
+				BlockCode.language-batch {{ CBUpgradeBatch02 }}
 
 			li
-				pre.language-batch.line-numbers: code.
-					apm upgrade [&lt;package_name&gt;...]
+				BlockCode.language-batch {{ CBUpgradeBatch03 }}
 				p パッケージ名で指定して更新を行う。スペースを空けて連続して入力することで複数更新できる。
 
 	section
 		ul
 			li 使用できるコマンドの殆どはNode.jsのnpmコマンドに似通っている。
-
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-batch';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -115,6 +99,24 @@ import 'prismjs/components/prism-batch';
 
 const header = reactive({ title: 'apm Command' });
 const indexStore = useIndexStore();
+
+const CBInstallBatch01 = ref(`apm install [<package_name>...]`);
+const CBInstallBatch02 = ref(`apm install <package_name>@<package_version>`);
+const CBInstallBatch03 = ref(`apm install <git_remote>`);
+const CBInstallBatch04 = ref(`apm install <github_username>/<github_project>`);
+const CBInstallBatch05 = ref(`apm install --packages-file my-packages.txt`);
+
+const CBListBatch01 = ref(`apm list`);
+const CBListBatch02 = ref(`apm list --themes`);
+const CBListBatch03 = ref(`apm list --packages`);
+const CBListBatch04 = ref(`apm list --installed`);
+const CBListBatch05 = ref(`apm list --installed --enabled`);
+const CBListBatch06 = ref(`apm list --installed --bare > my-packages.txt`);
+const CBListBatch07 = ref(`apm list --json`);
+
+const CBUpgradeBatch01 = ref(`apm upgrade`);
+const CBUpgradeBatch02 = ref(`apm upgrade --list`);
+const CBUpgradeBatch03 = ref(`apm upgrade [<package_name>...]`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -129,7 +131,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

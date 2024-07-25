@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--sql.page--as
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlertStub
 
 	section
 		h2 説明
@@ -13,37 +13,22 @@
 		p
 			span.text-decoration-line-through
 				| 解説にあたり以下のデータベースを利用する。コピーすることで簡単に利用できる。尚このSQLコードは
-				a(href='https://www.mysql.com/jp/', target='_blank', rel='external noopener') MySQL
+				a(href="https://www.mysql.com/jp/", target="_blank", rel="external noopener") MySQL
 				| もしくは
-				a(href='https://mariadb.org/', target='_blank', rel='external noopener') MariaDB
+				a(href="https://mariadb.org/", target="_blank", rel="external noopener") MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
-			nuxt-link(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
+			NuxtLink(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
 
 		h3 使用方法
 		p 今回以下のSQL文から説明を行う
-		pre.language-sql.line-numbers: code.
-			SELECT
-				`customer`.`name`,
-				`product`.`name`,
-				`price`,
-				`amount`,
-				`price` * `amount`
-			FROM
-				`order`
-			INNER JOIN
-				`customer`
-					ON `customer`.`id` = `order`.`customerID`
-			INNER JOIN
-				`product`
-					ON `product`.`id` = `order`.`productID`
-			;
+		BlockCode.language-sql {{ CBWithoutAS }}
 
 		p
 			| このまま使用してもエラーはなく実行できる。しかし出力結果は以下の通りである。
 			br
 			| 尚、このSQL出力結果のテーブルは
-			a(href='https://www.heidisql.com/', target='_blank', rel='external noopener') HeidiSQL
+			a(href="https://www.heidisql.com/", target="_blank", rel="external noopener") HeidiSQL
 			| で実行し、出力結果をHTML変換している。
 		table
 			caption SQL Code Result 1 (7 rows)
@@ -103,25 +88,10 @@
 			| また、金額を示すカラムについては式がカラム名となっており、不自然である。
 			br
 			| そこで
-			code.language-sql: span.token.keyword.keyword-AS AS
+			TextToken(type="sql").keyword.keyword-AS AS
 			| を使用することで別名をつけることができる
 
-		pre.language-sql.line-numbers: code.
-			SELECT
-				`customer`.`name` AS `customerName`,
-				`product`.`name` AS `productName`,
-				`price`,
-				`amount`,
-				`price` * `amount` AS `totalPrice`
-			FROM
-				`order`
-			INNER JOIN
-				`customer`
-					ON `customer`.`id` = `order`.`customerID`
-			INNER JOIN
-				`product`
-					ON `product`.`id` = `order`.`productID`
-			;
+		BlockCode.language-sql {{ CBWithAS }}
 
 		table
 			caption SQL Code Result 2 (7 rows)
@@ -183,9 +153,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-sql';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -194,6 +162,40 @@ import 'prismjs/components/prism-sql';
 const header = reactive({ title: 'AS(別名)' });
 const indexStore = useIndexStore();
 const localePath = useLocalePath();
+
+const CBWithoutAS = ref(
+`SELECT
+	\`customer\`.\`name\`,
+	\`product\`.\`name\`,
+	\`price\`,
+	\`amount\`,
+	\`price\` * \`amount\`
+FROM
+	\`order\`
+INNER JOIN
+	\`customer\`
+		ON \`customer\`.\`id\` = \`order\`.\`customerID\`
+INNER JOIN
+	\`product\`
+		ON \`product\`.\`id\` = \`order\`.\`productID\`
+;`);
+
+const CBWithAS = ref(
+`SELECT
+	\`customer\`.\`name\` AS \`customerName\`,
+	\`product\`.\`name\` AS \`productName\`,
+	\`price\`,
+	\`amount\`,
+	\`price\` * \`amount\` AS \`totalPrice\`
+FROM
+	\`order\`
+INNER JOIN
+	\`customer\`
+		ON \`customer\`.\`id\` = \`order\`.\`customerID\`
+INNER JOIN
+	\`product\`
+		ON \`product\`.\`id\` = \`order\`.\`productID\`
+;`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -208,7 +210,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

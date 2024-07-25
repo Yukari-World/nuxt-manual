@@ -7,16 +7,15 @@
 
 		h3 改めて説明
 		p
-			code.language-sql: span.token.keyword.keyword-TRUNCATE TRUNCATE
+			TextToken(type="sql").keyword.keyword-TRUNCATE TRUNCATE
 			| はテーブルにあるデータを白紙にするコマンドである。このコマンドは、
-			code.language-sql: span.token.keyword.keyword-DELETE DELETE
+			TextToken(type="sql").keyword.keyword-DELETE DELETE
 			| 句では影響しない範囲も含めて白紙にする。
 
 	section
 		h2 使用方法と解説
 		p 至って単純である。
-		pre.language-sql.line-numbers: code.
-			TRUNCATE `table_name1`, `table_name2`, ...;
+		BlockCode.language-sql TRUNCATE `table_name1`, `table_name2`, ...;
 
 	section
 		h2 使用上の注意
@@ -25,20 +24,19 @@
 			li 外部参照を行っていた場合、整合性を一切確認しないためデータベースに不釣合いが起こる場合がある。実行する場合は後述するコマンドの方が好ましい場合がある。但し、データベースによっては外部参照がある場合、実行されないことがある。
 			li
 				| 似た手法に
-				pre.language-sql.line-numbers: code.
-					DELETE FROM `table_name`;
+				BlockCode.language-sql DELETE FROM `table_name`;
 				| があるが、こちらは
-				code.language-sql: span.token.keyword.keyword-AUTO_INCREMENT AUTO_INCREMENT
+				TextToken(type="sql").keyword.keyword-AUTO_INCREMENT AUTO_INCREMENT
 				| のカウントをリセットしない(
-				code.language-sql: span.token.keyword.keyword-TRUNCATE TRUNCATE
+				TextToken(type="sql").keyword.keyword-TRUNCATE TRUNCATE
 				| はカウントをリセットする)。
 			li
 				| 一部のデータベースの例外を除き
-				code.language-sql: span.token.keyword.keyword-TRANSACTION TRANSACTION
+				TextToken(type="sql").keyword.keyword-TRANSACTION TRANSACTION
 				| を利用してもロールバックすることができない。これは
-				code.language-sql: span.token.keyword.keyword-TRUNCATE TRUNCATE
+				TextToken(type="sql").keyword.keyword-TRUNCATE TRUNCATE
 				| 実行後、自動的に
-				code.language-sql: span.token.keyword.keyword-COMMIT COMMIT
+				TextToken(type="sql").keyword.keyword-COMMIT COMMIT
 				| されるためである。
 			li 非常に単純なコマンドではあるが、再度記述するがデータベースを空にする非常に危険なコマンドである。必要がない限りは使用しないこと。
 			li
@@ -49,15 +47,13 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://www.postgresql.jp/document/10/html/sql-truncate.html', target='_blank', rel='external noopener') PostgreSQL
+			a(href="https://www.postgresql.jp/document/10/html/sql-truncate.html", target="_blank", rel="external noopener") PostgreSQL
 			br
-			a(href='https://ja.wikipedia.org/wiki/TRUNCATE_(SQL)', target='_blank', rel='external noopener') Wikipedia
+			a(href="https://ja.wikipedia.org/wiki/TRUNCATE_(SQL)", target="_blank", rel="external noopener") Wikipedia
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-sql';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -79,7 +75,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

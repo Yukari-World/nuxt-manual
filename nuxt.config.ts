@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 	app: {
 		baseURL: '/',
 		head: {
-			titleTemplate: '%s | Nuxt Technical Manual v0.4.2',
+			titleTemplate: '%s | Nuxt Technical Manual v0.4.3',
 			meta: [
 				{ charset: 'utf-8' },
 				{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
@@ -16,6 +16,7 @@ export default defineNuxtConfig({
 			],
 		},
 	},
+
 
 	// ----------------------------------------------------------------------------------------------------
 	// Global CSS: https://go.nuxtjs.dev/config-css
@@ -32,16 +33,32 @@ export default defineNuxtConfig({
 		'prismjs/plugins/line-numbers/prism-line-numbers.css',
 	],
 
+
 	// ----------------------------------------------------------------------------------------------------
 	// Module list and configuration
 
 	modules: [
-		// '@nuxtjs/eslint-module',
+		'@nuxt/eslint',
 		'@nuxtjs/i18n',
 		'@pinia/nuxt',
 		'@vite-pwa/nuxt',
+		'@vueuse/nuxt',
+		'nuxt-link-checker',
 		// 'nuxt-purgecss',
+		// 'nuxt-simple-sitemap',
 	],
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// postcss configuration
+
+	postcss: {
+		plugins: {
+			autoprefixer: {},
+			cssnano: {},
+		},
+	},
+
 
 	// ----------------------------------------------------------------------------------------------------
 	// i18n configuration
@@ -57,11 +74,12 @@ export default defineNuxtConfig({
 		langDir: 'locales/',
 		lazy: true,
 		locales: [
-			{ code: 'en-US', iso: 'en-US', name: 'English', files: [ 'en.yaml', 'en-US.yaml' ] },
-			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.yaml', 'ja-JP.yaml' ] },
+			{ code: 'en-US', iso: 'en-US', name: 'English', files: ['en.yaml', 'en-US.yaml'] },
+			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: ['ja.yaml', 'ja-JP.yaml'] },
 		],
 		strategy: 'prefix_except_default',
 	},
+
 
 	// ----------------------------------------------------------------------------------------------------
 	// PWA configuration
@@ -92,7 +110,7 @@ export default defineNuxtConfig({
 							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
 						},
 						cacheableResponse: {
-							statuses: [ 0, 200 ],
+							statuses: [0, 200],
 						},
 					},
 				}, {
@@ -105,7 +123,7 @@ export default defineNuxtConfig({
 							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
 						},
 						cacheableResponse: {
-							statuses: [ 0, 200 ],
+							statuses: [0, 200],
 						},
 					},
 				}, {
@@ -118,7 +136,7 @@ export default defineNuxtConfig({
 							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
 						},
 						cacheableResponse: {
-							statuses: [ 0, 200 ],
+							statuses: [0, 200],
 						},
 					},
 				},
@@ -126,12 +144,14 @@ export default defineNuxtConfig({
 		},
 	},
 
+
 	// ----------------------------------------------------------------------------------------------------
 	// Build configuration
 
 	build: {
-		transpile: [ 'vuetify' ],
+		transpile: ['vuetify'],
 	},
+
 
 	// ----------------------------------------------------------------------------------------------------
 	// Vite configuration
@@ -157,10 +177,26 @@ export default defineNuxtConfig({
 		],
 	},
 
+
 	// ----------------------------------------------------------------------------------------------------
 	// Development server configuration
 
 	devServer: {
-		host: '0.0.0.0',
+		host: process.env.host || '0.0.0.0',
+		port: Number(process.env.port) || 3000,
 	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// Development tools configuration
+
+	devtools: {
+		componentInspector: false,
+
+		timeline: {
+			enabled: true,
+		},
+	},
+
+	compatibilityDate: '2024-07-11',
 });

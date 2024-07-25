@@ -9,76 +9,57 @@
 		p シングルクォーテーションを使用しているが、ダブルクォーテーションでも問題ない。尚、出力結果はJavaScriptを利用して出力している。
 
 		h3 年月日を表示する
-		pre.language-php.line-numbers: code.
-			date('Y-m-d')
-		p
-			| 出力結果:&nbsp;
-			time#date01
+		BlockCode.language-php {{ CBdate01 }}
+		p 出力結果:&nbsp;
+			time#date01 {{ date01 }}
 			br
 			| `Y`を小文字にした場合、年の下2桁が出力される。
 
-		pre.language-php.line-numbers: code.
-			date('y-m-d')
-		p
-			| 出力結果:&nbsp;
-			time#date02
+		BlockCode.language-php {{ CBdate02 }}
+		p 出力結果:&nbsp;
+			time#date02 {{ date02 }}
 
 		h3 年月日を0を省いて表示する
-		pre.language-php.line-numbers: code.
-			date('Y年n月j日')
-		p
-			| 出力結果:&nbsp;
-			time#date03
+		BlockCode.language-php {{ CBdate03 }}
+		p 出力結果:&nbsp;
+			time#date03 {{ date03 }}
 			br
 			| 日本語はdate関数に含めても問題なく出力されるが、英語はルールに従って変換されるので含めないように。
 
 		h3 時間を表示する
-		pre.language-php.line-numbers: code.
-			date('H:i:s')
-		p
-			| 出力結果:&nbsp;
-			time#date04
+		BlockCode.language-php {{ CBdate04 }}
+		p 出力結果:&nbsp;
+			time#date04 {{ date04 }}
 			br
 			| 注意すべき点として分は`m`ではなく`i`であることである。`m`を使用した場合、月が出力されるため、注意が必要。
 
 		h3 年月日を連結して表示する
-		pre.language-php.line-numbers: code.
-			date('Ymd')
-		p
-			| 出力結果:&nbsp;
-			time#date05
+		BlockCode.language-php {{ CBdate05 }}
+		p 出力結果:&nbsp;
+			time#date05 {{ date05 }}
 
 		h3 日時を表示する
-		pre.language-php.line-numbers: code.
-			date('Y-m-d H:i:s')
-		p
-			| 出力結果:&nbsp;
-			time#date06
+		BlockCode.language-php {{ CBdate06 }}
+		p 出力結果:&nbsp;
+			time#date06 {{ date06 }}
 			br
 			| MySQLのDATETIMEフォーマットの形である。
 
 	section
 		h2 使用上の注意
 		ul
-			li
-				| php.iniのタイムゾーン設定がない場合、標準時間(UTC+0)を元に出力される。PHPソースでこれを解決する場合、
-				pre.language-php.line-numbers: code.
-					date_default_timezone_set('Asia/Tokyo');
+			li php.iniのタイムゾーン設定がない場合、標準時間(UTC)を元に出力される。PHPソースでこれを解決する場合、
+				BlockCode.language-php {{ CBTimeZone }}
 				| を入力することで解決できる。
 
 	section
 		h2 参考リンク
 		p
-			a(href='http://php.net/manual/ja/function.date.php', target='_blank', rel='external noopener') PHP.net
+			NuxtLink(href="https://www.php.net/manual/ja/function.date.php", target="_blank", rel="external noopener") PHP.net
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-php';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -86,6 +67,21 @@ import 'prismjs/components/prism-php';
 
 const header = reactive({ title: '日付時間 date()' });
 const indexStore = useIndexStore();
+
+const CBdate01 = ref(`date('Y-m-d')`);
+const CBdate02 = ref(`date('y-m-d')`);
+const CBdate03 = ref(`date('Y年n月j日')`);
+const CBdate04 = ref(`date('H:i:s')`);
+const CBdate05 = ref(`date('Ymd')`);
+const CBdate06 = ref(`date('Y-m-d H:i:s')`);
+const CBTimeZone = ref(`date_default_timezone_set('Asia/Tokyo');`);
+
+const date01 = ref('');
+const date02 = ref('');
+const date03 = ref('');
+const date04 = ref('');
+const date05 = ref('');
+const date06 = ref('');
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -100,30 +96,22 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 
-	const date01 = document.getElementById('date01') as HTMLElement;
-	const date02 = document.getElementById('date02') as HTMLElement;
-	const date03 = document.getElementById('date03') as HTMLElement;
-	const date04 = document.getElementById('date04') as HTMLElement;
-	const date05 = document.getElementById('date05') as HTMLElement;
-	const date06 = document.getElementById('date06') as HTMLElement;
+	const dateToday = new Date();
+	const year = dateToday.getFullYear();
+	const month = ('0' + (dateToday.getMonth() + 1)).slice(-2);
+	const day = ('0' + dateToday.getDate()).slice(-2);
+	const hour = ('0' + dateToday.getHours()).slice(-2);
+	const minute = ('0' + dateToday.getMinutes()).slice(-2);
+	const second = ('0' + dateToday.getSeconds()).slice(-2);
 
-	const dToday = new Date();
-	const year = dToday.getFullYear();
-	const month = ('0' + (dToday.getMonth() + 1)).slice(-2);
-	const day = ('0' + dToday.getDate()).slice(-2);
-	const hour = ('0' + dToday.getHours()).slice(-2);
-	const minute = ('0' + dToday.getMinutes()).slice(-2);
-	const second = ('0' + dToday.getSeconds()).slice(-2);
-
-	date01.textContent = year + '-' + month + '-' + day;
-	date02.textContent = year.toString().substr(2, 2) + '-' + month + '-' + day;
-	date03.textContent = year + '年' + (dToday.getMonth() + 1) + '月' + dToday.getDate() + '日';
-	date04.textContent = hour + ':' + minute + ':' + second;
-	date05.textContent = year + month + day;
-	date06.textContent = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+	date01.value = year + '-' + month + '-' + day;
+	date02.value = year.toString().substring(2, 4) + '-' + month + '-' + day;
+	date03.value = year + '年' + (dateToday.getMonth() + 1) + '月' + dateToday.getDate() + '日';
+	date04.value = hour + ':' + minute + ':' + second;
+	date05.value = year + month + day;
+	date06.value = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
 });
 </script>
 
