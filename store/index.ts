@@ -186,8 +186,8 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchMenuList(): Promise<void> {
 			if (this.menus.categoryList.length === 0) {
-				const { data } = await useFetch<string>('/yaml/manualList.yaml');
-				if (data.value !== null) {
+				const { data } = await useFetch('/yaml/manualList.yaml');
+				if (data.value !== null && (typeof data.value === 'string')) {
 					this.menus = YAML.parse(data.value);
 				}
 			}
@@ -201,8 +201,8 @@ export const useIndexStore = defineStore('index', {
 		 */
 		async fetchRandomWords(): Promise<void> {
 			if (this.randomWords.length === 0) {
-				const { data } = await useFetch<string>('/yaml/randomWord.yaml');
-				if (data.value !== null) {
+				const { data } = await useFetch('/yaml/randomWord.yaml');
+				if (data.value !== null && (typeof data.value === 'string')) {
 					this.randomWords = YAML.parse(data.value);
 				}
 			}
