@@ -1,20 +1,12 @@
 <template lang="pug">
 //- 表示にブレがあるため、表示サイズの異なる2つのフッターを用意する
 v-footer(padless)
-	//- >= 960px
-	v-row.ma-0.d-none.d-md-flex.flex-md-row
-		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="6")
-			BlockFooterLeft(:link="sLink", :footer-text="sFooterText")
-		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="6")
-			.text-center.text-md-left.yw-footer-source
-				BlockFooterRight
-
-	//- < 960px
-	v-row.ma-0.flex-column.d-md-none
-		v-col.ma-0.pb-0.d-flex.align-center.justify-center(cols="12")
-			BlockFooterLeft(:link="sLink", :footer-text="sFooterText")
-		v-col.ma-0.pb-0.d-flex.align-center.justify-center(cols="12")
-			.text-center.text-md-left.yw-footer-source
+	v-row.ma-0
+		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="12", md="6")
+			.w-100.text-center.text-md-left.yw-footer-source
+				BlockFooterLeft(:link="sLink", :footer-text="sFooterText")
+		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="12", md="6")
+			.w-100.text-center.text-md-left.yw-footer-source
 				BlockFooterRight
 </template>
 
