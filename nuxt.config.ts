@@ -40,12 +40,12 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxt/eslint',
 		'@nuxtjs/i18n',
+		'@nuxtjs/sitemap',
 		'@pinia/nuxt',
 		'@vite-pwa/nuxt',
 		'@vueuse/nuxt',
 		'nuxt-link-checker',
 		// 'nuxt-purgecss',
-		// 'nuxt-simple-sitemap',
 	],
 
 
