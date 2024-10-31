@@ -52,13 +52,11 @@ const header = reactive({ title: 'INSERT SELECT' });
 const indexStore = useIndexStore();
 const localePath = useLocalePath();
 
-const CBInsert = ref(
-`INSERT INTO
+const CBInsert = ref(`INSERT INTO
 	\`table_name\`(\`column1\`, \`column2\`, \`column3\`, ...)
 	VALUES(value1, value2, value3, ...);`);
 
-const CBInsertSelect = ref(
-`INSERT INTO
+const CBInsertSelect = ref(`INSERT INTO
 	\`table_name_a\`(\`column_a1\`, \`column_a2\`, \`column_a3\`, ...)
 	SELECT
 		\`column_b1\`, \`column_b2\`, \`column_b3\`, ...

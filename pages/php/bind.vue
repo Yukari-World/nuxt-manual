@@ -112,8 +112,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'バインドを利用したSQLの実行' });
 const indexStore = useIndexStore();
 
-const CBMySQLiBind01 = ref(
-`$query = "SELECT * FROM \`user\` WHERE \`id\` = " . $id . " AND \`password\` = PASSWORD('" . $password . "')";
+const CBMySQLiBind01 = ref(`$query = "SELECT * FROM \`user\` WHERE \`id\` = " . $id . " AND \`password\` = PASSWORD('" . $password . "')";
 // SQLの実行
 if ($result = $mysqli->query($query)) {
 	// 結果の取得
@@ -125,8 +124,7 @@ if ($result = $mysqli->query($query)) {
 	$result->close();
 }`);
 
-const CBPDOBind01 = ref(
-`try {
+const CBPDOBind01 = ref(`try {
 	$query = "SELECT * FROM \`user\` WHERE \`id\` = " . $id . " AND \`password\` = PASSWORD('" . $password . "')";
 	$stmt = $pdo->prepare($query); // SQL Queryの格納
 	$stmt->execute(); // SQLの実行
@@ -142,8 +140,7 @@ const CBPDOBind01 = ref(
 	die('Database Error: ' . $e->getMessage());
 }`);
 
-const CBMySQLiBind02 = ref(
-`$query = "SELECT * FROM \`user\` WHERE \`id\` = ? AND \`password\` = PASSWORD(?)";
+const CBMySQLiBind02 = ref(`$query = "SELECT * FROM \`user\` WHERE \`id\` = ? AND \`password\` = PASSWORD(?)";
 // SQL Queryの格納
 if ($stmt = $mysqli->prepare($query)) {
 	// バインド
@@ -162,8 +159,7 @@ if ($stmt = $mysqli->prepare($query)) {
 	$result->close();
 }`);
 
-const CBPDOBind02 = ref(
-`try {
+const CBPDOBind02 = ref(`try {
 	$query = "SELECT * FROM \`user\` WHERE \`id\` = :id AND \`password\` = PASSWORD(:password)";
 	$stmt = $pdo->prepare($query); // SQL Queryの格納
 	// バインド

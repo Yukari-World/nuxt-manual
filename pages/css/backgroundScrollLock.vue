@@ -64,13 +64,11 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: '背景画像スクロールの固定' });
 const indexStore = useIndexStore();
 
-const CB01 = ref(
-`.header-background {
+const CB01 = ref(`.header-background {
 	background: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%) repeat-x 0 100px/100% 50% local, url(./img/nicholas-loo-372788.jpg) repeat top left center;
 }`);
 
-const CB02 = ref(
-`.header-background {
+const CB02 = ref(`.header-background {
 	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
 	background-repeat: repeat-x, repeat;
 	background-position: 0 100px, top center;
@@ -78,8 +76,7 @@ const CB02 = ref(
 	background-attachment: local, fixed;
 }`);
 
-const CB03 = ref(
-`background-image: none;/* 背景画像指定 */
+const CB03 = ref(`background-image: none;/* 背景画像指定 */
 background-position: 0% 0%;/* 背景画像の位置指定 */
 background-size: auto auto;/* 背景画像の大きさを指定 */
 background-repeat: repeat;/* 背景画像のループ指定 */
@@ -88,8 +85,7 @@ background-clip: border-box;
 background-attachment: scroll;/* 背景画像のスクロール指定 */
 background-color: transparent;/* 背景色の指定 */`);
 
-const CB04 = ref(
-`.header-background {
+const CB04 = ref(`.header-background {
 	background: {
 		image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
 		repeat: repeat-x, repeat;
@@ -99,8 +95,7 @@ const CB04 = ref(
 	}
 }`);
 
-const CB05 = ref(
-`.header-background {
+const CB05 = ref(`.header-background {
 	background-image: linear-gradient(to top, rgba(0, 100, 111, 0.6) 0%, rgba(0, 75, 36, 0) 100%), url(./img/nicholas-loo-372788.jpg);
 	background-repeat: repeat-x, repeat;
 	background-position: 0 100px, center;

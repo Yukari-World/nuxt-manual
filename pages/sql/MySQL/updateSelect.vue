@@ -38,8 +38,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'UPDATE SELECT' });
 const indexStore = useIndexStore();
 
-const CBSample = ref(
-`UPDATE
+const CBSample = ref(`UPDATE
 	\`table1\`,
 	\`table2\`
 SET

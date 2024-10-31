@@ -210,8 +210,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'Pug' });
 const indexStore = useIndexStore();
 
-const CBPugSample01 = ref(
-`doctype html
+const CBPugSample01 = ref(`doctype html
 html(lang='ja')
 	head
 		meta(charset='utf-8')
@@ -227,59 +226,50 @@ html(lang='ja')
 		footer(role='contentinfo')
 		script(type='application/javascript', src='js/prism.js')`);
 
-const CBPugSample02 = ref(
-`input(type='text', name='school', placeholder='学校名')		//- ←OK
+const CBPugSample02 = ref(`input(type='text', name='school', placeholder='学校名')		//- ←OK
 input (type='text', name='school', placeholder='学校名')	//- ←NG
 input(type='text' name='school' placeholder='学校名')		//- ←一応OK`);
 
 const CBHtmlSample02 = ref(`<input type="text" name="school" placeholder="学校名">`);
 
-const CBPugSample03 = ref(
-`p 参照元は
+const CBPugSample03 = ref(`p 参照元は
 	a(href='#', target='_blank', rel='external noopener') こちら`);
 
 const CBHtmlSample03 = ref(`<p>参照元は<a href="#" target="_blank" rel="external noopener">こちら</a></p>`);
 const CBHtmlSample03a = ref(`p 参照元は<a href="#" target="_blank" rel="external noopener">こちら</a>`);
 
-const CBPugIDClass = ref(
-`table.contets
+const CBPugIDClass = ref(`table.contets
 	tr
 		td#test1 Test1
 		td#test2 Test2`);
 
-const CBHtmlIDClass = ref(
-`<table class="contets">
+const CBHtmlIDClass = ref(`<table class="contets">
 	<tr>
 		<td id="test1">Test1</td>
 		<td id="test2">Test2</td>
 	</tr>
 </table>`);
 
-const CBPugWithoutDiv = ref(
-`#top.box
+const CBPugWithoutDiv = ref(`#top.box
 	p Message
 #bottom.box
 	p Message`);
 
-const CBHtmlWithoutDiv = ref(
-`<div id="top" class="box">
+const CBHtmlWithoutDiv = ref(`<div id="top" class="box">
 	<p>Message</p>
 </div>
 <div id="bottom" class="box">
 	<p>Message</p>
 </div>`);
 
-const CBPugMultiClass = ref(
-`.box.left
+const CBPugMultiClass = ref(`.box.left
 	p.this.is.four.pens Test`);
 
-const CBHtmlMultiClass = ref(
-`<div class="box left">
+const CBHtmlMultiClass = ref(`<div class="box left">
 	<p class="this is four pens">Test</p>
 </div>`);
 
-const CBHtmlMixin = ref(
-`<ul>
+const CBHtmlMixin = ref(`<ul>
 	<li role="menuitem"><a href="sql-as.html" title="AS(別名)">AS(別名)</a></li>
 	<li role="menuitem"><a href="sql-in.html" title="IN()(複数選択)">IN()(複数選択)</a></li>
 	<li role="menuitem"><a href="sql-insertSelect.html" title="INSERT SELECT">INSERT SELECT</a></li>
@@ -294,8 +284,7 @@ const CBHtmlMixin = ref(
 	<li role="menuitem"><a href="#" title="[MySQL/WIP] UTF-8のあれこれ">[MySQL/WIP] UTF-8のあれこれ</a></li>
 </ul>`);
 
-const CBScriptGulp = ref(
-`const pug = require('gulp-pug');
+const CBScriptGulp = ref(`const pug = require('gulp-pug');
 
 gulp.task('pug', function {
 	return gulp.src(['pug/**/*.pug', '!pug/**/_*.pug'])

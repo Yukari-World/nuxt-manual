@@ -40,48 +40,13 @@
 					th.col3 amount
 					th.col4 `price` * `amount`
 			tbody
-				tr
-					td.col0 神崎商会
-					td.col1 りんご
-					td.col2 120
-					td.col3 60
-					td.col4 7200
-				tr
-					td.col0 神崎商会
-					td.col1 みかん
-					td.col2 120
-					td.col3 120
-					td.col4 14400
-				tr
-					td.col0 神崎商会
-					td.col1 バナナ
-					td.col2 90
-					td.col3 25
-					td.col4 2250
-				tr
-					td.col0 神崎商会
-					td.col1 パイナップル
-					td.col2 300
-					td.col3 35
-					td.col4 10500
-				tr
-					td.col0 神崎商会
-					td.col1 ブドウ
-					td.col2 400
-					td.col3 20
-					td.col4 8000
-				tr
-					td.col0 神崎商会
-					td.col1 グレープフルーツ
-					td.col2 100
-					td.col3 50
-					td.col4 5000
-				tr
-					td.col0 神崎商会
-					td.col1 梨
-					td.col2 190
-					td.col3 35
-					td.col4 6650
+				tr(v-for="(val, index) in tableData", :key="index")
+					td.col0 {{ val.name }}
+					td.col1 {{ val.productName }}
+					td.col2 {{ val.price }}
+					td.col3 {{ val.amount }}
+					td.col4 {{ val.price * val.amount }}
+
 		p
 			| nameというカラムが2つもあり、何の名前を示しているのかわからない。
 			br
@@ -103,48 +68,12 @@
 					th.col3 amount
 					th.col4 totalPrice
 			tbody
-				tr
-					td.col0 神崎商会
-					td.col1 りんご
-					td.col2 120
-					td.col3 60
-					td.col4 7200
-				tr
-					td.col0 神崎商会
-					td.col1 みかん
-					td.col2 120
-					td.col3 120
-					td.col4 14400
-				tr
-					td.col0 神崎商会
-					td.col1 バナナ
-					td.col2 90
-					td.col3 25
-					td.col4 2250
-				tr
-					td.col0 神崎商会
-					td.col1 パイナップル
-					td.col2 300
-					td.col3 35
-					td.col4 10500
-				tr
-					td.col0 神崎商会
-					td.col1 ブドウ
-					td.col2 400
-					td.col3 20
-					td.col4 8000
-				tr
-					td.col0 神崎商会
-					td.col1 グレープフルーツ
-					td.col2 100
-					td.col3 50
-					td.col4 5000
-				tr
-					td.col0 神崎商会
-					td.col1 梨
-					td.col2 190
-					td.col3 35
-					td.col4 6650
+				tr(v-for="(val, index) in tableData", :key="index")
+					td.col0 {{ val.name }}
+					td.col1 {{ val.productName }}
+					td.col2 {{ val.price }}
+					td.col3 {{ val.amount }}
+					td.col4 {{ val.price * val.amount }}
 
 	section
 		h2 使用上の注意
@@ -163,8 +92,17 @@ const header = reactive({ title: 'AS(別名)' });
 const indexStore = useIndexStore();
 const localePath = useLocalePath();
 
-const CBWithoutAS = ref(
-`SELECT
+const tableData = reactive([
+	{ name: '神崎商会', productName: 'りんご', price: 120, amount: 60 },
+	{ name: '神崎商会', productName: 'みかん', price: 120, amount: 120 },
+	{ name: '神崎商会', productName: 'バナナ', price: 90, amount: 50 },
+	{ name: '神崎商会', productName: 'パイナップル', price: 300, amount: 50 },
+	{ name: '神崎商会', productName: 'ブドウ', price: 400, amount: 30 },
+	{ name: '神崎商会', productName: 'グレープフルーツ', price: 100, amount: 50 },
+	{ name: '神崎商会', productName: '梨', price: 190, amount: 50 },
+]);
+
+const CBWithoutAS = ref(`SELECT
 	\`customer\`.\`name\`,
 	\`product\`.\`name\`,
 	\`price\`,
@@ -180,8 +118,7 @@ INNER JOIN
 		ON \`product\`.\`id\` = \`order\`.\`productID\`
 ;`);
 
-const CBWithAS = ref(
-`SELECT
+const CBWithAS = ref(`SELECT
 	\`customer\`.\`name\` AS \`customerName\`,
 	\`product\`.\`name\` AS \`productName\`,
 	\`price\`,

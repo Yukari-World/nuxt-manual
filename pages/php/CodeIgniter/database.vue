@@ -33,8 +33,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'データベース接続' });
 const indexStore = useIndexStore();
 
-const CBConfig = ref(
-`$db['default'] = array(
+const CBConfig = ref(`$db['default'] = array(
 	'dsn'	=> '',
 	# xamppやローカルサーバーで利用する場合はこのままで問題ない
 	'hostname' => 'localhost',

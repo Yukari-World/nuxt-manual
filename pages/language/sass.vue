@@ -83,8 +83,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'Sass' });
 const indexStore = useIndexStore();
 
-const CBSassSample = ref(
-`h1, h2, h3, h4, h5, h6
+const CBSassSample = ref(`h1, h2, h3, h4, h5, h6
 	font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
 
 ul
@@ -114,8 +113,7 @@ ul
 		color: #FFFFFF
 		text-shadow: 0 0 10px rgba(255, 255, 255, 0)`);
 
-const CBCssSample = ref(
-`h1, h2, h3, h4, h5, h6 {
+const CBCssSample = ref(`h1, h2, h3, h4, h5, h6 {
 	font-family: 游ゴシック体,Yu Gothic,YuGothic,ヒラギノ角ゴシック Pro,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,Osaka,ＭＳ Ｐゴシック,MS PGothic,sans-serif;
 }
 
@@ -153,8 +151,7 @@ ul ul {
 	}
 }`);
 
-const CBSassVariable = ref(
-`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+const CBSassVariable = ref(`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
 $background-color: #000011
 $footer-line: 5px
 
@@ -181,8 +178,7 @@ footer
 	// 間に式を使う場合は#{}で囲む
 	border-image: $gradation-pattern 1 / #{$footer-line} 0 #{$footer-line * 3} / 0 stretch`);
 
-const CBCssVariable = ref(
-`body {
+const CBCssVariable = ref(`body {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
@@ -204,8 +200,7 @@ footer {
 	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 15px/0 stretch;
 }`);
 
-const CBSassMedia01 = ref(
-`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+const CBSassMedia01 = ref(`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
 
 footer
 	display: flex
@@ -247,8 +242,7 @@ footer
 			@media only screen and (max-width: 576px)
 				white-space: normal`);
 
-const CBCssMedia01 = ref(
-`footer {
+const CBCssMedia01 = ref(`footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -300,8 +294,7 @@ footer p:last-child {
 	}
 }`);
 
-const CBSassMedia02 = ref(
-`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
+const CBSassMedia02 = ref(`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99)
 
 footer
 	display: flex
@@ -320,8 +313,7 @@ footer
 		@media (max-width: 768px)
 			flex-direction: column-reverse`);
 
-const CBCssMedia02 = ref(
-`footer {
+const CBCssMedia02 = ref(`footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -339,8 +331,7 @@ const CBCssMedia02 = ref(
 	}
 }`);
 
-const CBUseSass = ref(
-`<style lang="sass">
+const CBUseSass = ref(`<style lang="sass">
 // ここにスタイルを記述する
 </style>`);
 

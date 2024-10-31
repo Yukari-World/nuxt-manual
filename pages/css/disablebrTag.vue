@@ -34,13 +34,11 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'brタグによる改行を無効化' });
 const indexStore = useIndexStore();
 
-const CBNone = ref(
-`br {
+const CBNone = ref(`br {
 	display: none;
 }`);
 
-const CBActive = ref(
-`br {
+const CBActive = ref(`br {
 	display: inline;
 }`);
 

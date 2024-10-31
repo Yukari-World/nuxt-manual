@@ -40,8 +40,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'IN()(複数選択)' });
 const indexStore = useIndexStore();
 
-const CBWithoutIN = ref(
-`SELECT
+const CBWithoutIN = ref(`SELECT
 	*
 FROM
 	\`user\`
@@ -49,8 +48,7 @@ WHERE
 	\`id\` = 200 OR \`id\` = 224 OR \`id\` = 371 OR \`id\` = 441 OR \`id\` = 503
 ;`);
 
-const CBWithIN = ref(
-`SELECT
+const CBWithIN = ref(`SELECT
 	*
 FROM
 	\`user\`

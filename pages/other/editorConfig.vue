@@ -97,8 +97,7 @@ const indexStore = useIndexStore();
 
 const CBApm = ref(`apm install editorconfig`);
 
-const CBConfig = ref(
-`# EditorConfigの最上位ファイルであることを示す
+const CBConfig = ref(`# EditorConfigの最上位ファイルであることを示す
 root = true
 
 # 全体共通設定

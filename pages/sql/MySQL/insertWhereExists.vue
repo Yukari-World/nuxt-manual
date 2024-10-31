@@ -52,8 +52,7 @@ const header = reactive({ title: 'INSERT WHERE EXISTS' });
 const indexStore = useIndexStore();
 
 
-const CBSample = ref(
-`INSERT INTO -- 挿入する値
+const CBSample = ref(`INSERT INTO -- 挿入する値
 	\`insert_table\`(\`index_1\`, \`index_2\`, \`column_1\`)
 SELECT -- カラム重複回避のための記述
 	\`from_table\`.\`index_1\`,

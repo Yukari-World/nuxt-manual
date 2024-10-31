@@ -90,8 +90,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'フェードイン' });
 const indexStore = useIndexStore();
 
-const CBCss = ref(
-`.area {
+const CBCss = ref(`.area {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -123,8 +122,7 @@ const CBCss = ref(
 	transform: none;
 }`);
 
-const CBHtml = ref(
-`<div class="area">
+const CBHtml = ref(`<div class="area">
 	<div class="anim box-1">要素1</div>
 	<div class="anim box-2">要素2</div>
 	<div class="anim box-3">要素3</div>
@@ -143,8 +141,7 @@ const CBHtml = ref(
 	<div class="anim box-16">要素16</div>
 </div>`);
 
-const CBJs = ref(
-`window.addEventListener('DOMContentLoaded', function () {
+const CBJs = ref(`window.addEventListener('DOMContentLoaded', function () {
 	window.addEventListener('scroll', function () {
 		let myFade = document.getElementsByClassName('anim');
 		for (let i = 0; i < myFade.length; i++) {

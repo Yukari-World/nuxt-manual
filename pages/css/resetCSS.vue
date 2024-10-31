@@ -21,8 +21,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'ResetCSS' });
 const indexStore = useIndexStore();
 
-const CBReset01 = ref(
-`/* http://meyerweb.com/eric/tools/css/reset/
+const CBReset01 = ref(`/* http://meyerweb.com/eric/tools/css/reset/
  v2.0 | 20110126
  License: none (public domain)
  */

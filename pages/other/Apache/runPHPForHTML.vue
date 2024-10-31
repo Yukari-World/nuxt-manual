@@ -35,8 +35,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'HTMLファイル内でPHPを動かす' });
 const indexStore = useIndexStore();
 
-const CB = ref(
-`<Files "\\.html$">
+const CB = ref(`<Files "\\.html$">
 AddHandler application/x-httpd-php .html
 </Files>
 `);

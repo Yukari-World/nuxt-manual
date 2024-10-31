@@ -76,8 +76,7 @@ const header = reactive({ title: 'JOIN(テーブル結合)' });
 const indexStore = useIndexStore();
 const localePath = useLocalePath();
 
-const CBInnerJoin = ref(
-`SELECT
+const CBInnerJoin = ref(`SELECT
 	\`customer\`.\`name\` AS \`customerName\`,
 	\`product\`.\`name\` AS \`productName\`,
 	\`price\`,
@@ -94,8 +93,7 @@ INNER JOIN
 
 const CBMinifyInnerOuterJoin = ref('SELECT `name_f`, `gakuseki_num`, `school`.`name` AS `schoolName`, `school_course`.`name` AS `departmentName`, `school_class`.`name` AS `className`, IfNull(COUNT(`enq_answered`.`id`), 0) AS `answered` FROM `user` INNER JOIN `school` ON `school`.`id` = `user`.`school_id` INNER JOIN `school_course` ON `school_course`.`id` = `user`.`course_id` INNER JOIN `school_class` ON `school_class`.`id` = `user`.`class_id` INNER JOIN `post_movie` ON `post_movie`.`user_id` = `user`.`id` INNER JOIN `enq_group` ON DATE_FORMAT(`reserve_date`, \'%Y-%c-%d %H:%i:%s\') >= DATE_FORMAT(`date_start`, \'%Y-%c-%d %H:%i:%s\') AND DATE_FORMAT(`reserve_date`, \'%Y-%c-%d %H:%i:%s\') <= DATE_FORMAT(`date_end`, \'%Y-%c-%d %H:%i:%s\') LEFT OUTER JOIN `enq_answered` ON `enq_group`.`id` = `enq_answered`.`enq_group_id` AND `enq_answered`.`user_id` = `user`.`id` WHERE `user`.`is_regist` = 1 AND `user`.`is_delete` = 0 GROUP BY `user`.`id`, `enq_group`.`id`;');
 
-const CBInnerOuterJoin = ref(
-`SELECT
+const CBInnerOuterJoin = ref(`SELECT
 	\`name_f\`,
 	\`gakuseki_num\`,
 	\`school\`.\`name\` AS \`schoolName\`,

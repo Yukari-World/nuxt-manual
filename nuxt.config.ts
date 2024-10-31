@@ -1,7 +1,37 @@
 import stylelint from 'vite-plugin-stylelint';
 
 export default defineNuxtConfig({
+	// ----------------------------------------------------------------------------------------------------
+	// Module list and configuration
+
+	modules: [
+		'@nuxt/eslint',
+		'@nuxtjs/i18n',
+		'@nuxtjs/sitemap',
+		'@pinia/nuxt',
+		'@vite-pwa/nuxt',
+		'@vueuse/nuxt',
+		'nuxt-link-checker',
+		// 'nuxt-purgecss',
+	],
+
 	ssr: false,
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// Development tools configuration
+
+	devtools: {
+		componentInspector: false,
+
+		timeline: {
+			enabled: true,
+		},
+	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// Application configuration
 
 	app: {
 		baseURL: '/',
@@ -35,18 +65,47 @@ export default defineNuxtConfig({
 
 
 	// ----------------------------------------------------------------------------------------------------
-	// Module list and configuration
+	// Build configuration
 
-	modules: [
-		'@nuxt/eslint',
-		'@nuxtjs/i18n',
-		'@nuxtjs/sitemap',
-		'@pinia/nuxt',
-		'@vite-pwa/nuxt',
-		'@vueuse/nuxt',
-		'nuxt-link-checker',
-		// 'nuxt-purgecss',
-	],
+	build: {
+		transpile: ['vuetify'],
+	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// Development server configuration
+
+	devServer: {
+		host: process.env.host || '0.0.0.0',
+		port: Number(process.env.port) || 3000,
+	},
+
+	compatibilityDate: '2024-07-11',
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// Vite configuration
+
+	vite: {
+		plugins: [
+			stylelint({
+				fix: true,
+				include: [
+					'assets/**/*.{css,less,scss,sass,vue}',
+					'components/**/*.{css,less,scss,sass,vue}',
+					// 'content/**/*.{css,less,scss,sass,vue}',
+					'layouts/**/*.{css,less,scss,sass,vue}',
+					'pages/**/*.{css,less,scss,sass,vue}',
+					'server/**/*.{css,less,scss,sass,vue}',
+					// 'src/**/*.{css,less,scss,sass,vue}',
+					// 'styles/**/*.{css,less,scss,sass,vue}',
+					'app.vue',
+					// 'error.vue',
+					// 'Error.vue',
+				],
+			}),
+		],
+	},
 
 
 	// ----------------------------------------------------------------------------------------------------
@@ -57,6 +116,14 @@ export default defineNuxtConfig({
 			autoprefixer: {},
 			cssnano: {},
 		},
+	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// eslint configuration
+
+	eslint: {
+		checker: true,
 	},
 
 
@@ -143,60 +210,4 @@ export default defineNuxtConfig({
 			],
 		},
 	},
-
-
-	// ----------------------------------------------------------------------------------------------------
-	// Build configuration
-
-	build: {
-		transpile: ['vuetify'],
-	},
-
-
-	// ----------------------------------------------------------------------------------------------------
-	// Vite configuration
-
-	vite: {
-		plugins: [
-			stylelint({
-				fix: true,
-				include: [
-					'assets/**/*.{css,less,scss,sass,vue}',
-					'components/**/*.{css,less,scss,sass,vue}',
-					// 'content/**/*.{css,less,scss,sass,vue}',
-					'layouts/**/*.{css,less,scss,sass,vue}',
-					'pages/**/*.{css,less,scss,sass,vue}',
-					'server/**/*.{css,less,scss,sass,vue}',
-					// 'src/**/*.{css,less,scss,sass,vue}',
-					// 'styles/**/*.{css,less,scss,sass,vue}',
-					'app.vue',
-					// 'error.vue',
-					// 'Error.vue',
-				],
-			}),
-		],
-	},
-
-
-	// ----------------------------------------------------------------------------------------------------
-	// Development server configuration
-
-	devServer: {
-		host: process.env.host || '0.0.0.0',
-		port: Number(process.env.port) || 3000,
-	},
-
-
-	// ----------------------------------------------------------------------------------------------------
-	// Development tools configuration
-
-	devtools: {
-		componentInspector: false,
-
-		timeline: {
-			enabled: true,
-		},
-	},
-
-	compatibilityDate: '2024-07-11',
 });
