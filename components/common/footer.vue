@@ -97,7 +97,7 @@ function setRandomWord(): boolean {
  *
  * 但し、初回実行時のみ時間指定を無視する
  *
- * @param   {number}    [seconds=5] 更新間隔(秒)
+ * @param   {number}    seconds 更新間隔(初期値: 5秒)
  * @returns {void}
  */
 function secondsInterval(seconds: number = 5): void {

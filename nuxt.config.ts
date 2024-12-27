@@ -7,6 +7,7 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxt/eslint',
 		'@nuxtjs/i18n',
+		'@nuxtjs/robots',
 		'@nuxtjs/sitemap',
 		'@pinia/nuxt',
 		'@vite-pwa/nuxt',
@@ -152,6 +153,9 @@ export default defineNuxtConfig({
 	// PWA configuration
 
 	pwa: {
+		// devOptions: {
+		// 	enabled: true,
+		// },
 		manifest: {
 			background_color: '#000011',
 			description: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ',
@@ -162,13 +166,16 @@ export default defineNuxtConfig({
 			start_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.app/',
 			theme_color: '#000011',
 		},
+		// registerType: 'autoUpdate',
 		workbox: {
-			clientsClaim: true,
-			skipWaiting: true,
 			cleanupOutdatedCaches: true,
+			clientsClaim: true,
+			globPatterns: ['**/*.{css,html,ico,js,json,png,svg}'],
+			// globPatterns: [],
+			skipWaiting: true,
 			runtimeCaching: [
 				{
-					urlPattern: '/_nuxt/.*.(js)$',
+					urlPattern: '/_nuxt\/.+\.js$/', // eslint-disable-line
 					handler: 'StaleWhileRevalidate',
 					method: 'GET',
 					options: {
@@ -181,11 +188,11 @@ export default defineNuxtConfig({
 						},
 					},
 				}, {
-					urlPattern: '/_nuxt/.*.(css)$',
+					urlPattern: '/.+\.(css|eot|json|ttf|woff|woff2)$/', // eslint-disable-line
 					handler: 'StaleWhileRevalidate',
 					method: 'GET',
 					options: {
-						cacheName: 'style-cache',
+						cacheName: 'static-cache',
 						expiration: {
 							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
 						},
@@ -194,7 +201,7 @@ export default defineNuxtConfig({
 						},
 					},
 				}, {
-					urlPattern: '/img/.*.(gif|jpeg|jpg|png|webp)$',
+					urlPattern: '/.+\.(gif|jpeg|jpg|png|webp)$/', // eslint-disable-line
 					handler: 'CacheFirst',
 					method: 'GET',
 					options: {

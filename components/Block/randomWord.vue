@@ -1,8 +1,10 @@
 <template lang="pug">
 dt(:id="'wordID' + (targetId)")
+	//- eslint-disable-next-line vue/no-v-html
 	h3(v-html="wordList.title")
 	h4 出典: {{ wordList.original }}
 dd
+	//- eslint-disable-next-line vue/no-v-html
 	div(v-html="wordList.summary")
 	.boxTag
 		ul.tagList
