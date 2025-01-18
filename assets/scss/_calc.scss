@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "sass:meta";
+
 // Round (四捨五入)
 @function round-decimal($number, $digits: 0) {
 	@return to-fixed($number, $digits, "round");
@@ -17,18 +20,18 @@
 	$n: 1;
 
 	// $number must be a number
-	@if type-of($number) != number {
+	@if meta.type-of($number) != number {
 		@warn "#{ $number } is not a number.";
 		@return $number;
 	}
 
 	// $digits must be a unitless number
-	@if type-of($digits) != number {
+	@if meta.type-of($digits) != number {
 		@warn "#{ $digits } is not a number.";
 		@return $number;
 	}
 
-	@else if not unitless($digits) {
+	@else if not math.unitless($digits) {
 		@warn "#{ $digits } has a unit.";
 		@return $number;
 	}
@@ -38,15 +41,15 @@
 	}
 
 	@if $round == "round" {
-		@return round($number * $n) / $n;
+		@return math.round($number * $n) / $n;
 	}
 
 	@else if $round == "ceil" {
-		@return ceil($number * $n) / $n;
+		@return math.ceil($number * $n) / $n;
 	}
 
 	@else if $round == "floor" {
-		@return floor($number * $n) / $n;
+		@return math.floor($number * $n) / $n;
 	}
 
 	@else {

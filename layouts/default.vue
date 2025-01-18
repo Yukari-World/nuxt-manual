@@ -51,7 +51,7 @@ div.layout--default
 
 <script setup lang="ts">
 import { useTheme } from 'vuetify';
-import { useIndexStore } from '../store/index';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/plugins/toolbar/prism-toolbar';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 import 'prismjs/plugins/download-button/prism-download-button';

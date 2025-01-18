@@ -163,7 +163,7 @@ export default defineNuxtConfig({
 			lang: 'ja',
 			name: 'Nuxt Technical Manual',
 			short_name: 'Nuxt Manual',
-			start_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.app/',
+			start_url: '/',
 			theme_color: '#000011',
 		},
 		// registerType: 'autoUpdate',
