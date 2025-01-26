@@ -87,8 +87,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'SCSS' });
 const indexStore = useIndexStore();
 
-const CBScssSample = ref(
-`h1, h2, h3, h4, h5, h6 {
+const CBScssSample = ref(`h1, h2, h3, h4, h5, h6 {
 	font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
@@ -128,8 +127,7 @@ ul {
 	}
 }`);
 
-const CBCssSample = ref(
-`h1, h2, h3, h4, h5, h6 {
+const CBCssSample = ref(`h1, h2, h3, h4, h5, h6 {
 	font-family: 游ゴシック体,Yu Gothic,YuGothic,ヒラギノ角ゴシック Pro,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,Osaka,ＭＳ Ｐゴシック,MS PGothic,sans-serif;
 }
 
@@ -167,8 +165,7 @@ ul ul {
 	}
 }`);
 
-const CBScssVariable = ref(
-`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
+const CBScssVariable = ref(`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 $background-color: #000011;
 $footer-line: 5px;
 
@@ -197,8 +194,7 @@ footer {
 	border-image: $gradation-pattern 1 / #{$footer-line} 0 #{$footer-line * 3} / 0 stretch;
 }`);
 
-const CBCssVariable = ref(
-`body {
+const CBCssVariable = ref(`body {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
@@ -220,8 +216,7 @@ footer {
 	border-image: linear-gradient(90deg, #000011, #1164FF, #FFFF99) 1/5px 0 15px/0 stretch;
 }`);
 
-const CBScssMedia01 = ref(
-`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
+const CBScssMedia01 = ref(`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 
 footer {
 	display: flex;
@@ -271,8 +266,7 @@ footer {
 	}
 }`);
 
-const CBCssMedia01 = ref(
-`footer {
+const CBCssMedia01 = ref(`footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -324,8 +318,7 @@ footer p:last-child {
 	}
 }`);
 
-const CBScssMedia02 = ref(
-`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
+const CBScssMedia02 = ref(`$gradation-pattern: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 
 footer {
 	display: flex;
@@ -347,8 +340,7 @@ footer {
 	}
 }`);
 
-const CBCssMedia02 = ref(
-`footer {
+const CBCssMedia02 = ref(`footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -366,8 +358,7 @@ const CBCssMedia02 = ref(
 	}
 }`);
 
-const CBUseScss = ref(
-`<style lang="scss">
+const CBUseScss = ref(`<style lang="scss">
 // ここにスタイルを記述する
 </style>`);
 

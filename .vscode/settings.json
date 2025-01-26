@@ -1,5 +1,4 @@
 {
-	"eslint.experimental.useFlatConfig": true,
 	"files.associations": {
 		".prettierrc": "yaml"
 	},
@@ -9,7 +8,7 @@
 	"i18n-ally.enabledParsers": ["yaml"],
 	"i18n-ally.keystyle": "nested",
 	"i18n-ally.localesPaths": [
-		"locales",
+		"i18n/locales",
 		"pages/language",
 		"static/locales"
 	],

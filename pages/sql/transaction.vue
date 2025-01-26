@@ -76,13 +76,11 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'TRANSACTION(トランザクション)' });
 const indexStore = useIndexStore();
 
-const CBCommit = ref(
-`START TRANSACTION;
+const CBCommit = ref(`START TRANSACTION;
 -- ~~~ SQL CODE ~~~
 COMMIT;`);
 
-const CBRollback = ref(
-`START TRANSACTION;
+const CBRollback = ref(`START TRANSACTION;
 -- ~~~ SQL CODE ~~~
 ROLLBACK;`);
 

@@ -41,8 +41,7 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'INT(11) の意味' });
 const indexStore = useIndexStore();
 
-const TextB = ref(
-`123456
+const TextB = ref(`123456
      1
     12
    123
@@ -51,8 +50,7 @@ const TextB = ref(
 123456
 1234567`);
 
-const CBSQL = ref(
-`CREATE TABLE \`test\` (
+const CBSQL = ref(`CREATE TABLE \`test\` (
 	\`id\` INT ZEROFILL NOT NULL,
 	\`name\` VARCHAR(20) NOT NULL,
 	PRIMARY KEY (\`id\`)

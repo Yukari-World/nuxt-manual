@@ -106,14 +106,12 @@ import { useIndexStore } from '@/store/index';
 const header = reactive({ title: 'カスタマイズ項目の追加' });
 const indexStore = useIndexStore();
 
-const CBSection = ref(
-`function theme_customizer($wp_customize) : void {
+const CBSection = ref(`function theme_customizer($wp_customize) : void {
 	// ここに内容を入力
 }
 add_action('customize_register', 'theme_customizer');`);
 
-const CBSectionSample = ref(
-`function theme_customizer($wp_customize) : void {
+const CBSectionSample = ref(`function theme_customizer($wp_customize) : void {
 	$wp_customize->add_section('social_link', // セクションID。同じ名前は使わないこと(必須)
 		array(
 			'title' => __('項目名', 'mytheme'), // セクションのタイトル(必須)
@@ -125,8 +123,7 @@ const CBSectionSample = ref(
 }
 add_action('customize_register', 'theme_customizer');`);
 
-const CBSetting = ref(
-`$wp_customize->add_setting(
+const CBSetting = ref(`$wp_customize->add_setting(
 	'theme_options[option_tag]', // 設定を格納する変数(必須)
 	array(
 		'default' => '#', // 既定値(オプション)

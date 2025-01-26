@@ -1,12 +1,11 @@
 <template lang="pug">
 .category--home.page--randomword
+	AlertStub
 	section
-		//- 件数が0なら非表示。これをしないと不具合が起きる
-		//- 一応上限を超えた処理も無効化する
-		template(v-if="wordList.length > 0 && wordList.length >= Number($route.params.id)")
-			BlockRandomWord(:target-id="Number($route.params.id)", :word-list="wordList[Number($route.params.id) - 1]")
-		article(v-else)
-			h3 Now Loading...
+		template(v-if="$route.params.id !== undefined")
+			NuxtPage
+		template(v-else)
+			BlockRandomWord(v-for="(words, index) in wordList", :key="index", :target-id="index + 1", :word-list="words")
 </template>
 
 <script setup lang="ts">
@@ -16,6 +15,7 @@ import { useIndexStore } from '@/store/index';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
+const header = reactive({ title: 'ランダムワード集' });
 const indexStore = useIndexStore();
 
 
@@ -24,6 +24,14 @@ const indexStore = useIndexStore();
 
 const wordList = computed(function() {
 	return indexStore.getRandomWords;
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+// Header Data
+
+useHead({
+	title: header.title,
 });
 </script>
 

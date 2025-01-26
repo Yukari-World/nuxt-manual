@@ -1,20 +1,12 @@
 <template lang="pug">
 //- 表示にブレがあるため、表示サイズの異なる2つのフッターを用意する
 v-footer(padless)
-	//- >= 960px
-	v-row.ma-0.d-none.d-md-flex.flex-md-row
-		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="6")
-			BlockFooterLeft(:link="sLink", :footer-text="sFooterText")
-		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="6")
-			.text-center.text-md-left.yw-footer-source
-				BlockFooterRight
-
-	//- < 960px
-	v-row.ma-0.flex-column.d-md-none
-		v-col.ma-0.pb-0.d-flex.align-center.justify-center(cols="12")
-			BlockFooterLeft(:link="sLink", :footer-text="sFooterText")
-		v-col.ma-0.pb-0.d-flex.align-center.justify-center(cols="12")
-			.text-center.text-md-left.yw-footer-source
+	v-row.ma-0
+		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="12", md="6")
+			.w-100.text-center.text-md-left.yw-footer-source
+				BlockFooterLeft(:link="sLink", :footer-text="sFooterText")
+		v-col.ma-0.pb-0.d-flex.align-center.justify-start(cols="12", md="6")
+			.w-100.text-center.text-md-left.yw-footer-source
 				BlockFooterRight
 </template>
 
@@ -105,7 +97,7 @@ function setRandomWord(): boolean {
  *
  * 但し、初回実行時のみ時間指定を無視する
  *
- * @param   {number}    [seconds=5] 更新間隔(秒)
+ * @param   {number}    seconds 更新間隔(初期値: 5秒)
  * @returns {void}
  */
 function secondsInterval(seconds: number = 5): void {

@@ -45,8 +45,7 @@ const header = reactive({ title: 'PDO(PHP Data Objects)' });
 const indexStore = useIndexStore();
 const localePath = useLocalePath();
 
-const CBConnect = ref(
-`$dsn = 'mysql:host=**データベースドメイン**;dbname=**データベース名**;charset=utf8';
+const CBConnect = ref(`$dsn = 'mysql:host=**データベースドメイン**;dbname=**データベース名**;charset=utf8';
 $username = '**ユーザー名**';
 $password = '**パスワード**';
 
@@ -61,8 +60,7 @@ try {
 	die('Database Connection Failed: ' . $e->getMessage());
 }`);
 
-const CBConnectXampp = ref(
-`$dsn = 'mysql:host=localhost;dbname=**データベース名**;charset=utf8';
+const CBConnectXampp = ref(`$dsn = 'mysql:host=localhost;dbname=**データベース名**;charset=utf8';
 $username = 'root';
 $password = '';
 
@@ -77,8 +75,7 @@ try {
 	die('Database Connection Failed: ' . $e->getMessage());
 }`);
 
-const CBGet = ref(
-`try {
+const CBGet = ref(`try {
 	$query = "SELECT * FROM \`user\`";
 	$stmt = $pdo->prepare($query); // SQLの格納
 	$stmt->execute(); // SQLの実行
