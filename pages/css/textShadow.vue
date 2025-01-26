@@ -7,29 +7,25 @@
 	section
 		h2 使用方法と解説
 		h3 基本的な使い方
-		pre.language-css.line-numbers: code.
-			text-shadow: 0 0 6px #000000;
+		BlockCode.language-css {{ CBSample01 }}
 		.yw-exsample-area.yw-exsample1
-			p I was once an adventurer like you;then I took an arrow in the knee.
+			p {{ sampleText }}
 		p 文字の真下にぼかし6pxの黒の影を付与する。数値が小さい程文字の原型が残り、大きくなる程ぼやけたようになる。
 
 		h4 値が小さい場合
-		pre.language-css.line-numbers: code.
-			text-shadow: 0 0 2px #000000;
+		BlockCode.language-css {{ CBSample02 }}
 		.yw-exsample-area.yw-exsample1-1
-			p I was once an adventurer like you;then I took an arrow in the knee.
+			p {{ sampleText }}
 
 		h4 値が大きい場合
-		pre.language-css.line-numbers: code.
-			text-shadow: 0 0 10px #000000;
+		BlockCode.language-css {{ CBSample03 }}
 		.yw-exsample-area.yw-exsample1-2
-			p I was once an adventurer like you;then I took an arrow in the knee.
+			p {{ sampleText }}
 
 		h3 複数の影をつける
-		pre.language-css.line-numbers: code.
-			text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;
+		BlockCode.language-css {{ CBSample04 }}
 		.yw-exsample-area.yw-exsample2
-			p I was once an adventurer like you;then I took an arrow in the knee.
+			p {{ sampleText }}
 		p 赤と青の影を付与する。カンマを使用することで複数定義することができる。数の制限は特にないが、あくまで装飾に過ぎず、多く指定し過ぎると却って可読性を損なう要因となる。
 
 	section
@@ -40,13 +36,11 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://developer.mozilla.org/ja/docs/Web/CSS/text-shadow', target='_blank', rel='external noopener') MDN Web Docs
+			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/text-shadow", target="_blank", rel="external noopener") MDN Web Docs
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -54,6 +48,13 @@ import 'prismjs/components/prism-css';
 
 const header = reactive({ title: '文字装飾による可読性の向上' });
 const indexStore = useIndexStore();
+
+const sampleText = ref('I was once an adventurer like you;then I took an arrow in the knee.');
+
+const CBSample01 = ref(`text-shadow: 0 0 6px #000000;`);
+const CBSample02 = ref(`text-shadow: 0 0 2px #000000;`);
+const CBSample03 = ref(`text-shadow: 0 0 10px #000000;`);
+const CBSample04 = ref(`text-shadow: 5px 5px 2px #0000FF, -5px -5px 1px #FF0000;`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -68,7 +69,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

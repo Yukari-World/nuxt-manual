@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--other.page--netlify
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlertStub
 
 	section
 		h2 説明
@@ -13,15 +13,14 @@
 
 	section
 		h2 リンク
-		a(href='https://www.netlify.com/', target='_blank', rel='external noopener') Netlify: All-in-one platform for automating modern web projects.
+		a(href="https://www.netlify.com/", target="_blank", rel="external noopener") Netlify: All-in-one platform for automating modern web projects.
 
 	section
 		h2 参考リンク
-		a(href='https://qiita.com/TakahiRoyte/items/b7c4d1581df1a17a93fb', target='_blank', rel='external noopener') 高機能ホスティングサービスNetlifyについて調べて使ってみた - Qiita
+		a(href="https://qiita.com/TakahiRoyte/items/b7c4d1581df1a17a93fb", target="_blank", rel="external noopener") 高機能ホスティングサービスNetlifyについて調べて使ってみた - Qiita
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
 
 
@@ -44,7 +43,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

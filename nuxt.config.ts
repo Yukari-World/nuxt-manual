@@ -1,12 +1,43 @@
 import stylelint from 'vite-plugin-stylelint';
 
 export default defineNuxtConfig({
+	// ----------------------------------------------------------------------------------------------------
+	// Module list and configuration
+
+	modules: [
+		'@nuxt/eslint',
+		'@nuxtjs/i18n',
+		'@nuxtjs/robots',
+		'@nuxtjs/sitemap',
+		'@pinia/nuxt',
+		'@vite-pwa/nuxt',
+		'@vueuse/nuxt',
+		'nuxt-link-checker',
+		// 'nuxt-purgecss',
+	],
+
 	ssr: false,
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// Development tools configuration
+
+	devtools: {
+		componentInspector: false,
+
+		timeline: {
+			enabled: true,
+		},
+	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// Application configuration
 
 	app: {
 		baseURL: '/',
 		head: {
-			titleTemplate: '%s | Nuxt Technical Manual v0.4.2',
+			titleTemplate: '%s | Nuxt Technical Manual v0.4.3',
 			meta: [
 				{ charset: 'utf-8' },
 				{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
@@ -17,7 +48,10 @@ export default defineNuxtConfig({
 		},
 	},
 
+
+	// ----------------------------------------------------------------------------------------------------
 	// Global CSS: https://go.nuxtjs.dev/config-css
+
 	css: [
 		// 'codemirror/lib/codemirror.css',
 		// 'codemirror/theme/material.css',
@@ -30,100 +64,25 @@ export default defineNuxtConfig({
 		'prismjs/plugins/line-numbers/prism-line-numbers.css',
 	],
 
-	// ----------------------------------------------------------------------------------------------------
-	// Module list and configuration
-
-	modules: [
-		// '@nuxtjs/eslint-module',
-		'@nuxtjs/i18n',
-		'@pinia/nuxt',
-		'@vite-pwa/nuxt',
-		// 'nuxt-purgecss',
-	],
-
-	i18n: {
-		defaultLocale: 'ja-JP',
-		detectBrowserLanguage: {
-			cookieKey: 'i18n_redirected',
-			redirectOn: 'root',
-			useCookie: true,
-			cookieSecure: true,
-		},
-		langDir: 'locales/',
-		lazy: true,
-		locales: [
-			{ code: 'en-US', iso: 'en-US', name: 'English', files: [ 'en.json', 'en-US.json' ] },
-			{ code: 'ja-JP', iso: 'ja-JP', name: 'Japanese', files: [ 'ja.json', 'ja-JP.json' ] },
-		],
-		strategy: 'prefix_except_default',
-	},
-
-	pwa: {
-		manifest: {
-			background_color: '#000011',
-			description: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ',
-			display: 'standalone',
-			lang: 'ja',
-			name: 'Nuxt Technical Manual',
-			short_name: 'Nuxt Manual',
-			start_url: process.env.BASE_URL || 'https://nuxt-technical-manual.netlify.app/',
-			theme_color: '#000011',
-		},
-		workbox: {
-			clientsClaim: true,
-			skipWaiting: true,
-			cleanupOutdatedCaches: true,
-			runtimeCaching: [
-				{
-					urlPattern: '/_nuxt/.*.(js)$',
-					handler: 'StaleWhileRevalidate',
-					method: 'GET',
-					options: {
-						cacheName: 'entry-cache',
-						expiration: {
-							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
-						},
-						cacheableResponse: {
-							statuses: [ 0, 200 ],
-						},
-					},
-				}, {
-					urlPattern: '/_nuxt/.*.(css)$',
-					handler: 'StaleWhileRevalidate',
-					method: 'GET',
-					options: {
-						cacheName: 'style-cache',
-						expiration: {
-							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
-						},
-						cacheableResponse: {
-							statuses: [ 0, 200 ],
-						},
-					},
-				}, {
-					urlPattern: '/img/.*.(gif|jpeg|jpg|png|webp)$',
-					handler: 'CacheFirst',
-					method: 'GET',
-					options: {
-						cacheName: 'image-cache',
-						expiration: {
-							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
-						},
-						cacheableResponse: {
-							statuses: [ 0, 200 ],
-						},
-					},
-				},
-			],
-		},
-	},
 
 	// ----------------------------------------------------------------------------------------------------
 	// Build configuration
 
 	build: {
-		transpile: [ 'vuetify' ],
+		transpile: ['vuetify'],
 	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// Development server configuration
+
+	devServer: {
+		host: process.env.host || '0.0.0.0',
+		port: Number(process.env.port) || 3000,
+	},
+
+	compatibilityDate: '2024-07-11',
+
 
 	// ----------------------------------------------------------------------------------------------------
 	// Vite configuration
@@ -147,5 +106,115 @@ export default defineNuxtConfig({
 				],
 			}),
 		],
+	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// postcss configuration
+
+	postcss: {
+		plugins: {
+			autoprefixer: {},
+			cssnano: {},
+		},
+	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// eslint configuration
+
+	eslint: {
+		checker: true,
+	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// i18n configuration
+
+	i18n: {
+		defaultLocale: 'ja-JP',
+		detectBrowserLanguage: {
+			cookieKey: 'i18n_redirected',
+			redirectOn: 'root',
+			useCookie: true,
+			cookieSecure: true,
+		},
+		langDir: 'locales/',
+		lazy: true,
+		locales: [
+			{ code: 'en-US', language: 'en-US', name: 'English', files: ['en.yaml', 'en-US.yaml'] },
+			{ code: 'ja-JP', language: 'ja-JP', name: 'Japanese', files: ['ja.yaml', 'ja-JP.yaml'] },
+		],
+		strategy: 'prefix_except_default',
+	},
+
+
+	// ----------------------------------------------------------------------------------------------------
+	// PWA configuration
+
+	pwa: {
+		// devOptions: {
+		// 	enabled: true,
+		// },
+		manifest: {
+			background_color: '#000011',
+			description: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ',
+			display: 'standalone',
+			lang: 'ja',
+			name: 'Nuxt Technical Manual',
+			short_name: 'Nuxt Manual',
+			start_url: '/',
+			theme_color: '#000011',
+		},
+		// registerType: 'autoUpdate',
+		workbox: {
+			cleanupOutdatedCaches: true,
+			clientsClaim: true,
+			globPatterns: ['**/*.{css,html,ico,js,json,png,svg}'],
+			// globPatterns: [],
+			skipWaiting: true,
+			runtimeCaching: [
+				{
+					urlPattern: '/_nuxt\/.+\.js$/', // eslint-disable-line
+					handler: 'StaleWhileRevalidate',
+					method: 'GET',
+					options: {
+						cacheName: 'entry-cache',
+						expiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
+						},
+						cacheableResponse: {
+							statuses: [0, 200],
+						},
+					},
+				}, {
+					urlPattern: '/.+\.(css|eot|json|ttf|woff|woff2)$/', // eslint-disable-line
+					handler: 'StaleWhileRevalidate',
+					method: 'GET',
+					options: {
+						cacheName: 'static-cache',
+						expiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 14, // 14日
+						},
+						cacheableResponse: {
+							statuses: [0, 200],
+						},
+					},
+				}, {
+					urlPattern: '/.+\.(gif|jpeg|jpg|png|webp)$/', // eslint-disable-line
+					handler: 'CacheFirst',
+					method: 'GET',
+					options: {
+						cacheName: 'image-cache',
+						expiration: {
+							maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+						},
+						cacheableResponse: {
+							statuses: [0, 200],
+						},
+					},
+				},
+			],
+		},
 	},
 });

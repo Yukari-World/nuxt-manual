@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"editorconfig.editorconfig",
+		"github.vscode-github-actions",
+		"github.vscode-pull-request-github",
+		"lokalise.i18n-ally",
+		"mhutchie.git-graph",
+		"stylelint.vscode-stylelint",
+		"vue.volar"
+	]
+}

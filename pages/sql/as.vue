@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--sql.page--as
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlertStub
 
 	section
 		h2 説明
@@ -13,37 +13,22 @@
 		p
 			span.text-decoration-line-through
 				| 解説にあたり以下のデータベースを利用する。コピーすることで簡単に利用できる。尚このSQLコードは
-				a(href='https://www.mysql.com/jp/', target='_blank', rel='external noopener') MySQL
+				a(href="https://www.mysql.com/jp/", target="_blank", rel="external noopener") MySQL
 				| もしくは
-				a(href='https://mariadb.org/', target='_blank', rel='external noopener') MariaDB
+				a(href="https://mariadb.org/", target="_blank", rel="external noopener") MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
-			nuxt-link(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
+			NuxtLink(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
 
 		h3 使用方法
 		p 今回以下のSQL文から説明を行う
-		pre.language-sql.line-numbers: code.
-			SELECT
-				`customer`.`name`,
-				`product`.`name`,
-				`price`,
-				`amount`,
-				`price` * `amount`
-			FROM
-				`order`
-			INNER JOIN
-				`customer`
-					ON `customer`.`id` = `order`.`customerID`
-			INNER JOIN
-				`product`
-					ON `product`.`id` = `order`.`productID`
-			;
+		BlockCode.language-sql {{ CBWithoutAS }}
 
 		p
 			| このまま使用してもエラーはなく実行できる。しかし出力結果は以下の通りである。
 			br
 			| 尚、このSQL出力結果のテーブルは
-			a(href='https://www.heidisql.com/', target='_blank', rel='external noopener') HeidiSQL
+			a(href="https://www.heidisql.com/", target="_blank", rel="external noopener") HeidiSQL
 			| で実行し、出力結果をHTML変換している。
 		table
 			caption SQL Code Result 1 (7 rows)
@@ -55,73 +40,23 @@
 					th.col3 amount
 					th.col4 `price` * `amount`
 			tbody
-				tr
-					td.col0 神崎商会
-					td.col1 りんご
-					td.col2 120
-					td.col3 60
-					td.col4 7200
-				tr
-					td.col0 神崎商会
-					td.col1 みかん
-					td.col2 120
-					td.col3 120
-					td.col4 14400
-				tr
-					td.col0 神崎商会
-					td.col1 バナナ
-					td.col2 90
-					td.col3 25
-					td.col4 2250
-				tr
-					td.col0 神崎商会
-					td.col1 パイナップル
-					td.col2 300
-					td.col3 35
-					td.col4 10500
-				tr
-					td.col0 神崎商会
-					td.col1 ブドウ
-					td.col2 400
-					td.col3 20
-					td.col4 8000
-				tr
-					td.col0 神崎商会
-					td.col1 グレープフルーツ
-					td.col2 100
-					td.col3 50
-					td.col4 5000
-				tr
-					td.col0 神崎商会
-					td.col1 梨
-					td.col2 190
-					td.col3 35
-					td.col4 6650
+				tr(v-for="(val, index) in tableData", :key="index")
+					td.col0 {{ val.name }}
+					td.col1 {{ val.productName }}
+					td.col2 {{ val.price }}
+					td.col3 {{ val.amount }}
+					td.col4 {{ val.price * val.amount }}
+
 		p
 			| nameというカラムが2つもあり、何の名前を示しているのかわからない。
 			br
 			| また、金額を示すカラムについては式がカラム名となっており、不自然である。
 			br
 			| そこで
-			code.language-sql: span.token.keyword.keyword-AS AS
+			TextToken(type="sql").keyword.keyword-AS AS
 			| を使用することで別名をつけることができる
 
-		pre.language-sql.line-numbers: code.
-			SELECT
-				`customer`.`name` AS `customerName`,
-				`product`.`name` AS `productName`,
-				`price`,
-				`amount`,
-				`price` * `amount` AS `totalPrice`
-			FROM
-				`order`
-			INNER JOIN
-				`customer`
-					ON `customer`.`id` = `order`.`customerID`
-			INNER JOIN
-				`product`
-					ON `product`.`id` = `order`.`productID`
-			;
+		BlockCode.language-sql {{ CBWithAS }}
 
 		table
 			caption SQL Code Result 2 (7 rows)
@@ -133,48 +68,12 @@
 					th.col3 amount
 					th.col4 totalPrice
 			tbody
-				tr
-					td.col0 神崎商会
-					td.col1 りんご
-					td.col2 120
-					td.col3 60
-					td.col4 7200
-				tr
-					td.col0 神崎商会
-					td.col1 みかん
-					td.col2 120
-					td.col3 120
-					td.col4 14400
-				tr
-					td.col0 神崎商会
-					td.col1 バナナ
-					td.col2 90
-					td.col3 25
-					td.col4 2250
-				tr
-					td.col0 神崎商会
-					td.col1 パイナップル
-					td.col2 300
-					td.col3 35
-					td.col4 10500
-				tr
-					td.col0 神崎商会
-					td.col1 ブドウ
-					td.col2 400
-					td.col3 20
-					td.col4 8000
-				tr
-					td.col0 神崎商会
-					td.col1 グレープフルーツ
-					td.col2 100
-					td.col3 50
-					td.col4 5000
-				tr
-					td.col0 神崎商会
-					td.col1 梨
-					td.col2 190
-					td.col3 35
-					td.col4 6650
+				tr(v-for="(val, index) in tableData", :key="index")
+					td.col0 {{ val.name }}
+					td.col1 {{ val.productName }}
+					td.col2 {{ val.price }}
+					td.col3 {{ val.amount }}
+					td.col4 {{ val.price * val.amount }}
 
 	section
 		h2 使用上の注意
@@ -183,9 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-sql';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -194,6 +91,48 @@ import 'prismjs/components/prism-sql';
 const header = reactive({ title: 'AS(別名)' });
 const indexStore = useIndexStore();
 const localePath = useLocalePath();
+
+const tableData = reactive([
+	{ name: '神崎商会', productName: 'りんご', price: 120, amount: 60 },
+	{ name: '神崎商会', productName: 'みかん', price: 120, amount: 120 },
+	{ name: '神崎商会', productName: 'バナナ', price: 90, amount: 50 },
+	{ name: '神崎商会', productName: 'パイナップル', price: 300, amount: 50 },
+	{ name: '神崎商会', productName: 'ブドウ', price: 400, amount: 30 },
+	{ name: '神崎商会', productName: 'グレープフルーツ', price: 100, amount: 50 },
+	{ name: '神崎商会', productName: '梨', price: 190, amount: 50 },
+]);
+
+const CBWithoutAS = ref(`SELECT
+	\`customer\`.\`name\`,
+	\`product\`.\`name\`,
+	\`price\`,
+	\`amount\`,
+	\`price\` * \`amount\`
+FROM
+	\`order\`
+INNER JOIN
+	\`customer\`
+		ON \`customer\`.\`id\` = \`order\`.\`customerID\`
+INNER JOIN
+	\`product\`
+		ON \`product\`.\`id\` = \`order\`.\`productID\`
+;`);
+
+const CBWithAS = ref(`SELECT
+	\`customer\`.\`name\` AS \`customerName\`,
+	\`product\`.\`name\` AS \`productName\`,
+	\`price\`,
+	\`amount\`,
+	\`price\` * \`amount\` AS \`totalPrice\`
+FROM
+	\`order\`
+INNER JOIN
+	\`customer\`
+		ON \`customer\`.\`id\` = \`order\`.\`customerID\`
+INNER JOIN
+	\`product\`
+		ON \`product\`.\`id\` = \`order\`.\`productID\`
+;`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -208,7 +147,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

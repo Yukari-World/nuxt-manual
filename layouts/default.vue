@@ -2,36 +2,36 @@
 div.layout--default
 	//- サイドバー
 	//- 内部処理はサイドバーコンポーネント参照
-	v-navigation-drawer(v-model='drawer', app)
+	v-navigation-drawer.yw-sidebar(v-model="drawer", app)
 		CommonSidebar
 
 	//- ページヘッダー
 	v-app-bar(app)
-		v-app-bar-nav-icon(aria-label='Side Menu', @click.stop='drawer = !drawer')
+		v-app-bar-nav-icon(aria-label="Side Menu", @click.stop="drawer = !drawer")
 		CommonHeader
 		v-spacer
 
-		v-btn(icon, aria-label='Search')
+		v-btn(icon, aria-label="Search")
 			v-icon mdi-magnify
 
-		v-menu(location='bottom left', transition='slide-y-transition')
-			template(v-slot:activator='{ props }')
-				v-btn(icon, aria-label='Menu', v-bind='props')
+		v-menu(location="bottom left", transition="slide-y-transition")
+			template(#activator="{ props }")
+				v-btn(icon, aria-label="Menu", v-bind="props")
 					v-icon mdi-dots-vertical
 			v-list
-				v-list-item(v-for="(temp, index) in headMenu", active-class='text-light-blue', link, nuxt, :to='temp.link', :key='index')
-					template(v-slot:prepend)
+				v-list-item(v-for="(temp, index) in headMenu", :key="index", active-class="text-light-blue", link, nuxt, :to="temp.link")
+					template(#prepend)
 						v-icon {{ temp.icon }}
 					//- v-list-item-title(v-text="$t(temp.title)")
 					v-list-item-title {{ $t(temp.title) }}
 
-		v-menu(location='bottom left', transition='slide-y-transition')
-			template(v-slot:activator='{ props }')
-				v-btn(icon, aria-label='Translate', v-bind='props')
+		v-menu(location="bottom left", transition="slide-y-transition")
+			template(#activator="{ props }")
+				v-btn(icon, aria-label="Translate", v-bind="props")
 					v-icon mdi-translate
 			v-list
-				v-list-item(v-for="(locale, index) in availableLocales", active-class='text-light-blue', @click.prevent.stop="setLocale(locale.code)", :key='locale.code')
-					v-list-item-title {{ locale.name }}
+				v-list-item(v-for="(localeData) in availableLocales", :key="localeData.code", active-class="text-light-blue", @click.prevent.stop="setLocale(localeData.code)")
+					v-list-item-title {{ localeData.name }}
 
 		//- テーマ切り替えスイッチ
 		v-btn(icon, @click="toggleTheme")
@@ -51,9 +51,11 @@ div.layout--default
 
 <script setup lang="ts">
 import { useTheme } from 'vuetify';
-import { useIndexStore } from '../store/index';
+import { useIndexStore } from '@/store/index';
 import 'prismjs/plugins/toolbar/prism-toolbar';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
+import 'prismjs/plugins/download-button/prism-download-button';
+import 'prismjs/plugins/highlight-keywords/prism-highlight-keywords';
 import 'prismjs/plugins/show-language/prism-show-language';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
@@ -62,11 +64,13 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const { locale, locales, setLocale } = useI18n();
+const { locales, setLocale } = useI18n();
 const indexStore = useIndexStore();
 const theme = useTheme();
 // const switchLocalePath = useSwitchLocalePath();
+
 const drawer = ref(true);
+
 const headMenu = reactive([
 	{ title: 'header.title', icon: 'mdi-home', link: '/' },
 	{ title: 'header.log', icon: 'mdi-history', link: '/updateLog' },

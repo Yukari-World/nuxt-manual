@@ -7,16 +7,10 @@
 	section
 		h2 使用方法と解説
 		p 非常に単純なため、細かい説明は省略する。
-		pre.language-css.line-numbers: code.
-			br {
-				display: none;
-			}
+		BlockCode.language-css {{ CBNone }}
 
 		p 再度有効にする場合、以下の方法で行う。
-		pre.language-css.line-numbers: code.
-			br {
-				display: inline;
-			}
+		BlockCode.language-css {{ CBActive }}
 
 	section
 		h2 使用上の注意
@@ -27,13 +21,11 @@
 	section
 		h2 参考リンク
 		p
-			a(href='https://www.msng.info/archives/2013/03/turning-off-html-br-with-css.php', target='_blank', rel='external noopener') HTML の br タグを CSS だけで消す方法 - 頭ん中
+			a(href="https://www.msng.info/archives/2013/03/turning-off-html-br-with-css.php", target="_blank", rel="external noopener") HTML の br タグを CSS だけで消す方法 - 頭ん中
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-css';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -41,6 +33,14 @@ import 'prismjs/components/prism-css';
 
 const header = reactive({ title: 'brタグによる改行を無効化' });
 const indexStore = useIndexStore();
+
+const CBNone = ref(`br {
+	display: none;
+}`);
+
+const CBActive = ref(`br {
+	display: inline;
+}`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -55,7 +55,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

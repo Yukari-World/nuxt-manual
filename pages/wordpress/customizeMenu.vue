@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--wordpress.page--customize-menu
-	v-alert(type='info', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.workInProgress.title')", :text="$t('common.stub.workInProgress.desc')")
+	AlertStub
 
 	section
 		h2 説明
@@ -20,9 +20,9 @@
 				| 。
 				br
 				| メニュー項目は自動的に追加されないため手動での作業が必要となるが、作成することで利用者側で簡単にカスタマイズを行う事が出来るようになる。
-			div
-				v-skeleton-loader.mx-auto(type='image', width='245', max-width='245', height='544')
-					v-img(src='/img/wordpress-img1.png', eager, max-width='245', max-height='544')
+			.w-245
+				v-skeleton-loader.mx-auto(type="image", width="245", max-width="245", height="544")
+					v-img(src="/img/wordpress-img1.png", eager, max-width="245", max-height="544")
 				p.no-speak カスタマイズメニューの例
 
 	section
@@ -40,30 +40,26 @@
 					li 必ずしも使用する必要はない
 
 		.d-flex.justify-space-around.align-center.flex-column.flex-md-row
-			div
-				v-skeleton-loader.mx-auto(type='image', width='250', max-width='250', height='400')
-					v-img(src='/img/wordpress-img2.png', max-width='250')
+			.w-250
+				v-skeleton-loader.mx-auto(type="image", width="250", max-width="250", height="400")
+					v-img(src="/img/wordpress-img2.png", max-width="250")
 				p.no-speak パネルの例
 			p.no-speak →
-			div
-				v-skeleton-loader(type='image')
-					v-img(src='/img/wordpress-img3.png', max-width='250')
+			.w-250
+				v-skeleton-loader(type="image", width="250", max-width="250")
+					v-img(src="/img/wordpress-img3.png", max-width="250")
 				p.no-speak セクションの例
 			p.no-speak →
-			div
-				v-skeleton-loader(type='image')
-					v-img(src='/img/wordpress-img4.png', max-width='250')
+			.w-250
+				v-skeleton-loader(type="image", width="250", max-width="250")
+					v-img(src="/img/wordpress-img4.png", max-width="250")
 				p.no-speak 設定項目の例
 
 		h3 関数の追加
 		p
 			| メニュー項目を追加するには関数を追加する必要がある。
 			| まず、メニュー項目を追加したいテーマのfunctions.phpに以下の関数を追加する。
-		pre.language-php.line-numbers: code.
-			function theme_customizer($wp_customize) : void {
-				// ここに内容を入力
-			}
-			add_action('customize_register', 'theme_customizer');
+		BlockCode.language-php {{ CBSection }}
 
 		p この関数の内部にカスタマイズ項目を記述する。
 
@@ -76,18 +72,7 @@
 				span.token.punctuation (
 				span.token.punctuation )
 			| の関数はテーマのローカライズに使用するため、必要なければ省略してよい。
-		pre.language-php.line-numbers: code.
-			function theme_customizer($wp_customize) : void {
-				$wp_customize-&gt;add_section('social_link', // セクションID。同じ名前は使わないこと(必須)
-					array(
-						'title' =&gt; __('項目名', 'mytheme'), // セクションのタイトル(必須)
-						'priority' =&gt; 200, // セクションの優先順位。大きい程セクションが下に来る(必須)
-						'capability' =&gt; 'edit_theme_options', // 権限 (オプション)
-						'description' =&gt; __('Text', 'mytheme'), // ツールチップ表示内容(オプション)
-					)
-				);
-			}
-			add_action('customize_register', 'theme_customizer');
+		BlockCode.language-php {{ CBSectionSample }}
 
 		p これでセクション項目が追加されるが、設定項目が空(何も設定されていない)の場合、メニューに表示されない。そのため、追加されているかどうかは設定項目の追加をしてから行う。
 
@@ -108,35 +93,11 @@
 				span.token.punctuation (
 				span.token.punctuation )
 			| の2つの関数を必要とする。
-		pre.language-php.line-numbers: code.
-			$wp_customize-&gt;add_setting(
-				'theme_options[option_tag]', // 設定を格納する変数(必須)
-				array(
-					'default' =&gt; '#', // 既定値(オプション)
-					'type' =&gt; 'option', // optionを指定(必須)
-					'capability' =&gt; 'edit_theme_options', // 権限 (オプション)
-					'transport' =&gt; 'refresh', // 設定を変更した時のライブプレビューの反映タイミング(オプション)
-				)
-			);
-
-			$wp_customize-&gt;add_control(
-				'theme_options[option_tag]', // 設定を格納する変数。上で指定した変数を入力する。(必須)
-				array(
-					'label' =&gt; __('項目名', 'mytheme'), // 管理画面に表示するコントロール名(必須)
-					'section' =&gt; 'social_link', // このコントロールを出力するセクションのID名(必須)
-					'capability' =&gt; 'edit_theme_options', // 権限 (オプション)
-					'type' =&gt; 'text', // 設定項目の種類(必須)
-				)
-			);
+		BlockCode.language-php {{ CBSetting }}
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-php';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -144,6 +105,43 @@ import 'prismjs/components/prism-php';
 
 const header = reactive({ title: 'カスタマイズ項目の追加' });
 const indexStore = useIndexStore();
+
+const CBSection = ref(`function theme_customizer($wp_customize) : void {
+	// ここに内容を入力
+}
+add_action('customize_register', 'theme_customizer');`);
+
+const CBSectionSample = ref(`function theme_customizer($wp_customize) : void {
+	$wp_customize->add_section('social_link', // セクションID。同じ名前は使わないこと(必須)
+		array(
+			'title' => __('項目名', 'mytheme'), // セクションのタイトル(必須)
+			'priority' => 200, // セクションの優先順位。大きい程セクションが下に来る(必須)
+			'capability' => 'edit_theme_options', // 権限 (オプション)
+			'description' => __('Text', 'mytheme'), // ツールチップ表示内容(オプション)
+		)
+	);
+}
+add_action('customize_register', 'theme_customizer');`);
+
+const CBSetting = ref(`$wp_customize->add_setting(
+	'theme_options[option_tag]', // 設定を格納する変数(必須)
+	array(
+		'default' => '#', // 既定値(オプション)
+		'type' => 'option', // optionを指定(必須)
+		'capability' => 'edit_theme_options', // 権限 (オプション)
+		'transport' => 'refresh', // 設定を変更した時のライブプレビューの反映タイミング(オプション)
+	)
+);
+
+$wp_customize->add_control(
+	'theme_options[option_tag]', // 設定を格納する変数。上で指定した変数を入力する。(必須)
+	array(
+		'label' => __('項目名', 'mytheme'), // 管理画面に表示するコントロール名(必須)
+		'section' => 'social_link', // このコントロールを出力するセクションのID名(必須)
+		'capability' => 'edit_theme_options', // 権限 (オプション)
+		'type' => 'text', // 設定項目の種類(必須)
+	)
+);`);
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -158,10 +156,23 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>
 
 <script lang="ts">
 </script>
+
+<style lang="scss">
+.category--wordpress {
+	&.page--customize-menu {
+		.w-245 {
+			width: 245px;
+		}
+
+		.w-250 {
+			width: 250px;
+		}
+	}
+}
+</style>

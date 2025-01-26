@@ -2,21 +2,30 @@
 .category--home.page--update-log
 	v-timeline(reverse)
 		//- カードの出力
-		v-timeline-item(v-for='(logIndex, index) in log', :key='index')
+		v-timeline-item(v-for="(logIndex, index) in log", :key="index")
 			//- 反対側に出力する文字を出力
 			//- 有ったり無かったりするので、条件で分岐
-			template(v-if='logIndex.opposite !== undefined')
-				span(slot='opposite') {{ logIndex.opposite }}
-			v-card(elevation='5')
+			template(v-if="logIndex.opposite !== undefined", #opposite)
+				span {{ logIndex.opposite }}
+			v-card(elevation="5")
 				v-card-title.headline {{ logIndex.date }}
 				v-card-text
 					ul
-						li(v-for='(desc, i) in logIndex.summary') {{ desc }}
+						li(v-for="(desc, i) in logIndex.summary", :key="i") {{ desc }}
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
+
+
+// ----------------------------------------------------------------------------------------------------
+// Interface
+
+interface ILog {
+	date: string,
+	opposite?: string,
+	summary: string[],
+}
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -24,7 +33,7 @@ import { useIndexStore } from '@/store/index';
 
 const header = reactive({ title: '更新履歴' });
 const indexStore = useIndexStore();
-const log = reactive([
+const log = reactive<ILog[]>([
 	{
 		date: '2022/12/20',
 		summary: [
@@ -524,7 +533,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>

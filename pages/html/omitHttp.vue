@@ -1,6 +1,6 @@
 <template lang="pug">
 .category--html.page--omit-http
-	v-alert(type='error', border='start', colored-border, dense, elevation='5', :title="$t('common.stub.deprecated.title')", :text="$t('common.stub.deprecated.desc')")
+	AlertDeprecated
 
 	section
 		h2 説明
@@ -9,12 +9,10 @@
 	section
 		h2 使用方法と解説
 		p このようなリンクがあるとする。
-		pre.language-http.line-numbers: code.
-			https://prismjs.com/
+		BlockCode.language-http: pre https://prismjs.com/
 
 		p これを以下のように記述することができる。
-		pre.language-http.line-numbers: code.
-			//prismjs.com/
+		BlockCode.language-http: pre //prismjs.com/
 
 		p 詳細な内容は省略する。
 
@@ -26,13 +24,11 @@
 
 	section
 		h2 参考リンク
-		a(href='https://prokatsu.com/http-not-omit/', target='_blank', rel='external noopener') 【2018年版】http,httpsは省略しない方がいい | プロカツ！
+		a(href="https://prokatsu.com/http-not-omit/", target="_blank", rel="external noopener") 【2018年版】http,httpsは省略しない方がいい | プロカツ！
 </template>
 
 <script setup lang="ts">
-import { highlightAll } from 'prismjs';
 import { useIndexStore } from '@/store/index';
-import 'prismjs/components/prism-http';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -54,7 +50,6 @@ useHead({
 // Mounted
 
 onMounted(function() {
-	highlightAll();
 	indexStore.setTitle(header.title);
 });
 </script>
