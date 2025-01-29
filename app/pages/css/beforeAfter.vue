@@ -35,11 +35,11 @@
 	section
 		h2 参考リンク
 		p
-			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/::before", target="_blank", rel="external noopener") MDN Web Docs / before
+			NuxtLink(to="https://developer.mozilla.org/ja/docs/Web/CSS/::before", target="_blank", rel="external noopener") MDN Web Docs / before
 			br
-			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/::after", target="_blank", rel="external noopener") MDN Web Docs / after
+			NuxtLink(to="https://developer.mozilla.org/ja/docs/Web/CSS/::after", target="_blank", rel="external noopener") MDN Web Docs / after
 			br
-			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/content", target="_blank", rel="external noopener") MDN Web Docs / content
+			NuxtLink(to="https://developer.mozilla.org/ja/docs/Web/CSS/content", target="_blank", rel="external noopener") MDN Web Docs / content
 </template>
 
 <script setup lang="ts">

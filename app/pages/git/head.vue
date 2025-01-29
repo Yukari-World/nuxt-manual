@@ -8,7 +8,7 @@
 
 	section
 		h2 参考リンク
-		a(href="https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0", target="_blank", rel="external noopener") いまさらだけどGitを基本から分かりやすくまとめてみた - Qiita
+		NuxtLink(to="https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0", target="_blank", rel="external noopener") いまさらだけどGitを基本から分かりやすくまとめてみた - Qiita
 </template>
 
 <script setup lang="ts">

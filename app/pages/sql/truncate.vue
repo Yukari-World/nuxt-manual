@@ -47,9 +47,9 @@
 	section
 		h2 参考リンク
 		p
-			a(href="https://www.postgresql.jp/document/10/html/sql-truncate.html", target="_blank", rel="external noopener") PostgreSQL
+			NuxtLink(to="https://www.postgresql.jp/document/10/html/sql-truncate.html", target="_blank", rel="external noopener") PostgreSQL
 			br
-			a(href="https://ja.wikipedia.org/wiki/TRUNCATE_(SQL)", target="_blank", rel="external noopener") Wikipedia
+			NuxtLink(to="https://ja.wikipedia.org/wiki/TRUNCATE_(SQL)", target="_blank", rel="external noopener") Wikipedia
 </template>
 
 <script setup lang="ts">

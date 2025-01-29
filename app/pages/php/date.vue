@@ -55,7 +55,7 @@
 	section
 		h2 参考リンク
 		p
-			NuxtLink(href="https://www.php.net/manual/ja/function.date.php", target="_blank", rel="external noopener") PHP.net
+			NuxtLink(to="https://www.php.net/manual/ja/function.date.php", target="_blank", rel="external noopener") PHP.net
 </template>
 
 <script setup lang="ts">

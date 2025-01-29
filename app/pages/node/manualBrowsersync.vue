@@ -9,7 +9,7 @@
 		h3 グローバルインストール
 		ol
 			li
-				a(href="https://nodejs.org/ja/", title="Node.js", target="_blank", rel="external noopener") Node.js
+				NuxtLink(to="https://nodejs.org/ja/", title="Node.js", target="_blank", rel="external noopener") Node.js
 				| をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。
 			li
 				| コマンドプロンプトを起動し、
@@ -18,7 +18,7 @@
 		h3 ローカルインストール
 		ol
 			li
-				a(href="https://nodejs.org/ja/", title="Node.js", target="_blank", rel="external noopener") Node.js
+				NuxtLink(to="https://nodejs.org/ja/", title="Node.js", target="_blank", rel="external noopener") Node.js
 				| をインストールする。すでに済んでいる場合は省略。また、インストール手順はインストールマニュアル参照。
 			li
 				| コマンドプロンプトを起動し、プロジェクトフォルダに移動する。対象パスにpackage.jsonが存在しない場合
@@ -85,7 +85,7 @@
 	section
 		h2 リンク
 		p
-			a(href="https://browsersync.io/", target="_blank", rel="external noopener") Browsersync - Time-saving synchronised browser testing
+			NuxtLink(to="https://browsersync.io/", target="_blank", rel="external noopener") Browsersync - Time-saving synchronised browser testing
 </template>
 
 <script setup lang="ts">

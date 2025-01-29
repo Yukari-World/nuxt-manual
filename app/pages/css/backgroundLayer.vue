@@ -33,7 +33,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href="https://www.webcreatorbox.com/tech/css-blend-mode", target="_blank", rel="external noopener") CSSブレンドモードで画像を彩ろう | Webクリエイターボックス
+			NuxtLink(to="https://www.webcreatorbox.com/tech/css-blend-mode", target="_blank", rel="external noopener") CSSブレンドモードで画像を彩ろう | Webクリエイターボックス
 </template>
 
 <script setup lang="ts">

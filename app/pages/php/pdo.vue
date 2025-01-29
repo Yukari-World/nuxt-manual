@@ -31,7 +31,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href="https://www.php.net/manual/ja/class.pdo.php", target="_blank", rel="external noopener") PHP.net
+			NuxtLink(to="https://www.php.net/manual/ja/class.pdo.php", target="_blank", rel="external noopener") PHP.net
 </template>
 
 <script setup lang="ts">

@@ -15,9 +15,9 @@
 		p
 			span.text-decoration-line-through
 				| 解説にあたり以下のデータベースを利用する。コピーすることで簡単に利用できる。尚このSQLコードは
-				a(href="https://www.mysql.com/jp/", target="_blank", rel="external noopener") MySQL
+				NuxtLink(to="https://www.mysql.com/jp/", target="_blank", rel="external noopener") MySQL
 				| もしくは
-				a(href="https://mariadb.org/", target="_blank", rel="external noopener") MariaDB
+				NuxtLink(to="https://mariadb.org/", target="_blank", rel="external noopener") MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
 			NuxtLink(:to="localePath('/sample#sqlSample')" title="サンプルデータ") サンプルデータに移行。

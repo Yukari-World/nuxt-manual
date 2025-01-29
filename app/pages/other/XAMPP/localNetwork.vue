@@ -37,7 +37,7 @@
 
 	section
 		h2 参考リンク
-		a(href="http://weble.org/2009/11/28/xampp-intranet", target="_blank", rel="external noopener") XAMPP にイントラネット内 (LAN 内) のPC から接続する設定 | ウェブル
+		NuxtLink(to="http://weble.org/2009/11/28/xampp-intranet", target="_blank", rel="external noopener") XAMPP にイントラネット内 (LAN 内) のPC から接続する設定 | ウェブル
 </template>
 
 <script setup lang="ts">

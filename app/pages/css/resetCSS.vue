@@ -8,7 +8,7 @@
 
 	section
 		BlockCode.language-css {{ CBReset01 }}
-		a(href="https://meyerweb.com/eric/tools/css/reset/", target="_blank", rel="external noopener") CSS Tools: Reset CSS - meyerweb.com
+		NuxtLink(to="https://meyerweb.com/eric/tools/css/reset/", target="_blank", rel="external noopener") CSS Tools: Reset CSS - meyerweb.com
 </template>
 
 <script setup lang="ts">
