@@ -4,13 +4,13 @@
 		p 左のメニューより閲覧したい内容を選択してください。
 			br
 			| このページのコードの表示には
-			a(href="http://mix-mplus-ipa.osdn.jp/migu/", title="Miguフォント : M+とIPAの合成フォント", target="_blank", rel="external noopener") Migu 1M
+			NuxtLink(to="http://mix-mplus-ipa.osdn.jp/migu/", title="Miguフォント : M+とIPAの合成フォント", target="_blank", rel="external noopener") Migu 1M
 			| フォントの導入を推奨しています。
 			br
 			| また、このフォントはプログラムコーディングにおいても優秀なため、導入を推奨します。
 			br
 			| 各ページのコードのハイライトには
-			a(href="https://prismjs.com/", title="Prism", target="_blank", rel="external noopener") Prism
+			NuxtLink(to="https://prismjs.com/", title="Prism", target="_blank", rel="external noopener") Prism
 			| が使用されています。
 		AlertBase(type="info")
 			//- h2 注意事項
@@ -40,8 +40,9 @@
 
 	section
 		h2 マニュアル作成について
-		p このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは
-			a(href="https://github.com/Yukari-World/nuxt-manual", target="_blank", rel="external noopener") GitHub
+		p
+			| このマニュアル作成に当たり以下のツールやエディター、言語等を使用しています。作成に使用したソースコードは
+			NuxtLink(to="https://github.com/Yukari-World/nuxt-manual", target="_blank", rel="external noopener") GitHub
 			| に置いていますので参考にしてください。
 		h3 開発言語
 		ul
@@ -49,66 +50,66 @@
 				| JavaScript(ECMAScript 2017),&nbsp;
 				span.text-decoration-line-through Babelにより後方互換確保済み
 			li
-				a(href="https://ja.nuxtjs.org/", title="Nuxt.js - ユニバーサル Vue.js アプリケーション", target="_blank", rel="external noopener") Nuxt.js
+				NuxtLink(to="https://ja.nuxtjs.org/", title="Nuxt.js - ユニバーサル Vue.js アプリケーション", target="_blank", rel="external noopener") Nuxt.js
 			li
-				a(href="https://pugjs.org/", title="Pug: Getting Started", target="_blank", rel="external noopener") Pug(Jade)
+				NuxtLink(to="https://pugjs.org/", title="Pug: Getting Started", target="_blank", rel="external noopener") Pug(Jade)
 			li
-				a(href="https://sass-lang.com/", title="Sass: Syntactically Awesome Style Sheets", target="_blank", rel="external noopener") Sass(Syntactically Awesome Style Sheets)(SCSS)
+				NuxtLink(to="https://sass-lang.com/", title="Sass: Syntactically Awesome Style Sheets", target="_blank", rel="external noopener") Sass(Syntactically Awesome Style Sheets)(SCSS)
 		h3 画像
 		ul
 			li
-				a(href="https://unsplash.com/", title="Unsplash: Beautiful Free Images & Pictures", target="_blank", rel="external noopener") Unsplash
+				NuxtLink(to="https://unsplash.com/", title="Unsplash: Beautiful Free Images & Pictures", target="_blank", rel="external noopener") Unsplash
 		h3 テキストエディタ
 		ul
 			li
-				a(href="https://atom.io/", title="Atom", target="_blank", rel="external noopener") Atom
+				NuxtLink(to="https://atom.io/", title="Atom", target="_blank", rel="external noopener") Atom
 			li
-				a(href="https://notepad-plus-plus.org/", title="Notepad++ Home", target="_blank", rel="external noopener") Notepad++
+				NuxtLink(to="https://notepad-plus-plus.org/", title="Notepad++ Home", target="_blank", rel="external noopener") Notepad++
 			li
-				a(href="https://code.visualstudio.com/", title="Visual Studio Code - Code Editing. Redefined", target="_blank", rel="external noopener") Visual Stdio Code
+				NuxtLink(to="https://code.visualstudio.com/", title="Visual Studio Code - Code Editing. Redefined", target="_blank", rel="external noopener") Visual Stdio Code
 		h3 ツール
 		ul
 			li
-				a(href="https://www.heidisql.com/", title="HeidiSQL", target="_blank", rel="external noopener") HeidiSQL
+				NuxtLink(to="https://www.heidisql.com/", title="HeidiSQL", target="_blank", rel="external noopener") HeidiSQL
 			li
-				a(href="https://nodejs.org/ja/", title="Node.js", target="_blank", rel="external noopener") Node.js
+				NuxtLink(to="https://nodejs.org/ja/", title="Node.js", target="_blank", rel="external noopener") Node.js
 			li
-				a(href="http://nilposoft.info/index.html", title="Nilposoft", target="_blank", rel="external noopener") Ralpha Image Resizer
+				NuxtLink(to="http://nilposoft.info/index.html", title="Nilposoft", target="_blank", rel="external noopener") Ralpha Image Resizer
 		h3 ライブラリ
 		dl
 			dt JavaScript
 			dd
 				ul
 					li
-						a(href="https://github.com/aFarkas/lazysizes", title="GitHub - aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.", target="_blank", rel="external noopener") lazysizes
+						NuxtLink(to="https://github.com/aFarkas/lazysizes", title="GitHub - aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.", target="_blank", rel="external noopener") lazysizes
 					li
-						a(href="https://prismjs.com/", title="Prism.js", target="_blank", rel="external noopener") Prism.js
+						NuxtLink(to="https://prismjs.com/", title="Prism.js", target="_blank", rel="external noopener") Prism.js
 			dt Node.js(関連パッケージは省略)
 			dd
 				ul
 					li
-						a(href="http://babeljs.io/", title="Babel · The compiler for next generation JavaScript", target="_blank", rel="external noopener") Babel
+						NuxtLink(to="http://babeljs.io/", title="Babel · The compiler for next generation JavaScript", target="_blank", rel="external noopener") Babel
 					li
 						span.text-decoration-line-through
-							a(href="https://browsersync.io/", title="Browsersync - Time-saving synchronised browser testing", target="_blank", rel="external noopener") Browsersync
+							NuxtLink(to="https://browsersync.io/", title="Browsersync - Time-saving synchronised browser testing", target="_blank", rel="external noopener") Browsersync
 					li
 						span.text-decoration-line-through
-							a(href="http://csscomb.com/", title="CSScomb: Makes your code beautiful", target="_blank", rel="external noopener") CSScomb
+							NuxtLink(to="http://csscomb.com/", title="CSScomb: Makes your code beautiful", target="_blank", rel="external noopener") CSScomb
 					li
-						a(href="https://eslint.org/", title="ESLint - Pluggable JavaScript linter", target="_blank", rel="external noopener") ESLint
+						NuxtLink(to="https://eslint.org/", title="ESLint - Pluggable JavaScript linter", target="_blank", rel="external noopener") ESLint
 					li
 						span.text-decoration-line-through
-							a(href="https://gulpjs.com/", title="gulp.js", target="_blank", rel="external noopener") gulp.js
+							NuxtLink(to="https://gulpjs.com/", title="gulp.js", target="_blank", rel="external noopener") gulp.js
 					li
-						a(href="https://nuxt.com/", title="Nuxt: The Intuitive Web Framework", target="_blank", rel="external noopener") Nuxt.js
+						NuxtLink(to="https://nuxt.com/", title="Nuxt: The Intuitive Web Framework", target="_blank", rel="external noopener") Nuxt.js
 					li
-						a(href="https://postcss.org/", title="PostCSS - a tool for transforming CSS with JavaScript", target="_blank", rel="external noopener") PostCSS
+						NuxtLink(to="https://postcss.org/", title="PostCSS - a tool for transforming CSS with JavaScript", target="_blank", rel="external noopener") PostCSS
 					li
-						a(href="https://stylelint.io/", title="Stylelint", target="_blank", rel="external noopener") Stylelint
+						NuxtLink(to="https://stylelint.io/", title="Stylelint", target="_blank", rel="external noopener") Stylelint
 					li
-						a(href="https://vuetifyjs.com/en/", title="Vuetify — A Vue Component Framework", target="_blank", rel="external noopener") Vuetify.js
+						NuxtLink(to="https://vuetifyjs.com/en/", title="Vuetify — A Vue Component Framework", target="_blank", rel="external noopener") Vuetify.js
 					li
-						a(href="https://webpack.js.org/", title="webpack", target="_blank", rel="external noopener") webpack
+						NuxtLink(to="https://webpack.js.org/", title="webpack", target="_blank", rel="external noopener") webpack
 
 	section
 		h2 リクエストについて
@@ -143,7 +144,7 @@
 		p
 			span.text-decoration-line-through
 				| 圧縮済みCSSファイルを使用しているので読めないのが仕様です。どうしても読みたい場合は
-				a(href="https://gitlab.com/fcc-y/html-manual", target="_blank", rel="external noopener") Gitlabリポジトリ
+				NuxtLink(to="https://gitlab.com/fcc-y/html-manual", target="_blank", rel="external noopener") Gitlabリポジトリ
 				| から未圧縮のCSSファイルを取得するか、圧縮済みCSSファイルをテキストエディタのプラグイン等でフォーマットしてみてください。
 				br
 				| 但し、執筆者はSCSSファイルを使用してCSSファイルに変換したものを利用しているので可読性に関しては責任を取ることができませんので予めご了承ください。
@@ -183,12 +184,12 @@
 			| 個の表示候補があります。
 			wbr
 			| 表示内容は
-			a(href="https://ja.wikipedia.org/wiki/Xorshift", target="_blank", rel="external noopener") 擬似乱数Xorshift
+			NuxtLink(to="https://ja.wikipedia.org/wiki/Xorshift", target="_blank", rel="external noopener") 擬似乱数Xorshift
 			| のランダムであり、表示結果が重複することがあります。
 
 		h3 このサイトのソースはあるの?
 		p
-			a(href="https://github.com/Yukari-World/nuxt-manual", target="_blank", rel="external noopener") こちら
+			NuxtLink(to="https://github.com/Yukari-World/nuxt-manual", target="_blank", rel="external noopener") こちら
 			| にて公開中です。是非とも技術を自分のものにしてください。
 
 		h3 これ、本当に技術マニュアルなの?

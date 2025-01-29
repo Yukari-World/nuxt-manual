@@ -250,7 +250,7 @@
 		h3 CSS
 		p
 			| CSSの出力結果。メディアクエリはプラグインによりマージされている。また、互換性は
-			a(href="https://github.com/postcss/autoprefixer", target="_blank", rel="external noopener") autoprefixer
+			NuxtLink(to="https://github.com/postcss/autoprefixer", target="_blank", rel="external noopener") autoprefixer
 			| により自動で確認、付与されている。
 		BlockCode.language-css: pre.
 			.list ul {

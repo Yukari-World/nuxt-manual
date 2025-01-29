@@ -36,7 +36,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/text-shadow", target="_blank", rel="external noopener") MDN Web Docs
+			NuxtLink(to="https://developer.mozilla.org/ja/docs/Web/CSS/text-shadow", target="_blank", rel="external noopener") MDN Web Docs
 </template>
 
 <script setup lang="ts">

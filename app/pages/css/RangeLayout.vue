@@ -92,15 +92,15 @@
 	section
 		h2 参考リンク
 		p
-			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-thumb", target="_blank", rel="external noopener") MDN Web Docs / ::-webkit-slider-thumb
+			NuxtLink(to="https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-thumb", target="_blank", rel="external noopener") MDN Web Docs / ::-webkit-slider-thumb
 			br
-			a(href="https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-runnable-track", target="_blank", rel="external noopener") MDN Web Docs / ::-webkit-slider-runnable-track
+			NuxtLink(to="https://developer.mozilla.org/ja/docs/Web/CSS/::-webkit-slider-runnable-track", target="_blank", rel="external noopener") MDN Web Docs / ::-webkit-slider-runnable-track
 			br
-			a(href="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-thumb", target="_blank", rel="external noopener") MDN Web Docs / ::-moz-range-thumb (English)
+			NuxtLink(to="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-thumb", target="_blank", rel="external noopener") MDN Web Docs / ::-moz-range-thumb (English)
 			br
-			a(href="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-track", target="_blank", rel="external noopener") MDN Web Docs / ::-moz-range-track (English)
+			NuxtLink(to="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-track", target="_blank", rel="external noopener") MDN Web Docs / ::-moz-range-track (English)
 			br
-			a(href="https://www.w3schools.com/howto/howto_js_rangeslider.asp", target="_blank", rel="external noopener") W3Schools (English)
+			NuxtLink(to="https://www.w3schools.com/howto/howto_js_rangeslider.asp", target="_blank", rel="external noopener") W3Schools (English)
 </template>
 
 <script setup lang="ts">

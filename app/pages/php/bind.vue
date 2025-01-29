@@ -19,8 +19,9 @@
 		h3 PDO
 		BlockCode.language-php(data-line="2") {{ CBPDOBind01 }}
 
-		p このままでも問題はないように見えるが、入力する変数の種類に指定がないため
-			a(href="https://ja.wikipedia.org/wiki/SQL%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3", title="SQLインジェクション", target="_blank", rel="external noopener") SQLインジェクション
+		p
+			| このままでも問題はないように見えるが、入力する変数の種類に指定がないため
+			NuxtLink(to="https://ja.wikipedia.org/wiki/SQL%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3", title="SQLインジェクション", target="_blank", rel="external noopener") SQLインジェクション
 			| などの問題が発生する可能性がある。もちろんこの記述方法を使う場合は大抵の場合これより手前で整合性の確認や無害化が行われている筈であるが、行っていないのであればまずはそこから見直すべきである。起こってからでは手遅れである。
 
 		p 次に上のソースコードを基にバインドを利用した記述。
@@ -93,13 +94,13 @@
 	section
 		h2 参考リンク
 		p
-			a(href="https://www.php.net/manual/ja/mysqli-stmt.bind-param.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_param
+			NuxtLink(to="http://php.net/manual/ja/mysqli-stmt.bind-param.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_param
 			br
-			a(href="https://www.php.net/manual/ja/mysqli-stmt.bind-result.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_result
+			NuxtLink(to="http://php.net/manual/ja/mysqli-stmt.bind-result.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_result
 			br
-			a(href="https://www.php.net/manual/ja/pdostatement.bindparam.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindParam
+			NuxtLink(to="http://php.net/manual/ja/pdostatement.bindparam.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindParam
 			br
-			a(href="https://www.php.net/manual/ja/pdostatement.bindvalue.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindValue
+			NuxtLink(to="http://php.net/manual/ja/pdostatement.bindvalue.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindValue
 </template>
 
 <script setup lang="ts">

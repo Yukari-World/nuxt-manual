@@ -74,7 +74,7 @@
 
 	section
 		h2 リンク
-		a(href="http://scss-lang.com/", title="Sass: Syntactically Awesome Style Sheets", target="_blank", rel="external noopener") Sass(Syntactically Awesome Style Sheets)(SCSS)
+		NuxtLink(to="http://sass-lang.com/", target="_blank", rel="external noopener") Sass: Syntactically Awesome Style Sheets
 </template>
 
 <script setup lang="ts">

@@ -63,7 +63,7 @@
 	section
 		h2 参考リンク
 		p
-			a(href="https://dev.mysql.com/doc/refman/5.6/ja/commit.html", target="_blank", rel="external noopener") MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.3.1 START TRANSACTION、COMMIT、および ROLLBACK 構文
+			NuxtLink(to="https://dev.mysql.com/doc/refman/5.6/ja/commit.html", target="_blank", rel="external noopener") MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.3.1 START TRANSACTION、COMMIT、および ROLLBACK 構文
 </template>
 
 <script setup lang="ts">

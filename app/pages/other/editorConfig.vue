@@ -82,7 +82,7 @@
 	section
 		h2 リンク
 		p
-			a(href="https://editorconfig.org/", target="_blank", rel="external noopener") EditorConfig
+			NuxtLink(to="https://editorconfig.org/", target="_blank", rel="external noopener") EditorConfig
 </template>
 
 <script setup lang="ts">

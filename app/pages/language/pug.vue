@@ -17,7 +17,7 @@
 		h4 HTML
 		p
 			| 出力結果。実際の出力結果は全く整形されていないので必要に応じて
-			a(href="https://github.com/beautify-web/js-beautify", target="_blank", rel="external noopener") JS-Beautify
+			NuxtLink(to="https://github.com/beautify-web/js-beautify", target="_blank", rel="external noopener") JS-Beautify
 			| 等で整形する必要がある。尚、Pugの変換オプションに自動整形するオプションがあるが、現在は非推奨なので注意。
 		BlockCode.language-html: pre.
 			&lt;!DOCTYPE html&gt;
@@ -188,7 +188,7 @@
 				TextToken(type="html").tag &amp;lt;
 				| といった特殊文字を使用することが推奨さている。また、&lt;&gt;で囲むとHTMLタグであると認識される。特殊文字については以下のリンクを参照。
 				br
-				a(href="http://www.htmq.com/text/", target="_blank", rel="external noopener") 特殊文字リファレンス - HTMLクイックリファレンス
+				NuxtLink(to="http://www.htmq.com/text/", target="_blank", rel="external noopener") 特殊文字リファレンス - HTMLクイックリファレンス
 
 	section
 		h2 最後に
@@ -197,7 +197,7 @@
 
 	section
 		h2 リンク
-		a(href="https://pugjs.org/", target="_blank", rel="external noopener") Pug: Getting Started
+		NuxtLink(to="https://pugjs.org/", target="_blank", rel="external noopener") Pug: Getting Started
 </template>
 
 <script setup lang="ts">

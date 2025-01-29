@@ -131,7 +131,7 @@
 	section
 		h2 リンク
 		p
-			a(href="https://www.npmjs.com/", target="_blank", rel="external noopener") npm
+			NuxtLink(to="https://www.npmjs.com/", target="_blank", rel="external noopener") npm
 </template>
 
 <script setup lang="ts">
