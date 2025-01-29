@@ -16,6 +16,8 @@ menu:
     title: 'Main'
   css:
     title: 'CSS'
+  docker:
+    title: 'Docker'
   git:
     title: 'Git'
   html:

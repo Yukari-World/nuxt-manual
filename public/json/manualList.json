@@ -140,6 +140,26 @@
 				}
 			]
 		}, {
+			"category": "menu.docker.title",
+			"baseURL": "/docker",
+			"description": "",
+			"icon": "mdi-docker",
+			"subCategory": [
+				{
+					"name": "Default",
+					"list": [
+						{
+							"title": "Mailpit",
+							"link": "/mailpit",
+							"summary": "",
+							"tags": ["Docker", "Mail"],
+							"deprecated": false,
+							"workInProgress": true
+						}
+					]
+				}
+			]
+		}, {
 			"category": "menu.git.title",
 			"baseURL": "/git",
 			"description": "",
