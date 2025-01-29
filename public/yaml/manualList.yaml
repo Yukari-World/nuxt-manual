@@ -54,6 +54,20 @@ categoryList:
       - CSS
       deprecated: false
       workInProgress: false
+    - title: Flexible Layout
+      link: /flex
+      summary: ''
+      tags:
+      - CSS
+      deprecated: false
+      workInProgress: true
+    - title: Grid Layout
+      link: /gridLayout
+      summary: ''
+      tags:
+      - CSS
+      deprecated: false
+      workInProgress: true
     - title: brタグによる改行を無効化
       link: '/disablebrTag'
       summary: ''
@@ -110,6 +124,21 @@ categoryList:
       - CSS
       deprecated: false
       workInProgress: false
+- category: menu.docker.title
+  baseURL: /docker
+  description: ''
+  icon: mdi-docker
+  subCategory:
+  - name: Default
+    list:
+    - title: Mailpit
+      link: /mailpit
+      summary: ''
+      tags:
+        - Docker
+        - Mail
+      deprecated: false
+      workInProgress: true
 - category: menu.git.title
   baseURL: '/git'
   description: ''
@@ -449,6 +478,9 @@ categoryList:
       - SQL
       deprecated: false
       workInProgress: true
+  - name: menu.sql.subCategory.SQLite
+    url: SQLite
+    list: []
 - category: menu.vue.title
   baseURL: '/vue'
   description: ''
@@ -550,7 +582,7 @@ categoryList:
     url: '/XAMPP'
     list:
     - title: ローカルネットワーク接続
-      link: '/'
+      link: /localNetwork
       summary: ''
       tags:
       - Server
