@@ -37,7 +37,7 @@ export default defineNuxtConfig({
 	app: {
 		baseURL: '/',
 		head: {
-			titleTemplate: '%s | Nuxt Technical Manual v0.4.3',
+			titleTemplate: '%s | Nuxt Technical Manual v0.5.0',
 			meta: [
 				{ charset: 'utf-8' },
 				{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
@@ -81,7 +81,11 @@ export default defineNuxtConfig({
 		port: Number(process.env.port) || 3000,
 	},
 
-	compatibilityDate: '2024-07-11',
+	future: {
+		compatibilityVersion: 4,
+	},
+
+	compatibilityDate: '2025-01-28',
 
 
 	// ----------------------------------------------------------------------------------------------------
