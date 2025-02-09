@@ -24,9 +24,7 @@
 			| mailpit.iniというファイルを作成し、以下の様に記述する。
 			br
 			| 今回の例では、上記で記述した内容通りであるものとして、ホスト名はmail、ポートは1025であるものとする。
-		pre.language-ini.line-numbers: code.
-			[mail function]
-			sendmail_path="/usr/local/bin/mailpit sendmail -S mail:1025"
+		pre.language-ini.line-numbers: code {{ CB2 }}
 </template>
 
 <script setup lang="ts">
@@ -47,8 +45,10 @@ const CB1 = `  mail: # ここに記述した名前がホスト名になる
     image: axllent/mailpit:latest
     ports:
     - 1025:1025 # メール送信に使うポート
-    - 8025:8025 # メールサーバー表示に使うポート
-`;
+    - 8025:8025 # メールサーバー表示に使うポート`;
+
+const CB2 = `[mail function]
+sendmail_path="/usr/local/bin/mailpit sendmail -S mail:1025"`;
 
 
 // ----------------------------------------------------------------------------------------------------

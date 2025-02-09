@@ -177,7 +177,7 @@
 	}, {
 		"title": "SCP-5000 - Why?",
 		"original": "SCP Foundation",
-		"summary": "<h3>SCP - 5000 - どうして?</h3><h4><b>オブジェクトクラス:</b> <span class=\"object-saft\">Safe</span></h4><p>Please Wait...</p>",
+		"summary": "<h3>SCP - 5000 - どうして?</h3><h4><b>オブジェクトクラス:</b> <span class=\"object-safe\">Safe</span></h4><p>Please Wait...</p>",
 		"tags": ["5000", "Broken God", "Doctor Bright", "Doctor Gears", "Ectoentropic", "Ethics Committee", "Foundation Made", "Global Occult Coalition", "Manna Charitable Foundation", "Mechanical", "Safe", "SCP", "Serpents Hand", "Wanderers Library", "感覚", "記憶媒体", "電子デバイス"]
 	}, {
 		"title": "SCP-011-JP - 俺達はスーパーボール",
@@ -212,7 +212,7 @@
 	}, {
 		"title": "SCP-133-JP - 栗ティカル・ヒット",
 		"original": "SCP Foundation",
-		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-euclid\">Euclid</span></h4><p>Please Wait...</p>",
+		"summary": "<h4><b>オブジェクトクラス:</b> <span class=\"object-euclid\">Euclid</span></h4><p>SCP-133-JPはムラサキウニ (Anthocidaris crassispina) によく似た形をした、陸棲の棘皮動物である。</p>",
 		"tags": ["Alive", "Animal", "Euclid", "SCP", "捕食", "無脊椎動物"]
 	}, {
 		"title": "SCP-173-JP - 恐竜 - <b>イミテーション</b>",

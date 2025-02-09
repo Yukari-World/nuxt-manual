@@ -1,590 +1,590 @@
 type: menuList
 categoryList:
-- category: menu.main.title
-  baseURL: ''
-  description: ''
-  icon: mdi-home
-  subCategory:
-  - name: Default
-    list:
-    - title: Top Page
-      link: '/'
-      summary: ''
-      tags: []
-      deprecated: false
-      workInProgress: false
-    - title: Prismハイライトの例
-      link: '/prismHighlight'
-      summary: ''
-      tags: []
-      deprecated: false
-      workInProgress: true
-    - title: サンプルデータ
-      link: '/sample'
-      summary: ''
-      tags:
-      - JavaScript
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: 更新履歴
-      link: '/updateLog'
-      summary: 技術マニュアルの更新履歴
-      tags:
-      - Log
-      deprecated: false
-      workInProgress: false
-    - title: '???'
-      link: '/randomWord/'
-      summary: ''
-      tags: []
-      deprecated: false
-      workInProgress: false
-- category: menu.css.title
-  baseURL: '/css'
-  description: ''
-  icon: mdi-language-css3
-  subCategory:
-  - name: Default
-    list:
-    - title: backgroundを重ねる
-      link: '/backgroundLayer'
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: false
-    - title: Flexible Layout
-      link: /flex
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: true
-    - title: Grid Layout
-      link: /gridLayout
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: true
-    - title: brタグによる改行を無効化
-      link: '/disablebrTag'
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: false
-    - title: Reset CSS
-      link: '/resetCSS'
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: true
-    - title: 疑似要素 :before / :after
-      link: '/beforeAfter'
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: false
-    - title: グラデーション
-      link: '/gradation'
-      summary: 簡単なグラデーションの作り方
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: false
-    - title: スライダーレイアウト
-      link: '/RangeLayout'
-      summary: オリジナルスライドバーを作る
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: false
-    - title: 背景画像スクロールの固定
-      link: '/backgroundScrollLock'
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: false
-    - title: フェードイン
-      link: '/fadeIn'
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: false
-    - title: 文字装飾による可読性の向上
-      link: '/textShadow'
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: false
-- category: menu.docker.title
-  baseURL: /docker
-  description: ''
-  icon: mdi-docker
-  subCategory:
-  - name: Default
-    list:
-    - title: Mailpit
-      link: /mailpit
-      summary: ''
-      tags:
-        - Docker
-        - Mail
-      deprecated: false
-      workInProgress: true
-- category: menu.git.title
-  baseURL: '/git'
-  description: ''
-  icon: mdi-git
-  subCategory:
-  - name: Default
-    list:
-    - title: git-flow
-      link: '/gitflow'
-      summary: Gitにおけるremoteブランチの構築方法の考え方
-      tags:
-      - Git
-      deprecated: false
-      workInProgress: true
-    - title: HEADについて
-      link: '/head'
-      summary: GitにおけるHEADブランチの存在について
-      tags:
-      - Git
-      deprecated: false
-      workInProgress: true
-- category: menu.html.title
-  baseURL: '/html'
-  description: ''
-  icon: mdi-language-html5
-  subCategory:
-  - name: Default
-    list:
-    - title: input要素
-      link: '/input'
-      summary: formでもよく使うinput要素に関するあれこれ
-      tags:
-      - HTML
-      deprecated: false
-      workInProgress: true
-    - title: ファイルダウンロード
-      link: '/fileDownload'
-      summary: ''
-      tags:
-      - HTML
-      deprecated: false
-      workInProgress: false
-    - title: httpの省略
-      link: '/omitHttp'
-      summary: ''
-      tags:
-      - HTML
-      deprecated: true
-      workInProgress: false
-- category: menu.js.title
-  baseURL: '/js'
-  description: ''
-  icon: mdi-language-javascript
-  subCategory:
-  - name: Default
-    list:
-    - title: IndexedDB
-      link: '/IndexedDBAPI'
-      summary: ''
-      tags:
-      - JavaScript
-      deprecated: false
-      workInProgress: true
-    - title: localStorage
-      link: '/localStorage'
-      summary: ''
-      tags:
-      - JavaScript
-      deprecated: false
-      workInProgress: true
-    - title: Promise
-      link: '/Promise'
-      summary: ''
-      tags:
-      - JavaScript
-      deprecated: false
-      workInProgress: true
-  - name:  menu.js.subCategory.Ajax
-    url: '/Ajax'
-    list:
-    - title: Fetch API
-      link: '/FetchAPI'
-      summary: ''
-      tags:
-      - Ajax
-      - JavaScript
-      deprecated: false
-      workInProgress: true
-    - title: XMLHttpRequest
-      link: '/XMLHttpRequest'
-      summary: ''
-      tags:
-      - Ajax
-      - JavaScript
-      deprecated: false
-      workInProgress: true
-- category: menu.lang.title
-  baseURL: '/language'
-  description: ''
-  icon: mdi-translate
-  subCategory:
-  - name: Default
-    list:
-    - title: CSS
-      link: '/css'
-      summary: ''
-      tags:
-      - CSS
-      deprecated: false
-      workInProgress: true
-    - title: Pug
-      link: '/pug'
-      summary: ''
-      tags:
-      - Pug
-      deprecated: false
-      workInProgress: false
-    - title: Sass
-      link: '/sass'
-      summary: ''
-      tags:
-      - Sass
-      deprecated: false
-      workInProgress: false
-    - title: SCSS
-      link: '/scss'
-      summary: ''
-      tags:
-      - SCSS
-      deprecated: false
-      workInProgress: true
-- category: menu.node.title
-  baseURL: '/node'
-  description: ''
-  icon: mdi-nodejs
-  subCategory:
-  - name: Default
-    list:
-    - title: Node.js導入マニュアル
-      link: '/manualNodejs'
-      summary: ''
-      tags:
-      - Install Manual
-      - Node
-      deprecated: false
-      workInProgress: true
-    - title: Browsersync導入マニュアル
-      link: '/manualBrowsersync'
-      summary: ''
-      tags:
-      - Install Manual
-      - Node
-      deprecated: false
-      workInProgress: false
-    - title: npm コマンド
-      link: '/npm'
-      summary: ''
-      tags:
-      - Console
-      - Node
-      deprecated: false
-      workInProgress: false
-  - name:  menu.node.subCategory.Gulp
-    url: '/Gulp'
-    list:
-    - title: Gulp導入マニュアル
-      link: '/manualGulp'
-      summary: ''
-      tags:
-      - Install Manual
-      - Gulp
-      - Node
-      deprecated: false
-      workInProgress: true
-- category: menu.php.title
-  baseURL: '/php'
-  description: ''
-  icon: mdi-language-php
-  subCategory:
-  - name: Default
-    list:
-    - title: PDO(PHP Data Objects)
-      link: '/pdo'
-      summary: ''
-      tags:
-      - PHP
-      deprecated: false
-      workInProgress: false
-    - title: バインドを利用したSQLの実行
-      link: '/bind'
-      summary: ''
-      tags:
-      - PHP
-      deprecated: false
-      workInProgress: false
-    - title: 日付時間 date()
-      link: '/date'
-      summary: ''
-      tags:
-      - Function
-      - PHP
-      deprecated: false
-      workInProgress: false
-    - title: ファイルを利用した二重起動防止
-      link: '/fileProcessLock'
-      summary: ''
-      tags:
-      - PHP
-      deprecated: false
-      workInProgress: false
-  - name:  menu.php.subCategory.CodeIgniter
-    url: '/CodeIgniter'
-    list:
-    - title: データベース接続
-      link: '/Database'
-      summary: ''
-      tags:
-      - PHP
-      deprecated: false
-      workInProgress: true
-- category: menu.scss.title
-  baseURL: '/scss'
-  description: ''
-  icon: mdi-sass
-  subCategory:
-  - name: Default
-    list:
-    - title: 特殊なグラデーションリスト
-      link: '/gradationList'
-      summary: ''
-      tags:
-      - SCSS
-      deprecated: false
-      workInProgress: true
-- category: menu.sql.title
-  baseURL: '/sql'
-  description: ''
-  icon: mdi-server
-  subCategory:
-  - name: Default
-    list:
-    - title: 0件出力
-      link: '/zeroCount'
-      summary: ''
-      tags:
-      - SQL
-      deprecated: false
-      workInProgress: true
-    - title: AS(別名)
-      link: '/as'
-      summary: ''
-      tags:
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: IN()(複数選択)
-      link: '/in'
-      summary: ''
-      tags:
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: INSERT SELECT
-      link: '/insertSelect'
-      summary: ''
-      tags:
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: JOIN(テーブル結合)
-      link: '/join'
-      summary: ''
-      tags:
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: LIKE(あいまい検索)
-      link: '/like'
-      summary: ''
-      tags:
-      - SQL
-      deprecated: false
-      workInProgress: true
-    - title: TRANSACTION(トランザクション)
-      link: '/transaction'
-      summary: ''
-      tags:
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: TRUNCATE(テーブルを空にする)
-      link: '/truncate'
-      summary: ''
-      tags:
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: 削除フラグ
-      link: '/deleteFlag'
-      summary: ''
-      tags:
-      - SQL
-      deprecated: false
-      workInProgress: true
-  - name:  menu.sql.subCategory.MySQL
-    url: '/MySQL'
-    list:
-    - title: INSERT WHERE EXISTS
-      link: '/insertWhereExists'
-      summary: ''
-      tags:
-      - MySQL
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: INT(11) の意味
-      link: '/int'
-      summary: ''
-      tags:
-      - MySQL
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: UPDATE SELECT
-      link: '/updateSelect'
-      summary: ''
-      tags:
-      - MySQL
-      - SQL
-      deprecated: false
-      workInProgress: false
-    - title: UTF-8のあれこれ
-      link: '/utf-8'
-      summary: ''
-      tags:
-      - MySQL
-      - SQL
-      deprecated: false
-      workInProgress: true
-  - name: menu.sql.subCategory.SQLite
-    url: SQLite
-    list: []
-- category: menu.vue.title
-  baseURL: '/vue'
-  description: ''
-  icon: mdi-vuejs
-  subCategory:
-  - name: Default
-    list:
-    - title: 近日公開
-      link: '/'
-      summary: ''
-      tags:
-      - Vue.js
-      deprecated: false
-      workInProgress: true
-  - name:  menu.vue.subCategory.Nuxt
-    url: '/Nuxtjs'
-    list:
-    - title: 近日公開
-      link: '/'
-      summary: ''
-      tags:
-      - Nuxt.js
-      deprecated: false
-      workInProgress: true
-- category: menu.wordpress.title
-  baseURL: '/wordpress'
-  description: ''
-  icon: mdi-wordpress
-  subCategory:
-  - name: Default
-    list:
-    - title: Wordpress カスタマイズ項目の追加
-      link: '/customizeMenu'
-      summary: ''
-      tags:
-      - Wordpress
-      deprecated: false
-      workInProgress: true
-- category: menu.other.title
-  baseURL: '/other'
-  description: その他上記のカテゴリに該当しない項目
-  icon: mdi-alert-circle
-  subCategory:
-  - name: Default
-    list:
-    - title: EditorConfig
-      link: '/editorConfig'
-      summary: EditorConfigを使ったテキスト設定など
-      tags:
-      - Format
-      - Install Manual
-      deprecated: false
-      workInProgress: false
-    - title: Netlify
-      link: '/netlify'
-      summary: Netlifyでのサイトの作り方やデプロイ等
-      tags:
-      - Server
-      deprecated: false
-      workInProgress: true
-  - name: menu.other.subCategory.Apache
-    url: '/Apache'
-    list:
-    - title: HTMLファイル内でPHPを動かす
-      link: '/runPHPForHTML'
-      summary: HTMLファイル内でPHPスクリプトを動作させる方法
-      tags:
-      - Server
-      deprecated: false
-      workInProgress: false
-  - name: menu.other.subCategory.Atom
-    url: '/Atom'
-    list:
-    - title: Atom 導入マニュアル
-      link: '/atomInstall'
-      summary: ''
-      tags:
-      - Install Manual
-      deprecated: false
-      workInProgress: true
-    - title: apm Command
-      link: '/apm'
-      summary: ''
-      tags:
-      - Console
-      deprecated: false
-      workInProgress: true
-  - name: menu.other.subCategory.Unix
-    url: '/Unix'
-    list:
-    - title: Console Command
-      link: '/unixConsole'
-      summary: ''
-      tags:
-      - Console
-      deprecated: false
-      workInProgress: true
-  - name: menu.other.subCategory.XAMPP
-    url: '/XAMPP'
-    list:
-    - title: ローカルネットワーク接続
-      link: /localNetwork
-      summary: ''
-      tags:
-      - Server
-      deprecated: false
-      workInProgress: true
+  - category: menu.main.title
+    baseURL: ''
+    description: ''
+    icon: mdi-home
+    subCategory:
+      - name: Default
+        list:
+          - title: Top Page
+            link: '/'
+            summary: ''
+            tags: []
+            deprecated: false
+            workInProgress: false
+          - title: Prismハイライトの例
+            link: '/prismHighlight'
+            summary: ''
+            tags: []
+            deprecated: false
+            workInProgress: true
+          - title: サンプルデータ
+            link: '/sample'
+            summary: ''
+            tags:
+              - JavaScript
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: 更新履歴
+            link: '/updateLog'
+            summary: 技術マニュアルの更新履歴
+            tags:
+              - Log
+            deprecated: false
+            workInProgress: false
+          - title: '???'
+            link: '/randomWord'
+            summary: ''
+            tags: []
+            deprecated: false
+            workInProgress: false
+  - category: menu.css.title
+    baseURL: '/css'
+    description: ''
+    icon: mdi-language-css3
+    subCategory:
+      - name: Default
+        list:
+          - title: backgroundを重ねる
+            link: '/backgroundLayer'
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: false
+          - title: Flexible Layout
+            link: /flex
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: true
+          - title: Grid Layout
+            link: /gridLayout
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: true
+          - title: brタグによる改行を無効化
+            link: '/disablebrTag'
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: false
+          - title: Reset CSS
+            link: '/resetCSS'
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: true
+          - title: 疑似要素 :before / :after
+            link: '/beforeAfter'
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: false
+          - title: グラデーション
+            link: '/gradation'
+            summary: 簡単なグラデーションの作り方
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: false
+          - title: スライダーレイアウト
+            link: '/RangeLayout'
+            summary: オリジナルスライドバーを作る
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: false
+          - title: 背景画像スクロールの固定
+            link: '/backgroundScrollLock'
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: false
+          - title: フェードイン
+            link: '/fadeIn'
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: false
+          - title: 文字装飾による可読性の向上
+            link: '/textShadow'
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: false
+  - category: menu.docker.title
+    baseURL: /docker
+    description: ''
+    icon: mdi-docker
+    subCategory:
+      - name: Default
+        list:
+          - title: Mailpit
+            link: /mailpit
+            summary: ''
+            tags:
+              - Docker
+              - Mail
+            deprecated: false
+            workInProgress: true
+  - category: menu.git.title
+    baseURL: '/git'
+    description: ''
+    icon: mdi-git
+    subCategory:
+      - name: Default
+        list:
+          - title: git-flow
+            link: '/gitflow'
+            summary: Gitにおけるremoteブランチの構築方法の考え方
+            tags:
+              - Git
+            deprecated: false
+            workInProgress: true
+          - title: HEADについて
+            link: '/head'
+            summary: GitにおけるHEADブランチの存在について
+            tags:
+              - Git
+            deprecated: false
+            workInProgress: true
+  - category: menu.html.title
+    baseURL: '/html'
+    description: ''
+    icon: mdi-language-html5
+    subCategory:
+      - name: Default
+        list:
+          - title: input要素
+            link: '/input'
+            summary: formでもよく使うinput要素に関するあれこれ
+            tags:
+              - HTML
+            deprecated: false
+            workInProgress: true
+          - title: ファイルダウンロード
+            link: '/fileDownload'
+            summary: ''
+            tags:
+              - HTML
+            deprecated: false
+            workInProgress: false
+          - title: httpの省略
+            link: '/omitHttp'
+            summary: ''
+            tags:
+              - HTML
+            deprecated: true
+            workInProgress: false
+  - category: menu.js.title
+    baseURL: '/js'
+    description: ''
+    icon: mdi-language-javascript
+    subCategory:
+      - name: Default
+        list:
+          - title: IndexedDB
+            link: '/IndexedDBAPI'
+            summary: ''
+            tags:
+              - JavaScript
+            deprecated: false
+            workInProgress: true
+          - title: localStorage
+            link: '/localStorage'
+            summary: ''
+            tags:
+              - JavaScript
+            deprecated: false
+            workInProgress: true
+          - title: Promise
+            link: '/Promise'
+            summary: ''
+            tags:
+              - JavaScript
+            deprecated: false
+            workInProgress: true
+      - name: menu.js.subCategory.Ajax
+        url: '/Ajax'
+        list:
+          - title: Fetch API
+            link: '/FetchAPI'
+            summary: ''
+            tags:
+              - Ajax
+              - JavaScript
+            deprecated: false
+            workInProgress: true
+          - title: XMLHttpRequest
+            link: '/XMLHttpRequest'
+            summary: ''
+            tags:
+              - Ajax
+              - JavaScript
+            deprecated: false
+            workInProgress: true
+  - category: menu.lang.title
+    baseURL: '/language'
+    description: ''
+    icon: mdi-translate
+    subCategory:
+      - name: Default
+        list:
+          - title: CSS
+            link: '/css'
+            summary: ''
+            tags:
+              - CSS
+            deprecated: false
+            workInProgress: true
+          - title: Pug
+            link: '/pug'
+            summary: ''
+            tags:
+              - Pug
+            deprecated: false
+            workInProgress: false
+          - title: Sass
+            link: '/sass'
+            summary: ''
+            tags:
+              - Sass
+            deprecated: false
+            workInProgress: false
+          - title: SCSS
+            link: '/scss'
+            summary: ''
+            tags:
+              - SCSS
+            deprecated: false
+            workInProgress: true
+  - category: menu.node.title
+    baseURL: '/node'
+    description: ''
+    icon: mdi-nodejs
+    subCategory:
+      - name: Default
+        list:
+          - title: Node.js導入マニュアル
+            link: '/manualNodejs'
+            summary: ''
+            tags:
+              - Install Manual
+              - Node
+            deprecated: false
+            workInProgress: true
+          - title: Browsersync導入マニュアル
+            link: '/manualBrowsersync'
+            summary: ''
+            tags:
+              - Install Manual
+              - Node
+            deprecated: false
+            workInProgress: false
+          - title: npm コマンド
+            link: '/npm'
+            summary: ''
+            tags:
+              - Console
+              - Node
+            deprecated: false
+            workInProgress: false
+      - name: menu.node.subCategory.Gulp
+        url: '/Gulp'
+        list:
+          - title: Gulp導入マニュアル
+            link: '/manualGulp'
+            summary: ''
+            tags:
+              - Install Manual
+              - Gulp
+              - Node
+            deprecated: false
+            workInProgress: true
+  - category: menu.php.title
+    baseURL: '/php'
+    description: ''
+    icon: mdi-language-php
+    subCategory:
+      - name: Default
+        list:
+          - title: PDO(PHP Data Objects)
+            link: '/pdo'
+            summary: ''
+            tags:
+              - PHP
+            deprecated: false
+            workInProgress: false
+          - title: バインドを利用したSQLの実行
+            link: '/bind'
+            summary: ''
+            tags:
+              - PHP
+            deprecated: false
+            workInProgress: false
+          - title: 日付時間 date()
+            link: '/date'
+            summary: ''
+            tags:
+              - Function
+              - PHP
+            deprecated: false
+            workInProgress: false
+          - title: ファイルを利用した二重起動防止
+            link: '/fileProcessLock'
+            summary: ''
+            tags:
+              - PHP
+            deprecated: false
+            workInProgress: false
+      - name: menu.php.subCategory.CodeIgniter
+        url: '/CodeIgniter'
+        list:
+          - title: データベース接続
+            link: '/Database'
+            summary: ''
+            tags:
+              - PHP
+            deprecated: false
+            workInProgress: true
+  - category: menu.scss.title
+    baseURL: '/scss'
+    description: ''
+    icon: mdi-sass
+    subCategory:
+      - name: Default
+        list:
+          - title: 特殊なグラデーションリスト
+            link: '/gradationList'
+            summary: ''
+            tags:
+              - SCSS
+            deprecated: false
+            workInProgress: true
+  - category: menu.sql.title
+    baseURL: '/sql'
+    description: ''
+    icon: mdi-server
+    subCategory:
+      - name: Default
+        list:
+          - title: 0件出力
+            link: '/zeroCount'
+            summary: ''
+            tags:
+              - SQL
+            deprecated: false
+            workInProgress: true
+          - title: AS(別名)
+            link: '/as'
+            summary: ''
+            tags:
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: IN()(複数選択)
+            link: '/in'
+            summary: ''
+            tags:
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: INSERT SELECT
+            link: '/insertSelect'
+            summary: ''
+            tags:
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: JOIN(テーブル結合)
+            link: '/join'
+            summary: ''
+            tags:
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: LIKE(あいまい検索)
+            link: '/like'
+            summary: ''
+            tags:
+              - SQL
+            deprecated: false
+            workInProgress: true
+          - title: TRANSACTION(トランザクション)
+            link: '/transaction'
+            summary: ''
+            tags:
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: TRUNCATE(テーブルを空にする)
+            link: '/truncate'
+            summary: ''
+            tags:
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: 削除フラグ
+            link: '/deleteFlag'
+            summary: ''
+            tags:
+              - SQL
+            deprecated: false
+            workInProgress: true
+      - name: menu.sql.subCategory.MySQL
+        url: '/MySQL'
+        list:
+          - title: INSERT WHERE EXISTS
+            link: '/insertWhereExists'
+            summary: ''
+            tags:
+              - MySQL
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: INT(11) の意味
+            link: '/int'
+            summary: ''
+            tags:
+              - MySQL
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: UPDATE SELECT
+            link: '/updateSelect'
+            summary: ''
+            tags:
+              - MySQL
+              - SQL
+            deprecated: false
+            workInProgress: false
+          - title: UTF-8のあれこれ
+            link: '/utf-8'
+            summary: ''
+            tags:
+              - MySQL
+              - SQL
+            deprecated: false
+            workInProgress: true
+      - name: menu.sql.subCategory.SQLite
+        url: SQLite
+        list: []
+  - category: menu.vue.title
+    baseURL: '/vue'
+    description: ''
+    icon: mdi-vuejs
+    subCategory:
+      - name: Default
+        list:
+          - title: 近日公開
+            link: '/'
+            summary: ''
+            tags:
+              - Vue.js
+            deprecated: false
+            workInProgress: true
+      - name: menu.vue.subCategory.Nuxt
+        url: '/Nuxtjs'
+        list:
+          - title: 近日公開
+            link: '/'
+            summary: ''
+            tags:
+              - Nuxt.js
+            deprecated: false
+            workInProgress: true
+  - category: menu.wordpress.title
+    baseURL: '/wordpress'
+    description: ''
+    icon: mdi-wordpress
+    subCategory:
+      - name: Default
+        list:
+          - title: Wordpress カスタマイズ項目の追加
+            link: '/customizeMenu'
+            summary: ''
+            tags:
+              - Wordpress
+            deprecated: false
+            workInProgress: true
+  - category: menu.other.title
+    baseURL: '/other'
+    description: その他上記のカテゴリに該当しない項目
+    icon: mdi-alert-circle
+    subCategory:
+      - name: Default
+        list:
+          - title: EditorConfig
+            link: '/editorConfig'
+            summary: EditorConfigを使ったテキスト設定など
+            tags:
+              - Format
+              - Install Manual
+            deprecated: false
+            workInProgress: false
+          - title: Netlify
+            link: '/netlify'
+            summary: Netlifyでのサイトの作り方やデプロイ等
+            tags:
+              - Server
+            deprecated: false
+            workInProgress: true
+      - name: menu.other.subCategory.Apache
+        url: '/Apache'
+        list:
+          - title: HTMLファイル内でPHPを動かす
+            link: '/runPHPForHTML'
+            summary: HTMLファイル内でPHPスクリプトを動作させる方法
+            tags:
+              - Server
+            deprecated: false
+            workInProgress: false
+      - name: menu.other.subCategory.Atom
+        url: '/Atom'
+        list:
+          - title: Atom 導入マニュアル
+            link: '/atomInstall'
+            summary: ''
+            tags:
+              - Install Manual
+            deprecated: false
+            workInProgress: true
+          - title: apm Command
+            link: '/apm'
+            summary: ''
+            tags:
+              - Console
+            deprecated: false
+            workInProgress: true
+      - name: menu.other.subCategory.Unix
+        url: '/Unix'
+        list:
+          - title: Console Command
+            link: '/unixConsole'
+            summary: ''
+            tags:
+              - Console
+            deprecated: false
+            workInProgress: true
+      - name: menu.other.subCategory.XAMPP
+        url: '/XAMPP'
+        list:
+          - title: ローカルネットワーク接続
+            link: /localNetwork
+            summary: ''
+            tags:
+              - Server
+            deprecated: false
+            workInProgress: true
