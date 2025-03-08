@@ -37,12 +37,12 @@ export default defineNuxtConfig({
 	app: {
 		baseURL: '/',
 		head: {
-			titleTemplate: '%s | Nuxt Technical Manual v0.5.0',
+			titleTemplate: '%s | Nuxt Technical Manual v0.5.1',
 			meta: [
 				{ charset: 'utf-8' },
-				{ hid: 'description', name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
-				{ hid: 'theme-color', name: 'theme-color', content: '#000011' },
-				{ hid: 'color-scheme', name: 'color-scheme', content: 'dark light' },
+				{ name: 'description', content: 'Nuxtで纏められた主にHTML技術関連のマニュアルページ' },
+				{ name: 'theme-color', content: '#000011' },
+				{ name: 'color-scheme', content: 'dark light' },
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			],
 		},
