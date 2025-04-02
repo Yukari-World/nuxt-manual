@@ -136,6 +136,9 @@ export default defineNuxtConfig({
 	// i18n configuration
 
 	i18n: {
+		bundle: {
+			optimizeTranslationDirective: false,
+		},
 		defaultLocale: 'ja-JP',
 		detectBrowserLanguage: {
 			cookieKey: 'i18n_redirected',
