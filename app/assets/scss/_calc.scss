@@ -31,7 +31,7 @@
 		@return $number;
 	}
 
-	@else if not math.unitless($digits) {
+	@else if not math.is-unitless($digits) {
 		@warn "#{ $digits } has a unit.";
 		@return $number;
 	}
@@ -41,15 +41,15 @@
 	}
 
 	@if $round == "round" {
-		@return math.round($number * $n) / $n;
+		@return math.div(math.round($number * $n), $n);
 	}
 
 	@else if $round == "ceil" {
-		@return math.ceil($number * $n) / $n;
+		@return math.div(math.ceil($number * $n), $n);
 	}
 
 	@else if $round == "floor" {
-		@return math.floor($number * $n) / $n;
+		@return math.div(math.floor($number * $n), $n);
 	}
 
 	@else {

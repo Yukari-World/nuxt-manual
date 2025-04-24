@@ -2,12 +2,17 @@
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Initialize
+
 // ----------------------------------------------------------------------------------------------------
 // Import
-@import "calc";
+
+@use "sass:map";
+@use "sass:math";
+@use "calc" as cc;
 
 // ----------------------------------------------------------------------------------------------------
 // 変数の定義(Global)
+
 $global-font-size: 14px;
 $gradation-pattern1: linear-gradient(to right, #000011, #1164FF, #FFFF99);
 $gradation-pattern2: linear-gradient(to right, #FFFFFF, #1164FF, #FFFF99);
@@ -24,14 +29,15 @@ $width-list: (
 
 // ----------------------------------------------------------------------------------------------------
 // mixinの定義
+
 @mixin min-screen($breakpoint: md) {
-	@media only screen and (min-width: #{map-get($width-list, $breakpoint) + 1}px) {
+	@media only screen and (min-width: #{map.get($width-list, $breakpoint) + 1}px) {
 		@content;
 	}
 }
 
 @mixin max-screen($breakpoint: md) {
-	@media only screen and (max-width: #{map-get($width-list, $breakpoint)}px) {
+	@media only screen and (max-width: #{map.get($width-list, $breakpoint)}px) {
 		@content;
 	}
 }
@@ -51,8 +57,29 @@ $width-list: (
 // Functionの定義
 
 /// Viewport Widthの演算
-@function calc-viewport ($value: 1000, $breakpoint: md) {
-	@return round-decimal(($value / map-get($width-list, $breakpoint)) * 100, 3) + vw;
+@function calc-width-viewport($value: 1000, $breakpoint: md) {
+	@return cc.round-decimal(math.div($value, map.get($width-list, $breakpoint)) * 100, 3) + dvw;
+}
+
+/// Viewport Heightの演算
+@function calc-height-viewport($value: 1000, $breakpoint: md) {
+	@return cc.round-decimal(math.div($value, map.get($width-list, $breakpoint)) * 100, 3) + dvh;
+}
+
+@function calc-width-half($value: 1000, $dd, $breakpoint: md) {
+	@return calc(#{math.div($value, 2) + $dd} + #{calc-width-viewport(math.div($value, 2), $breakpoint)});
+}
+
+@function calc-width-quater($value: 1000, $dd, $breakpoint: md) {
+	@return calc(#{math.div($value, 4) + $dd} + #{calc-width-viewport(math.div($value, 4) * 3, $breakpoint)});
+}
+
+@function calc-height-half($value: 1000, $dd, $breakpoint: md) {
+	@return calc(#{math.div($value, 2) + $dd} + #{calc-height-viewport(math.div($value, 2), $breakpoint)});
+}
+
+@function calc-height-quater($value: 1000, $dd, $breakpoint: md) {
+	@return calc(#{math.div($value, 4) + $dd} + #{calc-height-viewport(math.div($value, 4) * 3, $breakpoint)});
 }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -324,6 +351,7 @@ blockquote {
 
 // ----------------------------------------------------------------------------------------------------
 // Class Initialize
+
 .md {
 	&-hide {
 		@include max-screen(md) {
@@ -344,6 +372,7 @@ blockquote {
 
 // ----------------------------------------------------------------------------------------------------
 // Vender Profile Initialize
+
 ::-webkit-scrollbar {
 	width: 10px;
 	height: 10px;
@@ -374,6 +403,7 @@ blockquote {
 
 // ----------------------------------------------------------------------------------------------------
 // Animation Initialize
+
 @keyframes flashString {
 	0% {
 		@include defaultFlash();

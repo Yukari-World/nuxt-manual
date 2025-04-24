@@ -2,12 +2,17 @@
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Initialize
+
 // ----------------------------------------------------------------------------------------------------
 // Import
-@import "calc";
+
+@use "sass:map";
+@use "sass:math";
+@use "calc" as cc;
 
 // ----------------------------------------------------------------------------------------------------
 // 変数の定義(Global)
+
 $global-font-size: 14px;
 $black: #000000;
 $LightGray: #D8D8D8;
@@ -25,14 +30,15 @@ $width-list: (
 
 // ----------------------------------------------------------------------------------------------------
 // mixinの定義
+
 @mixin min-screen($breakpoint: md) {
-	@media only screen and (min-width: #{map-get($width-list, $breakpoint) + 1}px) {
+	@media only screen and (min-width: #{map.get($width-list, $breakpoint) + 1}px) {
 		@content;
 	}
 }
 
 @mixin max-screen($breakpoint: md) {
-	@media only screen and (max-width: #{map-get($width-list, $breakpoint)}px) {
+	@media only screen and (max-width: #{map.get($width-list, $breakpoint)}px) {
 		@content;
 	}
 }
@@ -41,8 +47,29 @@ $width-list: (
 // Functionの定義
 
 /// Viewport Widthの演算
-@function calc-viewport ($value: 1000, $breakpoint: md) {
-	@return round-decimal(($value / map-get($width-list, $breakpoint)) * 100, 3) + vw;
+@function calc-width-viewport($value: 1000, $breakpoint: md) {
+	@return cc.round-decimal(math.div($value, map.get($width-list, $breakpoint)) * 100, 3) + dvw;
+}
+
+/// Viewport Heightの演算
+@function calc-height-viewport($value: 1000, $breakpoint: md) {
+	@return cc.round-decimal(math.div($value, map.get($width-list, $breakpoint)) * 100, 3) + dvh;
+}
+
+@function calc-width-half($value: 1000, $dd, $breakpoint: md) {
+	@return calc(#{math.div($value, 2) + $dd} + #{calc-width-viewport(math.div($value, 2), $breakpoint)});
+}
+
+@function calc-width-quater($value: 1000, $dd, $breakpoint: md) {
+	@return calc(#{math.div($value, 4) + $dd} + #{calc-width-viewport(math.div($value, 4) * 3, $breakpoint)});
+}
+
+@function calc-height-half($value: 1000, $dd, $breakpoint: md) {
+	@return calc(#{math.div($value, 2) + $dd} + #{calc-height-viewport(math.div($value, 2), $breakpoint)});
+}
+
+@function calc-height-quater($value: 1000, $dd, $breakpoint: md) {
+	@return calc(#{math.div($value, 4) + $dd} + #{calc-height-viewport(math.div($value, 4) * 3, $breakpoint)});
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -51,6 +78,7 @@ $width-list: (
 
 // ----------------------------------------------------------------------------------------------------
 // CSS Initialize
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	padding: 0;
 	margin: 0;
