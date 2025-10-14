@@ -22,6 +22,11 @@
 			NuxtLink(:to="localePath('/php/bind')") 別のページ
 			| にて説明する。
 
+		h3 TRANSITIONの使用
+		p 複数のSQLを一つの処理としてまとめて実行する場合、トランザクションを利用する。以下はトランザクションを利用した例である。
+		BlockCode.language-php {{ CBTransition }}
+		p トランザクションを利用する場合、全ての処理が成功した場合にのみコミットされる。もし一つでも失敗した場合、ロールバックされるため、データの整合性を保つことができる。
+
 	section
 		h2 使用上の注意
 		ul
@@ -35,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -77,8 +82,7 @@ try {
 
 const CBGet = ref(`try {
 	$query = "SELECT * FROM \`user\`";
-	$stmt = $pdo->prepare($query); // SQLの格納
-	$stmt->execute(); // SQLの実行
+	$stmt = $pdo->query($query);// SQLの実行
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC); // SQLの結果を取得
 
 	// SQLの実行に失敗しておらず、取得結果がある場合、変数に格納
@@ -89,6 +93,32 @@ const CBGet = ref(`try {
 	}
 } catch (PDOException $e) {
 	die('Database Error: ' . $e->getMessage());
+}`);
+
+const CBTransition = ref(`try {
+	// トランザクション開始
+	$pdo->beginTransaction();
+
+	// 処理1
+	$query1 = "INSERT INTO \`user\` (\`name\`, \`email\`) VALUES (:name, :email)";
+	$stmt1 = $pdo->prepare($query1); // SQLの格納
+	$stmt1->bindValue(':name', $name, PDO::PARAM_STR);
+	$stmt1->bindValue(':email', $email, PDO::PARAM_STR);
+	$stmt1->execute(); // SQLの実行
+
+	// 処理2
+	$query2 = "UPDATE \`account\` SET \`status\` = :status WHERE \`id\` = :id";
+	$stmt2 = $pdo->prepare($query2); // SQLの格納
+	$stmt2->bindValue(':status', $status, PDO::PARAM_STR);
+	$stmt2->bindValue(':id', (int)$id, PDO::PARAM_INT);
+	$stmt2->execute(); // SQLの実行
+
+	// コミット（変更を確定）
+	$pdo->commit();
+} catch (PDOException $e) {
+	// エラーが発生した場合、ロールバック（変更を元に戻す）
+	$pdo->rollBack();
+	die('Transaction Failed: ' . $e->getMessage());
 }`);
 
 

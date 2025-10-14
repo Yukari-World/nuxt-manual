@@ -3,7 +3,7 @@
 //- 左側に表示する内容
 p.yw-word
 	//- eslint-disable-next-line vue/no-v-html
-	NuxtLink#randomWord(:to="link", v-html="footerText")
+	NuxtLinkLocale#randomWord(:to="link", v-html="footerText")
 </template>
 
 <script setup lang="ts">

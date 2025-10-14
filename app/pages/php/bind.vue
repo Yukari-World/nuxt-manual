@@ -6,6 +6,9 @@
 
 	section
 		h2 使用方法と解説
+		p 接続用の変数周りの説明は省略する。PDOを用いた接続に関する記述は
+			NuxtLink(to="/php/pdo", title="PDO") PDO
+			| のページを参照。
 		p まずはバインドを使用しない例から記述。
 			br
 			| よくあるミスだが、パスワードは文字列なのでクォーテーションで囲むのを忘れないように注意。
@@ -28,9 +31,11 @@
 		h3 MySQLi
 		BlockCode.language-php(data-line="1-9") {{ CBMySQLiBind02 }}
 
-		p MySQLiの例。SQLに値を代入する位置にプレースホルダ`?`を挿入して指定した後一度
+		p MySQLiの例。SQLに値を代入する位置にプレースホルダ`?`を挿入して指定した後、一度
 			code.language-php: span.token.function prepare
-			| に格納する必要がある。格納した後にバインドする。
+			| でSQLクエリを格納する必要がある。格納した後に
+			code.language-php: span.token.function bind_param
+			| にてバインドする。
 			br
 			code.language-php: span.token.function bind_param
 			| の第一引数は代入する変数の型を示しており、iはinterger数値を示しており、sはstring文字列を示している。第二引数以降には変数を指定する。直接値や文字列を指定することはできないので注意が必要。
@@ -94,17 +99,17 @@
 	section
 		h2 参考リンク
 		p
-			NuxtLink(to="http://php.net/manual/ja/mysqli-stmt.bind-param.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_param
+			NuxtLink(to="https://www.php.net/manual/ja/mysqli-stmt.bind-param.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_param
 			br
-			NuxtLink(to="http://php.net/manual/ja/mysqli-stmt.bind-result.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_result
+			NuxtLink(to="https://www.php.net/manual/ja/mysqli-stmt.bind-result.php", target="_blank", rel="external noopener") PHP.net / mysqli_stmt::bind_result
 			br
-			NuxtLink(to="http://php.net/manual/ja/pdostatement.bindparam.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindParam
+			NuxtLink(to="https://www.php.net/manual/ja/pdostatement.bindparam.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindParam
 			br
-			NuxtLink(to="http://php.net/manual/ja/pdostatement.bindvalue.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindValue
+			NuxtLink(to="https://www.php.net/manual/ja/pdostatement.bindvalue.php", target="_blank", rel="external noopener") PHP.net / PDOStatement::bindValue
 </template>
 
 <script setup lang="ts">
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -127,8 +132,7 @@ if ($result = $mysqli->query($query)) {
 
 const CBPDOBind01 = ref(`try {
 	$query = "SELECT * FROM \`user\` WHERE \`id\` = " . $id . " AND \`password\` = PASSWORD('" . $password . "')";
-	$stmt = $pdo->prepare($query); // SQL Queryの格納
-	$stmt->execute(); // SQLの実行
+	$stmt = $pdo->query($query);// SQLの実行
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC); // SQLの結果を取得
 
 	// SQLの実行に失敗しておらず、取得結果がある場合、変数に格納

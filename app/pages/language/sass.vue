@@ -70,11 +70,11 @@
 
 	section
 		h2 リンク
-		NuxtLink(to="http://sass-lang.com/", target="_blank", rel="external noopener") Sass: Syntactically Awesome Style Sheets
+		NuxtLink(to="https://sass-lang.com/", target="_blank", rel="external noopener") Sass: Syntactically Awesome Style Sheets
 </template>
 
 <script setup lang="ts">
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 
 
 // ----------------------------------------------------------------------------------------------------

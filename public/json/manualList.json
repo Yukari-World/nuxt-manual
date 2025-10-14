@@ -149,6 +149,13 @@
 					"name": "Default",
 					"list": [
 						{
+							"title": "Dockerからホストマシンへの接続",
+							"link": "/internal",
+							"summary": "Dockerコンテナからホストマシンのサービスにアクセスする方法",
+							"tags": ["Docker"],
+							"deprecated": false,
+							"workInProgress": false
+						}, {
 							"title": "Mailpit",
 							"link": "/mailpit",
 							"summary": "",
@@ -293,21 +300,21 @@
 						}, {
 							"title": "Pug",
 							"link": "/pug",
-							"summary": "",
+							"summary": "テンプレート言語Pugに関する基本的な使い方",
 							"tags": ["Pug"],
 							"deprecated": false,
 							"workInProgress": false
 						}, {
 							"title": "Sass",
 							"link": "/sass",
-							"summary": "",
+							"summary": "テンプレート言語Sassに関する基本的な使い方",
 							"tags": ["Sass"],
 							"deprecated": false,
 							"workInProgress": false
 						}, {
 							"title": "SCSS",
 							"link": "/scss",
-							"summary": "",
+							"summary": "テンプレート言語SCSSに関する基本的な使い方",
 							"tags": ["SCSS"],
 							"deprecated": false,
 							"workInProgress": true
@@ -560,8 +567,8 @@
 					"name": "Default",
 					"list": [
 						{
-							"title": "近日公開",
-							"link": "/",
+							"title": "pinia",
+							"link": "/pinia",
 							"summary": "",
 							"tags": ["Vue.js"],
 							"deprecated": false,

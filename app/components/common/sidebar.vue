@@ -12,7 +12,7 @@ div
 	//- メニューの生成
 	//- アイコンは https://materialdesignicons.com/ を参照
 	v-list#navMenu(dense, expand, nav, subheader, :three-line="threeLine")
-		v-list-subheader(v-t="'sidebar.contents'")
+		v-list-subheader {{ $t('sidebar.contents') }}
 		v-list-group(v-for="(listIndex, index) in menuList", :id="listIndex.category", :key="index", active-class="text-light-blue", :value="$t(listIndex.category)", :prepend-icon="listIndex.icon")
 			template(#activator="{ props }")
 				v-list-item(v-bind="props")
@@ -41,7 +41,7 @@ div
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
 import LocalizedFormat from 'dayjs/plugin/localizedFormat';
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 
 
 // ----------------------------------------------------------------------------------------------------

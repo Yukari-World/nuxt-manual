@@ -69,7 +69,7 @@
 		h3 SCSS
 		p
 			| SCSSファイル。これを基にCSSに出力する。細かい記述ルールは
-			NuxtLink(:to="localePath('/language/sass')" title="SASS") こちら
+			NuxtLinkLocale(to="/language/scss", title="SCSS") こちら
 			| を参照。
 		BlockCode.language-scss: pre.
 			@charset "UTF-8";
@@ -404,7 +404,7 @@
 </template>
 
 <script setup lang="ts">
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -412,7 +412,6 @@ import { useIndexStore } from '@/store/index';
 
 const header = reactive({ title: '特殊なグラデーションリスト' });
 const indexStore = useIndexStore();
-const localePath = useLocalePath();
 
 
 // ----------------------------------------------------------------------------------------------------

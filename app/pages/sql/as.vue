@@ -18,7 +18,7 @@
 				NuxtLink(to="https://mariadb.org/", target="_blank", rel="external noopener") MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
-			NuxtLink(:to="localePath('/sample') + '#sqlSample'") サンプルデータに移行。
+			NuxtLinkLocale(to="/sample#sqlSample", title="サンプルデータ") サンプルデータに移行。
 
 		h3 使用方法
 		p 今回以下のSQL文から説明を行う
@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -90,7 +90,6 @@ import { useIndexStore } from '@/store/index';
 
 const header = reactive({ title: 'AS(別名)' });
 const indexStore = useIndexStore();
-const localePath = useLocalePath();
 
 const tableData = reactive([
 	{ name: '神崎商会', productName: 'りんご', price: 120, amount: 60 },
@@ -164,8 +163,8 @@ onMounted(function() {
 
 		thead {
 			tr {
-				color: CaptionText;
-				background-color: ActiveCaption;
+				color: #000000;
+				background-color: #FFFFFF;
 			}
 		}
 

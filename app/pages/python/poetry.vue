@@ -1,11 +1,11 @@
 <template lang="pug">
-.category--language.page--index
-	AlertStub
+	.category--python.page--poetry
+		AlertStub
 
-	section
-		h2 説明
-		p 記述前
-</template>
+		section
+			h2 説明
+			p 記述前
+	</template>
 
 <script setup lang="ts">
 import { useIndexStore } from '@/store';
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: 'CSS' });
+const header = reactive({ title: 'Poetry' });
 const indexStore = useIndexStore();
 
 
@@ -29,7 +29,7 @@ useHead({
 // ----------------------------------------------------------------------------------------------------
 // Mounted
 
-onMounted(function() {
+onMounted(function () {
 	indexStore.setTitle(header.title);
 });
 </script>

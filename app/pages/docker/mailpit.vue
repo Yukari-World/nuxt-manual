@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { highlightAll } from 'prismjs';
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 import 'prismjs/components/prism-ini';
 import 'prismjs/components/prism-yaml';
 

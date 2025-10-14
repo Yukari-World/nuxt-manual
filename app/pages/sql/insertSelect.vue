@@ -38,11 +38,11 @@
 					span.token.keyword.space &nbsp;
 					span.token.keyword.keyword-EXISTS EXISTS
 				| を使用する場合、方言による制約でこの方法を使用しないと使用できない。この方法については
-				NuxtLink(:to="localePath('/sql/MySQL/insertWhereExists')", title="[MySQL] INSERT WHERE EXISTS") 別のページにて参照されたし。
+				NuxtLinkLocale(to="/sql/MySQL/insertWhereExists", title="[MySQL] INSERT WHERE EXISTS") 別のページにて参照されたし。
 </template>
 
 <script setup lang="ts">
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -50,7 +50,6 @@ import { useIndexStore } from '@/store/index';
 
 const header = reactive({ title: 'INSERT SELECT' });
 const indexStore = useIndexStore();
-const localePath = useLocalePath();
 
 const CBInsert = ref(`INSERT INTO
 	\`table_name\`(\`column1\`, \`column2\`, \`column3\`, ...)

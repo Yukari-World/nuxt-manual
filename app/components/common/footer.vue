@@ -11,7 +11,7 @@ v-footer(padless)
 </template>
 
 <script setup lang="ts">
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ function setRandomWord(): boolean {
 		const wordNum = Math.floor(randomFloat() * wordList.value.length);
 
 		sLink.value = '/randomWord/' + (wordNum + 1);
-		sFooterText.value = wordList.value[wordNum].title;
+		sFooterText.value = wordList.value[wordNum]?.title || '';
 
 		return true;
 	}

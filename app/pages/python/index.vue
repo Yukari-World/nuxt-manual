@@ -1,23 +1,10 @@
 <template lang="pug">
-.category--other.page--netlify
+.category--python.page--index
 	AlertStub
 
 	section
 		h2 説明
-		p NetlifyでNuxtのマニュアルを作成する機会があったので記述する。
-
-	section
-		h2 Netlifyとは
-		p
-			| a
-
-	section
-		h2 リンク
-		NuxtLink(to="https://www.netlify.com/", target="_blank", rel="external noopener") Netlify: All-in-one platform for automating modern web projects.
-
-	section
-		h2 参考リンク
-		NuxtLink(to="https://qiita.com/TakahiRoyte/items/b7c4d1581df1a17a93fb", target="_blank", rel="external noopener") 高機能ホスティングサービスNetlifyについて調べて使ってみた - Qiita
+		p 記述前
 </template>
 
 <script setup lang="ts">
@@ -27,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: 'Netlify' });
+const header = reactive({ title: '' });
 const indexStore = useIndexStore();
 
 
@@ -46,7 +33,6 @@ onMounted(function() {
 	indexStore.setTitle(header.title);
 });
 </script>
-
 
 <script lang="ts">
 </script>

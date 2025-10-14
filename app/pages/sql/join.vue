@@ -20,7 +20,7 @@
 				NuxtLink(to="https://mariadb.org/", target="_blank", rel="external noopener") MariaDB
 				| で使用することを想定している。
 			| 肥大化に伴い、
-			NuxtLink(:to="localePath('/sample#sqlSample')" title="サンプルデータ") サンプルデータに移行。
+			NuxtLinkLocale(to="/sample#sqlSample", title="サンプルデータ") サンプルデータに移行。
 
 		h3 内部結合
 		p
@@ -66,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { useIndexStore } from '@/store/index';
+import { useIndexStore } from '@/store';
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -74,7 +74,6 @@ import { useIndexStore } from '@/store/index';
 
 const header = reactive({ title: 'JOIN(テーブル結合)' });
 const indexStore = useIndexStore();
-const localePath = useLocalePath();
 
 const CBInnerJoin = ref(`SELECT
 	\`customer\`.\`name\` AS \`customerName\`,

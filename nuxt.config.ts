@@ -97,14 +97,14 @@ export default defineNuxtConfig({
 				fix: true,
 				include: [
 					'assets/**/*.{css,less,scss,sass,vue}',
-					'components/**/*.{css,less,scss,sass,vue}',
+					'app/components/**/*.{css,less,scss,sass,vue}',
 					// 'content/**/*.{css,less,scss,sass,vue}',
-					'layouts/**/*.{css,less,scss,sass,vue}',
-					'pages/**/*.{css,less,scss,sass,vue}',
+					'app/layouts/**/*.{css,less,scss,sass,vue}',
+					'app/pages/**/*.{css,less,scss,sass,vue}',
 					'server/**/*.{css,less,scss,sass,vue}',
 					// 'src/**/*.{css,less,scss,sass,vue}',
 					// 'styles/**/*.{css,less,scss,sass,vue}',
-					'app.vue',
+					'app/app.vue',
 					// 'error.vue',
 					// 'Error.vue',
 				],
@@ -129,6 +129,15 @@ export default defineNuxtConfig({
 
 	eslint: {
 		checker: true,
+		config: {
+			stylistic: {
+				commaDangle: 'always-multiline',
+				indent: 'tab',
+				quotes: 'single',
+				semi: true,
+			},
+			tooling: true,
+		},
 	},
 
 
@@ -136,9 +145,6 @@ export default defineNuxtConfig({
 	// i18n configuration
 
 	i18n: {
-		bundle: {
-			optimizeTranslationDirective: false,
-		},
 		defaultLocale: 'ja-JP',
 		detectBrowserLanguage: {
 			cookieKey: 'i18n_redirected',
@@ -147,7 +153,6 @@ export default defineNuxtConfig({
 			cookieSecure: true,
 		},
 		langDir: 'locales/',
-		lazy: true,
 		locales: [
 			{ code: 'en-US', language: 'en-US', name: 'English', files: ['en.yaml', 'en-US.yaml'] },
 			{ code: 'ja-JP', language: 'ja-JP', name: 'Japanese', files: ['ja.yaml', 'ja-JP.yaml'] },

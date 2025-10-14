@@ -2,6 +2,13 @@ common:
   stub:
     deprecated:
       title: 'Deprecated items'
+      description: 'This article or part of it is deprecated and may contain outdated information.'
+    nonStandard:
+      title: 'Non-standard feature'
+      description: 'The content described here is not standardized by W3C and may be changed or abolished without notice.'
+    workInProgress:
+      title: 'Work in progress'
+      description: 'This article or part of it is still being created and may contain incomplete information.'
 header:
   title: 'Top Page'
   log: 'Update Log'

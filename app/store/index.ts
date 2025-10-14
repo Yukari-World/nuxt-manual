@@ -12,7 +12,7 @@ import { defineStore } from 'pinia';
 // ----------------------------------------------------------------------------------------------------
 // Interface
 
-interface ICategoryList {
+export interface ICategoryList {
 	category: string,
 	baseURL: string,
 	description: string,
@@ -36,7 +36,7 @@ interface ICategoryList {
  *
  * @interface
  */
-interface IMenuList {
+export interface IMenuList {
 	type: string,
 	categoryList: ICategoryList[],
 }
@@ -46,7 +46,7 @@ interface IMenuList {
  *
  * @interface
  */
-interface IRandomWord {
+export interface IRandomWord {
 	/** タイトル */
 	title: string,
 	/** 出典 */
@@ -62,7 +62,7 @@ interface IRandomWord {
  *
  * @interface
  */
-interface IXorShiftSeed128 {
+export interface IXorShiftSeed128 {
 	x: number,
 	y: number,
 	z: number,

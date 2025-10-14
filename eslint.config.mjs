@@ -1,17 +1,8 @@
-import { createConfigForNuxt } from '@nuxt/eslint-config/flat';
 import vuePug from 'eslint-plugin-vue-pug';
+import withNuxt from './.nuxt/eslint.config.mjs'
 
-export default createConfigForNuxt({
-	features: {
-		stylistic: {
-			commaDangle: 'always-multiline',
-			indent: 'tab',
-			quotes: 'single',
-			semi: true,
-		},
-		tooling: true,
-	},
-}).override('nuxt/vue/setup', {
+export default withNuxt()
+.override('nuxt/vue/setup', {
 	plugins: {
 		vuePug,
 	},

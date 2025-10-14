@@ -1,5 +1,5 @@
 <template lang="pug">
-.components--block--randomworld(:id="'wordID' + (targetId)")
+.components--block--randomworld(v-if="wordList", :id="'wordID' + (targetId)")
 	.header
 		//- eslint-disable-next-line vue/no-v-html
 		h3(v-html="wordList.title")
@@ -18,6 +18,9 @@
 </template>
 
 <script setup lang="ts">
+import type { IRandomWord } from '@/store';
+
+
 // ----------------------------------------------------------------------------------------------------
 // Property List
 
@@ -27,8 +30,7 @@ defineProps({
 		required: true,
 	},
 	wordList: {
-		type: Object,
-		required: true,
+		type: Object as PropType<IRandomWord>,
 	},
 });
 </script>
