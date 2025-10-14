@@ -26,12 +26,12 @@ div
 					//- サブカテゴリは1000足してキーの重複を回避する
 					//- サブカテゴリ毎に表示方法を変える
 					template(v-if="subIndex.name !== 'Default'")
-						v-list-item(:key="i * 1000 + j", active-class="text-light-blue", nuxt, :to="listIndex.baseURL + subIndex.url + lists.link")
+						v-list-item(:key="i * 1000 + j", active-class="text-light-blue", nuxt, :to="localePath(listIndex.baseURL) + subIndex.url + lists.link")
 							template(v-if="lists.workInProgress === true", #append)
 								v-icon(icon="mdi-border-color")
 							v-list-item-title(:title="lists.title", v-text="'[' + $t(subIndex.name) + '] ' + lists.title")
 					template(v-else)
-						v-list-item(:key="i * 1000 + j", active-class="text-light-blue", nuxt, :to="listIndex.baseURL + lists.link")
+						v-list-item(:key="i * 1000 + j", active-class="text-light-blue", nuxt, :to="localePath(listIndex.baseURL) + lists.link")
 							template(v-if="lists.workInProgress === true", #append)
 								v-icon(icon="mdi-border-color")
 							v-list-item-title(:title="lists.title", v-text="lists.title")
@@ -48,6 +48,7 @@ import { useIndexStore } from '@/store';
 // Data Initialize
 
 const indexStore = useIndexStore();
+const localePath = useLocalePath();
 
 const threeLine = ref(false);
 const now = ref('');
