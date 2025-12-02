@@ -1,10 +1,10 @@
 <template lang="pug">
 .page--vue.sub--nuxtjs.page--index
-	AlertStub
-
 	section
-		h2 説明
-		p 記述前
+		h2 {{ header.title }}
+		p Nuxt.jsに関するマニュアルやチートシートを掲載しています
+
+		CommonContents(main-category="vue", sub-category="Nuxtjs")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: 'カテゴリ: Nuxt.js' });
 const indexStore = useIndexStore();
 
 

@@ -1,10 +1,10 @@
 <template lang="pug">
 .category--other.sub--unix.page--index
-	AlertStub
-
 	section
-		h2 説明
-		p 記述前
+		h2 {{ header.title }}
+		p Unixに関するマニュアルやチートシートを掲載しています。
+
+		CommonContents(main-category="other", sub-category="Unix")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: 'カテゴリ: Unix' });
 const indexStore = useIndexStore();
 
 

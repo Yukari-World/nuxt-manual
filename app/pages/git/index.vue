@@ -1,10 +1,10 @@
 <template lang="pug">
 .category--git.page--index
-	AlertStub
-
 	section
-		h2 説明
-		p 記述前
+		h2 {{ header.title }}
+		p Gitに関するマニュアルやチートシートを掲載しています。
+
+		CommonContents(main-category="git")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: 'カテゴリ: Git' });
 const indexStore = useIndexStore();
 
 

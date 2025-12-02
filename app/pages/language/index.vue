@@ -1,10 +1,10 @@
 <template lang="pug">
 .category--language.page--index
-	AlertStub
-
 	section
-		h2 説明
-		p 記述前
+		h2 {{ header.title }}
+		p 言語に関するマニュアルやチートシートを掲載しています。
+
+		CommonContents(main-category="language")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: '	カテゴリ: 言語' });
 const indexStore = useIndexStore();
 
 

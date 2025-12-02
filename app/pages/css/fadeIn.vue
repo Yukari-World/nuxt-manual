@@ -217,8 +217,8 @@ onMounted(function() {
 			position: relative;
 			overflow: hidden;
 			opacity: 0;
-			transition: all 1s ease;
 			transform: translateY(100px);
+			transition: all 1s ease;
 
 			&.yw-show {
 				opacity: 1;

@@ -134,3 +134,15 @@ scriptInitialize();
 
 <script lang="ts">
 </script>
+
+<style lang="scss">
+.layout {
+	&--default {
+		min-height: 100dvh;
+
+		main {
+			min-height: 100dvh;
+		}
+	}
+}
+</style>

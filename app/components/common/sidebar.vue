@@ -21,20 +21,13 @@ div
 			//- サブカテゴリ。templateに含ますことで不要な要素を作成させない
 			template(v-for="(subIndex, i) in listIndex.subCategory")
 				//- リスト行
-				template(v-for="(lists, j) in subIndex.list")
-					//- リンクは v-list-item が持つ
-					//- サブカテゴリは1000足してキーの重複を回避する
-					//- サブカテゴリ毎に表示方法を変える
-					template(v-if="subIndex.name !== 'Default'")
-						v-list-item(:key="i * 1000 + j", active-class="text-light-blue", nuxt, :to="localePath(listIndex.baseURL) + subIndex.url + lists.link")
-							template(v-if="lists.workInProgress === true", #append)
-								v-icon(icon="mdi-border-color")
-							v-list-item-title(:title="lists.title", v-text="'[' + $t(subIndex.name) + '] ' + lists.title")
-					template(v-else)
-						v-list-item(:key="i * 1000 + j", active-class="text-light-blue", nuxt, :to="localePath(listIndex.baseURL) + lists.link")
-							template(v-if="lists.workInProgress === true", #append)
-								v-icon(icon="mdi-border-color")
-							v-list-item-title(:title="lists.title", v-text="lists.title")
+				//- リンクは v-list-item が持つ
+				//- サブカテゴリは1000足してキーの重複を回避する
+				//- サブカテゴリ毎に表示方法を変える
+				v-list-item(v-for="(lists, j) in subIndex.list", :key="i * 1000 + j", active-class="text-light-blue", nuxt, :to="localePath(listIndex.baseURL + (subIndex.url ? subIndex.url : '') + lists.link)")
+					template(v-if="lists.workInProgress === true", #append)
+						v-icon(icon="mdi-border-color")
+					v-list-item-title(:title="lists.title", v-text="(subIndex.name !== 'Default' ? '[' + $t(subIndex.name) + '] ' : '') + lists.title")
 </template>
 
 <script setup lang="ts">

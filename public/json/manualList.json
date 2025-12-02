@@ -50,6 +50,17 @@
 				}
 			]
 		}, {
+			"category": "menu.csharp.title",
+			"baseURL": "/cSharp",
+			"description": "",
+			"icon": "mdi-language-csharp",
+			"subCategory": [
+				{
+					"name": "Default",
+					"list": []
+				}
+			]
+		}, {
 			"category": "menu.css.title",
 			"baseURL": "/css",
 			"description": "",
@@ -260,7 +271,7 @@
 						}
 					]
 				}, {
-					"name": "menu.js.subCategory.Ajax",
+					"name": "menu.js.subCategory.Ajax.title",
 					"url": "/Ajax",
 					"list": [
 						{
@@ -355,7 +366,7 @@
 						}
 					]
 				}, {
-					"name": "menu.node.subCategory.Gulp",
+					"name": "menu.node.subCategory.Gulp.title",
 					"url": "/Gulp",
 					"list": [
 						{
@@ -409,7 +420,7 @@
 						}
 					]
 				}, {
-					"name": "menu.php.subCategory.CodeIgniter",
+					"name": "menu.php.subCategory.CodeIgniter.title",
 					"url": "/CodeIgniter",
 					"list": [
 						{
@@ -417,6 +428,26 @@
 							"link": "/database",
 							"summary": "",
 							"tags": ["PHP"],
+							"deprecated": false,
+							"workInProgress": true
+						}
+					]
+				}
+			]
+		}, {
+			"category": "menu.python.title",
+			"baseURL": "/python",
+			"description": "",
+			"icon": "mdi-language-python",
+			"subCategory": [
+				{
+					"name": "Default",
+					"list": [
+						{
+							"title": "Poetry",
+							"link": "/poetry",
+							"summary": "",
+							"tags": ["Python"],
 							"deprecated": false,
 							"workInProgress": true
 						}
@@ -518,7 +549,7 @@
 						}
 					]
 				}, {
-					"name": "menu.sql.subCategory.MySQL",
+					"name": "menu.sql.subCategory.MySQL.title",
 					"url": "/MySQL",
 					"list": [
 						{
@@ -552,7 +583,7 @@
 						}
 					]
 				}, {
-					"name": "menu.sql.subCategory.SQLite",
+					"name": "menu.sql.subCategory.SQLite.title",
 					"url": "/SQLite",
 					"list": []
 				}
@@ -576,7 +607,7 @@
 						}
 					]
 				}, {
-					"name": "menu.vue.subCategory.Nuxt",
+					"name": "menu.vue.subCategory.Nuxt.title",
 					"url": "/Nuxtjs",
 					"list": [
 						{
@@ -636,7 +667,7 @@
 						}
 					]
 				}, {
-					"name": "menu.other.subCategory.Apache",
+					"name": "menu.other.subCategory.Apache.title",
 					"url": "/Apache",
 					"list": [
 						{
@@ -649,7 +680,7 @@
 						}
 					]
 				}, {
-					"name": "menu.other.subCategory.Atom",
+					"name": "menu.other.subCategory.Atom.title",
 					"url": "/Atom",
 					"list": [
 						{
@@ -669,7 +700,7 @@
 						}
 					]
 				}, {
-					"name": "menu.other.subCategory.Unix",
+					"name": "menu.other.subCategory.Unix.title",
 					"url": "/Unix",
 					"list": [
 						{
@@ -682,7 +713,7 @@
 						}
 					]
 				}, {
-					"name": "menu.other.subCategory.XAMPP",
+					"name": "menu.other.subCategory.XAMPP.title",
 					"url": "/XAMPP",
 					"list": [
 						{

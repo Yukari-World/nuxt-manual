@@ -162,9 +162,9 @@ onMounted(function() {
 				-webkit-appearance: none;
 				-moz-appearance: none;
 				appearance: none;
+				outline: none;
 				background: #CCCCCC;
 				border-radius: 10px;
-				outline: none;
 				opacity: 0.7;
 
 				&::-webkit-slider-thumb {

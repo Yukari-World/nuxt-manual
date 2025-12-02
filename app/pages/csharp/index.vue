@@ -1,10 +1,10 @@
 <template lang="pug">
-.category--node.sub--gulp.page--index
+.category--csharp.page--index
 	section
 		h2 {{ header.title }}
-		p Gulpに関するマニュアルやチートシートを掲載しています。
+		p C#に関するマニュアルやチートシートを掲載しています。
 
-		CommonContents(main-category="node", sub-category="Gulp")
+		CommonContents(main-category="csharp")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: 'カテゴリ: C#' });
 const indexStore = useIndexStore();
 
 

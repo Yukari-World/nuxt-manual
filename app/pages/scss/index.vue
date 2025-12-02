@@ -1,10 +1,10 @@
 <template lang="pug">
 .category--scss.page--index
-	AlertStub
-
 	section
-		h2 説明
-		p 記述前
+		h2 {{ header.title }}
+		p SCSSに関するマニュアルやチートシートを掲載しています。
+
+		CommonContents(main-category="scss")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: 'カテゴリ: SCSS' });
 const indexStore = useIndexStore();
 
 

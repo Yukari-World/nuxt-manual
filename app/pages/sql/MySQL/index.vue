@@ -1,10 +1,10 @@
 <template lang="pug">
 .category--sql.sub--mysql.page--index
-	AlertStub
-
 	section
-		h2 説明
-		p 記述前
+		h2 {{ header.title }}
+		p MySQLに関するマニュアルやチートシートを掲載しています。
+
+		CommonContents(main-category="sql", sub-category="MySQL")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: 'カテゴリ: MySQL' });
 const indexStore = useIndexStore();
 
 

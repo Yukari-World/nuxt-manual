@@ -1,10 +1,10 @@
 <template lang="pug">
 .category--node.page--index
-	AlertStub
-
 	section
-		h2 説明
-		p 記述前
+		h2 {{ header.title }}
+		p Node.jsに関するマニュアルやチートシートを掲載しています。
+
+		CommonContents(main-category="node")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: 'カテゴリ: Node.js' });
 const indexStore = useIndexStore();
 
 

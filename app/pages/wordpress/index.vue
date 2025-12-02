@@ -1,10 +1,10 @@
 <template lang="pug">
 .category--wordpress.page--index
-	AlertStub
-
 	section
-		h2 説明
-		p 記述前
+		h2 {{ header.title }}
+		p WordPressに関するマニュアルやチートシートを掲載しています。
+
+		CommonContents(main-category="wordpress")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: 'カテゴリ: WordPress' });
 const indexStore = useIndexStore();
 
 

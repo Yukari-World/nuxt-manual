@@ -1,10 +1,10 @@
 <template lang="pug">
-.category--node.sub--gulp.page--index
+.category--csharp.sub--maui.page--index
 	section
 		h2 {{ header.title }}
-		p Gulpに関するマニュアルやチートシートを掲載しています。
+		p MAUIに関するマニュアルやチートシートを掲載しています。
 
-		CommonContents(main-category="node", sub-category="Gulp")
+		CommonContents(main-category="csharp", sub-category="MAUI")
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useIndexStore } from '@/store';
 // ----------------------------------------------------------------------------------------------------
 // Data Initialize
 
-const header = reactive({ title: '' });
+const header = reactive({ title: 'カテゴリ: MAUI' });
 const indexStore = useIndexStore();
 
 

@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/check-param-names */
 /**
  * @file 共通項目を管理するstore
  */
@@ -17,17 +18,19 @@ export interface ICategoryList {
 	baseURL: string,
 	description: string,
 	icon: string,
-	subCategory: Array<{
-		name: string,
-		url?: string,
-		list: Array<{
-			title: string,
-			link: string,
-			summary: string,
-			tags: string[],
-			deprecated: boolean,
-			workInProgress: boolean,
-		}>,
+	subCategory: Array<ICategoryListItem>,
+}
+
+export interface ICategoryListItem {
+	name: string,
+	url?: string,
+	list: Array<{
+		title: string,
+		link: string,
+		summary: string,
+		tags: string[],
+		deprecated: boolean,
+		workInProgress: boolean,
 	}>,
 }
 
@@ -121,8 +124,35 @@ export const useIndexStore = defineStore('index', {
 		 *
 		 * @returns {ICategoryList[]}   メニューカテゴリリスト
 		 */
-		getMenuList(): ICategoryList[] {
-			return this.menus.categoryList;
+		getMenuList(state): ICategoryList[] {
+			return state.menus.categoryList;
+		},
+
+		/**
+		 * 指定カテゴリのメニューリスト取得
+		 *
+		 * @param   {string}                                        category    カテゴリ名
+		 * @returns {ICategoryList | ICategoryListItem | undefined}             メニューカテゴリ情報
+		 */
+		getMenubyCategory(state): (category: string) => ICategoryList | ICategoryListItem | undefined {
+			return (category: string): ICategoryList | ICategoryListItem | undefined => {
+				// console.log('Requested Category: ' + category);
+				// サブカテゴリが含むか確認
+				if (category.includes('.subCategory.')) {
+					const mainCategory = category.split('.subCategory.')[0];
+					// const subCategory = category.split('.subCategory.')[1];
+
+					// console.log('Main Category: ' + mainCategory);
+					// console.log('Sub Category: ' + subCategory);
+
+					const mainCatData = state.menus.categoryList.find(cat => cat.category === (mainCategory + '.title'));
+					if (mainCatData) {
+						return mainCatData.subCategory.find(subCat => subCat.name === category) as unknown as ICategoryListItem;
+					}
+					// return undefined;
+				}
+				return state.menus.categoryList.find(cat => cat.category === category);
+			};
 		},
 
 		/**
@@ -130,8 +160,8 @@ export const useIndexStore = defineStore('index', {
 		 *
 		 * @returns {IRandomWord[]} ランダムワードリスト
 		 */
-		getRandomWords(): IRandomWord[] {
-			return this.randomWords;
+		getRandomWords(state): IRandomWord[] {
+			return state.randomWords;
 		},
 
 		/**
@@ -139,8 +169,8 @@ export const useIndexStore = defineStore('index', {
 		 *
 		 * @returns {string}    保管しているタイトルデータ
 		 */
-		getTitle(): string {
-			return this.title;
+		getTitle(state): string {
+			return state.title;
 		},
 
 		/**
@@ -148,8 +178,8 @@ export const useIndexStore = defineStore('index', {
 		 *
 		 * @returns {IXorShiftSeed128}  seed値
 		 */
-		getSeed(): IXorShiftSeed128 {
-			return this.XorSeed;
+		getSeed(state): IXorShiftSeed128 {
+			return state.XorSeed;
 		},
 	},
 

@@ -21,6 +21,11 @@ sidebar:
 menu:
   main:
     title: 'Main'
+  csharp:
+    title: 'C#'
+    subCategory:
+      MAUI:
+        title: 'MAUI'
   css:
     title: 'CSS'
   docker:
@@ -32,34 +37,46 @@ menu:
   js:
     title: 'JavaScript'
     subCategory:
-      Ajax: 'Ajax'
+      Ajax:
+        title: 'Ajax'
   lang:
     title: 'Language'
   node:
     title: 'Node.js'
     subCategory:
-      Gulp: 'Gulp'
+      Gulp:
+        title: 'Gulp'
   php:
     title: 'PHP'
     subCategory:
-      CodeIgniter: 'CodeIgniter'
+      CodeIgniter:
+        title: 'CodeIgniter'
+  python:
+    title: 'Python'
   scss:
     title: 'SCSS'
   sql:
     title: 'SQL'
     subCategory:
-      MySQL: 'MySQL'
-      SQLite: 'SQLite'
+      MySQL:
+        title: 'MySQL'
+      SQLite:
+        title: 'SQLite'
   vue:
     title: 'Vue.js'
     subCategory:
-      Nuxt: 'Nuxt.js'
+      Nuxt:
+        title: 'Nuxt.js'
   wordpress:
     title: 'Wordpress'
   other:
     title: 'Other'
     subCategory:
-      Apache: 'Apache'
-      Atom: 'Atom'
-      Unix: 'Unix'
-      XAMPP: 'XAMPP'
+      Apache:
+        title: 'Apache'
+      Atom:
+        title: 'Atom'
+      Unix:
+        title: 'Unix'
+      XAMPP:
+        title: 'XAMPP'

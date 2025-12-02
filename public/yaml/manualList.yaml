@@ -40,6 +40,20 @@ categoryList:
             tags: []
             deprecated: false
             workInProgress: false
+  - category: menu.csharp.title
+    baseURL: '/csharp'
+    description: ''
+    icon: mdi-language-csharp
+    subCategory:
+      - name: Default
+        list:
+          - title: 近日公開
+            link: '/'
+            summary: ''
+            tags:
+              - C#
+            deprecated: false
+            workInProgress: true
   - category: menu.css.title
     baseURL: '/css'
     description: ''
@@ -223,7 +237,7 @@ categoryList:
               - JavaScript
             deprecated: false
             workInProgress: true
-      - name: menu.js.subCategory.Ajax
+      - name: menu.js.subCategory.Ajax.title
         url: '/Ajax'
         list:
           - title: Fetch API
@@ -308,7 +322,7 @@ categoryList:
               - Node
             deprecated: false
             workInProgress: false
-      - name: menu.node.subCategory.Gulp
+      - name: menu.node.subCategory.Gulp.title
         url: '/Gulp'
         list:
           - title: Gulp導入マニュアル
@@ -356,7 +370,7 @@ categoryList:
               - PHP
             deprecated: false
             workInProgress: false
-      - name: menu.php.subCategory.CodeIgniter
+      - name: menu.php.subCategory.CodeIgniter.title
         url: '/CodeIgniter'
         list:
           - title: データベース接続
@@ -364,6 +378,20 @@ categoryList:
             summary: ''
             tags:
               - PHP
+            deprecated: false
+            workInProgress: true
+  - category: menu.python.title
+    baseURL: '/python'
+    description: ''
+    icon: mdi-language-python
+    subCategory:
+      - name: Default
+        list:
+          - title: Poetry
+            link: '/poetry'
+            summary: ''
+            tags:
+              - Python
             deprecated: false
             workInProgress: true
   - category: menu.scss.title
@@ -450,7 +478,7 @@ categoryList:
               - SQL
             deprecated: false
             workInProgress: true
-      - name: menu.sql.subCategory.MySQL
+      - name: menu.sql.subCategory.MySQL.title
         url: '/MySQL'
         list:
           - title: INSERT WHERE EXISTS
@@ -485,7 +513,7 @@ categoryList:
               - SQL
             deprecated: false
             workInProgress: true
-      - name: menu.sql.subCategory.SQLite
+      - name: menu.sql.subCategory.SQLite.title
         url: SQLite
         list: []
   - category: menu.vue.title
@@ -502,7 +530,7 @@ categoryList:
               - Vue.js
             deprecated: false
             workInProgress: true
-      - name: menu.vue.subCategory.Nuxt
+      - name: menu.vue.subCategory.Nuxt.title
         url: '/Nuxtjs'
         list:
           - title: 近日公開
@@ -548,7 +576,7 @@ categoryList:
               - Server
             deprecated: false
             workInProgress: true
-      - name: menu.other.subCategory.Apache
+      - name: menu.other.subCategory.Apache.title
         url: '/Apache'
         list:
           - title: HTMLファイル内でPHPを動かす
@@ -558,7 +586,7 @@ categoryList:
               - Server
             deprecated: false
             workInProgress: false
-      - name: menu.other.subCategory.Atom
+      - name: menu.other.subCategory.Atom.title
         url: '/Atom'
         list:
           - title: Atom 導入マニュアル
@@ -575,7 +603,7 @@ categoryList:
               - Console
             deprecated: false
             workInProgress: true
-      - name: menu.other.subCategory.Unix
+      - name: menu.other.subCategory.Unix.title
         url: '/Unix'
         list:
           - title: Console Command
@@ -585,7 +613,7 @@ categoryList:
               - Console
             deprecated: false
             workInProgress: true
-      - name: menu.other.subCategory.XAMPP
+      - name: menu.other.subCategory.XAMPP.title
         url: '/XAMPP'
         list:
           - title: ローカルネットワーク接続
