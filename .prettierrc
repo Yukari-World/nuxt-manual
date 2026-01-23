@@ -4,6 +4,13 @@ semi: true
 singleQuote: true
 tabWidth: 4
 useTabs: true
+plugins:
+  - "@prettier/plugin-pug"
+pugAttributeSeparator: "always"
+pugCommentPreserveSpaces: true
+pugIdMode: "id"
+pugSortAttributes: "as-is"
+
 overrides:
   - files: "*.js"
     options:

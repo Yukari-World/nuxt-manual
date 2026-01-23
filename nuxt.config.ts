@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 		'@vite-pwa/nuxt',
 		'@vueuse/nuxt',
 		'nuxt-link-checker',
-		// 'nuxt-purgecss',
+		'vuetify-nuxt-module',
 	],
 
 	ssr: false,
@@ -57,7 +57,8 @@ export default defineNuxtConfig({
 		// 'codemirror/theme/material.css',
 		// 'codemirror/theme/tomorrow-night-eighties.css',
 		'@/assets/scss/style.scss',
-		'vuetify/lib/styles/main.sass',
+		// 'vuetify/lib/styles/main.sass',
+		'@mdi/font/css/materialdesignicons.css',
 		'prismjs/themes/prism-tomorrow.css',
 		'prismjs/plugins/toolbar/prism-toolbar.css',
 		'prismjs/plugins/line-highlight/prism-line-highlight.css',
@@ -68,9 +69,9 @@ export default defineNuxtConfig({
 	// ----------------------------------------------------------------------------------------------------
 	// Build configuration
 
-	build: {
-		transpile: ['vuetify'],
-	},
+	// build: {
+	// 	transpile: ['vuetify'],
+	// },
 
 
 	// ----------------------------------------------------------------------------------------------------

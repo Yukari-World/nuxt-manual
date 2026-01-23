@@ -99,7 +99,7 @@ const log = reactive<ILog[]>([
 		summary: [
 			'Lightレイアウトからサイズ情報に関する記述を削除',
 			'prismの更新',
-			'prismをLgithレイアウトで使用する時、Light系のスタイルを使用するように',
+			'prismをLightレイアウトで使用する時、Light系のスタイルを使用するように',
 			'vueのasyncの記述ミスを修正',
 		],
 	}, {
@@ -114,7 +114,7 @@ const log = reactive<ILog[]>([
 	}, {
 		date: '2019/06/11',
 		summary: [
-			'IndexedDBを利用したデータ保管方法に変更。非対応時の処理として以前のそーコードも残しています',
+			'IndexedDBを利用したデータ保管方法に変更。非対応時の処理として以前のソースコードも残しています',
 		],
 	}, {
 		date: '2019/06/10',
@@ -532,7 +532,7 @@ useHead({
 // ----------------------------------------------------------------------------------------------------
 // Mounted
 
-onMounted(function() {
+onMounted(function () {
 	indexStore.setTitle(header.title);
 });
 </script>
