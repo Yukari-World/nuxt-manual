@@ -2,7 +2,7 @@
 .category--home.page--update-log
 	v-timeline(reverse)
 		//- カードの出力
-		v-timeline-item(v-for="(logIndex, index) in log", :key="index")
+		v-timeline-item(v-for="(logIndex, index) in log", icon-color="secondary", :icon="logIndex.icon ? logIndex.icon : ''", :key="index")
 			//- 反対側に出力する文字を出力
 			//- 有ったり無かったりするので、条件で分岐
 			template(v-if="logIndex.opposite !== undefined", #opposite)
@@ -23,6 +23,7 @@ import { useIndexStore } from '@/store';
 
 interface ILog {
 	date: string,
+	icon?: string,
 	opposite?: string,
 	summary: string[],
 }
@@ -35,9 +36,81 @@ const header = reactive({ title: '更新履歴' });
 const indexStore = useIndexStore();
 const log = reactive<ILog[]>([
 	{
-		date: '2022/12/20',
+		date: '2026/06/XX',
 		summary: [
-			'Nuxt3への対応開始',
+			'フッター構築の修正',
+			'更新履歴の記述',
+		],
+	}, {
+		date: '2026/01/23',
+		icon: 'mdi-star',
+		opposite: '2026',
+		summary: [
+			'一部の誤字、誤変換を修正',
+		],
+	}, {
+		date: '2025/12/02',
+		summary: [
+			'indexページの実装',
+		],
+	}, {
+		date: '2025/10/14',
+		summary: [
+			'技術マニュアル『Dockerからホストマシンへの接続』を追加',
+			'技術マニュアル『Pinia』を追加',
+			'技術マニュアル『PDO』を更新',
+			'非推奨となったカラー指定を変更',
+			'サイドバーのリンク先をローカライズされたパスに更新',
+			'グラデーションリストのコード例の間違いを修正',
+		],
+	}, {
+		date: '2025/04/24',
+		summary: [
+			'SCSSでの演算仕様の修正',
+			'SCSSの関数名や呼び出し周りの仕様変更に対応',
+		],
+	}, {
+		date: '2025/01/28',
+		icon: 'mdi-tag',
+		opposite: 'Nuxt 4 Version',
+		summary: [
+			'Nuxt 4への対応開始',
+		],
+	}, {
+		date: '2025/01/18',
+		icon: 'mdi-star',
+		opposite: '2025',
+		summary: [
+			'データファイル未読み込み時の表示処理分岐の問題を修正',
+			'スタイルデータが読み込まれないことがある問題を修正。また、この問題を解決する際コンポーネントのタグ周りを変更',
+		],
+	}, {
+		date: '2023/09/19',
+		summary: [
+			'技術マニュアル『Mailpit』の追加',
+		],
+	}, {
+		date: '2022/12/20',
+		icon: 'mdi-tag',
+		opposite: 'Nuxt 3 Version',
+		summary: [
+			'Nuxt 3への対応開始',
+		],
+	}, {
+		date: '2021/01/06',
+		icon: 'mdi-star',
+		opposite: '2021',
+		summary: [
+			'技術マニュアル『0件出力』を追加',
+			'技術マニュアル『ResetCSS』を追加',
+			'一部のページにて技術変化や環境変化に伴う仕様変更について追記',
+			'トップページのスタイルを一部調整',
+		],
+	}, {
+		date: '2020/11/05',
+		summary: [
+			'技術マニュアル『ローカルネットワーク接続』を追加',
+			'全てのサブページにindexページを追加するように変更',
 		],
 	}, {
 		date: '2020/08/07',
@@ -58,6 +131,7 @@ const log = reactive<ILog[]>([
 		],
 	}, {
 		date: '2020/01/06',
+		icon: 'mdi-star',
 		opposite: '2020',
 		summary: [
 			'Gitの項目を追加',
@@ -90,7 +164,8 @@ const log = reactive<ILog[]>([
 		],
 	}, {
 		date: '2019/11/25',
-		opposite: 'Nuxt時代',
+		icon: 'mdi-tag',
+		opposite: 'Nuxt 2 Version',
 		summary: [
 			'マニュアルベースをNuxtに移行',
 		],
@@ -195,6 +270,7 @@ const log = reactive<ILog[]>([
 		],
 	}, {
 		date: '2019/01/07',
+		icon: 'mdi-star',
 		opposite: '2019',
 		summary: [
 			'XorShiftの乱数Xの取得方法が間違っていたのを修正',
@@ -511,6 +587,7 @@ const log = reactive<ILog[]>([
 		],
 	}, {
 		date: '2018/08/06',
+		icon: 'mdi-party-popper',
 		opposite: '創成',
 		summary: [
 			'マニュアル作成開始',

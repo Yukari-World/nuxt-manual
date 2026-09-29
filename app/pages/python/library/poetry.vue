@@ -1,5 +1,5 @@
 <template lang="pug">
-	.category--python.page--poetry
+	.category--python.category--library.page--poetry
 		AlertStub
 
 		section

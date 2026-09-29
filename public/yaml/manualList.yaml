@@ -386,11 +386,15 @@ categoryList:
     icon: mdi-language-python
     subCategory:
       - name: Default
+        list: []
+      - name: menu.python.subCategory.library.title
+        url: '/library'
         list:
           - title: Poetry
             link: '/poetry'
             summary: ''
             tags:
+              - Library
               - Python
             deprecated: false
             workInProgress: true

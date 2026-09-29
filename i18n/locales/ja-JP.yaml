@@ -53,6 +53,9 @@ menu:
         title: 'CodeIgniter'
   python:
     title: 'Python'
+    subCategory:
+      library:
+        title: 'Library'
   scss:
     title: 'SCSS'
   sql:

@@ -133,7 +133,16 @@ function roopEvent(): void {
 .yw-footer {
 	&-source {
 		p {
+			margin-top: 0;
 			margin-bottom: 0;
+
+			&:first-child {
+				margin-top: 0.5em;
+			}
+
+			&:last-child {
+				margin-bottom: 0.5em;
+			}
 		}
 	}
 }

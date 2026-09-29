@@ -33,7 +33,6 @@
 				| ブラウザによってはIndexedDBが使用できないことがある。以下のソースを使用することで使用できるかどうかを調べることができる。
 				BlockCode.language-javascript {{ CBCheck }}
 
-
 	section
 		h2 参考リンク
 		p

@@ -442,12 +442,16 @@
 			"subCategory": [
 				{
 					"name": "Default",
+					"list": []
+				}, {
+					"name": "menu.python.subCategory.library.title",
+					"url": "/library",
 					"list": [
 						{
 							"title": "Poetry",
 							"link": "/poetry",
 							"summary": "",
-							"tags": ["Python"],
+							"tags": ["Library", "Python"],
 							"deprecated": false,
 							"workInProgress": true
 						}
